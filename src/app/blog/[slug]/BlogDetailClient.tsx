@@ -20,7 +20,7 @@ const blogData: Record<
     category: "Market Insights",
     date: "January 15, 2025",
     readTime: "6 min read",
-    heroImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
+    heroImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=80",
     content: [
       { type: "paragraph", value: "The luxury real estate market continues to evolve, shaped by shifting demographics, technological innovation, and changing lifestyle priorities. As we look ahead, several key trends are poised to define the premium property landscape for discerning buyers and investors." },
       { type: "heading", value: "The Rise of Lifestyle-Driven Purchases" },
@@ -40,7 +40,7 @@ const blogData: Record<
     category: "Selling",
     date: "December 28, 2024",
     readTime: "5 min read",
-    heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+    heroImage: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1600&q=80",
     content: [
       { type: "paragraph", value: "In the luxury real estate market, presentation is not merely important — it is essential. Professional staging transforms a property from a house into an aspirational lifestyle, creating emotional connections that drive higher offers and faster sales." },
       { type: "heading", value: "Creating an Emotional Narrative" },
@@ -59,7 +59,7 @@ const blogData: Record<
     category: "Investment",
     date: "December 10, 2024",
     readTime: "7 min read",
-    heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80",
+    heroImage: "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1600&q=80",
     content: [
       { type: "paragraph", value: "A well-diversified real estate portfolio is the cornerstone of sustainable wealth creation. By spreading investments across property types, geographic markets, and risk profiles, investors can build resilience against market fluctuations while maintaining strong long-term returns." },
       { type: "heading", value: "Geographic Diversification" },
@@ -78,7 +78,7 @@ const blogData: Record<
     category: "Buying",
     date: "November 22, 2024",
     readTime: "8 min read",
-    heroImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
+    heroImage: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80",
     content: [
       { type: "paragraph", value: "Purchasing your first luxury property is a milestone that requires careful preparation, informed decision-making, and expert guidance. This guide distills the essential considerations for navigating the premium real estate market with clarity and confidence." },
       { type: "heading", value: "Define Your Vision" },
@@ -97,7 +97,7 @@ const blogData: Record<
     category: "Design",
     date: "November 5, 2024",
     readTime: "5 min read",
-    heroImage: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=80",
+    heroImage: "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1600&q=80",
     content: [
       { type: "paragraph", value: "The architecture of luxury estates is undergoing a fascinating evolution, blending innovation with timelessness. Contemporary designs are redefining what it means to live well, prioritizing connection to nature, material authenticity, and seamless indoor-outdoor transitions." },
       { type: "heading", value: "Biophilic Design" },
@@ -116,7 +116,7 @@ const blogData: Record<
     category: "Market Insights",
     date: "October 18, 2024",
     readTime: "6 min read",
-    heroImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
+    heroImage: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1600&q=80",
     content: [
       { type: "paragraph", value: "Accurate property valuation is the foundation of every informed real estate decision. In the premium market, where properties are unique and comparable sales may be limited, understanding the valuation process is essential for both buyers and sellers." },
       { type: "heading", value: "The Three Approaches" },

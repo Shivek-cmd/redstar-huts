@@ -26,6 +26,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -72,7 +73,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="relative z-50 flex items-center gap-3">
               <Image
-                src="/logo-circle.jpeg"
+                src="/logo.svg"
                 alt="RedStar Huts"
                 width={44}
                 height={44}
@@ -90,13 +91,24 @@ export default function Header() {
             <nav className="hidden md:flex items-center gap-10">
               {navLinks.map((link) =>
                 link.hasDropdown ? (
-                  <div key={link.href} ref={dropdownRef} className="relative">
-                    <button
-                      onClick={() => setServicesOpen(!servicesOpen)}
-                      className={`text-sm font-body tracking-wide transition-colors duration-300 flex items-center gap-1 ${
+                  <div
+                    key={link.href}
+                    ref={dropdownRef}
+                    className="relative"
+                    onMouseEnter={() => {
+                      if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+                      setServicesOpen(true);
+                    }}
+                    onMouseLeave={() => {
+                      hoverTimeout.current = setTimeout(() => setServicesOpen(false), 150);
+                    }}
+                  >
+                    <Link
+                      href={link.href}
+                      className={`text-sm font-body font-medium tracking-wide transition-colors duration-300 flex items-center gap-1 ${
                         useLightText
-                          ? "text-background-depth/70 hover:text-background-secondary"
-                          : "text-muted hover:text-foreground"
+                          ? "text-background-secondary/90 hover:text-background-secondary"
+                          : "text-foreground/80 hover:text-foreground"
                       }`}
                     >
                       {link.label}
@@ -109,7 +121,7 @@ export default function Header() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
-                    </button>
+                    </Link>
                     <AnimatePresence>
                       {servicesOpen && (
                         <motion.div
@@ -144,10 +156,10 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`text-sm font-body tracking-wide transition-colors duration-300 ${
+                    className={`text-sm font-body font-medium tracking-wide transition-colors duration-300 ${
                       useLightText
-                        ? "text-background-depth/70 hover:text-background-secondary"
-                        : "text-muted hover:text-foreground"
+                        ? "text-background-secondary/90 hover:text-background-secondary"
+                        : "text-foreground/80 hover:text-foreground"
                     }`}
                   >
                     {link.label}

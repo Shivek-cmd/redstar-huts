@@ -19,12 +19,12 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-foreground text-background" role="contentinfo" aria-label="Site footer">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="py-20 grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
-              <Image src="/logo-circle.jpeg" alt="RedStar Huts" width={48} height={48} className="rounded-full" />
+              <Image src="/logo.svg" alt="RedStar Huts" width={48} height={48} className="rounded-full" />
               <span className="font-heading text-2xl tracking-wide text-background-secondary">
                 RedStar<span className="font-light"> Huts</span>
               </span>

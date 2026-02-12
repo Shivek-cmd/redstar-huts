@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B2E2E"/>
+      <stop offset="100%" style="stop-color:#C44444"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="96" fill="#1F1F1F"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#3A3A3A" stroke-width="0.5"/>
+  <polygon points="100,28 112,72 158,72 120,98 133,142 100,116 67,142 80,98 42,72 88,72" fill="url(#starGrad)"/>
+  <text x="100" y="172" text-anchor="middle" font-family="Georgia, serif" font-size="16" font-weight="400" letter-spacing="4" fill="#E2E0DC">REDSTAR</text>
+  <text x="100" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="10" font-weight="300" letter-spacing="6" fill="#7A7A7A">HUTS</text>
+</svg>

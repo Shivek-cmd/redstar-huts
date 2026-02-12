@@ -255,16 +255,17 @@ export default function Home() {
       </section>
 
       {/* Stats Bar */}
-      <section className="bg-background-secondary border-y border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-14">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="bg-foreground">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-24">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
             {stats.map((stat, i) => (
               <SectionReveal key={stat.label} delay={i * 0.1}>
-                <div className="text-center">
-                  <p className="font-heading text-3xl md:text-4xl text-foreground">
+                <div className="text-center relative">
+                  <p className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary tracking-tight leading-none">
                     {stat.value}
                   </p>
-                  <p className="mt-2 text-xs font-body tracking-widest uppercase text-muted">
+                  <div className="mt-4 mx-auto w-8 h-px bg-background-depth/20" />
+                  <p className="mt-4 text-xs md:text-sm font-body tracking-[0.2em] uppercase text-background-depth/50">
                     {stat.label}
                   </p>
                 </div>
