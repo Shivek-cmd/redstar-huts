@@ -26,7 +26,7 @@ export default function ComingSoonPage() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1F1F1F]/70 via-[#1F1F1F]/60 to-[#1F1F1F]/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/60 to-foreground/80" />
       </div>
 
       <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
@@ -43,7 +43,7 @@ export default function ComingSoonPage() {
               height={48}
               className="rounded-full"
             />
-            <span className="font-heading text-2xl tracking-wide text-[#FBFAF8]">
+            <span className="font-heading text-2xl tracking-wide text-background-secondary">
               RedStar<span className="font-light"> Huts</span>
             </span>
           </Link>
@@ -54,15 +54,15 @@ export default function ComingSoonPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <p className="text-xs font-body font-semibold tracking-widest uppercase text-[#FBFAF8]/50 mb-6">
+          <p className="text-xs font-body font-semibold tracking-widest uppercase text-background-secondary/50 mb-6">
             Something Extraordinary is on the Way
           </p>
-          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-[#FBFAF8] leading-tight">
+          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-background-secondary leading-tight">
             Coming
             <br />
             Soon
           </h1>
-          <p className="mt-8 text-base md:text-lg text-[#FBFAF8]/70 leading-relaxed max-w-lg mx-auto">
+          <p className="mt-8 text-base md:text-lg text-background-secondary/70 leading-relaxed max-w-lg mx-auto">
             We are preparing a new experience that reflects our commitment to
             excellence in luxury real estate. Be the first to know when we launch.
           </p>
@@ -75,8 +75,8 @@ export default function ComingSoonPage() {
           className="mt-12"
         >
           {submitted ? (
-            <div className="bg-[#FBFAF8]/10 backdrop-blur-sm border border-[#FBFAF8]/20 rounded-2xl px-8 py-6">
-              <p className="text-sm text-[#FBFAF8]/90">
+            <div className="bg-background-secondary/10 backdrop-blur-sm border border-background-secondary/20 rounded-2xl px-8 py-6">
+              <p className="text-sm text-background-secondary/90">
                 Thank you. We will be in touch soon.
               </p>
             </div>
@@ -88,11 +88,11 @@ export default function ComingSoonPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="flex-1 bg-[#FBFAF8]/10 backdrop-blur-sm border border-[#FBFAF8]/20 rounded-full px-6 py-3.5 text-sm text-[#FBFAF8] placeholder:text-[#FBFAF8]/40 focus:outline-none focus:border-[#FBFAF8]/40 transition-colors duration-300"
+                className="flex-1 bg-background-secondary/10 backdrop-blur-sm border border-background-secondary/20 rounded-full px-6 py-3.5 text-sm text-background-secondary placeholder:text-background-secondary/40 focus:outline-none focus:border-background-secondary/40 transition-colors duration-300"
               />
               <button
                 type="submit"
-                className="text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-[#FBFAF8] text-[#1F1F1F] hover:bg-[#EFEDE9] transition-colors duration-300"
+                className="text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-background-secondary text-foreground hover:bg-background-depth transition-colors duration-300"
               >
                 Notify Me
               </button>
@@ -108,13 +108,13 @@ export default function ComingSoonPage() {
         >
           <a
             href="mailto:redstarhuts9@gmail.com"
-            className="text-xs font-body tracking-widest text-[#FBFAF8]/40 hover:text-[#FBFAF8]/70 transition-colors duration-300"
+            className="text-xs font-body tracking-widest text-background-secondary/40 hover:text-background-secondary/70 transition-colors duration-300"
           >
             redstarhuts9@gmail.com
           </a>
           <a
             href="tel:+918894343056"
-            className="text-xs font-body tracking-widest text-[#FBFAF8]/40 hover:text-[#FBFAF8]/70 transition-colors duration-300"
+            className="text-xs font-body tracking-widest text-background-secondary/40 hover:text-background-secondary/70 transition-colors duration-300"
           >
             +91 889 434 3056
           </a>

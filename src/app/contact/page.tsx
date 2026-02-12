@@ -55,20 +55,20 @@ export default function ContactPage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1F1F1F]/80 via-[#1F1F1F]/60 to-[#1F1F1F]/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <p className="text-xs font-body font-semibold tracking-widest uppercase text-[#FBFAF8]/60 mb-4">
+            <p className="text-xs font-body font-semibold tracking-widest uppercase text-background-secondary/60 mb-4">
               Get in Touch
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#FBFAF8] max-w-3xl leading-tight drop-shadow-lg">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-3xl leading-tight drop-shadow-lg">
               Start a
               <br />
               Conversation
             </h1>
-            <p className="mt-6 text-base md:text-lg text-[#FBFAF8]/80 max-w-2xl leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-background-secondary/80 max-w-2xl leading-relaxed">
               Whether you have a specific property in mind or are exploring your
               options, we are here to help. Reach out and let us understand how
               we can serve you.

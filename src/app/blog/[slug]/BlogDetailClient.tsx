@@ -155,19 +155,19 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image src={post.heroImage} alt={post.title} fill className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1F1F1F]/80 via-[#1F1F1F]/60 to-[#1F1F1F]/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-body tracking-widest uppercase bg-[#FBFAF8]/15 px-3 py-1.5 text-[#FBFAF8]">
+              <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/15 px-3 py-1.5 text-background-secondary">
                 {post.category}
               </span>
-              <span className="text-xs text-[#FBFAF8]/50">{post.date}</span>
-              <span className="text-xs text-[#FBFAF8]/50">{post.readTime}</span>
+              <span className="text-xs text-background-secondary/50">{post.date}</span>
+              <span className="text-xs text-background-secondary/50">{post.readTime}</span>
             </div>
-            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl text-[#FBFAF8] max-w-4xl leading-tight drop-shadow-lg">
+            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl text-background-secondary max-w-4xl leading-tight drop-shadow-lg">
               {post.title}
             </h1>
           </SectionReveal>
