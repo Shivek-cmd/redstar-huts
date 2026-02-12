@@ -197,8 +197,8 @@ export default function Home() {
               />
             </motion.div>
           </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1F1F1F]/85 via-[#1F1F1F]/65 to-[#1F1F1F]/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/65 to-foreground/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-32">
@@ -208,15 +208,15 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-4xl"
           >
-            <p className="text-xs font-body font-semibold tracking-widest uppercase text-[#FBFAF8]/60 mb-6">
+            <p className="text-xs font-body font-semibold tracking-widest uppercase text-background-secondary/60 mb-6">
               Real Estate & Consulting
             </p>
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-[#FBFAF8] leading-tight drop-shadow-lg">
+            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-background-secondary leading-tight drop-shadow-lg">
               Where Vision
               <br />
               Meets Value
             </h1>
-            <p className="mt-6 text-base md:text-lg text-[#FBFAF8]/85 max-w-2xl leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-background-secondary/85 max-w-2xl leading-relaxed">
               RedStar Huts delivers trusted guidance in property sales,
               acquisitions, and investment strategy — with the discretion and
               precision your portfolio demands.
@@ -230,7 +230,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/properties"
-                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full border border-[#FBFAF8]/40 text-[#FBFAF8] hover:bg-[#FBFAF8]/10 transition-colors duration-300"
+                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full border border-background-secondary/40 text-background-secondary hover:bg-background-secondary/10 transition-colors duration-300"
               >
                 View Properties
               </Link>
@@ -245,8 +245,8 @@ export default function Home() {
               onClick={() => setCurrentSlide(i)}
               className={`h-2 rounded-full transition-all duration-500 ${
                 i === currentSlide
-                  ? "bg-[#FBFAF8] w-8"
-                  : "bg-[#FBFAF8]/40 hover:bg-[#FBFAF8]/60 w-2"
+                  ? "bg-background-secondary w-8"
+                  : "bg-background-secondary/40 hover:bg-background-secondary/60 w-2"
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />
@@ -255,16 +255,17 @@ export default function Home() {
       </section>
 
       {/* Stats Bar */}
-      <section className="bg-background-secondary border-y border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-14">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="bg-foreground">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-24">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
             {stats.map((stat, i) => (
               <SectionReveal key={stat.label} delay={i * 0.1}>
-                <div className="text-center">
-                  <p className="font-heading text-3xl md:text-4xl text-foreground">
+                <div className="text-center relative">
+                  <p className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary tracking-tight leading-none">
                     {stat.value}
                   </p>
-                  <p className="mt-2 text-xs font-body tracking-widest uppercase text-muted">
+                  <div className="mt-4 mx-auto w-8 h-px bg-background-depth/20" />
+                  <p className="mt-4 text-xs md:text-sm font-body tracking-[0.2em] uppercase text-background-depth/50">
                     {stat.label}
                   </p>
                 </div>
@@ -304,18 +305,18 @@ export default function Home() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/80 via-[#1F1F1F]/30 to-transparent group-hover:from-[#1F1F1F]/90 transition-all duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent group-hover:from-foreground/90 transition-all duration-500" />
                     <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
-                      <span className="text-xs font-body tracking-widest text-[#FBFAF8]/50 mb-2">
+                      <span className="text-xs font-body tracking-widest text-background-secondary/50 mb-2">
                         {service.icon}
                       </span>
-                      <h3 className="font-heading text-2xl md:text-3xl text-[#FBFAF8] mb-3">
+                      <h3 className="font-heading text-2xl md:text-3xl text-background-secondary mb-3">
                         {service.title}
                       </h3>
-                      <p className="text-sm text-[#FBFAF8]/70 leading-relaxed max-w-md mb-4">
+                      <p className="text-sm text-background-secondary/70 leading-relaxed max-w-md mb-4">
                         {service.description}
                       </p>
-                      <span className="text-xs font-body tracking-widest uppercase text-[#FBFAF8]/50 group-hover:text-[#FBFAF8] transition-colors duration-300">
+                      <span className="text-xs font-body tracking-widest uppercase text-background-secondary/50 group-hover:text-background-secondary transition-colors duration-300">
                         Explore Service &rarr;
                       </span>
                     </div>

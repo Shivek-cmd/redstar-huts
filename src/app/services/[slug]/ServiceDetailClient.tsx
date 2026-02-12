@@ -137,39 +137,56 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image src={service.images[0].src} alt={service.images[0].alt} fill className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1F1F1F]/80 via-[#1F1F1F]/60 to-[#1F1F1F]/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <span className="block text-xs font-body tracking-widest text-[#FBFAF8]/50 mb-4">{service.number}</span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#FBFAF8] max-w-4xl leading-tight drop-shadow-lg">
+            <span className="block text-xs font-body tracking-widest text-background-secondary/50 mb-4">{service.number}</span>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-4xl leading-tight drop-shadow-lg">
               {service.title}
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-[#FBFAF8]/80 max-w-2xl leading-relaxed">{service.tagline}</p>
+            <p className="mt-6 text-lg md:text-xl text-background-secondary/80 max-w-2xl leading-relaxed">{service.tagline}</p>
           </SectionReveal>
         </div>
       </section>
 
       <section className="py-24 md:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <SectionReveal>
-              <div className="space-y-6">
-                {service.description.map((para, i) => (
-                  <p key={i} className="text-base md:text-lg text-body leading-relaxed">{para}</p>
-                ))}
-              </div>
-              <Link href="/contact" className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-foreground text-background-secondary hover:bg-body transition-colors duration-300">
-                {service.cta}
-              </Link>
-            </SectionReveal>
-            <SectionReveal delay={0.2}>
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <Image src={service.images[1].src} alt={service.images[1].alt} fill className="object-cover" />
-              </div>
-            </SectionReveal>
-          </div>
+          {service.description.map((para, i) => (
+            <div key={i} className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${i > 0 ? "mt-24" : ""}`}>
+              {i % 2 === 0 ? (
+                <>
+                  <SectionReveal>
+                    <div>
+                      <p className="text-base md:text-lg text-body leading-relaxed">{para}</p>
+                      {i === 0 && (
+                        <Link href="/contact" className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-foreground text-background-secondary hover:bg-body transition-colors duration-300">
+                          {service.cta}
+                        </Link>
+                      )}
+                    </div>
+                  </SectionReveal>
+                  <SectionReveal delay={0.2}>
+                    <div className="relative aspect-[4/5] overflow-hidden">
+                      <Image src={service.images[i < service.images.length ? i : 0].src} alt={service.images[i < service.images.length ? i : 0].alt} fill className="object-cover" />
+                    </div>
+                  </SectionReveal>
+                </>
+              ) : (
+                <>
+                  <SectionReveal>
+                    <div className="relative aspect-[4/5] overflow-hidden">
+                      <Image src={service.images[i < service.images.length ? i : 0].src} alt={service.images[i < service.images.length ? i : 0].alt} fill className="object-cover" />
+                    </div>
+                  </SectionReveal>
+                  <SectionReveal delay={0.2}>
+                    <p className="text-base md:text-lg text-body leading-relaxed">{para}</p>
+                  </SectionReveal>
+                </>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -225,10 +242,10 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
                   <Link href={`/services/${s}`} className="group block">
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <Image src={servicesData[s].images[0].src} alt={servicesData[s].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                      <div className="absolute inset-0 bg-[#1F1F1F]/40 group-hover:bg-[#1F1F1F]/20 transition-colors duration-500" />
+                      <div className="absolute inset-0 bg-foreground/40 group-hover:bg-foreground/20 transition-colors duration-500" />
                       <div className="absolute bottom-6 left-6 right-6">
-                        <span className="text-xs font-body tracking-widest text-[#FBFAF8]/60">{servicesData[s].number}</span>
-                        <h3 className="mt-1 font-heading text-lg text-[#FBFAF8]">{servicesData[s].title}</h3>
+                        <span className="text-xs font-body tracking-widest text-background-secondary/60">{servicesData[s].number}</span>
+                        <h3 className="mt-1 font-heading text-lg text-background-secondary">{servicesData[s].title}</h3>
                       </div>
                     </div>
                   </Link>

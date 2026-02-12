@@ -154,18 +154,28 @@ export default function PropertiesPage() {
 
   return (
     <>
-      <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 bg-background-secondary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80"
+            alt="Luxury property portfolio"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4">
+            <p className="text-xs font-body font-semibold tracking-widest uppercase text-background-secondary/60 mb-4">
               Our Portfolio
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground max-w-3xl">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-3xl leading-tight drop-shadow-lg">
               Exceptional Properties,
               <br />
               Carefully Curated
             </h1>
-            <p className="mt-6 text-base md:text-lg text-body max-w-2xl leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-background-secondary/80 max-w-2xl leading-relaxed">
               Each listing in our portfolio has been selected for its quality,
               location, and investment potential. Explore properties that meet
               the highest standards.

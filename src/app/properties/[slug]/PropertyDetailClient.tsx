@@ -294,18 +294,18 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image src={property.images[0].src} alt={property.images[0].alt} fill className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1F1F1F]/80 via-[#1F1F1F]/60 to-[#1F1F1F]/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <span className="inline-block text-xs font-body tracking-widest uppercase bg-[#FBFAF8]/15 px-3 py-1.5 text-[#FBFAF8] mb-4">
+            <span className="inline-block text-xs font-body tracking-widest uppercase bg-background-secondary/15 px-3 py-1.5 text-background-secondary mb-4">
               {property.type}
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#FBFAF8] max-w-4xl leading-tight drop-shadow-lg">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-4xl leading-tight drop-shadow-lg">
               {property.title}
             </h1>
-            <p className="mt-4 text-base text-[#FBFAF8]/70">{property.location}</p>
+            <p className="mt-4 text-base text-background-secondary/70">{property.location}</p>
           </SectionReveal>
         </div>
       </section>
@@ -398,7 +398,7 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
               <Link href="/contact" className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-background-secondary text-foreground hover:bg-background transition-colors duration-300">
                 Schedule a Viewing
               </Link>
-              <Link href="/properties" className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full border border-[#FBFAF8]/40 text-[#FBFAF8] hover:bg-[#FBFAF8]/10 transition-colors duration-300">
+              <Link href="/properties" className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full border border-background-secondary/40 text-background-secondary hover:bg-background-secondary/10 transition-colors duration-300">
                 View All Properties
               </Link>
             </div>

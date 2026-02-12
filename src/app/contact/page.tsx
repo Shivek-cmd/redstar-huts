@@ -50,25 +50,25 @@ export default function ContactPage() {
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1600&q=80"
-            alt="Luxury architecture"
+            src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1600&q=80"
+            alt="Premium office building"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1F1F1F]/80 via-[#1F1F1F]/60 to-[#1F1F1F]/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <p className="text-xs font-body font-semibold tracking-widest uppercase text-[#FBFAF8]/60 mb-4">
+            <p className="text-xs font-body font-semibold tracking-widest uppercase text-background-secondary/60 mb-4">
               Get in Touch
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#FBFAF8] max-w-3xl leading-tight drop-shadow-lg">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-3xl leading-tight drop-shadow-lg">
               Start a
               <br />
               Conversation
             </h1>
-            <p className="mt-6 text-base md:text-lg text-[#FBFAF8]/80 max-w-2xl leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-background-secondary/80 max-w-2xl leading-relaxed">
               Whether you have a specific property in mind or are exploring your
               options, we are here to help. Reach out and let us understand how
               we can serve you.
@@ -239,8 +239,8 @@ export default function ContactPage() {
 
                 <div className="mt-8 relative aspect-[4/3] overflow-hidden rounded-2xl">
                   <Image
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
-                    alt="Office building"
+                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+                    alt="Modern office interior"
                     fill
                     className="object-cover"
                   />
