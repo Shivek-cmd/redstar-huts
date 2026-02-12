@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -15,6 +16,9 @@ const navLinks = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const useLightText = isHome && !scrolled;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -37,7 +41,7 @@ export default function Header() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
+          scrolled || !isHome
             ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
             : "bg-transparent"
         }`}
@@ -45,7 +49,11 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="relative z-50">
-              <span className="font-heading text-xl tracking-wide text-foreground">
+              <span
+                className={`font-heading text-xl tracking-wide transition-colors duration-500 ${
+                  useLightText ? "text-background-secondary" : "text-foreground"
+                }`}
+              >
                 RedStar<span className="font-light"> Huts</span>
               </span>
             </Link>
@@ -55,14 +63,22 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-body tracking-wide text-muted hover:text-foreground transition-colors duration-300"
+                  className={`text-sm font-body tracking-wide transition-colors duration-300 ${
+                    useLightText
+                      ? "text-background-depth/70 hover:text-background-secondary"
+                      : "text-muted hover:text-foreground"
+                  }`}
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
                 href="/contact"
-                className="text-sm font-body tracking-wide px-6 py-2.5 bg-foreground text-background-secondary rounded-none hover:bg-body transition-colors duration-300"
+                className={`text-sm font-body tracking-wide px-6 py-2.5 rounded-none transition-colors duration-300 ${
+                  useLightText
+                    ? "bg-background-secondary text-foreground hover:bg-background"
+                    : "bg-foreground text-background-secondary hover:bg-body"
+                }`}
               >
                 Book a Consultation
               </Link>
@@ -74,19 +90,19 @@ export default function Header() {
               aria-label="Toggle menu"
             >
               <span
-                className={`block w-6 h-px bg-foreground transition-all duration-300 ${
-                  mobileOpen ? "rotate-45 translate-y-1" : ""
-                }`}
+                className={`block w-6 h-px transition-all duration-300 ${
+                  useLightText && !mobileOpen ? "bg-background-secondary" : "bg-foreground"
+                } ${mobileOpen ? "rotate-45 translate-y-1" : ""}`}
               />
               <span
-                className={`block w-6 h-px bg-foreground transition-all duration-300 ${
-                  mobileOpen ? "opacity-0" : ""
-                }`}
+                className={`block w-6 h-px transition-all duration-300 ${
+                  useLightText && !mobileOpen ? "bg-background-secondary" : "bg-foreground"
+                } ${mobileOpen ? "opacity-0" : ""}`}
               />
               <span
-                className={`block w-6 h-px bg-foreground transition-all duration-300 ${
-                  mobileOpen ? "-rotate-45 -translate-y-1" : ""
-                }`}
+                className={`block w-6 h-px transition-all duration-300 ${
+                  useLightText && !mobileOpen ? "bg-background-secondary" : "bg-foreground"
+                } ${mobileOpen ? "-rotate-45 -translate-y-1" : ""}`}
               />
             </button>
           </div>

@@ -68,7 +68,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-background-secondary">
+      <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 bg-background-secondary">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
             <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4">
