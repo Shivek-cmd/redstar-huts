@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
@@ -7,6 +8,7 @@ import SectionReveal from "@/components/SectionReveal";
 const allProperties = [
   {
     title: "The Meridian Residence",
+    slug: "meridian-residence",
     location: "Beverly Hills, CA",
     price: "$4,850,000",
     image:
@@ -18,6 +20,7 @@ const allProperties = [
   },
   {
     title: "Harborview Estate",
+    slug: "harborview-estate",
     location: "Miami Beach, FL",
     price: "$3,200,000",
     image:
@@ -29,6 +32,7 @@ const allProperties = [
   },
   {
     title: "Crestwood Manor",
+    slug: "crestwood-manor",
     location: "Greenwich, CT",
     price: "$7,100,000",
     image:
@@ -40,6 +44,7 @@ const allProperties = [
   },
   {
     title: "The Pinnacle Penthouse",
+    slug: "pinnacle-penthouse",
     location: "Manhattan, NY",
     price: "$12,500,000",
     image:
@@ -51,6 +56,7 @@ const allProperties = [
   },
   {
     title: "Lakeshore Villa",
+    slug: "lakeshore-villa",
     location: "Lake Tahoe, NV",
     price: "$5,600,000",
     image:
@@ -62,6 +68,7 @@ const allProperties = [
   },
   {
     title: "The Wellington",
+    slug: "the-wellington",
     location: "San Francisco, CA",
     price: "$2,950,000",
     image:
@@ -73,6 +80,7 @@ const allProperties = [
   },
   {
     title: "Aspen Ridge Retreat",
+    slug: "aspen-ridge-retreat",
     location: "Aspen, CO",
     price: "$8,900,000",
     image:
@@ -84,6 +92,7 @@ const allProperties = [
   },
   {
     title: "Pacific Heights Modern",
+    slug: "pacific-heights-modern",
     location: "San Francisco, CA",
     price: "$6,250,000",
     image:
@@ -95,6 +104,7 @@ const allProperties = [
   },
   {
     title: "The Strand Collection",
+    slug: "strand-collection",
     location: "Malibu, CA",
     price: "$15,800,000",
     image:
@@ -106,10 +116,44 @@ const allProperties = [
   },
 ];
 
+const locations = ["All Locations", ...Array.from(new Set(allProperties.map((p) => p.location)))];
+const types = ["All Types", ...Array.from(new Set(allProperties.map((p) => p.type)))];
+const budgetRanges = [
+  { label: "Any Budget", min: 0, max: Infinity },
+  { label: "Under $5M", min: 0, max: 5000000 },
+  { label: "$5M - $10M", min: 5000000, max: 10000000 },
+  { label: "$10M+", min: 10000000, max: Infinity },
+];
+
+function parsePrice(price: string): number {
+  return Number(price.replace(/[$,]/g, ""));
+}
+
 export default function PropertiesPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState("All Locations");
+  const [selectedType, setSelectedType] = useState("All Types");
+  const [selectedBudget, setSelectedBudget] = useState(0);
+
+  const filteredProperties = useMemo(() => {
+    return allProperties.filter((property) => {
+      const matchesSearch =
+        searchQuery === "" ||
+        property.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        property.location.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesLocation =
+        selectedLocation === "All Locations" || property.location === selectedLocation;
+      const matchesType =
+        selectedType === "All Types" || property.type === selectedType;
+      const budget = budgetRanges[selectedBudget];
+      const price = parsePrice(property.price);
+      const matchesBudget = price >= budget.min && price < budget.max;
+      return matchesSearch && matchesLocation && matchesType && matchesBudget;
+    });
+  }, [searchQuery, selectedLocation, selectedType, selectedBudget]);
+
   return (
     <>
-      {/* Hero */}
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 bg-background-secondary">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
@@ -130,13 +174,66 @@ export default function PropertiesPage() {
         </div>
       </section>
 
-      {/* Properties Grid */}
+      <section className="bg-background border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-8">
+          <div className="flex flex-col gap-6">
+            <div className="relative">
+              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              </svg>
+              <input
+                type="text"
+                placeholder="Search by name or location..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3.5 bg-background-secondary border border-border rounded-full text-sm font-body text-foreground placeholder:text-muted focus:outline-none focus:border-foreground/30 transition-colors duration-300"
+              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <select
+                value={selectedLocation}
+                onChange={(e) => setSelectedLocation(e.target.value)}
+                className="w-full px-4 py-3 bg-background-secondary border border-border rounded-full text-sm font-body text-body appearance-none cursor-pointer focus:outline-none focus:border-foreground/30 transition-colors duration-300"
+              >
+                {locations.map((loc) => (
+                  <option key={loc} value={loc}>{loc}</option>
+                ))}
+              </select>
+              <select
+                value={selectedType}
+                onChange={(e) => setSelectedType(e.target.value)}
+                className="w-full px-4 py-3 bg-background-secondary border border-border rounded-full text-sm font-body text-body appearance-none cursor-pointer focus:outline-none focus:border-foreground/30 transition-colors duration-300"
+              >
+                {types.map((type) => (
+                  <option key={type} value={type}>{type}</option>
+                ))}
+              </select>
+              <select
+                value={selectedBudget}
+                onChange={(e) => setSelectedBudget(Number(e.target.value))}
+                className="w-full px-4 py-3 bg-background-secondary border border-border rounded-full text-sm font-body text-body appearance-none cursor-pointer focus:outline-none focus:border-foreground/30 transition-colors duration-300"
+              >
+                {budgetRanges.map((range, i) => (
+                  <option key={range.label} value={i}>{range.label}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 md:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          {filteredProperties.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="font-heading text-2xl text-foreground mb-4">No Properties Found</p>
+              <p className="text-sm text-muted">Try adjusting your search criteria or filters.</p>
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allProperties.map((property, i) => (
+            {filteredProperties.map((property, i) => (
               <SectionReveal key={property.title} delay={(i % 3) * 0.1}>
-                <div className="group cursor-pointer">
+                <Link href={`/properties/${property.slug}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
                     <Image
                       src={property.image}
@@ -168,10 +265,11 @@ export default function PropertiesPage() {
                       {property.price}
                     </p>
                   </div>
-                </div>
+                </Link>
               </SectionReveal>
             ))}
           </div>
+          )}
         </div>
       </section>
 
@@ -192,7 +290,7 @@ export default function PropertiesPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 bg-foreground text-background-secondary hover:bg-body transition-colors duration-300"
+              className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-foreground text-background-secondary hover:bg-body transition-colors duration-300"
             >
               Private Inquiry
             </Link>

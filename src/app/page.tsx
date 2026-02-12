@@ -2,40 +2,57 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionReveal from "@/components/SectionReveal";
 import SectionHeading from "@/components/SectionHeading";
+
+const heroSlides = [
+  { image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80", alt: "Luxury modern architecture" },
+  { image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80", alt: "Premium residential estate" },
+  { image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80", alt: "Elegant home exterior" },
+  { image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=80", alt: "Contemporary luxury villa" },
+];
 
 const services = [
   {
     title: "Property Sales",
+    slug: "property-sales",
     description:
       "Strategic marketing and expert negotiation to achieve premium outcomes for sellers.",
     icon: "01",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80",
   },
   {
     title: "Buyer Advisory",
+    slug: "buyer-advisory",
     description:
       "Personalized guidance to identify, evaluate, and secure the right property for your goals.",
     icon: "02",
+    image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80",
   },
   {
     title: "Investment Consulting",
+    slug: "investment-consulting",
     description:
       "Data-driven insights and market intelligence to maximize your real estate portfolio returns.",
     icon: "03",
+    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=600&q=80",
   },
   {
     title: "Market Analysis",
+    slug: "market-research",
     description:
       "Comprehensive research and valuation reports to inform confident decision-making.",
     icon: "04",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
   },
 ];
 
 const properties = [
   {
     title: "The Meridian Residence",
+    slug: "meridian-residence",
     location: "Beverly Hills, CA",
     price: "$4,850,000",
     image:
@@ -46,6 +63,7 @@ const properties = [
   },
   {
     title: "Harborview Estate",
+    slug: "harborview-estate",
     location: "Miami Beach, FL",
     price: "$3,200,000",
     image:
@@ -56,6 +74,7 @@ const properties = [
   },
   {
     title: "Crestwood Manor",
+    slug: "crestwood-manor",
     location: "Greenwich, CT",
     price: "$7,100,000",
     image:
@@ -68,22 +87,29 @@ const properties = [
 
 const testimonials = [
   {
-    quote:
-      "RedStar Huts understood exactly what we were looking for. Their market knowledge and discretion made the entire process effortless.",
+    quote: "RedStar Huts understood exactly what we were looking for. Their market knowledge and discretion made the entire process effortless.",
     name: "Jonathan & Claire Mitchell",
     role: "Property Buyers",
   },
   {
-    quote:
-      "From valuation to closing, every detail was handled with precision. We achieved well above our expected sale price.",
+    quote: "From valuation to closing, every detail was handled with precision. We achieved well above our expected sale price.",
     name: "David Harrington",
     role: "Property Seller",
   },
   {
-    quote:
-      "Their investment consulting transformed our approach to real estate. The returns have been exceptional.",
+    quote: "Their investment consulting transformed our approach to real estate. The returns have been exceptional.",
     name: "Sarah Lin",
     role: "Real Estate Investor",
+  },
+  {
+    quote: "The level of professionalism and attention to detail was remarkable. RedStar Huts made our relocation seamless.",
+    name: "Michael & Anna Roberts",
+    role: "International Buyers",
+  },
+  {
+    quote: "Their market research gave us the confidence to make a significant investment. The data-driven approach was exactly what we needed.",
+    name: "Richard Thornton",
+    role: "Portfolio Investor",
   },
 ];
 
@@ -94,20 +120,85 @@ const stats = [
   { value: "15+", label: "Years of Experience" },
 ];
 
+const partnerLogos = [
+  "Sotheby\u2019s", "Christie\u2019s", "Knight Frank", "Savills",
+  "Engel & Volkers", "Coldwell Banker", "Compass", "Douglas Elliman",
+];
+
+const faqs = [
+  {
+    question: "What areas does RedStar Huts serve?",
+    answer: "We serve clients across premium real estate markets nationally and internationally. Our primary focus includes major metropolitan areas and exclusive resort destinations, though our advisory services extend to any market where our clients see opportunity.",
+  },
+  {
+    question: "How does the consultation process begin?",
+    answer: "Every engagement begins with a confidential conversation to understand your objectives, timeline, and preferences. From there, we develop a tailored strategy and provide a clear scope of services, ensuring alignment before any commitment.",
+  },
+  {
+    question: "What types of properties do you handle?",
+    answer: "We specialize in luxury residential properties including estates, penthouses, waterfront homes, and premium condominiums. We also advise on select commercial and mixed-use investment opportunities for qualified clients.",
+  },
+  {
+    question: "Do you work with international buyers?",
+    answer: "Yes. We have extensive experience guiding international buyers through the complexities of cross-border transactions, including legal considerations, financing structures, and local market navigation.",
+  },
+  {
+    question: "What sets RedStar Huts apart from other firms?",
+    answer: "Our combination of deep market expertise, data-driven insights, and a commitment to discretion distinguishes us. We maintain a deliberately focused client roster, ensuring every engagement receives our full attention and resources.",
+  },
+  {
+    question: "Are there fees for an initial consultation?",
+    answer: "Initial consultations are complimentary. We believe in demonstrating our value before any formal engagement, giving you the opportunity to assess our approach and expertise firsthand.",
+  },
+];
+
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  }, []);
+
+  const nextTestimonial = useCallback(() => {
+    setTestimonialIndex((prev) => (prev + 1) % testimonials.length);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
+  useEffect(() => {
+    const interval = setInterval(nextTestimonial, 6000);
+    return () => clearInterval(interval);
+  }, [nextTestimonial]);
+
   return (
     <>
-      {/* Hero */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80"
-            alt="Luxury modern architecture"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/50 to-foreground/20" />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={heroSlides[currentSlide].image}
+                alt={heroSlides[currentSlide].alt}
+                fill
+                className="object-cover"
+                priority={currentSlide === 0}
+              />
+            </motion.div>
+          </AnimatePresence>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1F1F1F]/85 via-[#1F1F1F]/65 to-[#1F1F1F]/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/40 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-32">
@@ -115,17 +206,17 @@ export default function Home() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-2xl"
+            className="max-w-4xl"
           >
-            <p className="text-xs font-body font-semibold tracking-widest uppercase text-background-depth/70 mb-6">
+            <p className="text-xs font-body font-semibold tracking-widest uppercase text-[#FBFAF8]/60 mb-6">
               Real Estate & Consulting
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary leading-tight">
+            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-[#FBFAF8] leading-tight drop-shadow-lg">
               Where Vision
               <br />
               Meets Value
             </h1>
-            <p className="mt-6 text-base md:text-lg text-background-depth/80 max-w-lg leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-[#FBFAF8]/85 max-w-2xl leading-relaxed">
               RedStar Huts delivers trusted guidance in property sales,
               acquisitions, and investment strategy — with the discretion and
               precision your portfolio demands.
@@ -133,13 +224,13 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 bg-background-secondary text-foreground hover:bg-background transition-colors duration-300"
+                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-background-secondary text-foreground hover:bg-background transition-colors duration-300"
               >
                 Schedule a Consultation
               </Link>
               <Link
                 href="/properties"
-                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 border border-background-depth/30 text-background-secondary hover:bg-background-secondary/10 transition-colors duration-300"
+                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full border border-[#FBFAF8]/40 text-[#FBFAF8] hover:bg-[#FBFAF8]/10 transition-colors duration-300"
               >
                 View Properties
               </Link>
@@ -147,14 +238,20 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
-        >
-          <div className="w-px h-12 bg-background-secondary/30 mx-auto" />
-        </motion.div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex gap-2.5">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`h-2 rounded-full transition-all duration-500 ${
+                i === currentSlide
+                  ? "bg-[#FBFAF8] w-8"
+                  : "bg-[#FBFAF8]/40 hover:bg-[#FBFAF8]/60 w-2"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
       </section>
 
       {/* Stats Bar */}
@@ -177,40 +274,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Overview */}
       <section className="py-24 md:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <SectionHeading
-              label="Our Expertise"
-              title="Comprehensive Real Estate Services"
-              subtitle="From acquisition to disposition, our advisory practice serves discerning clients with clarity, strategy, and results."
-            />
+            <div className="text-center mb-20">
+              <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4">
+                Our Expertise
+              </p>
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground max-w-3xl mx-auto">
+                Four Pillars of
+                <br />
+                Real Estate Excellence
+              </h2>
+              <p className="mt-6 text-base text-body leading-relaxed max-w-2xl mx-auto">
+                Each discipline is led by specialists with deep market knowledge,
+                working in concert to deliver outcomes that exceed expectations.
+              </p>
+            </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             {services.map((service, i) => (
               <SectionReveal key={service.title} delay={i * 0.1}>
-                <div className="bg-background p-10 md:p-14 group hover:bg-background-secondary transition-colors duration-500">
-                  <span className="text-xs font-body tracking-widest text-muted">
-                    {service.icon}
-                  </span>
-                  <h3 className="mt-4 font-heading text-xl md:text-2xl text-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="mt-4 text-sm text-body leading-relaxed">
-                    {service.description}
-                  </p>
-                  <Link
-                    href="/services"
-                    className="inline-block mt-6 text-xs font-body tracking-widest uppercase text-muted group-hover:text-foreground transition-colors duration-300"
-                  >
-                    Learn More →
-                  </Link>
-                </div>
+                <Link href={`/services/${service.slug}`} className="group block relative overflow-hidden">
+                  <div className="relative aspect-[16/10]">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/80 via-[#1F1F1F]/30 to-transparent group-hover:from-[#1F1F1F]/90 transition-all duration-500" />
+                    <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
+                      <span className="text-xs font-body tracking-widest text-[#FBFAF8]/50 mb-2">
+                        {service.icon}
+                      </span>
+                      <h3 className="font-heading text-2xl md:text-3xl text-[#FBFAF8] mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm text-[#FBFAF8]/70 leading-relaxed max-w-md mb-4">
+                        {service.description}
+                      </p>
+                      <span className="text-xs font-body tracking-widest uppercase text-[#FBFAF8]/50 group-hover:text-[#FBFAF8] transition-colors duration-300">
+                        Explore Service &rarr;
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               </SectionReveal>
             ))}
           </div>
+
+          <SectionReveal delay={0.3}>
+            <div className="text-center mt-16">
+              <Link
+                href="/services"
+                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full border border-foreground text-foreground hover:bg-foreground hover:text-background-secondary transition-colors duration-300"
+              >
+                View All Services
+              </Link>
+            </div>
+          </SectionReveal>
         </div>
       </section>
 
@@ -239,7 +363,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {properties.map((property, i) => (
               <SectionReveal key={property.title} delay={i * 0.15}>
-                <Link href="/properties" className="group block">
+                <Link href={`/properties/${property.slug}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
                     <Image
                       src={property.image}
@@ -273,7 +397,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About / Brand Story Teaser */}
       <section className="py-24 md:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -310,7 +433,7 @@ export default function Home() {
               </p>
               <Link
                 href="/about"
-                className="inline-block mt-8 text-sm font-body tracking-wide px-8 py-3.5 border border-foreground text-foreground hover:bg-foreground hover:text-background-secondary transition-colors duration-300"
+                className="inline-block mt-8 text-sm font-body tracking-wide px-8 py-3.5 rounded-full border border-foreground text-foreground hover:bg-foreground hover:text-background-secondary transition-colors duration-300"
               >
                 About Our Firm
               </Link>
@@ -319,7 +442,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      <section className="py-16 md:py-20 bg-background-secondary border-y border-border overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-10 text-center">
+              Trusted Partners & Affiliations
+            </p>
+          </SectionReveal>
+        </div>
+        <div className="relative">
+          <div className="flex animate-scroll">
+            {[...partnerLogos, ...partnerLogos].map((logo, i) => (
+              <div key={`${logo}-${i}`} className="flex-shrink-0 mx-8 md:mx-12">
+                <span className="font-heading text-xl md:text-2xl text-muted/40 whitespace-nowrap">
+                  {logo}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 md:py-32 bg-background-depth">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
@@ -329,19 +472,100 @@ export default function Home() {
             />
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <SectionReveal key={t.name} delay={i * 0.12}>
-                <div className="bg-background-secondary p-10 h-full flex flex-col">
-                  <p className="font-heading text-lg text-foreground italic leading-relaxed flex-1">
-                    &ldquo;{t.quote}&rdquo;
+          <div className="relative max-w-4xl mx-auto">
+            <div className="overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={testimonialIndex}
+                  initial={{ opacity: 0, x: 60 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -60 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="bg-background-secondary p-10 md:p-16 rounded-lg text-center"
+                >
+                  <svg className="w-10 h-10 mx-auto mb-8 text-border" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <p className="font-heading text-xl md:text-2xl text-foreground italic leading-relaxed">
+                    &ldquo;{testimonials[testimonialIndex].quote}&rdquo;
                   </p>
-                  <div className="mt-8 pt-6 border-t border-border">
+                  <div className="mt-8 pt-6 border-t border-border inline-block">
                     <p className="text-sm font-body font-medium text-foreground">
-                      {t.name}
+                      {testimonials[testimonialIndex].name}
                     </p>
-                    <p className="text-xs text-muted mt-1">{t.role}</p>
+                    <p className="text-xs text-muted mt-1">
+                      {testimonials[testimonialIndex].role}
+                    </p>
                   </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            <div className="flex justify-center gap-2.5 mt-8">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setTestimonialIndex(i)}
+                  className={`h-2 rounded-full transition-all duration-500 ${
+                    i === testimonialIndex
+                      ? "bg-foreground w-8"
+                      : "bg-border hover:bg-muted w-2"
+                  }`}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32 bg-background">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <div className="text-center mb-16">
+              <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4">
+                Common Questions
+              </p>
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground">
+                Frequently Asked Questions
+              </h2>
+            </div>
+          </SectionReveal>
+
+          <div className="space-y-0">
+            {faqs.map((faq, i) => (
+              <SectionReveal key={faq.question} delay={i * 0.05}>
+                <div className="border-b border-border">
+                  <button
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full py-6 flex items-center justify-between text-left group"
+                  >
+                    <span className="font-heading text-lg text-foreground pr-8 group-hover:text-body transition-colors duration-300">
+                      {faq.question}
+                    </span>
+                    <motion.span
+                      animate={{ rotate: openFaq === i ? 45 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-2xl text-muted shrink-0 leading-none"
+                    >
+                      +
+                    </motion.span>
+                  </button>
+                  <AnimatePresence>
+                    {openFaq === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <p className="pb-6 text-base text-body leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </SectionReveal>
             ))}
@@ -378,13 +602,13 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 bg-background-secondary text-foreground hover:bg-background transition-colors duration-300"
+                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-background-secondary text-foreground hover:bg-background transition-colors duration-300"
               >
                 Schedule a Consultation
               </Link>
               <Link
                 href="/services"
-                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 border border-background-depth/30 text-background-secondary hover:bg-background-secondary/10 transition-colors duration-300"
+                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full border border-background-depth/30 text-background-secondary hover:bg-background-secondary/10 transition-colors duration-300"
               >
                 Explore Our Services
               </Link>

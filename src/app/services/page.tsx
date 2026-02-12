@@ -9,6 +9,7 @@ const services = [
   {
     number: "01",
     title: "Property Sales & Disposition",
+    slug: "property-sales",
     description:
       "We position your property to attract the right buyers and achieve premium results. Our approach combines strategic market positioning, discreet marketing, and skilled negotiation to maximize value at every stage.",
     details: [
@@ -23,6 +24,7 @@ const services = [
   {
     number: "02",
     title: "Buyer Advisory & Acquisition",
+    slug: "buyer-advisory",
     description:
       "Finding the right property requires more than browsing listings. We provide personalized search, rigorous due diligence, and strategic counsel to ensure your acquisition aligns with your lifestyle and financial objectives.",
     details: [
@@ -37,6 +39,7 @@ const services = [
   {
     number: "03",
     title: "Investment Consulting",
+    slug: "investment-consulting",
     description:
       "Whether building a portfolio or optimizing existing holdings, our investment advisory service delivers data-driven insights and strategic guidance to maximize long-term returns.",
     details: [
@@ -51,6 +54,7 @@ const services = [
   {
     number: "04",
     title: "Market Research & Valuation",
+    slug: "market-research",
     description:
       "Informed decisions start with accurate data. Our research team delivers comprehensive market analysis and valuation reports that form the foundation of confident real estate decision-making.",
     details: [
@@ -127,12 +131,20 @@ export default function ServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <Link
-                      href="/contact"
-                      className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 border border-foreground text-foreground hover:bg-foreground hover:text-background-secondary transition-colors duration-300"
-                    >
-                      Inquire About This Service
-                    </Link>
+                    <div className="mt-10 flex flex-wrap gap-4">
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-foreground text-background-secondary hover:bg-body transition-colors duration-300"
+                      >
+                        Read More
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full border border-foreground text-foreground hover:bg-foreground hover:text-background-secondary transition-colors duration-300"
+                      >
+                        Inquire
+                      </Link>
+                    </div>
                   </div>
                 </SectionReveal>
 
@@ -230,7 +242,7 @@ export default function ServicesPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 bg-background-secondary text-foreground hover:bg-background transition-colors duration-300"
+              className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-background-secondary text-foreground hover:bg-background transition-colors duration-300"
             >
               Schedule a Consultation
             </Link>

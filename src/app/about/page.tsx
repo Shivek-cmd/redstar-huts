@@ -55,19 +55,28 @@ const team = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 bg-background-secondary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80"
+            alt="Luxury architecture"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1F1F1F]/80 via-[#1F1F1F]/60 to-[#1F1F1F]/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/50 to-transparent" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4">
+            <p className="text-xs font-body font-semibold tracking-widest uppercase text-[#FBFAF8]/60 mb-4">
               About RedStar Huts
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground max-w-3xl">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#FBFAF8] max-w-3xl leading-tight drop-shadow-lg">
               A Legacy of Trust
               <br />
               in Real Estate
             </h1>
-            <p className="mt-6 text-base md:text-lg text-body max-w-2xl leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-[#FBFAF8]/80 max-w-2xl leading-relaxed">
               For over fifteen years, we have served discerning clients with a
               singular commitment: to bring clarity, integrity, and exceptional
               outcomes to every real estate engagement.
@@ -206,7 +215,7 @@ export default function AboutPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 bg-foreground text-background-secondary hover:bg-body transition-colors duration-300"
+              className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-foreground text-background-secondary hover:bg-body transition-colors duration-300"
             >
               Start a Conversation
             </Link>
