@@ -154,18 +154,28 @@ export default function PropertiesPage() {
 
   return (
     <>
-      <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 bg-background-secondary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80"
+            alt="Luxury property portfolio"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4">
+            <p className="text-xs font-body font-semibold tracking-widest uppercase text-background-secondary/60 mb-4">
               Our Portfolio
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground max-w-3xl">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-3xl leading-tight drop-shadow-lg">
               Exceptional Properties,
               <br />
               Carefully Curated
             </h1>
-            <p className="mt-6 text-base md:text-lg text-body max-w-2xl leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-background-secondary/80 max-w-2xl leading-relaxed">
               Each listing in our portfolio has been selected for its quality,
               location, and investment potential. Explore properties that meet
               the highest standards.
@@ -224,46 +234,69 @@ export default function PropertiesPage() {
 
       <section className="py-24 md:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <div className="flex items-center justify-between mb-12">
+              <p className="text-sm font-body text-muted">
+                {filteredProperties.length} {filteredProperties.length === 1 ? "property" : "properties"} available
+              </p>
+            </div>
+          </SectionReveal>
           {filteredProperties.length === 0 ? (
             <div className="text-center py-20">
               <p className="font-heading text-2xl text-foreground mb-4">No Properties Found</p>
               <p className="text-sm text-muted">Try adjusting your search criteria or filters.</p>
             </div>
           ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="space-y-16">
             {filteredProperties.map((property, i) => (
-              <SectionReveal key={property.title} delay={(i % 3) * 0.1}>
+              <SectionReveal key={property.title} delay={(i % 3) * 0.08}>
                 <Link href={`/properties/${property.slug}`} className="group block">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
-                    <Image
-                      src={property.image}
-                      alt={property.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/90 px-3 py-1.5 text-foreground">
-                        {property.type}
+                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ${i % 2 !== 0 ? "lg:direction-rtl" : ""}`}>
+                    <div className={`relative aspect-[16/11] overflow-hidden bg-background-depth ${i % 2 !== 0 ? "lg:order-2" : ""}`}>
+                      <Image
+                        src={property.image}
+                        alt={property.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute top-5 left-5">
+                        <span className="text-xs font-body tracking-widest uppercase bg-foreground/80 backdrop-blur-sm px-4 py-2 text-background-secondary">
+                          {property.type}
+                        </span>
+                      </div>
+                    </div>
+                    <div className={`${i % 2 !== 0 ? "lg:order-1 lg:text-right" : ""}`}>
+                      <p className="text-xs font-body tracking-widest uppercase text-muted mb-3">
+                        {property.location}
+                      </p>
+                      <h3 className="font-heading text-2xl md:text-3xl text-foreground group-hover:text-body transition-colors duration-300">
+                        {property.title}
+                      </h3>
+                      <div className={`mt-5 flex items-center gap-6 text-sm text-body ${i % 2 !== 0 ? "lg:justify-end" : ""}`}>
+                        <div className="text-center">
+                          <span className="block font-heading text-xl text-foreground">{property.beds}</span>
+                          <span className="text-xs font-body tracking-widest uppercase text-muted">Beds</span>
+                        </div>
+                        <span className="w-px h-10 bg-border" />
+                        <div className="text-center">
+                          <span className="block font-heading text-xl text-foreground">{property.baths}</span>
+                          <span className="text-xs font-body tracking-widest uppercase text-muted">Baths</span>
+                        </div>
+                        <span className="w-px h-10 bg-border" />
+                        <div className="text-center">
+                          <span className="block font-heading text-xl text-foreground">{property.sqft}</span>
+                          <span className="text-xs font-body tracking-widest uppercase text-muted">Sq Ft</span>
+                        </div>
+                      </div>
+                      <div className="mt-6 pt-6 border-t border-border">
+                        <p className="font-heading text-2xl text-foreground">
+                          {property.price}
+                        </p>
+                      </div>
+                      <span className="inline-block mt-6 text-xs font-body tracking-widest uppercase text-muted group-hover:text-foreground transition-colors duration-300">
+                        View Property &rarr;
                       </span>
                     </div>
-                  </div>
-                  <div className="mt-5">
-                    <p className="text-xs font-body tracking-widest uppercase text-muted">
-                      {property.location}
-                    </p>
-                    <h3 className="mt-2 font-heading text-xl text-foreground group-hover:text-body transition-colors duration-300">
-                      {property.title}
-                    </h3>
-                    <div className="mt-3 flex items-center gap-4 text-xs text-muted">
-                      <span>{property.beds} Beds</span>
-                      <span className="w-px h-3 bg-border" />
-                      <span>{property.baths} Baths</span>
-                      <span className="w-px h-3 bg-border" />
-                      <span>{property.sqft} Sq Ft</span>
-                    </div>
-                    <p className="mt-3 font-heading text-lg text-foreground">
-                      {property.price}
-                    </p>
                   </div>
                 </Link>
               </SectionReveal>

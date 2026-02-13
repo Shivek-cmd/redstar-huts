@@ -50,8 +50,8 @@ export default function ContactPage() {
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1600&q=80"
-            alt="Luxury architecture"
+            src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1600&q=80"
+            alt="Premium office building"
             fill
             className="object-cover"
           />
@@ -239,8 +239,8 @@ export default function ContactPage() {
 
                 <div className="mt-8 relative aspect-[4/3] overflow-hidden rounded-2xl">
                   <Image
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
-                    alt="Office building"
+                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+                    alt="Modern office interior"
                     fill
                     className="object-cover"
                   />

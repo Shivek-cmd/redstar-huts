@@ -153,23 +153,40 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
 
       <section className="py-24 md:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <SectionReveal>
-              <div className="space-y-6">
-                {service.description.map((para, i) => (
-                  <p key={i} className="text-base md:text-lg text-body leading-relaxed">{para}</p>
-                ))}
-              </div>
-              <Link href="/contact" className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-foreground text-background-secondary hover:bg-body transition-colors duration-300">
-                {service.cta}
-              </Link>
-            </SectionReveal>
-            <SectionReveal delay={0.2}>
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <Image src={service.images[1].src} alt={service.images[1].alt} fill className="object-cover" />
-              </div>
-            </SectionReveal>
-          </div>
+          {service.description.map((para, i) => (
+            <div key={i} className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${i > 0 ? "mt-24" : ""}`}>
+              {i % 2 === 0 ? (
+                <>
+                  <SectionReveal>
+                    <div>
+                      <p className="text-base md:text-lg text-body leading-relaxed">{para}</p>
+                      {i === 0 && (
+                        <Link href="/contact" className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-foreground text-background-secondary hover:bg-body transition-colors duration-300">
+                          {service.cta}
+                        </Link>
+                      )}
+                    </div>
+                  </SectionReveal>
+                  <SectionReveal delay={0.2}>
+                    <div className="relative aspect-[4/5] overflow-hidden">
+                      <Image src={service.images[i < service.images.length ? i : 0].src} alt={service.images[i < service.images.length ? i : 0].alt} fill className="object-cover" />
+                    </div>
+                  </SectionReveal>
+                </>
+              ) : (
+                <>
+                  <SectionReveal>
+                    <div className="relative aspect-[4/5] overflow-hidden">
+                      <Image src={service.images[i < service.images.length ? i : 0].src} alt={service.images[i < service.images.length ? i : 0].alt} fill className="object-cover" />
+                    </div>
+                  </SectionReveal>
+                  <SectionReveal delay={0.2}>
+                    <p className="text-base md:text-lg text-body leading-relaxed">{para}</p>
+                  </SectionReveal>
+                </>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
