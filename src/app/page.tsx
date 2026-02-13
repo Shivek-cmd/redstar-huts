@@ -419,7 +419,7 @@ export default function Home() {
                   href="/properties"
                   className="text-sm font-body tracking-wide text-muted hover:text-foreground transition-colors duration-300"
                 >
-                  View All &rarr;
+                  View All →
                 </Link>
               </div>
             </div>
