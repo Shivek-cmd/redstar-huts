@@ -5,13 +5,38 @@ import { usePathname, useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const ALLOWED_PATHS = ["/", "/coming-soon"];
+// ------------------------------------------------------------------
+// LIVE PAGES CONFIG — Add paths here to make pages accessible.
+// All other routes redirect to /coming-soon.
+//
+// To enable a page, add its path to this array:
+//   "/about"              → enables /about
+//   "/services"           → enables /services AND /services/property-sales, etc.
+//   "/properties"         → enables /properties AND /properties/meridian-residence, etc.
+//   "/blog"               → enables /blog AND /blog/luxury-market-trends-2025, etc.
+//   "/contact"            → enables /contact
+//   "/privacy-policy"     → enables /privacy-policy
+//   "/terms-of-service"   → enables /terms-of-service
+//   "/legal-disclaimer"   → enables /legal-disclaimer
+//
+// To make the full site live, add all paths or remove the redirect logic.
+// ------------------------------------------------------------------
+const LIVE_PAGES = [
+  "/",
+];
+
+function isPageLive(pathname: string): boolean {
+  if (pathname === "/" || pathname === "/coming-soon") return true;
+  return LIVE_PAGES.some(
+    (p) => p !== "/" && (pathname === p || pathname.startsWith(p + "/"))
+  );
+}
 
 export default function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const isComingSoon = pathname === "/coming-soon";
-  const isAllowed = ALLOWED_PATHS.includes(pathname);
+  const isAllowed = isPageLive(pathname);
 
   useEffect(() => {
     if (!isAllowed) {
