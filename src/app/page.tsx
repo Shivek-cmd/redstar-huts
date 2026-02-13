@@ -206,12 +206,12 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 3500);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
   useEffect(() => {
-    const interval = setInterval(nextTestimonial, 6000);
+    const interval = setInterval(nextTestimonial, 3500);
     return () => clearInterval(interval);
   }, [nextTestimonial]);
 
