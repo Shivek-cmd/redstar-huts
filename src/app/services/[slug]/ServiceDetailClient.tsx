@@ -255,6 +255,17 @@ export default function ServiceDetailClient({ slug }: { slug: string }) {
         </div>
       </section>
 
+      <section className="py-16 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-body">
+              <p>Looking for a property? <Link href="/properties" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">Browse our curated listings</Link></p>
+              <p>Read expert insights on our <Link href="/blog" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">Journal</Link></p>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image src={service.images[2].src} alt="Contact background" fill className="object-cover" />

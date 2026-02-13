@@ -234,69 +234,46 @@ export default function PropertiesPage() {
 
       <section className="py-24 md:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <SectionReveal>
-            <div className="flex items-center justify-between mb-12">
-              <p className="text-sm font-body text-muted">
-                {filteredProperties.length} {filteredProperties.length === 1 ? "property" : "properties"} available
-              </p>
-            </div>
-          </SectionReveal>
           {filteredProperties.length === 0 ? (
             <div className="text-center py-20">
               <p className="font-heading text-2xl text-foreground mb-4">No Properties Found</p>
               <p className="text-sm text-muted">Try adjusting your search criteria or filters.</p>
             </div>
           ) : (
-          <div className="space-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProperties.map((property, i) => (
-              <SectionReveal key={property.title} delay={(i % 3) * 0.08}>
+              <SectionReveal key={property.title} delay={(i % 3) * 0.1}>
                 <Link href={`/properties/${property.slug}`} className="group block">
-                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ${i % 2 !== 0 ? "lg:direction-rtl" : ""}`}>
-                    <div className={`relative aspect-[16/11] overflow-hidden bg-background-depth ${i % 2 !== 0 ? "lg:order-2" : ""}`}>
-                      <Image
-                        src={property.image}
-                        alt={property.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute top-5 left-5">
-                        <span className="text-xs font-body tracking-widest uppercase bg-foreground/80 backdrop-blur-sm px-4 py-2 text-background-secondary">
-                          {property.type}
-                        </span>
-                      </div>
-                    </div>
-                    <div className={`${i % 2 !== 0 ? "lg:order-1 lg:text-right" : ""}`}>
-                      <p className="text-xs font-body tracking-widest uppercase text-muted mb-3">
-                        {property.location}
-                      </p>
-                      <h3 className="font-heading text-2xl md:text-3xl text-foreground group-hover:text-body transition-colors duration-300">
-                        {property.title}
-                      </h3>
-                      <div className={`mt-5 flex items-center gap-6 text-sm text-body ${i % 2 !== 0 ? "lg:justify-end" : ""}`}>
-                        <div className="text-center">
-                          <span className="block font-heading text-xl text-foreground">{property.beds}</span>
-                          <span className="text-xs font-body tracking-widest uppercase text-muted">Beds</span>
-                        </div>
-                        <span className="w-px h-10 bg-border" />
-                        <div className="text-center">
-                          <span className="block font-heading text-xl text-foreground">{property.baths}</span>
-                          <span className="text-xs font-body tracking-widest uppercase text-muted">Baths</span>
-                        </div>
-                        <span className="w-px h-10 bg-border" />
-                        <div className="text-center">
-                          <span className="block font-heading text-xl text-foreground">{property.sqft}</span>
-                          <span className="text-xs font-body tracking-widest uppercase text-muted">Sq Ft</span>
-                        </div>
-                      </div>
-                      <div className="mt-6 pt-6 border-t border-border">
-                        <p className="font-heading text-2xl text-foreground">
-                          {property.price}
-                        </p>
-                      </div>
-                      <span className="inline-block mt-6 text-xs font-body tracking-widest uppercase text-muted group-hover:text-foreground transition-colors duration-300">
-                        View Property &rarr;
+                  <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
+                    <Image
+                      src={property.image}
+                      alt={property.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/90 px-3 py-1.5 text-foreground">
+                        {property.type}
                       </span>
                     </div>
+                  </div>
+                  <div className="mt-5">
+                    <p className="text-xs font-body tracking-widest uppercase text-muted">
+                      {property.location}
+                    </p>
+                    <h3 className="mt-2 font-heading text-xl text-foreground group-hover:text-body transition-colors duration-300">
+                      {property.title}
+                    </h3>
+                    <div className="mt-3 flex items-center gap-4 text-xs text-muted">
+                      <span>{property.beds} Beds</span>
+                      <span className="w-px h-3 bg-border" />
+                      <span>{property.baths} Baths</span>
+                      <span className="w-px h-3 bg-border" />
+                      <span>{property.sqft} Sq Ft</span>
+                    </div>
+                    <p className="mt-3 font-heading text-lg text-foreground">
+                      {property.price}
+                    </p>
                   </div>
                 </Link>
               </SectionReveal>

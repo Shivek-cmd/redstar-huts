@@ -18,7 +18,19 @@ export const metadata: Metadata = {
     "investment consulting",
     "premium properties",
     "RedStar Huts",
+    "Himachal Pradesh real estate",
+    "Punjab property investment",
+    "Chandigarh luxury homes",
+    "Haryana property consultants",
+    "Uttarakhand real estate",
+    "North India luxury properties",
+    "real estate investment India",
+    "NRI property investment",
+    "South India investors North India property",
   ],
+  alternates: {
+    canonical: "https://redstarhuts.com",
+  },
   authors: [{ name: "RedStar Huts" }],
   openGraph: {
     type: "website",
@@ -51,6 +63,35 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <meta name="theme-color" content="#F6F5F3" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "RealEstateAgent",
+              name: "RedStar Huts",
+              url: "https://redstarhuts.com",
+              logo: "https://redstarhuts.com/logo.svg",
+              description: "Luxury real estate consulting and property advisory services across North India — Himachal Pradesh, Punjab, Chandigarh, Haryana, and Uttarakhand.",
+              email: "redstarhuts9@gmail.com",
+              telephone: "+918894343056",
+              areaServed: [
+                { "@type": "State", name: "Himachal Pradesh" },
+                { "@type": "State", name: "Punjab" },
+                { "@type": "City", name: "Chandigarh" },
+                { "@type": "State", name: "Haryana" },
+                { "@type": "State", name: "Uttarakhand" },
+              ],
+              sameAs: [
+                "https://www.instagram.com/",
+                "https://www.facebook.com/",
+                "https://www.linkedin.com/",
+                "https://twitter.com/",
+              ],
+              priceRange: "$$$",
+            }),
+          }}
+        />
       </head>
       <body className="antialiased">
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-foreground focus:text-background-secondary focus:px-4 focus:py-2 focus:rounded-full focus:text-sm">

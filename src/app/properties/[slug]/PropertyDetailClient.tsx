@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import SectionReveal from "@/components/SectionReveal";
 
 const propertiesData: Record<
@@ -277,7 +275,6 @@ const propertiesData: Record<
 
 export default function PropertyDetailClient({ slug }: { slug: string }) {
   const property = propertiesData[slug];
-  const [activeImage, setActiveImage] = useState(0);
 
   if (!property) {
     return (
@@ -296,123 +293,91 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
     <>
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeImage}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
-              className="absolute inset-0"
-            >
-              <Image src={property.images[activeImage].src} alt={property.images[activeImage].alt} fill className="object-cover" />
-            </motion.div>
-          </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/60 to-foreground/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 to-transparent" />
+          <Image src={property.images[0].src} alt={property.images[0].alt} fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <span className="inline-block text-xs font-body tracking-widest uppercase bg-background-secondary/15 backdrop-blur-sm px-4 py-2 text-background-secondary mb-6">
-              {property.type} &mdash; {property.location}
+            <span className="inline-block text-xs font-body tracking-widest uppercase bg-background-secondary/15 px-3 py-1.5 text-background-secondary mb-4">
+              {property.type}
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-4xl leading-tight drop-shadow-lg">
               {property.title}
             </h1>
-            <p className="mt-6 font-heading text-3xl md:text-4xl text-background-secondary/90">{property.price}</p>
+            <p className="mt-4 text-base text-background-secondary/70">{property.location}</p>
           </SectionReveal>
-        </div>
-
-        <div className="absolute bottom-6 right-6 md:right-10 z-10 flex gap-2">
-          <button
-            onClick={() => setActiveImage((p) => (p - 1 + property.images.length) % property.images.length)}
-            className="w-10 h-10 rounded-full bg-background-secondary/20 backdrop-blur-md flex items-center justify-center text-background-secondary hover:bg-background-secondary/40 transition-colors duration-300"
-            aria-label="Previous image"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-            </svg>
-          </button>
-          <button
-            onClick={() => setActiveImage((p) => (p + 1) % property.images.length)}
-            className="w-10 h-10 rounded-full bg-background-secondary/20 backdrop-blur-md flex items-center justify-center text-background-secondary hover:bg-background-secondary/40 transition-colors duration-300"
-            aria-label="Next image"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
         </div>
       </section>
 
-      <section className="bg-foreground">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <span className="font-heading text-3xl text-background-secondary">{property.beds}</span>
-              <p className="mt-1 text-xs font-body tracking-widest uppercase text-background-depth/50">Bedrooms</p>
+      <section className="bg-background-secondary border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-8">
+          <div className="flex flex-wrap items-center justify-between gap-6">
+            <div className="flex flex-wrap items-center gap-8 text-sm text-body">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-body tracking-widest uppercase text-muted">Beds</span>
+                <span className="font-heading text-lg text-foreground">{property.beds}</span>
+              </div>
+              <span className="w-px h-6 bg-border" />
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-body tracking-widest uppercase text-muted">Baths</span>
+                <span className="font-heading text-lg text-foreground">{property.baths}</span>
+              </div>
+              <span className="w-px h-6 bg-border" />
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-body tracking-widest uppercase text-muted">Sq Ft</span>
+                <span className="font-heading text-lg text-foreground">{property.sqft}</span>
+              </div>
             </div>
-            <div className="text-center">
-              <span className="font-heading text-3xl text-background-secondary">{property.baths}</span>
-              <p className="mt-1 text-xs font-body tracking-widest uppercase text-background-depth/50">Bathrooms</p>
-            </div>
-            <div className="text-center">
-              <span className="font-heading text-3xl text-background-secondary">{property.sqft}</span>
-              <p className="mt-1 text-xs font-body tracking-widest uppercase text-background-depth/50">Square Feet</p>
-            </div>
-            <div className="text-center">
-              <span className="font-heading text-3xl text-background-secondary">{property.price}</span>
-              <p className="mt-1 text-xs font-body tracking-widest uppercase text-background-depth/50">Listed Price</p>
-            </div>
+            <p className="font-heading text-2xl md:text-3xl text-foreground">{property.price}</p>
           </div>
         </div>
       </section>
 
       <section className="py-24 md:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {property.images.map((img, i) => (
-              <SectionReveal key={img.src} delay={i * 0.08}>
-                <button
-                  onClick={() => setActiveImage(i)}
-                  className={`relative w-full aspect-[4/3] overflow-hidden transition-all duration-300 ${activeImage === i ? "ring-2 ring-foreground" : "opacity-80 hover:opacity-100"}`}
-                >
-                  <Image src={img.src} alt={img.alt} fill className="object-cover" />
-                </button>
-              </SectionReveal>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <SectionReveal>
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image src={property.images[1].src} alt={property.images[1].alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </SectionReveal>
+            <div className="grid grid-cols-2 gap-4">
+              {property.images.slice(2).map((img, i) => (
+                <SectionReveal key={img.src} delay={i * 0.1}>
+                  <div className="relative aspect-square overflow-hidden">
+                    <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="py-24 md:py-32 bg-background-secondary">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
-              <div className="lg:col-span-3">
-                <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4">About This Property</p>
-                <h2 className="font-heading text-3xl md:text-4xl text-foreground">Property Overview</h2>
-                <div className="mt-8 space-y-6">
-                  {property.description.map((para, i) => (
-                    <p key={i} className="text-base md:text-lg text-body leading-relaxed">{para}</p>
-                  ))}
-                </div>
+              <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4">About This Property</p>
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground">Property Overview</h2>
+              <div className="mt-8 space-y-6">
+                {property.description.map((para, i) => (
+                  <p key={i} className="text-base text-body leading-relaxed">{para}</p>
+                ))}
               </div>
             </SectionReveal>
             <SectionReveal delay={0.2}>
-              <div className="lg:col-span-2 bg-background p-8 md:p-10 border border-border">
-                <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-6">Features & Amenities</p>
-                <ul className="space-y-5">
-                  {property.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-base text-body">
-                      <svg className="w-5 h-5 text-foreground mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4">Features & Amenities</p>
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground">Key Highlights</h2>
+              <ul className="mt-8 space-y-4">
+                {property.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-base text-body">
+                    <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
             </SectionReveal>
           </div>
         </div>
