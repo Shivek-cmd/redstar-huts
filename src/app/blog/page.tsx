@@ -135,6 +135,18 @@ export default function BlogPage() {
         </div>
       </section>
 
+      <section className="py-12 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-body">
+              <p>Need guidance? Explore our <Link href="/services" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">advisory services</Link></p>
+              <p>Browse <Link href="/properties" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">premium properties</Link> across select markets</p>
+              <p>Learn more <Link href="/about" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">about our team</Link></p>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       <section className="py-24 md:py-32 bg-background-depth">
         <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
           <SectionReveal>

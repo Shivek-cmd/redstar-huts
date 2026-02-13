@@ -197,7 +197,7 @@ export default function Home() {
     propertyPage * propertiesPerPage + propertiesPerPage
   );
 
-  const nextSlide = useCallback(() => {
+  const nextSlide= useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   }, []);
 

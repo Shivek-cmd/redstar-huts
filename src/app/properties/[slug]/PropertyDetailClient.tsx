@@ -418,6 +418,17 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         </div>
       </section>
 
+      <section className="py-16 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-body">
+              <p>Need help with your purchase? Explore our <Link href="/services/buyer-advisory" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">Buyer Advisory</Link> service</p>
+              <p>Get a professional <Link href="/services/market-research" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">Market Valuation</Link> for this property</p>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image src={property.images[0].src} alt="Contact background" fill className="object-cover" />

@@ -181,7 +181,7 @@ export default function AboutPage() {
                       src={member.image}
                       alt={member.name}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                     />
                   </div>
                   <div className="mt-6">
@@ -199,6 +199,18 @@ export default function AboutPage() {
               </SectionReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-background-depth">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-body">
+              <p>Discover our full range of <Link href="/services" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">advisory services</Link></p>
+              <p>Browse our <Link href="/properties" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">curated property portfolio</Link></p>
+              <p>Read expert insights on our <Link href="/blog" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">Journal</Link></p>
+            </div>
+          </SectionReveal>
         </div>
       </section>
 

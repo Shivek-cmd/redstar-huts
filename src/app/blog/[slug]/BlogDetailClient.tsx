@@ -229,6 +229,17 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
         </div>
       </section>
 
+      <section className="py-12 bg-background-depth">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-body">
+              <p>Explore our <Link href="/services" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">advisory services</Link> for expert guidance</p>
+              <p>Browse <Link href="/properties" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">curated properties</Link> across premium markets</p>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       <section className="py-16 bg-background border-t border-border">
         <div className="max-w-3xl mx-auto px-6 lg:px-10">
           <SectionReveal>
