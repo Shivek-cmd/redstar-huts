@@ -191,9 +191,9 @@ export default function ComingSoonPage() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <motion.div className="absolute inset-0 z-0" style={{ x: bgX, y: bgY }}>
+      <motion.div className="absolute -inset-4 z-0" style={{ x: bgX, y: bgY }}>
         <Image
           src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=85"
           alt="Luxury architecture"
@@ -207,16 +207,16 @@ export default function ComingSoonPage() {
 
       <FloatingParticles />
 
-      <GlowOrb className="w-96 h-96 bg-background-secondary/20 -top-48 -left-48" delay={0} />
-      <GlowOrb className="w-72 h-72 bg-background-secondary/15 -bottom-36 -right-36" delay={4} />
-      <GlowOrb className="w-48 h-48 bg-background-secondary/10 top-1/3 right-1/4" delay={2} />
+      <GlowOrb className="w-48 h-48 md:w-96 md:h-96 bg-background-secondary/20 -top-24 -left-24 md:-top-48 md:-left-48" delay={0} />
+      <GlowOrb className="w-36 h-36 md:w-72 md:h-72 bg-background-secondary/15 -bottom-18 -right-18 md:-bottom-36 md:-right-36" delay={4} />
+      <GlowOrb className="w-24 h-24 md:w-48 md:h-48 bg-background-secondary/10 top-1/3 right-1/4" delay={2} />
 
       <div className="absolute inset-0 z-[2] pointer-events-none flex items-end justify-center pb-32 opacity-40">
         <ArchitecturalIllustration />
       </div>
 
       <motion.div
-        className="relative z-10 max-w-2xl mx-auto px-6 text-center"
+        className="relative z-10 w-full max-w-2xl mx-auto px-5 sm:px-6 text-center"
         style={{ x: fgX, y: fgY }}
         variants={stagger}
         initial="hidden"
@@ -225,14 +225,14 @@ export default function ComingSoonPage() {
         <motion.div variants={fadeUp}>
           <Link
             href="/"
-            className="inline-flex items-center gap-3 mb-14 group"
+            className="inline-flex items-center gap-3 mb-8 sm:mb-14 group"
           >
             <div className="relative">
               <Image
                 src="/logo-circle.jpeg"
                 alt="RedStar Huts"
-                width={52}
-                height={52}
+                width={44}
+                height={44}
                 className="rounded-full ring-1 ring-background-secondary/20 group-hover:ring-background-secondary/40 transition-all duration-500"
               />
               <motion.div
@@ -241,7 +241,7 @@ export default function ComingSoonPage() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
             </div>
-            <span className="font-heading text-2xl tracking-wide text-background-secondary group-hover:text-background-secondary/80 transition-colors duration-500">
+            <span className="font-heading text-xl sm:text-2xl tracking-wide text-background-secondary group-hover:text-background-secondary/80 transition-colors duration-500">
               RedStar<span className="font-light"> Huts</span>
             </span>
           </Link>
@@ -263,7 +263,7 @@ export default function ComingSoonPage() {
         </motion.div>
 
         <motion.div variants={fadeUp}>
-          <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl text-background-secondary leading-[0.95] tracking-tight">
+          <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-background-secondary leading-[0.95] tracking-tight">
             <motion.span
               className="inline-block"
               initial={{ opacity: 0, y: 50, rotateX: -15 }}
@@ -285,13 +285,13 @@ export default function ComingSoonPage() {
         </motion.div>
 
         <motion.div variants={fadeUp}>
-          <p className="mt-8 text-base md:text-lg text-background-secondary/60 leading-relaxed max-w-lg mx-auto font-light">
+          <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-background-secondary/60 leading-relaxed max-w-lg mx-auto font-light px-2 sm:px-0">
             We are crafting a new experience that reflects our unwavering
             commitment to excellence in luxury real estate.
           </p>
         </motion.div>
 
-        <motion.div variants={fadeUp} className="mt-14">
+        <motion.div variants={fadeUp} className="mt-8 sm:mt-14">
           <AnimatePresence mode="wait">
             {submitted ? (
               <motion.div
@@ -300,7 +300,7 @@ export default function ComingSoonPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="bg-background-secondary/5 backdrop-blur-md border border-background-secondary/15 rounded-2xl px-8 py-6 max-w-md mx-auto"
+                className="bg-background-secondary/5 backdrop-blur-md border border-background-secondary/15 rounded-2xl px-6 sm:px-8 py-5 sm:py-6 max-w-md mx-auto"
               >
                 <motion.div
                   initial={{ scale: 0 }}
@@ -329,7 +329,7 @@ export default function ComingSoonPage() {
               <motion.form
                 key="form"
                 onSubmit={handleSubmit}
-                className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+                className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto w-full"
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0, y: -10 }}
               >
@@ -366,7 +366,7 @@ export default function ComingSoonPage() {
 
         <motion.div
           variants={fadeUp}
-          className="mt-20 flex flex-col items-center gap-6"
+          className="mt-12 sm:mt-20 flex flex-col items-center gap-4 sm:gap-6"
         >
           <div className="flex items-center gap-6">
             {[
@@ -416,16 +416,16 @@ export default function ComingSoonPage() {
 
           <div className="h-px w-24 bg-gradient-to-r from-transparent via-background-secondary/15 to-transparent" />
 
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
             <a
               href="mailto:redstarhuts9@gmail.com"
-              className="text-[11px] font-body tracking-[0.2em] text-background-secondary/30 hover:text-background-secondary/60 transition-colors duration-500"
+              className="text-[10px] sm:text-[11px] font-body tracking-[0.15em] sm:tracking-[0.2em] text-background-secondary/30 hover:text-background-secondary/60 transition-colors duration-500"
             >
               redstarhuts9@gmail.com
             </a>
             <a
               href="tel:+918894343056"
-              className="text-[11px] font-body tracking-[0.2em] text-background-secondary/30 hover:text-background-secondary/60 transition-colors duration-500"
+              className="text-[10px] sm:text-[11px] font-body tracking-[0.15em] sm:tracking-[0.2em] text-background-secondary/30 hover:text-background-secondary/60 transition-colors duration-500"
             >
               +91 889 434 3056
             </a>
@@ -434,7 +434,7 @@ export default function ComingSoonPage() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2 }}
