@@ -60,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+        <link rel="icon" href="/logo-circle.jpeg" type="image/jpeg" />
         <meta name="theme-color" content="#F6F5F3" />
         <script
           type="application/ld+json"
@@ -70,7 +70,7 @@ export default function RootLayout({
               "@type": "RealEstateAgent",
               name: "RedStar Huts",
               url: "https://redstarhuts.com",
-              logo: "https://redstarhuts.com/logo.svg",
+              logo: "https://redstarhuts.com/logo-circle.jpeg",
               description: "Luxury real estate consulting and property advisory services across North India — Himachal Pradesh, Punjab, Chandigarh, Haryana, and Uttarakhand.",
               email: "redstarhuts9@gmail.com",
               telephone: "+918894343056",
