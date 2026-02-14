@@ -73,7 +73,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="relative z-50 flex items-center gap-3">
               <Image
-                src="/logo-circle.jpeg"
+                src="/logo-circle.png"
                 alt="RedStar Huts"
                 width={44}
                 height={44}
