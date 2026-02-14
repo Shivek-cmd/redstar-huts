@@ -21,25 +21,18 @@ import Footer from "@/components/Footer";
 //
 // To make the full site live, add all paths or remove the redirect logic.
 // ------------------------------------------------------------------
-// const LIVE_PAGES = [
-//   "/",
-// ];
-
-const LIVE_PAGES: string[] = [];
-// function isPageLive(pathname: string): boolean {
-//   if (pathname === "/" || pathname === "/coming-soon") return true;
-//   return LIVE_PAGES.some(
-//     (p) => p !== "/" && (pathname === p || pathname.startsWith(p + "/"))
-//   );
-// }
+const LIVE_PAGES = [
+  "/",
+];
 
 function isPageLive(pathname: string): boolean {
-  if (pathname === "/coming-soon") return true;
-
+  if (pathname === "/" || pathname === "/coming-soon") return true;
   return LIVE_PAGES.some(
-    (p) => pathname === p || pathname.startsWith(p + "/")
+    (p) => p !== "/" && (pathname === p || pathname.startsWith(p + "/"))
   );
 }
+
+
 export default function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
