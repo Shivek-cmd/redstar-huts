@@ -229,7 +229,7 @@ export default function ComingSoonPage() {
           >
             <div className="relative">
               <Image
-                src="/logo-circle.jpeg"
+                src="/logo-circle.png"
                 alt="RedStar Huts"
                 width={44}
                 height={44}
