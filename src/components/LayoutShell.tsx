@@ -23,6 +23,8 @@ import Footer from "@/components/Footer";
 // ------------------------------------------------------------------
 const LIVE_PAGES = [
   "/",
+  "/about",
+  "/contact"
 ];
 
 function isPageLive(pathname: string): boolean {
