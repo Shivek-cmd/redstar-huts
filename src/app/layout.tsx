@@ -41,12 +41,21 @@ export const metadata: Metadata = {
     title: "RedStar Huts — Luxury Real Estate & Consulting",
     description:
       "Trusted guidance in real estate — from acquisition to investment strategy. RedStar Huts brings clarity, discretion, and results to every engagement.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "RedStar Huts — Luxury Real Estate & Consulting",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "RedStar Huts — Luxury Real Estate & Consulting",
     description:
       "Trusted guidance in real estate — from acquisition to investment strategy.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
