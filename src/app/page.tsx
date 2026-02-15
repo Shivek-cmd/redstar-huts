@@ -60,6 +60,7 @@ const properties = [
     beds: 5,
     baths: 4,
     sqft: "6,200",
+    hasVideo: true,
   },
   {
     title: "Harborview Estate",
@@ -71,6 +72,7 @@ const properties = [
     beds: 4,
     baths: 3,
     sqft: "4,800",
+    hasVideo: true,
   },
   {
     title: "Crestwood Manor",
@@ -444,6 +446,12 @@ export default function Home() {
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
+                      {property.hasVideo && (
+                        <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-foreground/60 backdrop-blur-sm">
+                          <svg className="w-3 h-3 text-background-secondary" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                          <span className="text-[10px] font-body tracking-wider uppercase text-background-secondary">Video Tour</span>
+                        </div>
+                      )}
                     </div>
                     <div className="mt-5">
                       <p className="text-xs font-body tracking-widest uppercase text-muted">

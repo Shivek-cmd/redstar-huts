@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
+import MediaCarousel, { MediaItem } from "@/components/MediaCarousel";
 
 const propertiesData: Record<
   string,
@@ -17,6 +18,7 @@ const propertiesData: Record<
     description: string[];
     features: string[];
     images: { src: string; alt: string }[];
+    media?: MediaItem[];
   }
 > = {
   "meridian-residence": {
@@ -46,8 +48,16 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Master bedroom" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Pool area" },
     ],
+    media: [
+      { type: "image", src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80", alt: "Meridian Residence exterior" },
+      { type: "video", src: "https://videos.pexels.com/video-files/5098244/5098244-hd_1920_1080_25fps.mp4", alt: "Luxury interior walkthrough", thumbnail: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" },
+      { type: "image", src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Living room" },
+      { type: "video", src: "https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_30fps.mp4", alt: "Property exterior tour", thumbnail: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80" },
+      { type: "image", src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Pool area" },
+      { type: "image", src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Modern kitchen" },
+    ],
   },
-  "harborview-estate": {
+  "harborview-estate":{
     title: "Harborview Estate",
     location: "Miami Beach, FL",
     price: "$3,200,000",
@@ -74,8 +84,16 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom suite" },
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Pool and garden" },
     ],
+    media: [
+      { type: "image", src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80", alt: "Harborview Estate exterior" },
+      { type: "image", src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Open living space" },
+      { type: "video", src: "https://videos.pexels.com/video-files/1093662/1093662-hd_1920_1080_30fps.mp4", alt: "Coastal luxury living", thumbnail: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80" },
+      { type: "image", src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom suite" },
+      { type: "video", src: "https://videos.pexels.com/video-files/2098988/2098988-hd_1920_1080_30fps.mp4", alt: "Waterfront property views", thumbnail: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" },
+      { type: "image", src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Pool and garden" },
+    ],
   },
-  "crestwood-manor": {
+  "crestwood-manor":{
     title: "Crestwood Manor",
     location: "Greenwich, CT",
     price: "$7,100,000",
@@ -336,22 +354,51 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
 
       <section className="py-24 md:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {property.media ? (
             <SectionReveal>
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <Image src={property.images[1].src} alt={property.images[1].alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
+              <MediaCarousel
+                items={property.media}
+                autoScrollInterval={5000}
+                aspectRatio="aspect-[16/9]"
+                className="rounded-lg"
+              />
+              <div className="mt-6 grid grid-cols-4 sm:grid-cols-6 gap-2">
+                {property.media.map((item, i) => (
+                  <div key={i} className="relative aspect-square overflow-hidden rounded bg-background-depth">
+                    {item.type === "image" ? (
+                      <Image src={item.src} alt={item.alt} fill className="object-cover" />
+                    ) : (
+                      <div className="relative w-full h-full">
+                        <Image src={item.thumbnail || item.src} alt={item.alt} fill className="object-cover" />
+                        <div className="absolute inset-0 flex items-center justify-center bg-foreground/30">
+                          <svg className="w-6 h-6 text-background-secondary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             </SectionReveal>
-            <div className="grid grid-cols-2 gap-4">
-              {property.images.slice(2).map((img, i) => (
-                <SectionReveal key={img.src} delay={i * 0.1}>
-                  <div className="relative aspect-square overflow-hidden">
-                    <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
-                  </div>
-                </SectionReveal>
-              ))}
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <SectionReveal>
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <Image src={property.images[1].src} alt={property.images[1].alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                </div>
+              </SectionReveal>
+              <div className="grid grid-cols-2 gap-4">
+                {property.images.slice(2).map((img, i) => (
+                  <SectionReveal key={img.src} delay={i * 0.1}>
+                    <div className="relative aspect-square overflow-hidden">
+                      <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                    </div>
+                  </SectionReveal>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
