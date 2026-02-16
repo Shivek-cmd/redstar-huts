@@ -427,9 +427,266 @@ const propertiesData: Record<
       { label: "Style", value: "Contemporary" },
     ],
   },
+  "royal-greens-villa": {
+    title: "The Royal Greens Villa",
+    location: "Mohali, Punjab",
+    price: "\u20B92.8 Cr",
+    priceLabel: "Starting From",
+    beds: 4,
+    baths: 3,
+    sqft: "3,200",
+    type: "Villa",
+    tagline: "Elevated living amidst lush green landscapes",
+    description: [
+      "The Royal Greens Villa is a distinguished property situated in one of Mohali's most sought-after gated communities. Surrounded by lush green landscapes and designed with meticulous attention to detail, this villa offers an elevated lifestyle that is both serene and luxurious.",
+      "Spacious living areas flow seamlessly into manicured gardens, while the premium interiors feature Italian marble flooring, designer lighting, and a modern modular kitchen. The private terrace offers panoramic views of the Shivalik foothills.",
+    ],
+    features: [
+      "Gated community with 24/7 security",
+      "Italian marble flooring throughout",
+      "Private terrace with Shivalik views",
+      "Modular kitchen with premium appliances",
+      "Landscaped private garden",
+      "Covered parking for two vehicles",
+    ],
+    heroImages: [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
+    ],
+    gallery: [
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Living Room", label: "Living Room" },
+      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Kitchen", label: "Kitchen" },
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Master Bedroom", label: "Master Bedroom" },
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Garden", label: "Garden" },
+    ],
+    highlights: [
+      { label: "Built", value: "2024" },
+      { label: "Lot Size", value: "0.25 Acres" },
+      { label: "Parking", value: "2-Car Covered" },
+      { label: "Style", value: "Contemporary Villa" },
+    ],
+  },
+  "mohali-heights-penthouse": {
+    title: "Mohali Heights Penthouse",
+    location: "Mohali, Punjab",
+    price: "\u20B91.6 Cr",
+    priceLabel: "Starting From",
+    beds: 3,
+    baths: 3,
+    sqft: "2,400",
+    type: "Penthouse",
+    tagline: "Sky-high luxury with panoramic horizons",
+    description: [
+      "Perched atop one of Mohali's most prestigious towers, this penthouse redefines urban luxury living. With sweeping views of the city skyline and the distant Shivalik range, every moment here feels like an escape.",
+      "The open-plan living space features double-height ceilings, premium hardwood flooring, and a private rooftop terrace perfect for entertaining. The chef's kitchen is equipped with top-of-the-line appliances and imported stone countertops.",
+    ],
+    features: [
+      "Double-height living room ceilings",
+      "Private rooftop terrace",
+      "Panoramic city and mountain views",
+      "Premium hardwood flooring",
+      "Smart home automation system",
+      "Dedicated elevator access",
+    ],
+    heroImages: [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80",
+    ],
+    gallery: [
+      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Living Area", label: "Living Area" },
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom", label: "Master Bedroom" },
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Kitchen", label: "Kitchen" },
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Terrace", label: "Rooftop Terrace" },
+    ],
+    highlights: [
+      { label: "Floor", value: "Top Floor" },
+      { label: "View", value: "Panoramic" },
+      { label: "Parking", value: "2-Car Reserved" },
+      { label: "Style", value: "Modern Penthouse" },
+    ],
+  },
+  "elante-residences": {
+    title: "Elante Residences",
+    location: "Chandigarh",
+    price: "\u20B93.5 Cr",
+    priceLabel: "Starting From",
+    beds: 4,
+    baths: 4,
+    sqft: "3,800",
+    type: "Residential",
+    tagline: "Premium living in the heart of Chandigarh",
+    description: [
+      "Elante Residences offers an unparalleled living experience in one of Chandigarh's most vibrant neighborhoods. Steps from the renowned Elante Mall and surrounded by premium dining and entertainment, this residence combines convenience with absolute luxury.",
+      "Expansive rooms with floor-to-ceiling windows invite natural light and offer commanding views of the city. The interiors showcase a harmonious blend of contemporary design with warm, natural materials.",
+    ],
+    features: [
+      "Prime location near Elante Mall",
+      "Floor-to-ceiling panoramic windows",
+      "Imported Italian marble flooring",
+      "Designer modular kitchen",
+      "Temperature-controlled wine storage",
+      "Private balcony with city views",
+    ],
+    heroImages: [
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+    ],
+    gallery: [
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Living Room", label: "Grand Living" },
+      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Kitchen", label: "Kitchen" },
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom", label: "Master Suite" },
+      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Exterior", label: "Building Exterior" },
+    ],
+    highlights: [
+      { label: "Built", value: "2025" },
+      { label: "Floor", value: "High Rise" },
+      { label: "Parking", value: "2-Car Basement" },
+      { label: "Style", value: "Contemporary Luxury" },
+    ],
+  },
+  "sector-9-heritage-home": {
+    title: "Sector 9 Heritage Home",
+    location: "Chandigarh",
+    price: "\u20B94.2 Cr",
+    priceLabel: "Starting From",
+    beds: 5,
+    baths: 4,
+    sqft: "4,500",
+    type: "Estate",
+    tagline: "A legacy of elegance in Chandigarh's finest sector",
+    description: [
+      "Located in the prestigious Sector 9 of Chandigarh, this heritage home represents the pinnacle of refined living. Built on a generous plot with mature trees and landscaped gardens, the property exudes timeless elegance and old-world charm.",
+      "Thoughtfully renovated to blend heritage character with modern amenities, the home features spacious rooms with high ceilings, a grand entrance foyer, and multiple living areas. The private garden hosts a covered pavilion perfect for gatherings.",
+    ],
+    features: [
+      "Prime Sector 9 location",
+      "Heritage architecture with modern amenities",
+      "Mature landscaped gardens",
+      "Grand entrance foyer with high ceilings",
+      "Covered garden pavilion",
+      "Separate servants' quarters",
+    ],
+    heroImages: [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
+    ],
+    gallery: [
+      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Exterior", label: "Heritage Facade" },
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Living Room", label: "Grand Living" },
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom", label: "Master Bedroom" },
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Garden", label: "Private Garden" },
+    ],
+    highlights: [
+      { label: "Plot", value: "500 Sq Yd" },
+      { label: "Era", value: "Heritage" },
+      { label: "Parking", value: "3-Car Driveway" },
+      { label: "Style", value: "Colonial Heritage" },
+    ],
+  },
+  "ambience-boulevard": {
+    title: "Ambience Boulevard",
+    location: "Zirakpur, Punjab",
+    price: "\u20B91.2 Cr",
+    priceLabel: "Starting From",
+    beds: 3,
+    baths: 2,
+    sqft: "1,800",
+    type: "Residential",
+    tagline: "Modern comfort on Chandigarh's vibrant corridor",
+    description: [
+      "Ambience Boulevard brings modern luxury living to the thriving Zirakpur corridor, perfectly positioned between Chandigarh and Mohali. This thoughtfully designed residence offers the ideal balance of urban convenience and peaceful retreat.",
+      "Clean architectural lines, open floor plans, and premium finishes define every space. The residence features a well-appointed kitchen, sun-drenched living areas, and private balconies that offer views of the surrounding greenery.",
+    ],
+    features: [
+      "Strategic Zirakpur location",
+      "Open-plan modern layout",
+      "Premium vitrified tile flooring",
+      "Modular kitchen with chimney and hob",
+      "Private balconies with green views",
+      "24/7 gated security with CCTV",
+    ],
+    heroImages: [
+      "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
+    ],
+    gallery: [
+      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Living Room", label: "Living Room" },
+      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Kitchen", label: "Modern Kitchen" },
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom", label: "Master Bedroom" },
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Balcony", label: "Balcony View" },
+    ],
+    highlights: [
+      { label: "Built", value: "2024" },
+      { label: "Floor", value: "Mid Rise" },
+      { label: "Parking", value: "1-Car Covered" },
+      { label: "Style", value: "Modern Residential" },
+    ],
+  },
+  "vr-punjab-luxury-floors": {
+    title: "VR Punjab Luxury Floors",
+    location: "Zirakpur, Punjab",
+    price: "\u20B985 Lac",
+    priceLabel: "Starting From",
+    beds: 3,
+    baths: 2,
+    sqft: "1,650",
+    type: "Residential",
+    tagline: "Affordable luxury near VR Punjab Mall",
+    description: [
+      "VR Punjab Luxury Floors offers an exceptional opportunity to own a premium independent floor in one of Zirakpur's fastest-growing residential zones. Located just minutes from the iconic VR Punjab Mall, this property delivers luxury at an accessible price point.",
+      "Designed with contemporary aesthetics and practical living in mind, each floor features spacious bedrooms, a modern kitchen, and a sun-lit drawing room. The community includes landscaped common areas and excellent connectivity to Chandigarh International Airport.",
+    ],
+    features: [
+      "Near VR Punjab Mall",
+      "Independent floor with private entrance",
+      "Contemporary interior design",
+      "Modular kitchen with granite countertops",
+      "Landscaped community areas",
+      "Proximity to Chandigarh International Airport",
+    ],
+    heroImages: [
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1600&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80",
+    ],
+    gallery: [
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Exterior", label: "Building Exterior" },
+      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Living Room", label: "Drawing Room" },
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom", label: "Bedroom" },
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Kitchen", label: "Kitchen" },
+    ],
+    highlights: [
+      { label: "Built", value: "2024" },
+      { label: "Type", value: "Independent Floor" },
+      { label: "Parking", value: "1-Car Open" },
+      { label: "Style", value: "Contemporary" },
+    ],
+  },
 };
 
 const mediaTabs = ["Photos", "Video Tour", "Floor Plan", "Location"] as const;
+
+function getRelatedProperties(currentSlug: string, currentLocation: string, currentType: string) {
+  const entries = Object.entries(propertiesData).filter(([s]) => s !== currentSlug);
+  const sameLocation = entries.filter(([, p]) => p.location === currentLocation);
+  const sameType = entries.filter(([, p]) => p.type === currentType && p.location !== currentLocation);
+  const others = entries.filter(([, p]) => p.location !== currentLocation && p.type !== currentType);
+  const combined = [...sameLocation, ...sameType, ...others];
+  const seen = new Set<string>();
+  const unique: [string, (typeof propertiesData)[string]][] = [];
+  for (const item of combined) {
+    if (!seen.has(item[0])) {
+      seen.add(item[0]);
+      unique.push(item);
+    }
+  }
+  return unique.slice(0, 3);
+}
 
 export default function PropertyDetailClient({ slug }: { slug: string }) {
   const property = propertiesData[slug];
@@ -438,6 +695,7 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [formSent, setFormSent] = useState(false);
+  const relatedProperties = property ? getRelatedProperties(slug, property.location, property.type) : [];
 
   const nextHero = useCallback(() => {
     if (!property) return;
@@ -883,6 +1141,77 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
           </SectionReveal>
         </div>
       </section>
+
+      {relatedProperties.length > 0 && (
+        <section className="py-24 md:py-32 bg-background">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <SectionReveal>
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                  <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-muted mb-4">
+                    Explore More
+                  </p>
+                  <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground">
+                    Related Properties
+                  </h2>
+                </div>
+                <Link
+                  href="/properties"
+                  className="mt-6 md:mt-0 text-sm font-body tracking-wide text-muted hover:text-foreground transition-colors duration-300"
+                >
+                  View All Properties &rarr;
+                </Link>
+              </div>
+            </SectionReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {relatedProperties.map(([relSlug, relProperty], i) => (
+                <SectionReveal key={relSlug} delay={i * 0.12}>
+                  <Link href={`/properties/${relSlug}`} className="group block">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
+                      <Image
+                        src={relProperty.heroImages[0]}
+                        alt={relProperty.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-4 left-4">
+                        <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/90 px-3 py-1.5 text-foreground">
+                          {relProperty.type}
+                        </span>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                        <span className="text-sm font-body text-background-secondary">
+                          View Property &rarr;
+                        </span>
+                      </div>
+                    </div>
+                    <div className="mt-5">
+                      <p className="text-xs font-body tracking-widest uppercase text-muted">
+                        {relProperty.location}
+                      </p>
+                      <h3 className="mt-2 font-heading text-xl text-foreground group-hover:text-body transition-colors duration-300">
+                        {relProperty.title}
+                      </h3>
+                      <div className="mt-3 flex items-center gap-4 text-xs text-muted">
+                        <span>{relProperty.beds} Beds</span>
+                        <span className="w-px h-3 bg-border" />
+                        <span>{relProperty.baths} Baths</span>
+                        <span className="w-px h-3 bg-border" />
+                        <span>{relProperty.sqft} Sq Ft</span>
+                      </div>
+                      <p className="mt-3 font-heading text-lg text-foreground">
+                        {relProperty.price}
+                      </p>
+                    </div>
+                  </Link>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">

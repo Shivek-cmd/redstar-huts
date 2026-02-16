@@ -70,6 +70,12 @@ export function generateStaticParams() {
     { slug: "pacific-heights-modern" },
     { slug: "strand-collection" },
     { slug: "luxury-sample-property" },
+    { slug: "royal-greens-villa" },
+    { slug: "mohali-heights-penthouse" },
+    { slug: "elante-residences" },
+    { slug: "sector-9-heritage-home" },
+    { slug: "ambience-boulevard" },
+    { slug: "vr-punjab-luxury-floors" },
   ];
 }
 
