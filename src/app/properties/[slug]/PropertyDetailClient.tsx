@@ -17,6 +17,7 @@ const propertiesData: Record<
     description: string[];
     features: string[];
     images: { src: string; alt: string }[];
+    image: string;
   }
 > = {
   "meridian-residence": {
@@ -46,6 +47,7 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Master bedroom" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Pool area" },
     ],
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
   },
   "harborview-estate": {
     title: "Harborview Estate",
@@ -74,6 +76,7 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom suite" },
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Pool and garden" },
     ],
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
   },
   "crestwood-manor": {
     title: "Crestwood Manor",
@@ -102,6 +105,7 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Estate grounds" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Garden view" },
     ],
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
   },
   "pinnacle-penthouse": {
     title: "The Pinnacle Penthouse",
@@ -130,6 +134,7 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Master suite" },
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Kitchen detail" },
     ],
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
   },
   "lakeshore-villa": {
     title: "Lakeshore Villa",
@@ -158,6 +163,7 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Outdoor deck" },
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Mountain view" },
     ],
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
   },
   "the-wellington": {
     title: "The Wellington",
@@ -186,6 +192,7 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom" },
       { src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80", alt: "City view" },
     ],
+    image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80",
   },
   "aspen-ridge-retreat": {
     title: "Aspen Ridge Retreat",
@@ -214,6 +221,7 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Interior detail" },
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Pool area" },
     ],
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
   },
   "pacific-heights-modern": {
     title: "Pacific Heights Modern",
@@ -242,6 +250,7 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Kitchen" },
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Terrace view" },
     ],
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80",
   },
   "strand-collection": {
     title: "The Strand Collection",
@@ -270,8 +279,200 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Primary suite" },
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Pool and ocean" },
     ],
+    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
+  },
+  "royal-greens-villa": {
+    title: "The Royal Greens Villa",
+    location: "Mohali, Punjab",
+    price: "\u20B92.8 Cr",
+    beds: 4,
+    baths: 3,
+    sqft: "3,200",
+    type: "Villa",
+    description: [
+      "The Royal Greens Villa is a distinguished property situated in one of Mohali's most sought-after gated communities. Surrounded by lush green landscapes and designed with meticulous attention to detail, this villa offers an elevated lifestyle that is both serene and luxurious.",
+      "Spacious living areas flow seamlessly into manicured gardens, while the premium interiors feature Italian marble flooring, designer lighting, and a modern modular kitchen. The private terrace offers panoramic views of the Shivalik foothills.",
+    ],
+    features: [
+      "Gated community with 24/7 security",
+      "Italian marble flooring throughout",
+      "Private terrace with Shivalik views",
+      "Modular kitchen with premium appliances",
+      "Landscaped private garden",
+      "Covered parking for two vehicles",
+    ],
+    images: [
+      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80", alt: "Royal Greens Villa exterior" },
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Living room" },
+      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Kitchen" },
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Master bedroom" },
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Garden area" },
+    ],
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+  },
+  "mohali-heights-penthouse": {
+    title: "Mohali Heights Penthouse",
+    location: "Mohali, Punjab",
+    price: "\u20B91.6 Cr",
+    beds: 3,
+    baths: 3,
+    sqft: "2,400",
+    type: "Penthouse",
+    description: [
+      "Mohali Heights Penthouse is a sky-level residence offering unmatched views of the Tricity skyline. Positioned in a premium high-rise tower, this penthouse combines contemporary design with thoughtful luxury for an extraordinary urban living experience.",
+      "Double-height ceilings in the living area, a wraparound balcony, and floor-to-ceiling glazing create a dramatic sense of openness. The designer interiors feature imported fixtures, a spa-style master bath, and a private rooftop terrace for entertaining.",
+    ],
+    features: [
+      "Double-height ceiling in living area",
+      "Wraparound balcony with city views",
+      "Private rooftop terrace",
+      "Spa-style master bathroom",
+      "Imported fixtures and fittings",
+      "Dedicated elevator access",
+    ],
+    images: [
+      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80", alt: "Mohali Heights Penthouse" },
+      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Living area" },
+      { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Balcony views" },
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom" },
+      { src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80", alt: "City skyline" },
+    ],
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+  },
+  "elante-residences": {
+    title: "Elante Residences",
+    location: "Chandigarh",
+    price: "\u20B93.5 Cr",
+    beds: 4,
+    baths: 4,
+    sqft: "3,800",
+    type: "Residential",
+    description: [
+      "Elante Residences is a premium address in the heart of Chandigarh, offering sophisticated living with world-class amenities. Designed for discerning homeowners who value both location and quality, this residence sits within walking distance of the city's finest retail and dining destinations.",
+      "The interiors showcase a harmonious blend of warm wood accents and contemporary minimalism. Expansive windows invite abundant natural light, while the open floor plan creates an effortless flow between living, dining, and entertainment spaces.",
+    ],
+    features: [
+      "Prime location near Elante Mall",
+      "Open-concept living with 10-foot ceilings",
+      "Premium wood and stone finishes",
+      "Temperature-controlled wine storage",
+      "Clubhouse with pool and gymnasium",
+      "Underground parking with two dedicated spots",
+    ],
+    images: [
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80", alt: "Elante Residences exterior" },
+      { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80", alt: "Living space" },
+      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Dining area" },
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Master bedroom" },
+      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Balcony" },
+    ],
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+  },
+  "sector-9-heritage-home": {
+    title: "Sector 9 Heritage Home",
+    location: "Chandigarh",
+    price: "\u20B94.2 Cr",
+    beds: 5,
+    baths: 4,
+    sqft: "4,500",
+    type: "Estate",
+    description: [
+      "Sector 9 Heritage Home is a distinguished independent property in one of Chandigarh's most prestigious sectors, originally designed in the Le Corbusier tradition. This fully renovated estate combines mid-century architectural character with modern luxury throughout.",
+      "Set on a generous plot with mature trees and a private driveway, the home features a grand double-height entrance, formal living and dining areas, and a landscaped rear garden with a covered entertaining pavilion. Premium materials and craftsmanship define every space.",
+    ],
+    features: [
+      "Prime Sector 9 location near Sukhna Lake",
+      "Grand double-height entrance foyer",
+      "Fully renovated with premium finishes",
+      "Landscaped garden with entertaining pavilion",
+      "Separate servants' quarters",
+      "Covered parking for three vehicles",
+    ],
+    images: [
+      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80", alt: "Sector 9 Heritage Home" },
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Formal living room" },
+      { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80", alt: "Estate view" },
+      { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80", alt: "Interior" },
+      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Garden" },
+    ],
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+  },
+  "ambience-boulevard": {
+    title: "Ambience Boulevard",
+    location: "Zirakpur, Punjab",
+    price: "\u20B91.2 Cr",
+    beds: 3,
+    baths: 2,
+    sqft: "1,800",
+    type: "Residential",
+    description: [
+      "Ambience Boulevard offers a refined living experience along the Chandigarh-Ambala highway corridor, one of the Tricity's fastest-developing residential belts. This thoughtfully designed apartment combines smart space planning with premium finishes at an exceptional value.",
+      "The residence features an open kitchen with a breakfast bar, generous balconies overlooking landscaped greens, and a master suite with walk-in wardrobe. The development includes a clubhouse, swimming pool, and children's play area within the gated community.",
+    ],
+    features: [
+      "Gated community with landscaped greens",
+      "Open kitchen with breakfast bar",
+      "Master suite with walk-in wardrobe",
+      "Clubhouse, pool, and play area",
+      "Proximity to Chandigarh-Ambala highway",
+      "Covered parking with EV charging provision",
+    ],
+    images: [
+      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80", alt: "Ambience Boulevard" },
+      { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Living area" },
+      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Kitchen" },
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom" },
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Balcony view" },
+    ],
+    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
+  },
+  "vr-punjab-luxury-floors": {
+    title: "VR Punjab Luxury Floors",
+    location: "Zirakpur, Punjab",
+    price: "\u20B985 Lac",
+    beds: 3,
+    baths: 2,
+    sqft: "1,650",
+    type: "Residential",
+    description: [
+      "VR Punjab Luxury Floors offers an exceptional independent floor living experience near one of the region's most popular lifestyle destinations. Designed for families seeking space, privacy, and modern convenience, these luxury floors combine contemporary architecture with practical elegance.",
+      "Each floor features an open-plan living and dining area with premium vitrified tile flooring, a modular kitchen with chimney and hob, and well-appointed bedrooms with ample natural ventilation. The development is situated minutes from VR Punjab Mall, schools, and hospitals.",
+    ],
+    features: [
+      "Independent floor with private entrance",
+      "Near VR Punjab Mall and IT Park",
+      "Modular kitchen with chimney and hob",
+      "Premium vitrified tile flooring",
+      "Ample natural light and ventilation",
+      "Stilt parking with visitor spaces",
+    ],
+    images: [
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80", alt: "VR Punjab Luxury Floors" },
+      { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80", alt: "Living room" },
+      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Exterior" },
+      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Kitchen area" },
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Bedroom" },
+    ],
+    image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80",
   },
 };
+
+function getRelatedProperties(currentSlug: string, currentLocation: string, currentType: string) {
+  const entries = Object.entries(propertiesData).filter(([slug]) => slug !== currentSlug);
+  const sameLocation = entries.filter(([, p]) => p.location === currentLocation);
+  const sameType = entries.filter(([, p]) => p.type === currentType && p.location !== currentLocation);
+  const others = entries.filter(([, p]) => p.location !== currentLocation && p.type !== currentType);
+  const combined = [...sameLocation, ...sameType, ...others];
+  const seen = new Set<string>();
+  const unique: [string, typeof propertiesData[string]][] = [];
+  for (const item of combined) {
+    if (!seen.has(item[0])) {
+      seen.add(item[0]);
+      unique.push(item);
+    }
+  }
+  return unique.slice(0, 3);
+}
 
 export default function PropertyDetailClient({ slug }: { slug: string }) {
   const property = propertiesData[slug];
@@ -288,6 +489,8 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
       </section>
     );
   }
+
+  const relatedProperties = getRelatedProperties(slug, property.location, property.type);
 
   return (
     <>
@@ -382,6 +585,77 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+
+      {relatedProperties.length > 0 && (
+        <section className="py-24 md:py-32 bg-background">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <SectionReveal>
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                  <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-muted mb-4">
+                    Explore More
+                  </p>
+                  <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground">
+                    Related Properties
+                  </h2>
+                </div>
+                <Link
+                  href="/properties"
+                  className="mt-6 md:mt-0 text-sm font-body tracking-wide text-muted hover:text-foreground transition-colors duration-300"
+                >
+                  View All Properties &rarr;
+                </Link>
+              </div>
+            </SectionReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {relatedProperties.map(([relSlug, relProperty], i) => (
+                <SectionReveal key={relSlug} delay={i * 0.12}>
+                  <Link href={`/properties/${relSlug}`} className="group block">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
+                      <Image
+                        src={relProperty.image}
+                        alt={relProperty.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-4 left-4">
+                        <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/90 px-3 py-1.5 text-foreground">
+                          {relProperty.type}
+                        </span>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                        <span className="text-sm font-body text-background-secondary">
+                          View Property &rarr;
+                        </span>
+                      </div>
+                    </div>
+                    <div className="mt-5">
+                      <p className="text-xs font-body tracking-widest uppercase text-muted">
+                        {relProperty.location}
+                      </p>
+                      <h3 className="mt-2 font-heading text-xl text-foreground group-hover:text-body transition-colors duration-300">
+                        {relProperty.title}
+                      </h3>
+                      <div className="mt-3 flex items-center gap-4 text-xs text-muted">
+                        <span>{relProperty.beds} Beds</span>
+                        <span className="w-px h-3 bg-border" />
+                        <span>{relProperty.baths} Baths</span>
+                        <span className="w-px h-3 bg-border" />
+                        <span>{relProperty.sqft} Sq Ft</span>
+                      </div>
+                      <p className="mt-3 font-heading text-lg text-foreground">
+                        {relProperty.price}
+                      </p>
+                    </div>
+                  </Link>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
