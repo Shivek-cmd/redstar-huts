@@ -1,24 +1,28 @@
 "use client";
 
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
 
-const propertiesData: Record<
-  string,
-  {
-    title: string;
-    location: string;
-    price: string;
-    beds: number;
-    baths: number;
-    sqft: string;
-    type: string;
-    description: string[];
-    features: string[];
-    images: { src: string; alt: string }[];
-  }
-> = {
+interface PropertyData {
+  title: string;
+  location: string;
+  price: string;
+  beds: number;
+  baths: number;
+  sqft: string;
+  type: string;
+  description: string[];
+  features: string[];
+  images: { src: string; alt: string }[];
+  video?: string;
+  highlights?: { label: string; value: string }[];
+  nearby?: string[];
+  configuration?: string;
+}
+
+const propertiesData: Record<string, PropertyData> = {
   "meridian-residence": {
     title: "The Meridian Residence",
     location: "Beverly Hills, CA",
@@ -271,10 +275,78 @@ const propertiesData: Record<
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Pool and ocean" },
     ],
   },
+  "the-grand-mohali": {
+    title: "The Grand Mohali",
+    location: "Mohali, Punjab",
+    price: "On Request",
+    beds: 4,
+    baths: 4,
+    sqft: "2,901",
+    type: "Premium Residence",
+    configuration: "3+1 BHK",
+    description: [
+      "The Grand Mohali is an ultra-premium 3+1 BHK residence spanning 2,901 sq ft of meticulously designed living space in one of Mohali\u2019s most prestigious developments. Every detail has been crafted for discerning homeowners who demand nothing less than perfection \u2014 from imported marble flooring to designer cove lighting that transforms each room into a curated experience.",
+      "The residence features a fully-loaded modular kitchen with attached hob, chimney, H\u00E4fele microwave, and built-in oven \u2014 ready to use from day one. Each bedroom comes with an attached bathroom, and a separate powder room adds convenience for guests. With a dedicated servant\u2019s entry, basement parking, and access to a sprawling 1 lakh sq ft clubhouse, this is luxury living reimagined for modern families.",
+    ],
+    features: [
+      "Premium modular kitchen with attached hob & chimney",
+      "H\u00E4fele microwave and built-in oven included",
+      "Each bedroom with attached bathroom",
+      "Common powder room for guests",
+      "Separate servant\u2019s entry for privacy",
+      "1 lakh sq ft clubhouse with world-class amenities",
+      "Basement parking with dedicated slots",
+      "Premium finishing with imported fixtures",
+      "Designer cove lighting throughout",
+      "Central air conditioning provision",
+    ],
+    highlights: [
+      { label: "Configuration", value: "3+1 BHK" },
+      { label: "Super Area", value: "2,901 Sq Ft" },
+      { label: "Clubhouse", value: "1 Lac Sq Ft" },
+      { label: "Finishing", value: "Ultra Premium" },
+    ],
+    nearby: [
+      "Chandigarh International Airport",
+      "ISBT Mohali",
+      "Proposed Metro Station",
+      "Elante Mall",
+      "Sohana Hospital",
+      "Proposed GMADA Park",
+    ],
+    images: [
+      { src: "/properties/grand-mohali/bedroom-1.jpg", alt: "Premium master bedroom with designer cove lighting" },
+      { src: "/properties/grand-mohali/kitchen.jpg", alt: "Modular kitchen with H\u00E4fele appliances and hob" },
+      { src: "/properties/grand-mohali/bedroom-2.jpg", alt: "Spacious bedroom with art-inspired wall design" },
+      { src: "/properties/grand-mohali/living-room.jpg", alt: "Elegant living room with floor-to-ceiling curtains" },
+      { src: "/properties/grand-mohali/dining.jpg", alt: "Designer dining room with artisan pendant lighting" },
+    ],
+    video: "/properties/grand-mohali/tour.mp4",
+  },
 };
+
+function getRelatedProperties(currentSlug: string, currentLocation: string, currentType: string) {
+  const entries = Object.entries(propertiesData).filter(([s]) => s !== currentSlug);
+  const sameLocation = entries.filter(([, p]) => p.location === currentLocation);
+  const sameType = entries.filter(([, p]) => p.type === currentType && p.location !== currentLocation);
+  const others = entries.filter(([, p]) => p.location !== currentLocation && p.type !== currentType);
+  const combined = [...sameLocation, ...sameType, ...others];
+  const seen = new Set<string>();
+  const unique: [string, PropertyData][] = [];
+  for (const item of combined) {
+    if (!seen.has(item[0])) {
+      seen.add(item[0]);
+      unique.push(item);
+    }
+  }
+  return unique.slice(0, 3);
+}
 
 export default function PropertyDetailClient({ slug }: { slug: string }) {
   const property = propertiesData[slug];
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const relatedProperties = property ? getRelatedProperties(slug, property.location, property.type) : [];
 
   if (!property) {
     return (
@@ -300,12 +372,15 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
             <span className="inline-block text-xs font-body tracking-widest uppercase bg-background-secondary/15 px-3 py-1.5 text-background-secondary mb-4">
-              {property.type}
+              {property.configuration || property.type}
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-4xl leading-tight drop-shadow-lg">
               {property.title}
             </h1>
             <p className="mt-4 text-base text-background-secondary/70">{property.location}</p>
+            {property.price !== "On Request" && (
+              <p className="mt-3 font-heading text-2xl text-background-secondary/90">{property.price}</p>
+            )}
           </SectionReveal>
         </div>
       </section>
@@ -314,6 +389,15 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-8">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="flex flex-wrap items-center gap-8 text-sm text-body">
+              {property.configuration && (
+                <>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-body tracking-widest uppercase text-muted">Config</span>
+                    <span className="font-heading text-lg text-foreground">{property.configuration}</span>
+                  </div>
+                  <span className="w-px h-6 bg-border" />
+                </>
+              )}
               <div className="flex items-center gap-2">
                 <span className="text-xs font-body tracking-widest uppercase text-muted">Beds</span>
                 <span className="font-heading text-lg text-foreground">{property.beds}</span>
@@ -325,8 +409,8 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
               </div>
               <span className="w-px h-6 bg-border" />
               <div className="flex items-center gap-2">
-                <span className="text-xs font-body tracking-widest uppercase text-muted">Sq Ft</span>
-                <span className="font-heading text-lg text-foreground">{property.sqft}</span>
+                <span className="text-xs font-body tracking-widest uppercase text-muted">Super Area</span>
+                <span className="font-heading text-lg text-foreground">{property.sqft} Sq Ft</span>
               </div>
             </div>
             <p className="font-heading text-2xl md:text-3xl text-foreground">{property.price}</p>
@@ -334,12 +418,29 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {property.highlights && (
+        <section className="bg-background border-b border-border">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {property.highlights.map((h) => (
+                <SectionReveal key={h.label}>
+                  <div className="text-center">
+                    <p className="text-xs font-body tracking-widest uppercase text-muted mb-2">{h.label}</p>
+                    <p className="font-heading text-xl md:text-2xl text-foreground">{h.value}</p>
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="py-24 md:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <SectionReveal>
               <div className="relative aspect-[4/5] overflow-hidden">
-                <Image src={property.images[1].src} alt={property.images[1].alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                <Image src={property.images[1]?.src || property.images[0].src} alt={property.images[1]?.alt || property.images[0].alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
               </div>
             </SectionReveal>
             <div className="grid grid-cols-2 gap-4">
@@ -355,7 +456,43 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-background-secondary">
+      {property.video && (
+        <section className="py-16 md:py-24 bg-background-secondary">
+          <div className="max-w-5xl mx-auto px-6 lg:px-10">
+            <SectionReveal>
+              <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4 text-center">Virtual Walkthrough</p>
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground text-center mb-10">Property Tour</h2>
+              <div className="relative aspect-video overflow-hidden bg-foreground/5 cursor-pointer group" onClick={() => {
+                setIsVideoPlaying(!isVideoPlaying);
+                if (videoRef.current) {
+                  if (isVideoPlaying) videoRef.current.pause();
+                  else videoRef.current.play();
+                }
+              }}>
+                <video
+                  ref={videoRef}
+                  src={property.video}
+                  className="w-full h-full object-cover"
+                  loop
+                  muted
+                  playsInline
+                />
+                {!isVideoPlaying && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-foreground/20 group-hover:bg-foreground/30 transition-colors duration-300">
+                    <div className="w-20 h-20 rounded-full bg-background-secondary/90 flex items-center justify-center shadow-lg">
+                      <svg className="w-8 h-8 text-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </SectionReveal>
+          </div>
+        </section>
+      )}
+
+      <section className={`py-24 md:py-32 ${property.video ? 'bg-background' : 'bg-background-secondary'}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
@@ -382,6 +519,76 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+
+      {property.nearby && (
+        <section className="py-20 md:py-28 bg-background-depth">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <SectionReveal>
+              <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4 text-center">Connectivity & Convenience</p>
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground text-center">Nearby Landmarks</h2>
+              <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-6">
+                {property.nearby.map((place) => (
+                  <div key={place} className="flex items-center gap-3 p-5 bg-background-secondary border border-border">
+                    <svg className="w-5 h-5 text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                    <span className="text-sm font-body text-body">{place}</span>
+                  </div>
+                ))}
+              </div>
+            </SectionReveal>
+          </div>
+        </section>
+      )}
+
+      {relatedProperties.length > 0 && (
+        <section className="py-24 md:py-32 bg-background">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <SectionReveal>
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                  <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-muted mb-4">Explore More</p>
+                  <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground">Related Properties</h2>
+                </div>
+                <Link href="/properties" className="mt-6 md:mt-0 text-sm font-body tracking-wide text-muted hover:text-foreground transition-colors duration-300">
+                  View All Properties &rarr;
+                </Link>
+              </div>
+            </SectionReveal>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {relatedProperties.map(([relSlug, relProperty], i) => (
+                <SectionReveal key={relSlug} delay={i * 0.12}>
+                  <Link href={`/properties/${relSlug}`} className="group block">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
+                      <Image src={relProperty.images[0].src} alt={relProperty.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-4 left-4">
+                        <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/90 px-3 py-1.5 text-foreground">{relProperty.type}</span>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                        <span className="text-sm font-body text-background-secondary">View Property &rarr;</span>
+                      </div>
+                    </div>
+                    <div className="mt-5">
+                      <p className="text-xs font-body tracking-widest uppercase text-muted">{relProperty.location}</p>
+                      <h3 className="mt-2 font-heading text-xl text-foreground group-hover:text-body transition-colors duration-300">{relProperty.title}</h3>
+                      <div className="mt-3 flex items-center gap-4 text-xs text-muted">
+                        <span>{relProperty.beds} Beds</span>
+                        <span className="w-px h-3 bg-border" />
+                        <span>{relProperty.baths} Baths</span>
+                        <span className="w-px h-3 bg-border" />
+                        <span>{relProperty.sqft} Sq Ft</span>
+                      </div>
+                      <p className="mt-3 font-heading text-lg text-foreground">{relProperty.price}</p>
+                    </div>
+                  </Link>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">

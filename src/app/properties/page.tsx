@@ -114,6 +114,17 @@ const allProperties = [
     sqft: "7,400",
     type: "Beachfront",
   },
+  {
+    title: "The Grand Mohali",
+    slug: "the-grand-mohali",
+    location: "Mohali, Punjab",
+    price: "On Request",
+    image: "/properties/grand-mohali/living-room.jpg",
+    beds: 4,
+    baths: 4,
+    sqft: "2,901",
+    type: "Premium Residence",
+  },
 ];
 
 const locations = ["All Locations", ...Array.from(new Set(allProperties.map((p) => p.location)))];
@@ -126,6 +137,13 @@ const budgetRanges = [
 ];
 
 function parsePrice(price: string): number {
+  if (price === "On Request") return 0;
+  if (price.includes("\u20B9")) {
+    const num = parseFloat(price.replace(/[^\d.]/g, ""));
+    if (price.includes("Cr")) return num * 10000000;
+    if (price.includes("Lac")) return num * 100000;
+    return num;
+  }
   return Number(price.replace(/[$,]/g, ""));
 }
 
