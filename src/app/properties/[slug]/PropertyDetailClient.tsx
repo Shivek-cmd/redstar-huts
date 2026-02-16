@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
@@ -13,13 +13,14 @@ interface PropertyData {
   baths: number;
   sqft: string;
   type: string;
+  configuration: string;
   description: string[];
   features: string[];
   images: { src: string; alt: string }[];
   video?: string;
-  highlights?: { label: string; value: string }[];
-  nearby?: string[];
-  configuration?: string;
+  highlights: { label: string; value: string }[];
+  nearby: string[];
+  mapEmbed?: string;
 }
 
 const propertiesData: Record<string, PropertyData> = {
@@ -31,17 +32,32 @@ const propertiesData: Record<string, PropertyData> = {
     baths: 4,
     sqft: "6,200",
     type: "Residential",
+    configuration: "5 BHK",
     description: [
       "Nestled in the heart of Beverly Hills, The Meridian Residence is a masterfully designed home that seamlessly blends modern luxury with timeless elegance. Every detail has been carefully considered to create a living experience that is both refined and welcoming.",
       "Floor-to-ceiling windows flood the interiors with natural light, while premium materials and finishes create an atmosphere of quiet sophistication throughout. The open floor plan connects seamlessly to expansive outdoor living spaces with panoramic views.",
     ],
     features: [
-      "Chef's kitchen with Italian marble countertops",
+      "Chef\u2019s kitchen with Italian marble countertops",
       "Primary suite with private terrace and spa bath",
       "Infinity pool with city views",
       "Home theater and wine cellar",
       "Smart home automation throughout",
       "Three-car garage with EV charging",
+    ],
+    highlights: [
+      { label: "Configuration", value: "5 BHK" },
+      { label: "Super Area", value: "6,200 Sq Ft" },
+      { label: "Type", value: "Residential" },
+      { label: "Finishing", value: "Premium" },
+    ],
+    nearby: [
+      "Rodeo Drive",
+      "Beverly Hills Hotel",
+      "Cedars-Sinai Medical Center",
+      "Century City Mall",
+      "UCLA Campus",
+      "Los Angeles Country Club",
     ],
     images: [
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80", alt: "Meridian Residence exterior" },
@@ -59,8 +75,9 @@ const propertiesData: Record<string, PropertyData> = {
     baths: 3,
     sqft: "4,800",
     type: "Residential",
+    configuration: "4 BHK",
     description: [
-      "Harborview Estate captures the essence of coastal luxury living in one of Miami Beach's most prestigious neighborhoods. This stunning waterfront property offers breathtaking views and an unparalleled lifestyle experience.",
+      "Harborview Estate captures the essence of coastal luxury living in one of Miami Beach\u2019s most prestigious neighborhoods. This stunning waterfront property offers breathtaking views and an unparalleled lifestyle experience.",
       "The residence features an open-concept design with soaring ceilings, a gourmet kitchen, and walls of glass that blur the line between indoor and outdoor living. The private dock and resort-style pool complete this exceptional offering.",
     ],
     features: [
@@ -70,6 +87,20 @@ const propertiesData: Record<string, PropertyData> = {
       "Gourmet kitchen with top-tier appliances",
       "Rooftop terrace with panoramic water views",
       "Hurricane-rated construction",
+    ],
+    highlights: [
+      { label: "Configuration", value: "4 BHK" },
+      { label: "Super Area", value: "4,800 Sq Ft" },
+      { label: "Type", value: "Waterfront" },
+      { label: "Finishing", value: "Premium" },
+    ],
+    nearby: [
+      "South Beach",
+      "Miami International Airport",
+      "Bal Harbour Shops",
+      "Mount Sinai Medical Center",
+      "Art Deco Historic District",
+      "Bayfront Park",
     ],
     images: [
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80", alt: "Harborview Estate exterior" },
@@ -87,9 +118,10 @@ const propertiesData: Record<string, PropertyData> = {
     baths: 5,
     sqft: "8,500",
     type: "Estate",
+    configuration: "6 BHK",
     description: [
-      "Crestwood Manor is a distinguished estate set on over three acres of meticulously landscaped grounds in Greenwich's most coveted enclave. This property represents the pinnacle of New England luxury living.",
-      "The manor features grand formal rooms with soaring ceilings, a library with hand-carved woodwork, and a chef's kitchen designed for both intimate dinners and grand entertaining. The grounds include a tennis court, heated pool, and guest cottage.",
+      "Crestwood Manor is a distinguished estate set on over three acres of meticulously landscaped grounds in Greenwich\u2019s most coveted enclave. This property represents the pinnacle of New England luxury living.",
+      "The manor features grand formal rooms with soaring ceilings, a library with hand-carved woodwork, and a chef\u2019s kitchen designed for both intimate dinners and grand entertaining. The grounds include a tennis court, heated pool, and guest cottage.",
     ],
     features: [
       "3+ acres of professionally landscaped grounds",
@@ -98,6 +130,20 @@ const propertiesData: Record<string, PropertyData> = {
       "Heated pool and championship tennis court",
       "Separate guest cottage with full kitchen",
       "Six-car heated garage",
+    ],
+    highlights: [
+      { label: "Configuration", value: "6 BHK" },
+      { label: "Super Area", value: "8,500 Sq Ft" },
+      { label: "Plot", value: "3+ Acres" },
+      { label: "Finishing", value: "Grand Estate" },
+    ],
+    nearby: [
+      "Greenwich Avenue Shopping",
+      "Greenwich Hospital",
+      "Metro-North Railroad",
+      "Bruce Museum",
+      "Greenwich Country Club",
+      "Tod\u2019s Point Beach",
     ],
     images: [
       { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80", alt: "Crestwood Manor exterior" },
@@ -115,9 +161,10 @@ const propertiesData: Record<string, PropertyData> = {
     baths: 3,
     sqft: "4,200",
     type: "Penthouse",
+    configuration: "3 BHK",
     description: [
-      "Perched atop one of Manhattan's most prestigious towers, The Pinnacle Penthouse offers an unrivaled living experience with 360-degree views of the city skyline, Central Park, and the Hudson River.",
-      "This meticulously designed residence features museum-quality finishes, a private elevator entry, and floor-to-ceiling windows that frame the city as living art. The chef's kitchen, spacious entertaining areas, and serene private quarters create the ultimate urban retreat.",
+      "Perched atop one of Manhattan\u2019s most prestigious towers, The Pinnacle Penthouse offers an unrivaled living experience with 360-degree views of the city skyline, Central Park, and the Hudson River.",
+      "This meticulously designed residence features museum-quality finishes, a private elevator entry, and floor-to-ceiling windows that frame the city as living art. The chef\u2019s kitchen, spacious entertaining areas, and serene private quarters create the ultimate urban retreat.",
     ],
     features: [
       "360-degree panoramic city and park views",
@@ -126,6 +173,20 @@ const propertiesData: Record<string, PropertyData> = {
       "Custom Italian cabinetry and stone finishes",
       "Radiant heated floors",
       "Full-service building with concierge",
+    ],
+    highlights: [
+      { label: "Configuration", value: "3 BHK" },
+      { label: "Super Area", value: "4,200 Sq Ft" },
+      { label: "Type", value: "Penthouse" },
+      { label: "Finishing", value: "Museum-Grade" },
+    ],
+    nearby: [
+      "Central Park",
+      "Fifth Avenue Shopping",
+      "Lincoln Center",
+      "Museum of Modern Art",
+      "Times Square",
+      "Grand Central Terminal",
     ],
     images: [
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80", alt: "Pinnacle Penthouse interior" },
@@ -143,8 +204,9 @@ const propertiesData: Record<string, PropertyData> = {
     baths: 4,
     sqft: "5,800",
     type: "Residential",
+    configuration: "5 BHK",
     description: [
-      "Lakeshore Villa is a stunning lakefront property offering direct access to the pristine waters of Lake Tahoe. This mountain modern masterpiece combines rustic warmth with contemporary luxury in one of America's most breathtaking settings.",
+      "Lakeshore Villa is a stunning lakefront property offering direct access to the pristine waters of Lake Tahoe. This mountain modern masterpiece combines rustic warmth with contemporary luxury in one of America\u2019s most breathtaking settings.",
       "The home features dramatic vaulted ceilings with exposed timber beams, a great room with floor-to-ceiling stone fireplace, and expansive decks that frame the lake and mountain views. A private beach and dock complete this extraordinary retreat.",
     ],
     features: [
@@ -154,6 +216,20 @@ const propertiesData: Record<string, PropertyData> = {
       "Heated outdoor living areas with fire pit",
       "Ski-in/ski-out trail access",
       "Separate guest wing with private entrance",
+    ],
+    highlights: [
+      { label: "Configuration", value: "5 BHK" },
+      { label: "Super Area", value: "5,800 Sq Ft" },
+      { label: "Type", value: "Lakefront" },
+      { label: "Finishing", value: "Mountain Modern" },
+    ],
+    nearby: [
+      "Lake Tahoe Beaches",
+      "Heavenly Ski Resort",
+      "Edgewood Tahoe Golf Course",
+      "Emerald Bay State Park",
+      "Reno-Tahoe International Airport",
+      "Barton Memorial Hospital",
     ],
     images: [
       { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80", alt: "Lakeshore Villa exterior" },
@@ -171,17 +247,32 @@ const propertiesData: Record<string, PropertyData> = {
     baths: 2,
     sqft: "3,100",
     type: "Condominium",
+    configuration: "3 BHK",
     description: [
-      "The Wellington offers sophisticated urban living in one of San Francisco's most desirable neighborhoods. This beautifully appointed condominium combines classic architectural character with modern luxury amenities.",
+      "The Wellington offers sophisticated urban living in one of San Francisco\u2019s most desirable neighborhoods. This beautifully appointed condominium combines classic architectural character with modern luxury amenities.",
       "Thoughtfully designed interiors feature hardwood floors, custom millwork, and an open kitchen that flows seamlessly into generous living and dining areas. The private terrace provides the perfect setting for enjoying iconic city views.",
     ],
     features: [
       "Corner unit with abundant natural light",
       "Private terrace with Golden Gate Bridge views",
       "Hardwood floors and custom millwork throughout",
-      "Chef's kitchen with premium appliances",
+      "Chef\u2019s kitchen with premium appliances",
       "In-unit laundry and ample storage",
       "Deeded parking and building amenities",
+    ],
+    highlights: [
+      { label: "Configuration", value: "3 BHK" },
+      { label: "Super Area", value: "3,100 Sq Ft" },
+      { label: "Type", value: "Condominium" },
+      { label: "Finishing", value: "Premium" },
+    ],
+    nearby: [
+      "Golden Gate Bridge",
+      "Union Square",
+      "UCSF Medical Center",
+      "Ferry Building Marketplace",
+      "Presidio National Park",
+      "San Francisco International Airport",
     ],
     images: [
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80", alt: "The Wellington exterior" },
@@ -199,8 +290,9 @@ const propertiesData: Record<string, PropertyData> = {
     baths: 6,
     sqft: "9,200",
     type: "Estate",
+    configuration: "7 BHK",
     description: [
-      "Aspen Ridge Retreat is an extraordinary mountain estate that redefines luxury living in one of the world's most exclusive resort destinations. Set against a backdrop of pristine alpine peaks, this property offers an unmatched combination of grandeur and natural beauty.",
+      "Aspen Ridge Retreat is an extraordinary mountain estate that redefines luxury living in one of the world\u2019s most exclusive resort destinations. Set against a backdrop of pristine alpine peaks, this property offers an unmatched combination of grandeur and natural beauty.",
       "The estate features a dramatic great room with soaring windows, a wine cellar, home theater, and a spa-level wellness suite. Outdoor living includes heated terraces, an infinity-edge pool, and direct trail access for skiing and hiking.",
     ],
     features: [
@@ -210,6 +302,20 @@ const propertiesData: Record<string, PropertyData> = {
       "Home theater with Dolby Atmos",
       "Infinity-edge heated pool and hot tub",
       "Spa suite with sauna and steam room",
+    ],
+    highlights: [
+      { label: "Configuration", value: "7 BHK" },
+      { label: "Super Area", value: "9,200 Sq Ft" },
+      { label: "Type", value: "Mountain Estate" },
+      { label: "Finishing", value: "Ultra Premium" },
+    ],
+    nearby: [
+      "Aspen Mountain Ski Area",
+      "Aspen Art Museum",
+      "Maroon Bells",
+      "Aspen Valley Hospital",
+      "Aspen/Pitkin County Airport",
+      "Downtown Aspen",
     ],
     images: [
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80", alt: "Aspen Ridge exterior" },
@@ -227,8 +333,9 @@ const propertiesData: Record<string, PropertyData> = {
     baths: 4,
     sqft: "5,100",
     type: "Residential",
+    configuration: "4 BHK",
     description: [
-      "Pacific Heights Modern is a striking contemporary residence in San Francisco's most prestigious neighborhood. This architectural gem combines clean lines and innovative design with warm, livable spaces that welcome both daily life and grand entertaining.",
+      "Pacific Heights Modern is a striking contemporary residence in San Francisco\u2019s most prestigious neighborhood. This architectural gem combines clean lines and innovative design with warm, livable spaces that welcome both daily life and grand entertaining.",
       "The home features an open floor plan that flows across three levels, connected by a sculptural floating staircase. Premium materials, integrated smart home technology, and a rooftop terrace with panoramic bay views define this exceptional property.",
     ],
     features: [
@@ -236,8 +343,22 @@ const propertiesData: Record<string, PropertyData> = {
       "Sculptural floating staircase",
       "Rooftop terrace with bay and bridge views",
       "Integrated smart home system",
-      "Chef's kitchen with waterfall island",
+      "Chef\u2019s kitchen with waterfall island",
       "Two-car garage with direct interior access",
+    ],
+    highlights: [
+      { label: "Configuration", value: "4 BHK" },
+      { label: "Super Area", value: "5,100 Sq Ft" },
+      { label: "Type", value: "Contemporary" },
+      { label: "Finishing", value: "Premium" },
+    ],
+    nearby: [
+      "Golden Gate Bridge",
+      "Pacific Heights Shops",
+      "CPMC Medical Center",
+      "Palace of Fine Arts",
+      "Marina District",
+      "San Francisco International Airport",
     ],
     images: [
       { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80", alt: "Pacific Heights exterior" },
@@ -255,6 +376,7 @@ const propertiesData: Record<string, PropertyData> = {
     baths: 5,
     sqft: "7,400",
     type: "Beachfront",
+    configuration: "5 BHK",
     description: [
       "The Strand Collection represents the ultimate in California beachfront living. This exceptional Malibu property sits directly on the sand with unobstructed ocean views that stretch to the horizon, offering a lifestyle that is truly without equal.",
       "Designed by a renowned architect, the residence features walls of glass that open completely to the ocean, creating an indoor-outdoor living experience that celebrates the natural beauty of its setting. Premium materials and meticulous craftsmanship are evident in every detail.",
@@ -266,6 +388,20 @@ const propertiesData: Record<string, PropertyData> = {
       "Heated infinity pool overlooking the Pacific",
       "Professional-grade outdoor kitchen",
       "Private beach access and guest house",
+    ],
+    highlights: [
+      { label: "Configuration", value: "5 BHK" },
+      { label: "Super Area", value: "7,400 Sq Ft" },
+      { label: "Type", value: "Beachfront" },
+      { label: "Finishing", value: "Architect-Designed" },
+    ],
+    nearby: [
+      "Malibu Pier",
+      "Point Dume State Beach",
+      "Malibu Country Mart",
+      "Pepperdine University",
+      "Santa Monica",
+      "Los Angeles International Airport",
     ],
     images: [
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80", alt: "Strand Collection exterior" },
@@ -325,6 +461,9 @@ const propertiesData: Record<string, PropertyData> = {
   },
 };
 
+const mediaTabs = ["Photos", "Video Tour", "Floor Plan", "Location"] as const;
+type MediaTab = (typeof mediaTabs)[number];
+
 function getRelatedProperties(currentSlug: string, currentLocation: string, currentType: string) {
   const entries = Object.entries(propertiesData).filter(([s]) => s !== currentSlug);
   const sameLocation = entries.filter(([, p]) => p.location === currentLocation);
@@ -344,9 +483,17 @@ function getRelatedProperties(currentSlug: string, currentLocation: string, curr
 
 export default function PropertyDetailClient({ slug }: { slug: string }) {
   const property = propertiesData[slug];
+  const [activeTab, setActiveTab] = useState<MediaTab>("Photos");
+  const [selectedImage, setSelectedImage] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const relatedProperties = property ? getRelatedProperties(slug, property.location, property.type) : [];
+
+  useEffect(() => {
+    setActiveTab("Photos");
+    setSelectedImage(0);
+    setIsVideoPlaying(false);
+  }, [slug]);
 
   if (!property) {
     return (
@@ -361,43 +508,48 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
     );
   }
 
+  const availableTabs = mediaTabs.filter((tab) => {
+    if (tab === "Video Tour") return !!property.video;
+    return true;
+  });
+
   return (
     <>
+      {/* Hero Section */}
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src={property.images[0].src} alt={property.images[0].alt} fill className="object-cover" />
+          <Image src={property.images[0].src} alt={property.images[0].alt} fill className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
             <span className="inline-block text-xs font-body tracking-widest uppercase bg-background-secondary/15 px-3 py-1.5 text-background-secondary mb-4">
-              {property.configuration || property.type}
+              {property.configuration}
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-4xl leading-tight drop-shadow-lg">
               {property.title}
             </h1>
             <p className="mt-4 text-base text-background-secondary/70">{property.location}</p>
-            {property.price !== "On Request" && (
-              <p className="mt-3 font-heading text-2xl text-background-secondary/90">{property.price}</p>
-            )}
+            <div className="mt-8">
+              <Link href="/contact" className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-background-secondary text-foreground hover:bg-background transition-colors duration-300">
+                Schedule Site Visit
+              </Link>
+            </div>
           </SectionReveal>
         </div>
       </section>
 
+      {/* Stats Bar */}
       <section className="bg-background-secondary border-b border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-8">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="flex flex-wrap items-center gap-8 text-sm text-body">
-              {property.configuration && (
-                <>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-body tracking-widest uppercase text-muted">Config</span>
-                    <span className="font-heading text-lg text-foreground">{property.configuration}</span>
-                  </div>
-                  <span className="w-px h-6 bg-border" />
-                </>
-              )}
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-body tracking-widest uppercase text-muted">Config</span>
+                <span className="font-heading text-lg text-foreground">{property.configuration}</span>
+              </div>
+              <span className="w-px h-6 bg-border" />
               <div className="flex items-center gap-2">
                 <span className="text-xs font-body tracking-widest uppercase text-muted">Beds</span>
                 <span className="font-heading text-lg text-foreground">{property.beds}</span>
@@ -418,81 +570,132 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {property.highlights && (
-        <section className="bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {property.highlights.map((h) => (
-                <SectionReveal key={h.label}>
-                  <div className="text-center">
-                    <p className="text-xs font-body tracking-widest uppercase text-muted mb-2">{h.label}</p>
-                    <p className="font-heading text-xl md:text-2xl text-foreground">{h.value}</p>
-                  </div>
-                </SectionReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      <section className="py-24 md:py-32 bg-background">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <SectionReveal>
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <Image src={property.images[1]?.src || property.images[0].src} alt={property.images[1]?.alt || property.images[0].alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-            </SectionReveal>
-            <div className="grid grid-cols-2 gap-4">
-              {property.images.slice(2).map((img, i) => (
-                <SectionReveal key={img.src} delay={i * 0.1}>
-                  <div className="relative aspect-square overflow-hidden">
-                    <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
-                  </div>
-                </SectionReveal>
-              ))}
-            </div>
+      {/* Highlights Grid */}
+      <section className="bg-background border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {property.highlights.map((h) => (
+              <SectionReveal key={h.label}>
+                <div className="text-center">
+                  <p className="text-xs font-body tracking-widest uppercase text-muted mb-2">{h.label}</p>
+                  <p className="font-heading text-xl md:text-2xl text-foreground">{h.value}</p>
+                </div>
+              </SectionReveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {property.video && (
-        <section className="py-16 md:py-24 bg-background-secondary">
-          <div className="max-w-5xl mx-auto px-6 lg:px-10">
-            <SectionReveal>
-              <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4 text-center">Virtual Walkthrough</p>
-              <h2 className="font-heading text-3xl md:text-4xl text-foreground text-center mb-10">Property Tour</h2>
-              <div className="relative aspect-video overflow-hidden bg-foreground/5 cursor-pointer group" onClick={() => {
-                setIsVideoPlaying(!isVideoPlaying);
-                if (videoRef.current) {
-                  if (isVideoPlaying) videoRef.current.pause();
-                  else videoRef.current.play();
-                }
-              }}>
-                <video
-                  ref={videoRef}
-                  src={property.video}
-                  className="w-full h-full object-cover"
-                  loop
-                  muted
-                  playsInline
-                />
-                {!isVideoPlaying && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-foreground/20 group-hover:bg-foreground/30 transition-colors duration-300">
-                    <div className="w-20 h-20 rounded-full bg-background-secondary/90 flex items-center justify-center shadow-lg">
-                      <svg className="w-8 h-8 text-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </SectionReveal>
+      {/* Tab-Based Media Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="flex items-center gap-1 border-b border-border mb-10 overflow-x-auto">
+            {availableTabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`text-sm font-body tracking-widest uppercase px-6 py-4 whitespace-nowrap transition-colors duration-300 border-b-2 -mb-px ${
+                  activeTab === tab
+                    ? "border-foreground text-foreground"
+                    : "border-transparent text-muted hover:text-foreground"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
           </div>
-        </section>
-      )}
 
-      <section className={`py-24 md:py-32 ${property.video ? 'bg-background' : 'bg-background-secondary'}`}>
+          {activeTab === "Photos" && (
+            <div>
+              <div className="relative aspect-[16/9] md:aspect-[2/1] overflow-hidden bg-background-depth mb-4">
+                <Image
+                  src={property.images[selectedImage].src}
+                  alt={property.images[selectedImage].alt}
+                  fill
+                  className="object-cover transition-opacity duration-500"
+                />
+              </div>
+              <div className="grid grid-cols-5 gap-3">
+                {property.images.map((img, i) => (
+                  <button
+                    key={img.src}
+                    onClick={() => setSelectedImage(i)}
+                    className={`relative aspect-[4/3] overflow-hidden transition-all duration-300 ${
+                      selectedImage === i ? "ring-2 ring-foreground ring-offset-2" : "opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeTab === "Video Tour" && property.video && (
+            <div className="relative aspect-video overflow-hidden bg-foreground/5 cursor-pointer group" onClick={() => {
+              setIsVideoPlaying(!isVideoPlaying);
+              if (videoRef.current) {
+                if (isVideoPlaying) videoRef.current.pause();
+                else videoRef.current.play();
+              }
+            }}>
+              <video
+                ref={videoRef}
+                src={property.video}
+                className="w-full h-full object-cover"
+                loop
+                muted
+                playsInline
+              />
+              {!isVideoPlaying && (
+                <div className="absolute inset-0 flex items-center justify-center bg-foreground/20 group-hover:bg-foreground/30 transition-colors duration-300">
+                  <div className="w-20 h-20 rounded-full bg-background-secondary/90 flex items-center justify-center shadow-lg">
+                    <svg className="w-8 h-8 text-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {activeTab === "Floor Plan" && (
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+              <svg className="w-16 h-16 text-muted/40 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+              </svg>
+              <p className="text-sm font-body tracking-widest uppercase text-muted mb-2">Floor Plan</p>
+              <p className="text-base text-body max-w-md">Floor plan available on request. Contact us to receive detailed architectural drawings and layout specifications.</p>
+              <Link href="/contact" className="mt-6 inline-block text-sm font-body tracking-wide px-8 py-3 rounded-full border border-foreground text-foreground hover:bg-foreground hover:text-background-secondary transition-colors duration-300">
+                Request Floor Plan
+              </Link>
+            </div>
+          )}
+
+          {activeTab === "Location" && (
+            <div>
+              {property.mapEmbed ? (
+                <div className="aspect-video overflow-hidden" dangerouslySetInnerHTML={{ __html: property.mapEmbed }} />
+              ) : (
+                <div className="aspect-video bg-background-depth flex flex-col items-center justify-center text-center">
+                  <svg className="w-16 h-16 text-muted/40 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
+                  <p className="font-heading text-xl text-foreground mb-2">{property.location}</p>
+                  <p className="text-sm text-body max-w-md">Precise location shared upon scheduling a site visit.</p>
+                  <Link href="/contact" className="mt-6 inline-block text-sm font-body tracking-wide px-8 py-3 rounded-full border border-foreground text-foreground hover:bg-foreground hover:text-background-secondary transition-colors duration-300">
+                    Get Directions
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Property Overview + Features */}
+      <section className="py-24 md:py-32 bg-background-secondary">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
@@ -520,28 +723,28 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {property.nearby && (
-        <section className="py-20 md:py-28 bg-background-depth">
-          <div className="max-w-7xl mx-auto px-6 lg:px-10">
-            <SectionReveal>
-              <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4 text-center">Connectivity & Convenience</p>
-              <h2 className="font-heading text-3xl md:text-4xl text-foreground text-center">Nearby Landmarks</h2>
-              <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-6">
-                {property.nearby.map((place) => (
-                  <div key={place} className="flex items-center gap-3 p-5 bg-background-secondary border border-border">
-                    <svg className="w-5 h-5 text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                    </svg>
-                    <span className="text-sm font-body text-body">{place}</span>
-                  </div>
-                ))}
-              </div>
-            </SectionReveal>
-          </div>
-        </section>
-      )}
+      {/* Nearby Landmarks */}
+      <section className="py-20 md:py-28 bg-background-depth">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4 text-center">Connectivity & Convenience</p>
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground text-center">Nearby Landmarks</h2>
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-6">
+              {property.nearby.map((place) => (
+                <div key={place} className="flex items-center gap-3 p-5 bg-background-secondary border border-border">
+                  <svg className="w-5 h-5 text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
+                  <span className="text-sm font-body text-body">{place}</span>
+                </div>
+              ))}
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
 
+      {/* Related Properties */}
       {relatedProperties.length > 0 && (
         <section className="py-24 md:py-32 bg-background">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -590,6 +793,7 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         </section>
       )}
 
+      {/* CTA Section */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image src={property.images[0].src} alt="Contact background" fill className="object-cover" />
