@@ -114,6 +114,17 @@ const allProperties = [
     sqft: "7,400",
     type: "Beachfront",
   },
+  {
+    title: "Luxury Sample Residence",
+    slug: "luxury-sample-property",
+    location: "Chandigarh, India",
+    price: "On Request",
+    image: "/properties/sample/living-room.jpg",
+    beds: 3,
+    baths: 3,
+    sqft: "2,800",
+    type: "Premium Apartment",
+  },
 ];
 
 const locations = ["All Locations", ...Array.from(new Set(allProperties.map((p) => p.location)))];
