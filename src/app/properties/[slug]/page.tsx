@@ -69,6 +69,7 @@ export function generateStaticParams() {
     { slug: "aspen-ridge-retreat" },
     { slug: "pacific-heights-modern" },
     { slug: "strand-collection" },
+    { slug: "luxury-sample-property" },
   ];
 }
 
