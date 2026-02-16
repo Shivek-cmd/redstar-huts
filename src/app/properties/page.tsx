@@ -195,11 +195,11 @@ function parsePrice(price: string): number {
   if (price.toLowerCase().includes("request")) return 0;
   if (price.includes("Cr")) {
     const num = parseFloat(price.replace(/[^\d.]/g, ""));
-    return num * 13500000;
+    return num * 2500000;
   }
   if (price.includes("Lac")) {
     const num = parseFloat(price.replace(/[^\d.]/g, ""));
-    return num * 13500;
+    return num * 25000;
   }
   return Number(price.replace(/[$,]/g, ""));
 }
