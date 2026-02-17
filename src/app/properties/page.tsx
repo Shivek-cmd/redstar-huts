@@ -7,8 +7,9 @@ import SectionReveal from "@/components/SectionReveal";
 
 const allProperties = [
   {
-    title: "The Meridian Residence",
-    slug: "meridian-residence",
+    title: "5 Bedroom Luxury Residential",
+    code: "RSH-BH-001",
+    slug: "rsh-bh-001",
     location: "Beverly Hills, CA",
     price: "$4,850,000",
     image:
@@ -19,8 +20,9 @@ const allProperties = [
     type: "Residential",
   },
   {
-    title: "Harborview Estate",
-    slug: "harborview-estate",
+    title: "4 Bedroom Waterfront Residential",
+    code: "RSH-MB-001",
+    slug: "rsh-mb-001",
     location: "Miami Beach, FL",
     price: "$3,200,000",
     image:
@@ -31,8 +33,9 @@ const allProperties = [
     type: "Residential",
   },
   {
-    title: "Crestwood Manor",
-    slug: "crestwood-manor",
+    title: "6 Bedroom Premium Estate",
+    code: "RSH-GR-001",
+    slug: "rsh-gr-001",
     location: "Greenwich, CT",
     price: "$7,100,000",
     image:
@@ -43,8 +46,9 @@ const allProperties = [
     type: "Estate",
   },
   {
-    title: "The Pinnacle Penthouse",
-    slug: "pinnacle-penthouse",
+    title: "3 Bedroom Skyline Penthouse",
+    code: "RSH-MN-001",
+    slug: "rsh-mn-001",
     location: "Manhattan, NY",
     price: "$12,500,000",
     image:
@@ -55,8 +59,9 @@ const allProperties = [
     type: "Penthouse",
   },
   {
-    title: "Lakeshore Villa",
-    slug: "lakeshore-villa",
+    title: "5 Bedroom Lakefront Villa",
+    code: "RSH-LT-001",
+    slug: "rsh-lt-001",
     location: "Lake Tahoe, NV",
     price: "$5,600,000",
     image:
@@ -67,8 +72,9 @@ const allProperties = [
     type: "Residential",
   },
   {
-    title: "The Wellington",
-    slug: "the-wellington",
+    title: "3 Bedroom Urban Condominium",
+    code: "RSH-SF-001",
+    slug: "rsh-sf-001",
     location: "San Francisco, CA",
     price: "$2,950,000",
     image:
@@ -79,8 +85,9 @@ const allProperties = [
     type: "Condominium",
   },
   {
-    title: "Aspen Ridge Retreat",
-    slug: "aspen-ridge-retreat",
+    title: "7 Bedroom Mountain Estate",
+    code: "RSH-AS-001",
+    slug: "rsh-as-001",
     location: "Aspen, CO",
     price: "$8,900,000",
     image:
@@ -91,8 +98,9 @@ const allProperties = [
     type: "Estate",
   },
   {
-    title: "Pacific Heights Modern",
-    slug: "pacific-heights-modern",
+    title: "4 Bedroom Modern Residential",
+    code: "RSH-SF-002",
+    slug: "rsh-sf-002",
     location: "San Francisco, CA",
     price: "$6,250,000",
     image:
@@ -103,8 +111,9 @@ const allProperties = [
     type: "Residential",
   },
   {
-    title: "The Strand Collection",
-    slug: "strand-collection",
+    title: "5 Bedroom Beachfront Residence",
+    code: "RSH-ML-001",
+    slug: "rsh-ml-001",
     location: "Malibu, CA",
     price: "$15,800,000",
     image:
@@ -137,10 +146,12 @@ export default function PropertiesPage() {
 
   const filteredProperties = useMemo(() => {
     return allProperties.filter((property) => {
+      const q = searchQuery.toLowerCase();
       const matchesSearch =
         searchQuery === "" ||
-        property.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        property.location.toLowerCase().includes(searchQuery.toLowerCase());
+        property.title.toLowerCase().includes(q) ||
+        property.location.toLowerCase().includes(q) ||
+        property.code.toLowerCase().includes(q);
       const matchesLocation =
         selectedLocation === "All Locations" || property.location === selectedLocation;
       const matchesType =
@@ -193,7 +204,7 @@ export default function PropertiesPage() {
               </svg>
               <input
                 type="text"
-                placeholder="Search by name or location..."
+                placeholder="Search by configuration, location, or code..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-3.5 bg-background-secondary border border-border rounded-full text-sm font-body text-foreground placeholder:text-muted focus:outline-none focus:border-foreground/30 transition-colors duration-300"
@@ -242,18 +253,23 @@ export default function PropertiesPage() {
           ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProperties.map((property, i) => (
-              <SectionReveal key={property.title} delay={(i % 3) * 0.1}>
+              <SectionReveal key={property.code} delay={(i % 3) * 0.1}>
                 <Link href={`/properties/${property.slug}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
                     <Image
                       src={property.image}
-                      alt={property.title}
+                      alt={`${property.title} in ${property.location}`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/90 px-3 py-1.5 text-foreground">
                         {property.type}
+                      </span>
+                    </div>
+                    <div className="absolute top-4 right-4">
+                      <span className="text-[10px] font-body tracking-wider bg-foreground/80 px-2.5 py-1 text-background-secondary/90">
+                        {property.code}
                       </span>
                     </div>
                   </div>

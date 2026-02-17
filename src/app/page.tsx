@@ -51,8 +51,9 @@ const services = [
 
 const properties = [
   {
-    title: "The Meridian Residence",
-    slug: "meridian-residence",
+    title: "5 Bedroom Luxury Residential",
+    code: "RSH-BH-001",
+    slug: "rsh-bh-001",
     location: "Beverly Hills, CA",
     price: "$4,850,000",
     image:
@@ -62,8 +63,9 @@ const properties = [
     sqft: "6,200",
   },
   {
-    title: "Harborview Estate",
-    slug: "harborview-estate",
+    title: "4 Bedroom Waterfront Residential",
+    code: "RSH-MB-001",
+    slug: "rsh-mb-001",
     location: "Miami Beach, FL",
     price: "$3,200,000",
     image:
@@ -73,8 +75,9 @@ const properties = [
     sqft: "4,800",
   },
   {
-    title: "Crestwood Manor",
-    slug: "crestwood-manor",
+    title: "6 Bedroom Premium Estate",
+    code: "RSH-GR-001",
+    slug: "rsh-gr-001",
     location: "Greenwich, CT",
     price: "$7,100,000",
     image:
@@ -363,15 +366,20 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {properties.map((property, i) => (
-              <SectionReveal key={property.title} delay={i * 0.15}>
+              <SectionReveal key={property.code} delay={i * 0.15}>
                 <Link href={`/properties/${property.slug}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
                     <Image
                       src={property.image}
-                      alt={property.title}
+                      alt={`${property.title} in ${property.location}`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
+                    <div className="absolute top-4 right-4">
+                      <span className="text-[10px] font-body tracking-wider bg-foreground/80 px-2.5 py-1 text-background-secondary/90">
+                        {property.code}
+                      </span>
+                    </div>
                   </div>
                   <div className="mt-5">
                     <p className="text-xs font-body tracking-widest uppercase text-muted">
