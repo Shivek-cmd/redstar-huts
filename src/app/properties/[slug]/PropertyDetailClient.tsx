@@ -129,13 +129,13 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
       </section>
 
       <section className="bg-background border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {property.highlights.map((h) => (
-              <SectionReveal key={h.label}>
-                <div className="text-center">
-                  <p className="text-xs font-body tracking-widest uppercase text-muted mb-2">{h.label}</p>
-                  <p className="font-heading text-xl md:text-2xl text-foreground">{h.value}</p>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-14 md:py-20">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+            {property.highlights.map((h, i) => (
+              <SectionReveal key={h.label} delay={i * 0.06}>
+                <div className="bg-background px-6 py-8 md:px-10 md:py-10 flex flex-col items-start gap-3">
+                  <span className="text-[11px] font-body font-medium tracking-[0.2em] uppercase text-muted">{h.label}</span>
+                  <span className="font-heading text-xl md:text-2xl text-foreground leading-snug">{h.value}</span>
                 </div>
               </SectionReveal>
             ))}
@@ -283,33 +283,34 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-background-depth">
+      <section className="py-24 md:py-32 bg-background-depth">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4 text-center">Connectivity & Convenience</p>
-            <h2 className="font-heading text-3xl md:text-4xl text-foreground text-center mb-12">Nearby Landmarks</h2>
-            <div className="space-y-10">
-              {property.nearby.map((cat) => (
-                <div key={cat.category}>
-                  <h3 className="font-heading text-lg text-foreground mb-4">{cat.category}</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {cat.places.map((p) => (
-                      <div key={p.name} className="flex items-center justify-between gap-3 p-4 bg-background-secondary border border-border">
-                        <div className="flex items-center gap-3 min-w-0">
-                          <svg className="w-4 h-4 text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                          </svg>
-                          <span className="text-sm font-body text-body truncate">{p.name}</span>
-                        </div>
-                        <span className="text-xs font-body text-muted whitespace-nowrap">{p.distance}</span>
+            <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-muted mb-4 text-center">Connectivity & Convenience</p>
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground text-center">Nearby Landmarks</h2>
+            <p className="mt-4 text-sm text-body text-center max-w-2xl mx-auto">Everything you need is within easy reach. Here is how far key destinations are from this property.</p>
+          </SectionReveal>
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8">
+            {property.nearby.map((cat, catIdx) => (
+              <SectionReveal key={cat.category} delay={catIdx * 0.08}>
+                <div className="h-full">
+                  <h3 className="text-[11px] font-body font-semibold tracking-[0.2em] uppercase text-foreground mb-6 pb-3 border-b border-border">{cat.category}</h3>
+                  <div className="space-y-0">
+                    {cat.places.map((p, pIdx) => (
+                      <div
+                        key={p.name}
+                        className={`flex items-center justify-between py-3 ${pIdx < cat.places.length - 1 ? "border-b border-border/50" : ""}`}
+                      >
+                        <span className="text-sm font-body text-body pr-4">{p.name}</span>
+                        <span className="text-xs font-body font-medium text-foreground whitespace-nowrap tabular-nums">{p.distance}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-              ))}
-            </div>
-          </SectionReveal>
+              </SectionReveal>
+            ))}
+          </div>
         </div>
       </section>
 
