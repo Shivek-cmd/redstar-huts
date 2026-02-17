@@ -25,7 +25,7 @@ interface PropertyData {
 }
 
 const propertiesData: Record<string, PropertyData> = {
-  "meridian-residence": {
+  "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft": {
     title: "The Meridian Residence",
     location: "Beverly Hills, CA",
     price: "$4,850,000",
@@ -68,7 +68,7 @@ const propertiesData: Record<string, PropertyData> = {
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Pool area" },
     ],
   },
-  "harborview-estate": {
+  "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft": {
     title: "Harborview Estate",
     location: "Miami Beach, FL",
     price: "$3,200,000",
@@ -111,7 +111,7 @@ const propertiesData: Record<string, PropertyData> = {
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Pool and garden" },
     ],
   },
-  "crestwood-manor": {
+  "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft": {
     title: "Crestwood Manor",
     location: "Greenwich, CT",
     price: "$7,100,000",
@@ -154,7 +154,7 @@ const propertiesData: Record<string, PropertyData> = {
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Garden view" },
     ],
   },
-  "pinnacle-penthouse": {
+  "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft": {
     title: "The Pinnacle Penthouse",
     location: "Manhattan, NY",
     price: "$12,500,000",
@@ -197,7 +197,7 @@ const propertiesData: Record<string, PropertyData> = {
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Kitchen detail" },
     ],
   },
-  "lakeshore-villa": {
+  "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft": {
     title: "Lakeshore Villa",
     location: "Lake Tahoe, NV",
     price: "$5,600,000",
@@ -240,7 +240,7 @@ const propertiesData: Record<string, PropertyData> = {
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Mountain view" },
     ],
   },
-  "the-wellington": {
+  "3-bedroom-condominium-for-sale-in-san-francisco-ca-3100-sq-ft": {
     title: "The Wellington",
     location: "San Francisco, CA",
     price: "$2,950,000",
@@ -283,7 +283,7 @@ const propertiesData: Record<string, PropertyData> = {
       { src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80", alt: "City view" },
     ],
   },
-  "aspen-ridge-retreat": {
+  "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft": {
     title: "Aspen Ridge Retreat",
     location: "Aspen, CO",
     price: "$8,900,000",
@@ -326,7 +326,7 @@ const propertiesData: Record<string, PropertyData> = {
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Pool area" },
     ],
   },
-  "pacific-heights-modern": {
+  "4-bedroom-residential-for-sale-in-san-francisco-ca-5100-sq-ft": {
     title: "Pacific Heights Modern",
     location: "San Francisco, CA",
     price: "$6,250,000",
@@ -369,7 +369,7 @@ const propertiesData: Record<string, PropertyData> = {
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Terrace view" },
     ],
   },
-  "strand-collection": {
+  "5-bedroom-beachfront-for-sale-in-malibu-ca-7400-sq-ft": {
     title: "The Strand Collection",
     location: "Malibu, CA",
     price: "$15,800,000",
@@ -412,7 +412,7 @@ const propertiesData: Record<string, PropertyData> = {
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Pool and ocean" },
     ],
   },
-  "the-grand-mohali": {
+  "3-plus-1-bhk-premium-residence-for-sale-in-mohali-punjab-2901-sq-ft": {
     title: "The Grand Mohali",
     location: "Mohali, Punjab",
     price: "On Request",

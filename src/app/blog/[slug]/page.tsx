@@ -11,6 +11,54 @@ interface BlogSEO {
 }
 
 const blogMeta: Record<string, BlogSEO> = {
+  "why-mohali-is-the-next-premium-real-estate-destination": {
+    title: "Why Mohali Is the Next Premium Real Estate Destination",
+    description: "Discover why Mohali is emerging as North India's most sought-after residential destination with world-class infrastructure and premium developments.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+    category: "Local Insights",
+    date: "2026-02-17",
+    keywords: ["Mohali real estate", "premium property Mohali", "buy flat Mohali", "luxury residence Mohali", "Mohali IT City", "North India real estate"],
+  },
+  "luxury-living-in-chandigarh-investment-guide": {
+    title: "Luxury Living in Chandigarh: A Complete Investment Guide",
+    description: "A comprehensive guide to investing in Chandigarh's luxury real estate market — from sector analysis to NRI opportunities and the Tri-City advantage.",
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80",
+    category: "Investment",
+    date: "2026-02-10",
+    keywords: ["Chandigarh real estate", "luxury homes Chandigarh", "invest in Chandigarh", "NRI property Chandigarh", "buy property Chandigarh"],
+  },
+  "zirakpur-real-estate-emerging-opportunities": {
+    title: "Zirakpur Real Estate: Emerging Opportunities for Smart Investors",
+    description: "Strategically positioned on the Chandigarh-Ambala highway, Zirakpur offers investors a unique blend of accessibility, affordability, and growth potential.",
+    image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80",
+    category: "Market Insights",
+    date: "2026-02-03",
+    keywords: ["Zirakpur real estate", "buy flat Zirakpur", "Zirakpur property investment", "affordable luxury Zirakpur", "Chandigarh Tri-City"],
+  },
+  "rise-of-tri-city-real-estate-mohali-chandigarh-zirakpur": {
+    title: "The Rise of Tri-City Real Estate: Mohali, Chandigarh & Zirakpur",
+    description: "The Chandigarh Tri-City region has become one of India's most compelling real estate markets. Explore the opportunities across Mohali, Chandigarh, and Zirakpur.",
+    image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80",
+    category: "Local Insights",
+    date: "2026-01-27",
+    keywords: ["Tri-City real estate", "Mohali Chandigarh Zirakpur", "North India property market", "NRI investment Punjab", "Chandigarh tricity"],
+  },
+  "beverly-hills-vs-manhattan-luxury-markets": {
+    title: "Beverly Hills vs Manhattan: Comparing America's Most Prestigious Markets",
+    description: "An in-depth comparison of two legendary luxury real estate markets — Beverly Hills and Manhattan — for high-net-worth buyers.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80",
+    category: "Market Insights",
+    date: "2026-01-20",
+    keywords: ["Beverly Hills real estate", "Manhattan luxury property", "luxury market comparison", "high-net-worth real estate"],
+  },
+  "lake-tahoe-luxury-homes-buyer-guide": {
+    title: "Lake Tahoe Luxury Homes: What Buyers Need to Know",
+    description: "A comprehensive buyer guide to Lake Tahoe's luxury real estate market — from lakefront premiums to year-round investment value.",
+    image: "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1200&q=80",
+    category: "Buying",
+    date: "2026-01-13",
+    keywords: ["Lake Tahoe luxury homes", "lakefront property", "Lake Tahoe real estate", "mountain luxury homes", "buy home Lake Tahoe"],
+  },
   "luxury-market-trends-2025": {
     title: "Luxury Real Estate Market Trends to Watch",
     description: "Key trends shaping high-end property markets in North India including Himachal Pradesh, Punjab, Chandigarh, and Uttarakhand for discerning investors.",

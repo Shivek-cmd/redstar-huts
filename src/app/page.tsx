@@ -52,7 +52,7 @@ const services = [
 const properties = [
   {
     title: "The Meridian Residence",
-    slug: "meridian-residence",
+    slug: "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft",
     location: "Beverly Hills, CA",
     price: "$4,850,000",
     image:
@@ -63,7 +63,7 @@ const properties = [
   },
   {
     title: "Harborview Estate",
-    slug: "harborview-estate",
+    slug: "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft",
     location: "Miami Beach, FL",
     price: "$3,200,000",
     image:
@@ -74,7 +74,7 @@ const properties = [
   },
   {
     title: "Crestwood Manor",
-    slug: "crestwood-manor",
+    slug: "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft",
     location: "Greenwich, CT",
     price: "$7,100,000",
     image:
@@ -85,7 +85,7 @@ const properties = [
   },
   {
     title: "The Pinnacle Penthouse",
-    slug: "pinnacle-penthouse",
+    slug: "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft",
     location: "Manhattan, NY",
     price: "$12,500,000",
     image:
@@ -96,7 +96,7 @@ const properties = [
   },
   {
     title: "Lakeshore Villa",
-    slug: "lakeshore-villa",
+    slug: "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft",
     location: "Lake Tahoe, NV",
     price: "$5,600,000",
     image:
@@ -107,7 +107,7 @@ const properties = [
   },
   {
     title: "Aspen Ridge Retreat",
-    slug: "aspen-ridge-retreat",
+    slug: "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft",
     location: "Aspen, CO",
     price: "$8,900,000",
     image:

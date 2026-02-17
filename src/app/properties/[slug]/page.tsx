@@ -14,7 +14,7 @@ interface PropertySEO {
 }
 
 const propertyMeta: Record<string, PropertySEO> = {
-  "meridian-residence": {
+  "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft": {
     title: "The Meridian Residence \u2014 Beverly Hills, CA",
     description: "Luxury 5-bed residence in Beverly Hills with infinity pool, home theater, and smart home automation. $4.85M. Contact RedStar Huts.",
     price: "$4,850,000",
@@ -25,7 +25,7 @@ const propertyMeta: Record<string, PropertySEO> = {
     type: "Residential",
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
   },
-  "harborview-estate": {
+  "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft": {
     title: "Harborview Estate \u2014 Miami Beach, FL",
     description: "Waterfront 4-bed estate in Miami Beach with private dock and resort-style pool. $3.2M. Contact RedStar Huts.",
     price: "$3,200,000",
@@ -36,7 +36,7 @@ const propertyMeta: Record<string, PropertySEO> = {
     type: "Residential",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
   },
-  "crestwood-manor": {
+  "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft": {
     title: "Crestwood Manor \u2014 Greenwich, CT",
     description: "Distinguished 6-bed estate on 3+ acres in Greenwich with tennis court, heated pool, and guest cottage. $7.1M. Contact RedStar Huts.",
     price: "$7,100,000",
@@ -47,7 +47,7 @@ const propertyMeta: Record<string, PropertySEO> = {
     type: "Estate",
     image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80",
   },
-  "pinnacle-penthouse": {
+  "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft": {
     title: "The Pinnacle Penthouse \u2014 Manhattan, NY",
     description: "360-degree skyline views from this 3-bed Manhattan penthouse with private elevator entry. $12.5M. Contact RedStar Huts.",
     price: "$12,500,000",
@@ -58,7 +58,7 @@ const propertyMeta: Record<string, PropertySEO> = {
     type: "Penthouse",
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
   },
-  "lakeshore-villa": {
+  "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft": {
     title: "Lakeshore Villa \u2014 Lake Tahoe, NV",
     description: "Stunning 5-bed lakefront villa with private beach, dock, and ski access. $5.6M. Contact RedStar Huts.",
     price: "$5,600,000",
@@ -69,7 +69,7 @@ const propertyMeta: Record<string, PropertySEO> = {
     type: "Residential",
     image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80",
   },
-  "the-wellington": {
+  "3-bedroom-condominium-for-sale-in-san-francisco-ca-3100-sq-ft": {
     title: "The Wellington \u2014 San Francisco, CA",
     description: "Sophisticated 3-bed condo in San Francisco with Golden Gate views and private terrace. $2.95M. Contact RedStar Huts.",
     price: "$2,950,000",
@@ -80,7 +80,7 @@ const propertyMeta: Record<string, PropertySEO> = {
     type: "Condominium",
     image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80",
   },
-  "aspen-ridge-retreat": {
+  "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft": {
     title: "Aspen Ridge Retreat \u2014 Aspen, CO",
     description: "Extraordinary 7-bed mountain estate in Aspen with infinity pool, spa suite, and home theater. $8.9M. Contact RedStar Huts.",
     price: "$8,900,000",
@@ -91,7 +91,7 @@ const propertyMeta: Record<string, PropertySEO> = {
     type: "Estate",
     image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
   },
-  "pacific-heights-modern": {
+  "4-bedroom-residential-for-sale-in-san-francisco-ca-5100-sq-ft": {
     title: "Pacific Heights Modern \u2014 San Francisco, CA",
     description: "Striking 4-bed contemporary residence in Pacific Heights with rooftop terrace and bay views. $6.25M. Contact RedStar Huts.",
     price: "$6,250,000",
@@ -102,7 +102,7 @@ const propertyMeta: Record<string, PropertySEO> = {
     type: "Residential",
     image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80",
   },
-  "strand-collection": {
+  "5-bedroom-beachfront-for-sale-in-malibu-ca-7400-sq-ft": {
     title: "The Strand Collection \u2014 Malibu, CA",
     description: "Ultimate 5-bed beachfront property on Carbon Beach with retractable glass walls and infinity pool. $15.8M. Contact RedStar Huts.",
     price: "$15,800,000",
@@ -113,7 +113,7 @@ const propertyMeta: Record<string, PropertySEO> = {
     type: "Beachfront",
     image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80",
   },
-  "the-grand-mohali": {
+  "3-plus-1-bhk-premium-residence-for-sale-in-mohali-punjab-2901-sq-ft": {
     title: "The Grand Mohali \u2014 3+1 BHK Premium Residence | Mohali, Punjab",
     description: "Ultra-premium 3+1 BHK residence in Mohali, Punjab. 2,901 sq ft with H\u00E4fele kitchen, 1 lakh sq ft clubhouse, basement parking. Near Airport, ISBT, Elante Mall. Contact RedStar Huts for site visit.",
     price: "On Request",
@@ -290,16 +290,16 @@ function buildPropertyJsonLd(slug: string) {
 
 export function generateStaticParams() {
   return [
-    { slug: "meridian-residence" },
-    { slug: "harborview-estate" },
-    { slug: "crestwood-manor" },
-    { slug: "pinnacle-penthouse" },
-    { slug: "lakeshore-villa" },
-    { slug: "the-wellington" },
-    { slug: "aspen-ridge-retreat" },
-    { slug: "pacific-heights-modern" },
-    { slug: "strand-collection" },
-    { slug: "the-grand-mohali" },
+    { slug: "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft" },
+    { slug: "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft" },
+    { slug: "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft" },
+    { slug: "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft" },
+    { slug: "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft" },
+    { slug: "3-bedroom-condominium-for-sale-in-san-francisco-ca-3100-sq-ft" },
+    { slug: "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft" },
+    { slug: "4-bedroom-residential-for-sale-in-san-francisco-ca-5100-sq-ft" },
+    { slug: "5-bedroom-beachfront-for-sale-in-malibu-ca-7400-sq-ft" },
+    { slug: "3-plus-1-bhk-premium-residence-for-sale-in-mohali-punjab-2901-sq-ft" },
   ];
 }
 
