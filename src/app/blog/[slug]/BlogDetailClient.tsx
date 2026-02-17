@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionReveal from "@/components/SectionReveal";
 
 const blogData: Record<
@@ -250,6 +252,15 @@ const allSlugs = Object.keys(blogData);
 
 export default function BlogDetailClient({ slug }: { slug: string }) {
   const post = blogData[slug];
+  const [showStickyTitle, setShowStickyTitle] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowStickyTitle(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   if (!post) {
     return (
@@ -266,6 +277,30 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
 
   return (
     <>
+      <AnimatePresence>
+        {showStickyTitle && (
+          <motion.div
+            initial={{ y: -60, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -60, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed top-20 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-b border-border"
+          >
+            <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-4 min-w-0">
+                <span className="hidden sm:inline-block text-xs font-body tracking-widest uppercase bg-background-depth px-3 py-1 text-muted shrink-0">
+                  {post.category}
+                </span>
+                <h2 className="font-heading text-sm md:text-base text-foreground truncate">
+                  {post.title}
+                </h2>
+              </div>
+              <span className="text-xs text-muted shrink-0">{post.readTime}</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image src={post.heroImage} alt={post.title} fill className="object-cover" />
@@ -305,6 +340,17 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
               )}
             </SectionReveal>
           ))}
+        </div>
+      </section>
+
+      <section className="py-12 bg-background-depth">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-body">
+              <p>Explore our <Link href="/services" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">advisory services</Link> for expert guidance</p>
+              <p>Browse <Link href="/properties" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">curated properties</Link> across premium markets</p>
+            </div>
+          </SectionReveal>
         </div>
       </section>
 
