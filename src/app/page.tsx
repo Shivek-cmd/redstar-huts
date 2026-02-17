@@ -51,7 +51,8 @@ const services = [
 
 const properties = [
   {
-    title: "The Meridian Residence",
+    title: "5 Bedroom Luxury Residential",
+    code: "RSH-BH-001",
     slug: "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft",
     location: "Beverly Hills, CA",
     price: "$4,850,000",
@@ -62,7 +63,8 @@ const properties = [
     sqft: "6,200",
   },
   {
-    title: "Harborview Estate",
+    title: "4 Bedroom Waterfront Residential",
+    code: "RSH-MB-001",
     slug: "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft",
     location: "Miami Beach, FL",
     price: "$3,200,000",
@@ -73,7 +75,8 @@ const properties = [
     sqft: "4,800",
   },
   {
-    title: "Crestwood Manor",
+    title: "6 Bedroom Premium Estate",
+    code: "RSH-GR-001",
     slug: "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft",
     location: "Greenwich, CT",
     price: "$7,100,000",
@@ -84,7 +87,8 @@ const properties = [
     sqft: "8,500",
   },
   {
-    title: "The Pinnacle Penthouse",
+    title: "3 Bedroom Sky Penthouse",
+    code: "RSH-MN-001",
     slug: "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft",
     location: "Manhattan, NY",
     price: "$12,500,000",
@@ -95,7 +99,8 @@ const properties = [
     sqft: "4,200",
   },
   {
-    title: "Lakeshore Villa",
+    title: "5 Bedroom Lakefront Villa",
+    code: "RSH-LT-001",
     slug: "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft",
     location: "Lake Tahoe, NV",
     price: "$5,600,000",
@@ -106,7 +111,8 @@ const properties = [
     sqft: "5,800",
   },
   {
-    title: "Aspen Ridge Retreat",
+    title: "7 Bedroom Mountain Estate",
+    code: "RSH-AS-001",
     slug: "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft",
     location: "Aspen, CO",
     price: "$8,900,000",
@@ -435,15 +441,20 @@ export default function Home() {
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
               {visibleProperties.map((property, i) => (
-                <SectionReveal key={property.title} delay={i * 0.1}>
+                <SectionReveal key={property.code} delay={i * 0.1}>
                   <Link href={`/properties/${property.slug}`} className="group block">
                     <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
                       <Image
                         src={property.image}
-                        alt={property.title}
+                        alt={`${property.title} in ${property.location}`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
+                      <div className="absolute top-4 right-4">
+                        <span className="text-[10px] font-body tracking-wider bg-foreground/80 px-2.5 py-1 text-background-secondary/90">
+                          {property.code}
+                        </span>
+                      </div>
                     </div>
                     <div className="mt-5">
                       <p className="text-xs font-body tracking-widest uppercase text-muted">

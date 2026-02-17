@@ -7,7 +7,8 @@ import SectionReveal from "@/components/SectionReveal";
 
 const allProperties = [
   {
-    title: "The Meridian Residence",
+    title: "5 Bedroom Luxury Residential",
+    code: "RSH-BH-001",
     slug: "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft",
     location: "Beverly Hills, CA",
     price: "$4,850,000",
@@ -19,7 +20,8 @@ const allProperties = [
     type: "Residential",
   },
   {
-    title: "Harborview Estate",
+    title: "4 Bedroom Waterfront Residential",
+    code: "RSH-MB-001",
     slug: "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft",
     location: "Miami Beach, FL",
     price: "$3,200,000",
@@ -31,7 +33,8 @@ const allProperties = [
     type: "Residential",
   },
   {
-    title: "Crestwood Manor",
+    title: "6 Bedroom Premium Estate",
+    code: "RSH-GR-001",
     slug: "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft",
     location: "Greenwich, CT",
     price: "$7,100,000",
@@ -43,7 +46,8 @@ const allProperties = [
     type: "Estate",
   },
   {
-    title: "The Pinnacle Penthouse",
+    title: "3 Bedroom Sky Penthouse",
+    code: "RSH-MN-001",
     slug: "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft",
     location: "Manhattan, NY",
     price: "$12,500,000",
@@ -55,7 +59,8 @@ const allProperties = [
     type: "Penthouse",
   },
   {
-    title: "Lakeshore Villa",
+    title: "5 Bedroom Lakefront Villa",
+    code: "RSH-LT-001",
     slug: "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft",
     location: "Lake Tahoe, NV",
     price: "$5,600,000",
@@ -67,7 +72,8 @@ const allProperties = [
     type: "Residential",
   },
   {
-    title: "The Wellington",
+    title: "3 Bedroom Urban Condominium",
+    code: "RSH-SF-001",
     slug: "3-bedroom-condominium-for-sale-in-san-francisco-ca-3100-sq-ft",
     location: "San Francisco, CA",
     price: "$2,950,000",
@@ -79,7 +85,8 @@ const allProperties = [
     type: "Condominium",
   },
   {
-    title: "Aspen Ridge Retreat",
+    title: "7 Bedroom Mountain Estate",
+    code: "RSH-AS-001",
     slug: "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft",
     location: "Aspen, CO",
     price: "$8,900,000",
@@ -91,7 +98,8 @@ const allProperties = [
     type: "Estate",
   },
   {
-    title: "Pacific Heights Modern",
+    title: "4 Bedroom Modern Residential",
+    code: "RSH-SF-002",
     slug: "4-bedroom-residential-for-sale-in-san-francisco-ca-5100-sq-ft",
     location: "San Francisco, CA",
     price: "$6,250,000",
@@ -103,7 +111,8 @@ const allProperties = [
     type: "Residential",
   },
   {
-    title: "The Strand Collection",
+    title: "5 Bedroom Beachfront Residence",
+    code: "RSH-ML-001",
     slug: "5-bedroom-beachfront-for-sale-in-malibu-ca-7400-sq-ft",
     location: "Malibu, CA",
     price: "$15,800,000",
@@ -115,7 +124,8 @@ const allProperties = [
     type: "Beachfront",
   },
   {
-    title: "The Grand Mohali",
+    title: "3+1 BHK Premium Residence",
+    code: "RSH-MOH-001",
     slug: "3-plus-1-bhk-premium-residence-for-sale-in-mohali-punjab-2901-sq-ft",
     location: "Mohali, Punjab",
     price: "On Request",
@@ -126,7 +136,8 @@ const allProperties = [
     type: "Premium Residence",
   },
   {
-    title: "Luxury Sample Residence",
+    title: "3 BHK Premium Apartment",
+    code: "RSH-CHD-001",
     slug: "3-bhk-premium-apartment-for-sale-in-chandigarh-2800-sq-ft",
     location: "Chandigarh, India",
     price: "On Request",
@@ -137,7 +148,8 @@ const allProperties = [
     type: "Premium Apartment",
   },
   {
-    title: "The Royal Greens Villa",
+    title: "4 BHK Independent Villa",
+    code: "RSH-MOH-002",
     slug: "4-bhk-villa-for-sale-in-mohali-punjab-3200-sq-ft",
     location: "Mohali, Punjab",
     price: "\u20B92.8 Cr",
@@ -148,7 +160,8 @@ const allProperties = [
     type: "Villa",
   },
   {
-    title: "Mohali Heights Penthouse",
+    title: "3 BHK Sky Penthouse",
+    code: "RSH-MOH-003",
     slug: "3-bhk-penthouse-for-sale-in-mohali-punjab-2400-sq-ft",
     location: "Mohali, Punjab",
     price: "\u20B91.6 Cr",
@@ -159,7 +172,8 @@ const allProperties = [
     type: "Penthouse",
   },
   {
-    title: "Elante Residences",
+    title: "4 BHK Luxury Residential",
+    code: "RSH-CHD-002",
     slug: "4-bhk-residential-for-sale-in-chandigarh-3800-sq-ft",
     location: "Chandigarh",
     price: "\u20B93.5 Cr",
@@ -170,7 +184,8 @@ const allProperties = [
     type: "Residential",
   },
   {
-    title: "Sector 9 Heritage Home",
+    title: "5 BHK Heritage Estate",
+    code: "RSH-CHD-003",
     slug: "5-bhk-estate-for-sale-in-sector-9-chandigarh-4500-sq-ft",
     location: "Chandigarh",
     price: "\u20B94.2 Cr",
@@ -181,7 +196,8 @@ const allProperties = [
     type: "Estate",
   },
   {
-    title: "Ambience Boulevard",
+    title: "3 BHK Modern Residential",
+    code: "RSH-ZRK-001",
     slug: "3-bhk-residential-for-sale-in-zirakpur-punjab-1800-sq-ft",
     location: "Zirakpur, Punjab",
     price: "\u20B91.2 Cr",
@@ -192,7 +208,8 @@ const allProperties = [
     type: "Residential",
   },
   {
-    title: "VR Punjab Luxury Floors",
+    title: "3 BHK Independent Floors",
+    code: "RSH-ZRK-002",
     slug: "3-bhk-luxury-floors-for-sale-in-zirakpur-punjab-1650-sq-ft",
     location: "Zirakpur, Punjab",
     price: "\u20B985 Lac",
@@ -233,11 +250,13 @@ export default function PropertiesPage() {
   const [selectedBudget, setSelectedBudget] = useState(0);
 
   const filteredProperties = useMemo(() => {
+    const q = searchQuery.toLowerCase();
     return [...allProperties].reverse().filter((property) => {
       const matchesSearch =
         searchQuery === "" ||
-        property.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        property.location.toLowerCase().includes(searchQuery.toLowerCase());
+        property.title.toLowerCase().includes(q) ||
+        property.location.toLowerCase().includes(q) ||
+        property.code.toLowerCase().includes(q);
       const matchesLocation =
         selectedLocation === "All Locations" || property.location === selectedLocation;
       const matchesType =
@@ -290,7 +309,7 @@ export default function PropertiesPage() {
               </svg>
               <input
                 type="text"
-                placeholder="Search by name or location..."
+                placeholder="Search by configuration, location, or code..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-3.5 bg-background-secondary border border-border rounded-full text-sm font-body text-foreground placeholder:text-muted focus:outline-none focus:border-foreground/30 transition-colors duration-300"
@@ -339,18 +358,23 @@ export default function PropertiesPage() {
           ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProperties.map((property, i) => (
-              <SectionReveal key={property.title} delay={(i % 3) * 0.1}>
+              <SectionReveal key={property.code} delay={(i % 3) * 0.1}>
                 <Link href={`/properties/${property.slug}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
                     <Image
                       src={property.image}
-                      alt={property.title}
+                      alt={`${property.title} in ${property.location}`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/90 px-3 py-1.5 text-foreground">
                         {property.type}
+                      </span>
+                    </div>
+                    <div className="absolute top-4 right-4">
+                      <span className="text-[10px] font-body tracking-wider bg-foreground/80 px-2.5 py-1 text-background-secondary/90">
+                        {property.code}
                       </span>
                     </div>
                   </div>

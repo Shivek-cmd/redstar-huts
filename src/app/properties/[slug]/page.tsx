@@ -16,7 +16,7 @@ interface PropertySEO {
 const propertyMeta: Record<string, PropertySEO> = {
   "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft": {
     title: "The Meridian Residence \u2014 Beverly Hills, CA",
-    description: "Luxury 5-bed residence in Beverly Hills with infinity pool, home theater, and smart home automation. $4.85M. Contact RedStar Huts.",
+    description: "Luxury 5 bedroom residential property in Beverly Hills with infinity pool, home theater, and smart home automation. $4.85M. Contact RedStar Huts.",
     price: "$4,850,000",
     location: "Beverly Hills, CA",
     beds: 5,
@@ -27,7 +27,7 @@ const propertyMeta: Record<string, PropertySEO> = {
   },
   "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft": {
     title: "Harborview Estate \u2014 Miami Beach, FL",
-    description: "Waterfront 4-bed estate in Miami Beach with private dock and resort-style pool. $3.2M. Contact RedStar Huts.",
+    description: "Waterfront 4 bedroom estate in Miami Beach with private dock and resort-style pool. $3.2M. Contact RedStar Huts.",
     price: "$3,200,000",
     location: "Miami Beach, FL",
     beds: 4,
@@ -38,7 +38,7 @@ const propertyMeta: Record<string, PropertySEO> = {
   },
   "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft": {
     title: "Crestwood Manor \u2014 Greenwich, CT",
-    description: "Distinguished 6-bed estate on 3+ acres in Greenwich with tennis court, heated pool, and guest cottage. $7.1M. Contact RedStar Huts.",
+    description: "Distinguished 6 bedroom estate on 3+ acres in Greenwich with tennis court, heated pool, and guest cottage. $7.1M. Contact RedStar Huts.",
     price: "$7,100,000",
     location: "Greenwich, CT",
     beds: 6,
@@ -49,7 +49,7 @@ const propertyMeta: Record<string, PropertySEO> = {
   },
   "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft": {
     title: "The Pinnacle Penthouse \u2014 Manhattan, NY",
-    description: "360-degree skyline views from this 3-bed Manhattan penthouse with private elevator entry. $12.5M. Contact RedStar Huts.",
+    description: "360-degree skyline views from this 3 bedroom Manhattan penthouse with private elevator entry. $12.5M. Contact RedStar Huts.",
     price: "$12,500,000",
     location: "Manhattan, NY",
     beds: 3,
@@ -60,7 +60,7 @@ const propertyMeta: Record<string, PropertySEO> = {
   },
   "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft": {
     title: "Lakeshore Villa \u2014 Lake Tahoe, NV",
-    description: "Stunning 5-bed lakefront villa with private beach, dock, and ski access. $5.6M. Contact RedStar Huts.",
+    description: "Stunning 5 bedroom lakefront villa with private beach, dock, and ski access. $5.6M. Contact RedStar Huts.",
     price: "$5,600,000",
     location: "Lake Tahoe, NV",
     beds: 5,
@@ -71,7 +71,7 @@ const propertyMeta: Record<string, PropertySEO> = {
   },
   "3-bedroom-condominium-for-sale-in-san-francisco-ca-3100-sq-ft": {
     title: "The Wellington \u2014 San Francisco, CA",
-    description: "Sophisticated 3-bed condo in San Francisco with Golden Gate views and private terrace. $2.95M. Contact RedStar Huts.",
+    description: "Sophisticated 3 bedroom condominium in San Francisco with Golden Gate views and private terrace. $2.95M. Contact RedStar Huts.",
     price: "$2,950,000",
     location: "San Francisco, CA",
     beds: 3,
@@ -82,7 +82,7 @@ const propertyMeta: Record<string, PropertySEO> = {
   },
   "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft": {
     title: "Aspen Ridge Retreat \u2014 Aspen, CO",
-    description: "Extraordinary 7-bed mountain estate in Aspen with infinity pool, spa suite, and home theater. $8.9M. Contact RedStar Huts.",
+    description: "Extraordinary 7 bedroom mountain estate in Aspen with infinity pool, spa suite, and home theater. $8.9M. Contact RedStar Huts.",
     price: "$8,900,000",
     location: "Aspen, CO",
     beds: 7,
@@ -93,7 +93,7 @@ const propertyMeta: Record<string, PropertySEO> = {
   },
   "4-bedroom-residential-for-sale-in-san-francisco-ca-5100-sq-ft": {
     title: "Pacific Heights Modern \u2014 San Francisco, CA",
-    description: "Striking 4-bed contemporary residence in Pacific Heights with rooftop terrace and bay views. $6.25M. Contact RedStar Huts.",
+    description: "Striking 4 bedroom contemporary residence in Pacific Heights with rooftop terrace and bay views. $6.25M. Contact RedStar Huts.",
     price: "$6,250,000",
     location: "San Francisco, CA",
     beds: 4,
@@ -104,7 +104,7 @@ const propertyMeta: Record<string, PropertySEO> = {
   },
   "5-bedroom-beachfront-for-sale-in-malibu-ca-7400-sq-ft": {
     title: "The Strand Collection \u2014 Malibu, CA",
-    description: "Ultimate 5-bed beachfront property on Carbon Beach with retractable glass walls and infinity pool. $15.8M. Contact RedStar Huts.",
+    description: "Ultimate 5 bedroom beachfront property on Carbon Beach with retractable glass walls and infinity pool. $15.8M. Contact RedStar Huts.",
     price: "$15,800,000",
     location: "Malibu, CA",
     beds: 5,

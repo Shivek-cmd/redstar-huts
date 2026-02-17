@@ -8,6 +8,7 @@ import LeadCaptureForm from "@/components/LeadCaptureForm";
 
 interface PropertyData {
   title: string;
+  code: string;
   location: string;
   price: string;
   beds: number;
@@ -26,7 +27,8 @@ interface PropertyData {
 
 const propertiesData: Record<string, PropertyData> = {
   "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft": {
-    title: "The Meridian Residence",
+    title: "5 Bedroom Luxury Residential",
+    code: "RSH-BH-001",
     location: "Beverly Hills, CA",
     price: "$4,850,000",
     beds: 5,
@@ -35,7 +37,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Residential",
     configuration: "5 BHK",
     description: [
-      "Nestled in the heart of Beverly Hills, The Meridian Residence is a masterfully designed home that seamlessly blends modern luxury with timeless elegance. Every detail has been carefully considered to create a living experience that is both refined and welcoming.",
+      "Nestled in the heart of Beverly Hills, this masterfully designed home seamlessly blends modern luxury with timeless elegance. Every detail has been carefully considered to create a living experience that is both refined and welcoming.",
       "Floor-to-ceiling windows flood the interiors with natural light, while premium materials and finishes create an atmosphere of quiet sophistication throughout. The open floor plan connects seamlessly to expansive outdoor living spaces with panoramic views.",
     ],
     features: [
@@ -61,7 +63,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Los Angeles Country Club",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80", alt: "Meridian Residence exterior" },
+      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Modern kitchen" },
       { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Living room" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Master bedroom" },
@@ -69,7 +71,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft": {
-    title: "Harborview Estate",
+    title: "4 Bedroom Waterfront Residential",
+    code: "RSH-MB-001",
     location: "Miami Beach, FL",
     price: "$3,200,000",
     beds: 4,
@@ -78,7 +81,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Residential",
     configuration: "4 BHK",
     description: [
-      "Harborview Estate captures the essence of coastal luxury living in one of Miami Beach\u2019s most prestigious neighborhoods. This stunning waterfront property offers breathtaking views and an unparalleled lifestyle experience.",
+      "This exceptional property captures the essence of coastal luxury living in one of Miami Beach\u2019s most prestigious neighborhoods. This stunning waterfront property offers breathtaking views and an unparalleled lifestyle experience.",
       "The residence features an open-concept design with soaring ceilings, a gourmet kitchen, and walls of glass that blur the line between indoor and outdoor living. The private dock and resort-style pool complete this exceptional offering.",
     ],
     features: [
@@ -104,7 +107,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Bayfront Park",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80", alt: "Harborview Estate exterior" },
+      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Open living space" },
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Waterfront view" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom suite" },
@@ -112,7 +115,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft": {
-    title: "Crestwood Manor",
+    title: "6 Bedroom Premium Estate",
+    code: "RSH-GR-001",
     location: "Greenwich, CT",
     price: "$7,100,000",
     beds: 6,
@@ -121,8 +125,8 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Estate",
     configuration: "6 BHK",
     description: [
-      "Crestwood Manor is a distinguished estate set on over three acres of meticulously landscaped grounds in Greenwich\u2019s most coveted enclave. This property represents the pinnacle of New England luxury living.",
-      "The manor features grand formal rooms with soaring ceilings, a library with hand-carved woodwork, and a chef\u2019s kitchen designed for both intimate dinners and grand entertaining. The grounds include a tennis court, heated pool, and guest cottage.",
+      "A distinguished estate set on over three acres of meticulously landscaped grounds in Greenwich\u2019s most coveted enclave. This property represents the pinnacle of New England luxury living.",
+      "The property features grand formal rooms with soaring ceilings, a library with hand-carved woodwork, and a chef\u2019s kitchen designed for both intimate dinners and grand entertaining. The grounds include a tennis court, heated pool, and guest cottage.",
     ],
     features: [
       "3+ acres of professionally landscaped grounds",
@@ -147,7 +151,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Tod\u2019s Point Beach",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80", alt: "Crestwood Manor exterior" },
+      { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80", alt: "Grand interior" },
       { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Formal living room" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Estate grounds" },
@@ -155,7 +159,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft": {
-    title: "The Pinnacle Penthouse",
+    title: "3 Bedroom Sky Penthouse",
+    code: "RSH-MN-001",
     location: "Manhattan, NY",
     price: "$12,500,000",
     beds: 3,
@@ -190,7 +195,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Grand Central Terminal",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80", alt: "Pinnacle Penthouse interior" },
+      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80", alt: "Property interior view" },
       { src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80", alt: "City skyline view" },
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Living area" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Master suite" },
@@ -198,7 +203,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft": {
-    title: "Lakeshore Villa",
+    title: "5 Bedroom Lakefront Villa",
+    code: "RSH-LT-001",
     location: "Lake Tahoe, NV",
     price: "$5,600,000",
     beds: 5,
@@ -207,7 +213,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Residential",
     configuration: "5 BHK",
     description: [
-      "Lakeshore Villa is a stunning lakefront property offering direct access to the pristine waters of Lake Tahoe. This mountain modern masterpiece combines rustic warmth with contemporary luxury in one of America\u2019s most breathtaking settings.",
+      "A stunning lakefront property offering direct access to the pristine waters of Lake Tahoe. This mountain modern masterpiece combines rustic warmth with contemporary luxury in one of America\u2019s most breathtaking settings.",
       "The home features dramatic vaulted ceilings with exposed timber beams, a great room with floor-to-ceiling stone fireplace, and expansive decks that frame the lake and mountain views. A private beach and dock complete this extraordinary retreat.",
     ],
     features: [
@@ -233,7 +239,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Barton Memorial Hospital",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80", alt: "Lakeshore Villa exterior" },
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Lake view" },
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Interior great room" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Outdoor deck" },
@@ -241,7 +247,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "3-bedroom-condominium-for-sale-in-san-francisco-ca-3100-sq-ft": {
-    title: "The Wellington",
+    title: "3 Bedroom Urban Condominium",
+    code: "RSH-SF-001",
     location: "San Francisco, CA",
     price: "$2,950,000",
     beds: 3,
@@ -250,7 +257,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Condominium",
     configuration: "3 BHK",
     description: [
-      "The Wellington offers sophisticated urban living in one of San Francisco\u2019s most desirable neighborhoods. This beautifully appointed condominium combines classic architectural character with modern luxury amenities.",
+      "This residence offers sophisticated urban living in one of San Francisco\u2019s most desirable neighborhoods. This beautifully appointed condominium combines classic architectural character with modern luxury amenities.",
       "Thoughtfully designed interiors feature hardwood floors, custom millwork, and an open kitchen that flows seamlessly into generous living and dining areas. The private terrace provides the perfect setting for enjoying iconic city views.",
     ],
     features: [
@@ -276,7 +283,7 @@ const propertiesData: Record<string, PropertyData> = {
       "San Francisco International Airport",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80", alt: "The Wellington exterior" },
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80", alt: "Living room" },
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Kitchen" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom" },
@@ -284,7 +291,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft": {
-    title: "Aspen Ridge Retreat",
+    title: "7 Bedroom Mountain Estate",
+    code: "RSH-AS-001",
     location: "Aspen, CO",
     price: "$8,900,000",
     beds: 7,
@@ -293,7 +301,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Estate",
     configuration: "7 BHK",
     description: [
-      "Aspen Ridge Retreat is an extraordinary mountain estate that redefines luxury living in one of the world\u2019s most exclusive resort destinations. Set against a backdrop of pristine alpine peaks, this property offers an unmatched combination of grandeur and natural beauty.",
+      "An extraordinary mountain estate that redefines luxury living in one of the world\u2019s most exclusive resort destinations. Set against a backdrop of pristine alpine peaks, this property offers an unmatched combination of grandeur and natural beauty.",
       "The estate features a dramatic great room with soaring windows, a wine cellar, home theater, and a spa-level wellness suite. Outdoor living includes heated terraces, an infinity-edge pool, and direct trail access for skiing and hiking.",
     ],
     features: [
@@ -319,7 +327,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Downtown Aspen",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80", alt: "Aspen Ridge exterior" },
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Mountain great room" },
       { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80", alt: "Estate view" },
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Interior detail" },
@@ -327,7 +335,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "4-bedroom-residential-for-sale-in-san-francisco-ca-5100-sq-ft": {
-    title: "Pacific Heights Modern",
+    title: "4 Bedroom Modern Residential",
+    code: "RSH-SF-002",
     location: "San Francisco, CA",
     price: "$6,250,000",
     beds: 4,
@@ -336,7 +345,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Residential",
     configuration: "4 BHK",
     description: [
-      "Pacific Heights Modern is a striking contemporary residence in San Francisco\u2019s most prestigious neighborhood. This architectural gem combines clean lines and innovative design with warm, livable spaces that welcome both daily life and grand entertaining.",
+      "A striking contemporary residence in San Francisco\u2019s most prestigious neighborhood. This architectural gem combines clean lines and innovative design with warm, livable spaces that welcome both daily life and grand entertaining.",
       "The home features an open floor plan that flows across three levels, connected by a sculptural floating staircase. Premium materials, integrated smart home technology, and a rooftop terrace with panoramic bay views define this exceptional property.",
     ],
     features: [
@@ -362,7 +371,7 @@ const propertiesData: Record<string, PropertyData> = {
       "San Francisco International Airport",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80", alt: "Pacific Heights exterior" },
+      { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Modern facade" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Living area" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Kitchen" },
@@ -370,7 +379,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "5-bedroom-beachfront-for-sale-in-malibu-ca-7400-sq-ft": {
-    title: "The Strand Collection",
+    title: "5 Bedroom Beachfront Residence",
+    code: "RSH-ML-001",
     location: "Malibu, CA",
     price: "$15,800,000",
     beds: 5,
@@ -379,7 +389,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Beachfront",
     configuration: "5 BHK",
     description: [
-      "The Strand Collection represents the ultimate in California beachfront living. This exceptional Malibu property sits directly on the sand with unobstructed ocean views that stretch to the horizon, offering a lifestyle that is truly without equal.",
+      "This exceptional property represents the ultimate in California beachfront living, situated directly on the sand with unobstructed ocean views that stretch to the horizon, offering a lifestyle that is truly without equal.",
       "Designed by a renowned architect, the residence features walls of glass that open completely to the ocean, creating an indoor-outdoor living experience that celebrates the natural beauty of its setting. Premium materials and meticulous craftsmanship are evident in every detail.",
     ],
     features: [
@@ -405,7 +415,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Los Angeles International Airport",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80", alt: "Strand Collection exterior" },
+      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80", alt: "Beach view" },
       { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Ocean-view living" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Primary suite" },
@@ -413,7 +423,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "3-plus-1-bhk-premium-residence-for-sale-in-mohali-punjab-2901-sq-ft": {
-    title: "The Grand Mohali",
+    title: "3+1 BHK Premium Residence",
+    code: "RSH-MOH-001",
     location: "Mohali, Punjab",
     price: "On Request",
     beds: 4,
@@ -422,7 +433,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Premium Residence",
     configuration: "3+1 BHK",
     description: [
-      "The Grand Mohali is an ultra-premium 3+1 BHK residence spanning 2,901 sq ft of meticulously designed living space in one of Mohali\u2019s most prestigious developments. Every detail has been crafted for discerning homeowners who demand nothing less than perfection \u2014 from imported marble flooring to designer cove lighting that transforms each room into a curated experience.",
+      "An ultra-premium 3+1 BHK residence spanning 2,901 sq ft of meticulously designed living space in one of Mohali\u2019s most prestigious developments. Every detail has been crafted for discerning homeowners who demand nothing less than perfection \u2014 from imported marble flooring to designer cove lighting that transforms each room into a curated experience.",
       "The residence features a fully-loaded modular kitchen with attached hob, chimney, H\u00E4fele microwave, and built-in oven \u2014 ready to use from day one. Each bedroom comes with an attached bathroom, and a separate powder room adds convenience for guests. With a dedicated servant\u2019s entry, basement parking, and access to a sprawling 1 lakh sq ft clubhouse, this is luxury living reimagined for modern families.",
     ],
     features: [
@@ -461,7 +472,8 @@ const propertiesData: Record<string, PropertyData> = {
     video: "/properties/grand-mohali/tour.mp4",
   },
   "3-bhk-premium-apartment-for-sale-in-chandigarh-2800-sq-ft": {
-    title: "Luxury Sample Residence",
+    title: "3 BHK Premium Apartment",
+    code: "RSH-CHD-001",
     location: "Chandigarh, India",
     price: "On Request",
     beds: 3,
@@ -504,7 +516,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "4-bhk-villa-for-sale-in-mohali-punjab-3200-sq-ft": {
-    title: "The Royal Greens Villa",
+    title: "4 BHK Independent Villa",
+    code: "RSH-MOH-002",
     location: "Mohali, Punjab",
     price: "\u20B92.8 Cr",
     beds: 4,
@@ -513,7 +526,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Villa",
     configuration: "4 BHK",
     description: [
-      "The Royal Greens Villa is an exquisite 4 BHK independent villa nestled in one of Mohali\u2019s most sought-after gated communities. Designed for families who appreciate space, privacy, and refined living, this villa offers a lifestyle that is both luxurious and grounded.",
+      "An exquisite 4 BHK independent villa nestled in one of Mohali\u2019s most sought-after gated communities. Designed for families who appreciate space, privacy, and refined living, this villa offers a lifestyle that is both luxurious and grounded.",
       "Spread across 3,200 sq ft, the villa features a grand living area, a designer kitchen, and bedrooms with en-suite bathrooms. The private garden and terrace provide serene outdoor spaces, while the gated community ensures world-class security and amenities.",
     ],
     features: [
@@ -539,7 +552,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Punjab Cricket Association Stadium",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80", alt: "Royal Greens Villa exterior" },
+      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80", alt: "Grand living room" },
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Master bedroom" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Designer kitchen" },
@@ -547,7 +560,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "3-bhk-penthouse-for-sale-in-mohali-punjab-2400-sq-ft": {
-    title: "Mohali Heights Penthouse",
+    title: "3 BHK Sky Penthouse",
+    code: "RSH-MOH-003",
     location: "Mohali, Punjab",
     price: "\u20B91.6 Cr",
     beds: 3,
@@ -556,7 +570,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Penthouse",
     configuration: "3 BHK",
     description: [
-      "Mohali Heights Penthouse offers an elevated living experience in one of Mohali\u2019s premium high-rise developments. This 3 BHK penthouse combines the exclusivity of top-floor living with panoramic views of the Shivalik range and the city skyline.",
+      "This penthouse offers an elevated living experience in one of Mohali\u2019s premium high-rise developments. This 3 BHK penthouse combines the exclusivity of top-floor living with panoramic views of the Shivalik range and the city skyline.",
       "The residence features a large wraparound terrace, double-height living spaces, and premium finishes throughout. With direct elevator access and a private rooftop area, this penthouse is designed for those who seek distinction in every aspect of their home.",
     ],
     features: [
@@ -582,7 +596,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Mohali Club",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80", alt: "Mohali Heights Penthouse" },
+      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Double-height living room" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Terrace view" },
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Master suite" },
@@ -590,7 +604,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "4-bhk-residential-for-sale-in-chandigarh-3800-sq-ft": {
-    title: "Elante Residences",
+    title: "4 BHK Luxury Residential",
+    code: "RSH-CHD-002",
     location: "Chandigarh",
     price: "\u20B93.5 Cr",
     beds: 4,
@@ -599,7 +614,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Residential",
     configuration: "4 BHK",
     description: [
-      "Elante Residences represents the pinnacle of luxury apartment living in Chandigarh. This 4 BHK residence is part of an iconic development adjacent to one of the city\u2019s most celebrated retail and entertainment destinations, offering unmatched convenience and prestige.",
+      "This 4 BHK residence represents the pinnacle of luxury apartment living in Chandigarh, part of an iconic development adjacent to one of the city\u2019s most celebrated retail and entertainment destinations, offering unmatched convenience and prestige.",
       "Spanning 3,800 sq ft, the apartment features expansive living and dining areas, a gourmet kitchen, and four generous bedrooms each with walk-in closets and premium bathrooms. Floor-to-ceiling windows frame views of the Shivalik hills and the city\u2019s iconic skyline.",
     ],
     features: [
@@ -625,7 +640,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Chandigarh International Airport",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80", alt: "Elante Residences exterior" },
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80", alt: "Spacious living area" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Premium bedroom" },
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Gourmet kitchen" },
@@ -633,7 +648,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "5-bhk-estate-for-sale-in-sector-9-chandigarh-4500-sq-ft": {
-    title: "Sector 9 Heritage Home",
+    title: "5 BHK Heritage Estate",
+    code: "RSH-CHD-003",
     location: "Chandigarh",
     price: "\u20B94.2 Cr",
     beds: 5,
@@ -642,7 +658,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Estate",
     configuration: "5 BHK",
     description: [
-      "Sector 9 Heritage Home is a distinguished 5 BHK estate located in one of Chandigarh\u2019s most prestigious and tree-lined sectors. This property embodies the city\u2019s signature blend of Le Corbusier-era architecture and modern luxury living.",
+      "A distinguished 5 BHK estate located in one of Chandigarh\u2019s most prestigious and tree-lined sectors. This property embodies the city\u2019s signature blend of Le Corbusier-era architecture and modern luxury living.",
       "Set on a generous plot, the home features high ceilings, large windows that flood interiors with natural light, and a private landscaped garden. The five spacious bedrooms, formal drawing and dining rooms, and a private study make this an ideal family home with room for generations.",
     ],
     features: [
@@ -668,7 +684,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Chandigarh Club",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80", alt: "Heritage Home exterior" },
+      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80", alt: "Grand entrance" },
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Drawing room" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Garden view" },
@@ -676,7 +692,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "3-bhk-residential-for-sale-in-zirakpur-punjab-1800-sq-ft": {
-    title: "Ambience Boulevard",
+    title: "3 BHK Modern Residential",
+    code: "RSH-ZRK-001",
     location: "Zirakpur, Punjab",
     price: "\u20B91.2 Cr",
     beds: 3,
@@ -685,7 +702,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Residential",
     configuration: "3 BHK",
     description: [
-      "Ambience Boulevard offers modern 3 BHK living in Zirakpur\u2019s fastest-growing corridor. This well-planned residential apartment combines contemporary design with practical luxury, making it an ideal home for young professionals and growing families.",
+      "This modern 3 BHK living in Zirakpur\u2019s fastest-growing corridor. This well-planned residential apartment combines contemporary design with practical luxury, making it an ideal home for young professionals and growing families.",
       "The 1,800 sq ft apartment features an open-plan living and dining area, a modular kitchen, three well-proportioned bedrooms, and two balconies offering views of the surrounding green belt. The development includes landscaped gardens, a fitness center, and children\u2019s play areas.",
     ],
     features: [
@@ -711,7 +728,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Chandigarh International Airport",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80", alt: "Ambience Boulevard exterior" },
+      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Modern living room" },
       { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Bedroom" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Kitchen" },
@@ -719,7 +736,8 @@ const propertiesData: Record<string, PropertyData> = {
     ],
   },
   "3-bhk-luxury-floors-for-sale-in-zirakpur-punjab-1650-sq-ft": {
-    title: "VR Punjab Luxury Floors",
+    title: "3 BHK Independent Floors",
+    code: "RSH-ZRK-002",
     location: "Zirakpur, Punjab",
     price: "\u20B985 Lac",
     beds: 3,
@@ -728,7 +746,7 @@ const propertiesData: Record<string, PropertyData> = {
     type: "Residential",
     configuration: "3 BHK",
     description: [
-      "VR Punjab Luxury Floors offers an exceptional opportunity to own a premium 3 BHK independent floor in Zirakpur\u2019s prime VR Punjab corridor. These thoughtfully designed floors provide the privacy of independent living with the convenience of a gated township.",
+      "An exceptional opportunity to own a premium 3 BHK independent floor in Zirakpur\u2019s prime VR Punjab corridor. These thoughtfully designed floors provide the privacy of independent living with the convenience of a gated township.",
       "Each 1,650 sq ft floor features spacious rooms, modern fixtures, and a functional layout designed for comfortable family living. With proximity to VR Punjab Mall and excellent connectivity to Chandigarh and Panchkula, this is smart living at an accessible price point.",
     ],
     features: [
@@ -754,7 +772,7 @@ const propertiesData: Record<string, PropertyData> = {
       "Panchkula City Center",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80", alt: "VR Punjab Luxury Floors" },
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Living area" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom" },
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Kitchen" },
@@ -861,9 +879,12 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <span className="inline-block text-xs font-body tracking-widest uppercase bg-background-secondary/15 px-3 py-1.5 text-background-secondary mb-4">
-              {property.configuration}
-            </span>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="inline-block text-xs font-body tracking-widest uppercase bg-background-secondary/15 px-3 py-1.5 text-background-secondary">
+                {property.configuration}
+              </span>
+              <span className="text-xs font-body tracking-wider text-background-secondary/50">{property.code}</span>
+            </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-4xl leading-tight drop-shadow-lg">
               {property.title}
             </h1>
