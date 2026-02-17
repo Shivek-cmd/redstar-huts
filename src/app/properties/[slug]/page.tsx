@@ -1,213 +1,12 @@
 import type { Metadata } from "next";
 import PropertyDetailClient from "./PropertyDetailClient";
-
-interface PropertySEO {
-  title: string;
-  description: string;
-  price: string;
-  location: string;
-  beds: number;
-  baths: number;
-  sqft: string;
-  type: string;
-  image: string;
-}
-
-const propertyMeta: Record<string, PropertySEO> = {
-  "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft": {
-    title: "The Meridian Residence \u2014 Beverly Hills, CA",
-    description: "Luxury 5-bed residence in Beverly Hills with infinity pool, home theater, and smart home automation. $4.85M. Contact RedStar Huts.",
-    price: "$4,850,000",
-    location: "Beverly Hills, CA",
-    beds: 5,
-    baths: 4,
-    sqft: "6,200",
-    type: "Residential",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
-  },
-  "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft": {
-    title: "Harborview Estate \u2014 Miami Beach, FL",
-    description: "Waterfront 4-bed estate in Miami Beach with private dock and resort-style pool. $3.2M. Contact RedStar Huts.",
-    price: "$3,200,000",
-    location: "Miami Beach, FL",
-    beds: 4,
-    baths: 3,
-    sqft: "4,800",
-    type: "Residential",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
-  },
-  "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft": {
-    title: "Crestwood Manor \u2014 Greenwich, CT",
-    description: "Distinguished 6-bed estate on 3+ acres in Greenwich with tennis court, heated pool, and guest cottage. $7.1M. Contact RedStar Huts.",
-    price: "$7,100,000",
-    location: "Greenwich, CT",
-    beds: 6,
-    baths: 5,
-    sqft: "8,500",
-    type: "Estate",
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80",
-  },
-  "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft": {
-    title: "The Pinnacle Penthouse \u2014 Manhattan, NY",
-    description: "360-degree skyline views from this 3-bed Manhattan penthouse with private elevator entry. $12.5M. Contact RedStar Huts.",
-    price: "$12,500,000",
-    location: "Manhattan, NY",
-    beds: 3,
-    baths: 3,
-    sqft: "4,200",
-    type: "Penthouse",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
-  },
-  "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft": {
-    title: "Lakeshore Villa \u2014 Lake Tahoe, NV",
-    description: "Stunning 5-bed lakefront villa with private beach, dock, and ski access. $5.6M. Contact RedStar Huts.",
-    price: "$5,600,000",
-    location: "Lake Tahoe, NV",
-    beds: 5,
-    baths: 4,
-    sqft: "5,800",
-    type: "Residential",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80",
-  },
-  "3-bedroom-condominium-for-sale-in-san-francisco-ca-3100-sq-ft": {
-    title: "The Wellington \u2014 San Francisco, CA",
-    description: "Sophisticated 3-bed condo in San Francisco with Golden Gate views and private terrace. $2.95M. Contact RedStar Huts.",
-    price: "$2,950,000",
-    location: "San Francisco, CA",
-    beds: 3,
-    baths: 2,
-    sqft: "3,100",
-    type: "Condominium",
-    image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80",
-  },
-  "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft": {
-    title: "Aspen Ridge Retreat \u2014 Aspen, CO",
-    description: "Extraordinary 7-bed mountain estate in Aspen with infinity pool, spa suite, and home theater. $8.9M. Contact RedStar Huts.",
-    price: "$8,900,000",
-    location: "Aspen, CO",
-    beds: 7,
-    baths: 6,
-    sqft: "9,200",
-    type: "Estate",
-    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
-  },
-  "4-bedroom-residential-for-sale-in-san-francisco-ca-5100-sq-ft": {
-    title: "Pacific Heights Modern \u2014 San Francisco, CA",
-    description: "Striking 4-bed contemporary residence in Pacific Heights with rooftop terrace and bay views. $6.25M. Contact RedStar Huts.",
-    price: "$6,250,000",
-    location: "San Francisco, CA",
-    beds: 4,
-    baths: 4,
-    sqft: "5,100",
-    type: "Residential",
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80",
-  },
-  "5-bedroom-beachfront-for-sale-in-malibu-ca-7400-sq-ft": {
-    title: "The Strand Collection \u2014 Malibu, CA",
-    description: "Ultimate 5-bed beachfront property on Carbon Beach with retractable glass walls and infinity pool. $15.8M. Contact RedStar Huts.",
-    price: "$15,800,000",
-    location: "Malibu, CA",
-    beds: 5,
-    baths: 5,
-    sqft: "7,400",
-    type: "Beachfront",
-    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80",
-  },
-  "3-plus-1-bhk-premium-residence-for-sale-in-mohali-punjab-2901-sq-ft": {
-    title: "The Grand Mohali \u2014 3+1 BHK Premium Residence | Mohali, Punjab",
-    description: "Ultra-premium 3+1 BHK residence in Mohali, Punjab. 2,901 sq ft with H\u00E4fele kitchen, 1 lakh sq ft clubhouse, basement parking. Near Airport, ISBT, Elante Mall. Contact RedStar Huts for site visit.",
-    price: "On Request",
-    location: "Mohali, Punjab",
-    beds: 4,
-    baths: 4,
-    sqft: "2,901",
-    type: "Premium Residence",
-    image: "/properties/grand-mohali/living-room.jpg",
-  },
-  "3-bhk-premium-apartment-for-sale-in-chandigarh-2800-sq-ft": {
-    title: "Luxury Sample Residence \u2014 Chandigarh, India",
-    description: "Premium 3 BHK apartment in Chandigarh with modern amenities and city views. Contact RedStar Huts for details.",
-    price: "On Request",
-    location: "Chandigarh, India",
-    beds: 3,
-    baths: 3,
-    sqft: "2,800",
-    type: "Premium Apartment",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
-  },
-  "4-bhk-villa-for-sale-in-mohali-punjab-3200-sq-ft": {
-    title: "The Royal Greens Villa \u2014 Mohali, Punjab",
-    description: "Exquisite 4 BHK independent villa in Mohali\u2019s premium gated community. 3,200 sq ft with private garden. \u20B92.8 Cr. Contact RedStar Huts.",
-    price: "\u20B92.8 Cr",
-    location: "Mohali, Punjab",
-    beds: 4,
-    baths: 3,
-    sqft: "3,200",
-    type: "Villa",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
-  },
-  "3-bhk-penthouse-for-sale-in-mohali-punjab-2400-sq-ft": {
-    title: "Mohali Heights Penthouse \u2014 Mohali, Punjab",
-    description: "Exclusive 3 BHK penthouse in Mohali with Shivalik range views and private terrace. 2,400 sq ft. \u20B91.6 Cr. Contact RedStar Huts.",
-    price: "\u20B91.6 Cr",
-    location: "Mohali, Punjab",
-    beds: 3,
-    baths: 3,
-    sqft: "2,400",
-    type: "Penthouse",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
-  },
-  "4-bhk-residential-for-sale-in-chandigarh-3800-sq-ft": {
-    title: "Elante Residences \u2014 Chandigarh",
-    description: "Luxury 4 BHK apartment adjacent to Elante Mall in Chandigarh. 3,800 sq ft with hill views. \u20B93.5 Cr. Contact RedStar Huts.",
-    price: "\u20B93.5 Cr",
-    location: "Chandigarh",
-    beds: 4,
-    baths: 4,
-    sqft: "3,800",
-    type: "Residential",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80",
-  },
-  "5-bhk-estate-for-sale-in-sector-9-chandigarh-4500-sq-ft": {
-    title: "Sector 9 Heritage Home \u2014 Chandigarh",
-    description: "Distinguished 5 BHK heritage estate in Chandigarh\u2019s prime Sector 9. 4,500 sq ft with landscaped garden. \u20B94.2 Cr. Contact RedStar Huts.",
-    price: "\u20B94.2 Cr",
-    location: "Chandigarh",
-    beds: 5,
-    baths: 4,
-    sqft: "4,500",
-    type: "Estate",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
-  },
-  "3-bhk-residential-for-sale-in-zirakpur-punjab-1800-sq-ft": {
-    title: "Ambience Boulevard \u2014 Zirakpur, Punjab",
-    description: "Modern 3 BHK residential apartment in Zirakpur with community amenities. 1,800 sq ft. \u20B91.2 Cr. Contact RedStar Huts.",
-    price: "\u20B91.2 Cr",
-    location: "Zirakpur, Punjab",
-    beds: 3,
-    baths: 2,
-    sqft: "1,800",
-    type: "Residential",
-    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80",
-  },
-  "3-bhk-luxury-floors-for-sale-in-zirakpur-punjab-1650-sq-ft": {
-    title: "VR Punjab Luxury Floors \u2014 Zirakpur, Punjab",
-    description: "Premium 3 BHK independent floors near VR Punjab Mall, Zirakpur. 1,650 sq ft, ready to move. \u20B985 Lac. Contact RedStar Huts.",
-    price: "\u20B985 Lac",
-    location: "Zirakpur, Punjab",
-    beds: 3,
-    baths: 2,
-    sqft: "1,650",
-    type: "Residential",
-    image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80",
-  },
-};
+import { propertyMeta, allProperties } from "@/data/properties";
 
 function getLocationKeywords(location: string): string[] {
   const kw: string[] = [];
   if (location.includes("Punjab")) kw.push("Punjab real estate", "North India property", "NRI investment Punjab");
   if (location.includes("Chandigarh")) kw.push("Chandigarh real estate", "luxury homes Chandigarh", "buy property Chandigarh");
-  if (location.includes("Mohali")) kw.push("Mohali real estate", "luxury residence Mohali", "property investment Mohali", "3 BHK Mohali", "premium flat Mohali");
+  if (location.includes("Mohali")) kw.push("Mohali real estate", "luxury residence Mohali", "property investment Mohali", "3 BHK Mohali", "premium flat Mohali", "flat for sale Mohali");
   if (location.includes("Zirakpur")) kw.push("Zirakpur real estate", "buy flat Zirakpur", "luxury floors Zirakpur");
   return kw;
 }
@@ -216,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const meta = propertyMeta[slug];
   const title = meta?.title || "Property";
-  const description = meta?.description || "Explore premium properties listed by RedStar Huts across North India and international markets.";
+  const description = meta?.description || "Explore premium properties listed by RedStar Huts in Mohali, Chandigarh, and across North India.";
   const image = meta?.image || "/og-image.png";
   const url = `https://redstarhuts.com/properties/${slug}`;
 
@@ -236,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
           meta.location,
           ...getLocationKeywords(meta.location),
         ]
-      : ["luxury property", "real estate", "RedStar Huts"],
+      : ["luxury property", "real estate", "RedStar Huts", "Mohali", "Punjab"],
     alternates: {
       canonical: url,
     },
@@ -274,27 +73,17 @@ function buildPropertyJsonLd(slug: string) {
 
   const priceStr = meta.price;
   let priceValue = "";
-  let priceCurrency = "USD";
+  const priceCurrency = "INR";
 
-  if (priceStr.includes("\u20B9")) {
-    priceCurrency = "INR";
+  if (priceStr.includes("\u20B9") || priceStr.includes("\u20b9")) {
     if (priceStr.includes("Cr")) {
       const num = parseFloat(priceStr.replace(/[^\d.]/g, ""));
       priceValue = String(num * 10000000);
-    } else if (priceStr.includes("Lac")) {
+    } else if (priceStr.includes("Lac") || priceStr.includes("Lakh")) {
       const num = parseFloat(priceStr.replace(/[^\d.]/g, ""));
       priceValue = String(num * 100000);
     }
-  } else if (priceStr.includes("$")) {
-    priceValue = priceStr.replace(/[$,]/g, "");
   }
-
-  const isIndia =
-    meta.location.includes("India") ||
-    meta.location.includes("Punjab") ||
-    meta.location.includes("Chandigarh") ||
-    meta.location.includes("Zirakpur") ||
-    meta.location.includes("Mohali");
 
   return {
     "@context": "https://schema.org",
@@ -334,7 +123,7 @@ function buildPropertyJsonLd(slug: string) {
             "@type": "PostalAddress",
             addressLocality: meta.location.split(",")[0].trim(),
             addressRegion: meta.location.split(",")[1]?.trim() || "",
-            addressCountry: isIndia ? "IN" : "US",
+            addressCountry: "IN",
           },
         },
       },
@@ -356,7 +145,7 @@ function buildPropertyJsonLd(slug: string) {
           {
             "@type": "ListItem",
             position: 3,
-            name: meta.title.split(" \u2014 ")[0],
+            name: meta.title,
             item: `https://redstarhuts.com/properties/${slug}`,
           },
         ],
@@ -366,25 +155,7 @@ function buildPropertyJsonLd(slug: string) {
 }
 
 export function generateStaticParams() {
-  return [
-    { slug: "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft" },
-    { slug: "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft" },
-    { slug: "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft" },
-    { slug: "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft" },
-    { slug: "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft" },
-    { slug: "3-bedroom-condominium-for-sale-in-san-francisco-ca-3100-sq-ft" },
-    { slug: "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft" },
-    { slug: "4-bedroom-residential-for-sale-in-san-francisco-ca-5100-sq-ft" },
-    { slug: "5-bedroom-beachfront-for-sale-in-malibu-ca-7400-sq-ft" },
-    { slug: "3-plus-1-bhk-premium-residence-for-sale-in-mohali-punjab-2901-sq-ft" },
-    { slug: "3-bhk-premium-apartment-for-sale-in-chandigarh-2800-sq-ft" },
-    { slug: "4-bhk-villa-for-sale-in-mohali-punjab-3200-sq-ft" },
-    { slug: "3-bhk-penthouse-for-sale-in-mohali-punjab-2400-sq-ft" },
-    { slug: "4-bhk-residential-for-sale-in-chandigarh-3800-sq-ft" },
-    { slug: "5-bhk-estate-for-sale-in-sector-9-chandigarh-4500-sq-ft" },
-    { slug: "3-bhk-residential-for-sale-in-zirakpur-punjab-1800-sq-ft" },
-    { slug: "3-bhk-luxury-floors-for-sale-in-zirakpur-punjab-1650-sq-ft" },
-  ];
+  return allProperties.map((p) => ({ slug: p.slug }));
 }
 
 export default async function PropertyDetailPage({
