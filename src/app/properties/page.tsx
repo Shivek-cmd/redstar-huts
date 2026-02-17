@@ -8,7 +8,7 @@ import SectionReveal from "@/components/SectionReveal";
 const allProperties = [
   {
     title: "The Meridian Residence",
-    slug: "meridian-residence",
+    slug: "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft",
     location: "Beverly Hills, CA",
     price: "$4,850,000",
     image:
@@ -20,7 +20,7 @@ const allProperties = [
   },
   {
     title: "Harborview Estate",
-    slug: "harborview-estate",
+    slug: "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft",
     location: "Miami Beach, FL",
     price: "$3,200,000",
     image:
@@ -32,7 +32,7 @@ const allProperties = [
   },
   {
     title: "Crestwood Manor",
-    slug: "crestwood-manor",
+    slug: "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft",
     location: "Greenwich, CT",
     price: "$7,100,000",
     image:
@@ -44,7 +44,7 @@ const allProperties = [
   },
   {
     title: "The Pinnacle Penthouse",
-    slug: "pinnacle-penthouse",
+    slug: "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft",
     location: "Manhattan, NY",
     price: "$12,500,000",
     image:
@@ -56,7 +56,7 @@ const allProperties = [
   },
   {
     title: "Lakeshore Villa",
-    slug: "lakeshore-villa",
+    slug: "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft",
     location: "Lake Tahoe, NV",
     price: "$5,600,000",
     image:
@@ -68,7 +68,7 @@ const allProperties = [
   },
   {
     title: "The Wellington",
-    slug: "the-wellington",
+    slug: "3-bedroom-condominium-for-sale-in-san-francisco-ca-3100-sq-ft",
     location: "San Francisco, CA",
     price: "$2,950,000",
     image:
@@ -80,7 +80,7 @@ const allProperties = [
   },
   {
     title: "Aspen Ridge Retreat",
-    slug: "aspen-ridge-retreat",
+    slug: "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft",
     location: "Aspen, CO",
     price: "$8,900,000",
     image:
@@ -92,7 +92,7 @@ const allProperties = [
   },
   {
     title: "Pacific Heights Modern",
-    slug: "pacific-heights-modern",
+    slug: "4-bedroom-residential-for-sale-in-san-francisco-ca-5100-sq-ft",
     location: "San Francisco, CA",
     price: "$6,250,000",
     image:
@@ -104,7 +104,7 @@ const allProperties = [
   },
   {
     title: "The Strand Collection",
-    slug: "strand-collection",
+    slug: "5-bedroom-beachfront-for-sale-in-malibu-ca-7400-sq-ft",
     location: "Malibu, CA",
     price: "$15,800,000",
     image:
@@ -116,7 +116,7 @@ const allProperties = [
   },
   {
     title: "The Grand Mohali",
-    slug: "the-grand-mohali",
+    slug: "3-plus-1-bhk-premium-residence-for-sale-in-mohali-punjab-2901-sq-ft",
     location: "Mohali, Punjab",
     price: "On Request",
     image: "/properties/grand-mohali/living-room.jpg",
@@ -125,24 +125,103 @@ const allProperties = [
     sqft: "2,901",
     type: "Premium Residence",
   },
+  {
+    title: "Luxury Sample Residence",
+    slug: "3-bhk-premium-apartment-for-sale-in-chandigarh-2800-sq-ft",
+    location: "Chandigarh, India",
+    price: "On Request",
+    image: "/properties/sample/living-room.jpg",
+    beds: 3,
+    baths: 3,
+    sqft: "2,800",
+    type: "Premium Apartment",
+  },
+  {
+    title: "The Royal Greens Villa",
+    slug: "4-bhk-villa-for-sale-in-mohali-punjab-3200-sq-ft",
+    location: "Mohali, Punjab",
+    price: "\u20B92.8 Cr",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    beds: 4,
+    baths: 3,
+    sqft: "3,200",
+    type: "Villa",
+  },
+  {
+    title: "Mohali Heights Penthouse",
+    slug: "3-bhk-penthouse-for-sale-in-mohali-punjab-2400-sq-ft",
+    location: "Mohali, Punjab",
+    price: "\u20B91.6 Cr",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    beds: 3,
+    baths: 3,
+    sqft: "2,400",
+    type: "Penthouse",
+  },
+  {
+    title: "Elante Residences",
+    slug: "4-bhk-residential-for-sale-in-chandigarh-3800-sq-ft",
+    location: "Chandigarh",
+    price: "\u20B93.5 Cr",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+    beds: 4,
+    baths: 4,
+    sqft: "3,800",
+    type: "Residential",
+  },
+  {
+    title: "Sector 9 Heritage Home",
+    slug: "5-bhk-estate-for-sale-in-sector-9-chandigarh-4500-sq-ft",
+    location: "Chandigarh",
+    price: "\u20B94.2 Cr",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    beds: 5,
+    baths: 4,
+    sqft: "4,500",
+    type: "Estate",
+  },
+  {
+    title: "Ambience Boulevard",
+    slug: "3-bhk-residential-for-sale-in-zirakpur-punjab-1800-sq-ft",
+    location: "Zirakpur, Punjab",
+    price: "\u20B91.2 Cr",
+    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
+    beds: 3,
+    baths: 2,
+    sqft: "1,800",
+    type: "Residential",
+  },
+  {
+    title: "VR Punjab Luxury Floors",
+    slug: "3-bhk-luxury-floors-for-sale-in-zirakpur-punjab-1650-sq-ft",
+    location: "Zirakpur, Punjab",
+    price: "\u20B985 Lac",
+    image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80",
+    beds: 3,
+    baths: 2,
+    sqft: "1,650",
+    type: "Residential",
+  },
 ];
 
 const locations = ["All Locations", ...Array.from(new Set(allProperties.map((p) => p.location)))];
 const types = ["All Types", ...Array.from(new Set(allProperties.map((p) => p.type)))];
 const budgetRanges = [
   { label: "Any Budget", min: 0, max: Infinity },
-  { label: "Under $5M", min: 0, max: 5000000 },
-  { label: "$5M - $10M", min: 5000000, max: 10000000 },
-  { label: "$10M+", min: 10000000, max: Infinity },
+  { label: "Under $5M / Under \u20B92 Cr", min: 0, max: 5000000 },
+  { label: "$5M-$10M / \u20B92-5 Cr", min: 5000000, max: 10000000 },
+  { label: "$10M+ / \u20B95 Cr+", min: 10000000, max: Infinity },
 ];
 
 function parsePrice(price: string): number {
-  if (price === "On Request") return 0;
-  if (price.includes("\u20B9")) {
+  if (price.toLowerCase().includes("request")) return 0;
+  if (price.includes("Cr")) {
     const num = parseFloat(price.replace(/[^\d.]/g, ""));
-    if (price.includes("Cr")) return num * 10000000;
-    if (price.includes("Lac")) return num * 100000;
-    return num;
+    return num * 2500000;
+  }
+  if (price.includes("Lac")) {
+    const num = parseFloat(price.replace(/[^\d.]/g, ""));
+    return num * 25000;
   }
   return Number(price.replace(/[$,]/g, ""));
 }
