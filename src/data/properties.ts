@@ -388,7 +388,7 @@ export const propertiesData: Record<string, PropertyDetail> = {
     nearby: sharedNearby,
     images: [
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80", alt: "Spacious living room of 4+1 BHK premium flat in Mohali" },
-      { src: "https://images.unsplash.com/photo-1600566753376-12c8ab7a5a38?w=800&q=80", alt: "Master bedroom with attached AC in Mohali flat" },
+      // { src: "https://images.unsplash.com/photo-1600566753376-12c8ab7a5a38?w=800&q=80", alt: "Master bedroom with attached AC in Mohali flat" },
       { src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80", alt: "Modern kitchen with granite countertop in Mohali property" },
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Dining area with false ceiling and ambient lighting in Mohali" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Premium bathroom with branded fittings in Mohali flat" },
