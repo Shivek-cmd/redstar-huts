@@ -287,15 +287,25 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
             <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-4 text-center">Connectivity & Convenience</p>
-            <h2 className="font-heading text-3xl md:text-4xl text-foreground text-center">Nearby Landmarks</h2>
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-6">
-              {property.nearby.map((place) => (
-                <div key={place} className="flex items-center gap-3 p-5 bg-background-secondary border border-border">
-                  <svg className="w-5 h-5 text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                  </svg>
-                  <span className="text-sm font-body text-body">{place}</span>
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground text-center mb-12">Nearby Landmarks</h2>
+            <div className="space-y-10">
+              {property.nearby.map((cat) => (
+                <div key={cat.category}>
+                  <h3 className="font-heading text-lg text-foreground mb-4">{cat.category}</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {cat.places.map((p) => (
+                      <div key={p.name} className="flex items-center justify-between gap-3 p-4 bg-background-secondary border border-border">
+                        <div className="flex items-center gap-3 min-w-0">
+                          <svg className="w-4 h-4 text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                          </svg>
+                          <span className="text-sm font-body text-body truncate">{p.name}</span>
+                        </div>
+                        <span className="text-xs font-body text-muted whitespace-nowrap">{p.distance}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
