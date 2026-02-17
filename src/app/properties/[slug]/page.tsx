@@ -2,15 +2,15 @@ import PropertyDetailClient from "./PropertyDetailClient";
 
 export function generateStaticParams() {
   return [
-    { slug: "meridian-residence" },
-    { slug: "harborview-estate" },
-    { slug: "crestwood-manor" },
-    { slug: "pinnacle-penthouse" },
-    { slug: "lakeshore-villa" },
-    { slug: "the-wellington" },
-    { slug: "aspen-ridge-retreat" },
-    { slug: "pacific-heights-modern" },
-    { slug: "strand-collection" },
+    { slug: "rsh-bh-001" },
+    { slug: "rsh-mb-001" },
+    { slug: "rsh-gr-001" },
+    { slug: "rsh-mn-001" },
+    { slug: "rsh-lt-001" },
+    { slug: "rsh-sf-001" },
+    { slug: "rsh-as-001" },
+    { slug: "rsh-sf-002" },
+    { slug: "rsh-ml-001" },
   ];
 }
 

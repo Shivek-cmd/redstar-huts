@@ -8,6 +8,7 @@ const propertiesData: Record<
   string,
   {
     title: string;
+    code: string;
     location: string;
     price: string;
     beds: number;
@@ -19,8 +20,9 @@ const propertiesData: Record<
     images: { src: string; alt: string }[];
   }
 > = {
-  "meridian-residence": {
-    title: "The Meridian Residence",
+  "rsh-bh-001": {
+    title: "5 Bedroom Luxury Residential",
+    code: "RSH-BH-001",
     location: "Beverly Hills, CA",
     price: "$4,850,000",
     beds: 5,
@@ -28,7 +30,7 @@ const propertiesData: Record<
     sqft: "6,200",
     type: "Residential",
     description: [
-      "Nestled in the heart of Beverly Hills, The Meridian Residence is a masterfully designed home that seamlessly blends modern luxury with timeless elegance. Every detail has been carefully considered to create a living experience that is both refined and welcoming.",
+      "Nestled in the heart of Beverly Hills, this masterfully designed home seamlessly blends modern luxury with timeless elegance. Every detail has been carefully considered to create a living experience that is both refined and welcoming.",
       "Floor-to-ceiling windows flood the interiors with natural light, while premium materials and finishes create an atmosphere of quiet sophistication throughout. The open floor plan connects seamlessly to expansive outdoor living spaces with panoramic views.",
     ],
     features: [
@@ -40,15 +42,16 @@ const propertiesData: Record<
       "Three-car garage with EV charging",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80", alt: "Meridian Residence exterior" },
+      { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Modern kitchen" },
       { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Living room" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Master bedroom" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Pool area" },
     ],
   },
-  "harborview-estate": {
-    title: "Harborview Estate",
+  "rsh-mb-001": {
+    title: "4 Bedroom Waterfront Residential",
+    code: "RSH-MB-001",
     location: "Miami Beach, FL",
     price: "$3,200,000",
     beds: 4,
@@ -56,7 +59,7 @@ const propertiesData: Record<
     sqft: "4,800",
     type: "Residential",
     description: [
-      "Harborview Estate captures the essence of coastal luxury living in one of Miami Beach's most prestigious neighborhoods. This stunning waterfront property offers breathtaking views and an unparalleled lifestyle experience.",
+      "This exceptional property captures the essence of coastal luxury living in one of Miami Beach's most prestigious neighborhoods. A stunning waterfront residence offering breathtaking views and an unparalleled lifestyle experience.",
       "The residence features an open-concept design with soaring ceilings, a gourmet kitchen, and walls of glass that blur the line between indoor and outdoor living. The private dock and resort-style pool complete this exceptional offering.",
     ],
     features: [
@@ -68,15 +71,16 @@ const propertiesData: Record<
       "Hurricane-rated construction",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80", alt: "Harborview Estate exterior" },
+      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80", alt: "Property exterior view" },
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Open living space" },
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Waterfront view" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom suite" },
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Pool and garden" },
     ],
   },
-  "crestwood-manor": {
-    title: "Crestwood Manor",
+  "rsh-gr-001": {
+    title: "6 Bedroom Premium Estate",
+    code: "RSH-GR-001",
     location: "Greenwich, CT",
     price: "$7,100,000",
     beds: 6,
@@ -84,8 +88,8 @@ const propertiesData: Record<
     sqft: "8,500",
     type: "Estate",
     description: [
-      "Crestwood Manor is a distinguished estate set on over three acres of meticulously landscaped grounds in Greenwich's most coveted enclave. This property represents the pinnacle of New England luxury living.",
-      "The manor features grand formal rooms with soaring ceilings, a library with hand-carved woodwork, and a chef's kitchen designed for both intimate dinners and grand entertaining. The grounds include a tennis court, heated pool, and guest cottage.",
+      "A distinguished estate set on over three acres of meticulously landscaped grounds in Greenwich's most coveted enclave. This property represents the pinnacle of New England luxury living.",
+      "The estate features grand formal rooms with soaring ceilings, a library with hand-carved woodwork, and a chef's kitchen designed for both intimate dinners and grand entertaining. The grounds include a tennis court, heated pool, and guest cottage.",
     ],
     features: [
       "3+ acres of professionally landscaped grounds",
@@ -96,15 +100,16 @@ const propertiesData: Record<
       "Six-car heated garage",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80", alt: "Crestwood Manor exterior" },
+      { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80", alt: "Estate exterior view" },
       { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80", alt: "Grand interior" },
       { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Formal living room" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Estate grounds" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Garden view" },
     ],
   },
-  "pinnacle-penthouse": {
-    title: "The Pinnacle Penthouse",
+  "rsh-mn-001": {
+    title: "3 Bedroom Skyline Penthouse",
+    code: "RSH-MN-001",
     location: "Manhattan, NY",
     price: "$12,500,000",
     beds: 3,
@@ -112,7 +117,7 @@ const propertiesData: Record<
     sqft: "4,200",
     type: "Penthouse",
     description: [
-      "Perched atop one of Manhattan's most prestigious towers, The Pinnacle Penthouse offers an unrivaled living experience with 360-degree views of the city skyline, Central Park, and the Hudson River.",
+      "Perched atop one of Manhattan's most prestigious towers, this penthouse offers an unrivaled living experience with 360-degree views of the city skyline, Central Park, and the Hudson River.",
       "This meticulously designed residence features museum-quality finishes, a private elevator entry, and floor-to-ceiling windows that frame the city as living art. The chef's kitchen, spacious entertaining areas, and serene private quarters create the ultimate urban retreat.",
     ],
     features: [
@@ -124,15 +129,16 @@ const propertiesData: Record<
       "Full-service building with concierge",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80", alt: "Pinnacle Penthouse interior" },
+      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80", alt: "Penthouse interior" },
       { src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80", alt: "City skyline view" },
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Living area" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Master suite" },
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Kitchen detail" },
     ],
   },
-  "lakeshore-villa": {
-    title: "Lakeshore Villa",
+  "rsh-lt-001": {
+    title: "5 Bedroom Lakefront Villa",
+    code: "RSH-LT-001",
     location: "Lake Tahoe, NV",
     price: "$5,600,000",
     beds: 5,
@@ -140,7 +146,7 @@ const propertiesData: Record<
     sqft: "5,800",
     type: "Residential",
     description: [
-      "Lakeshore Villa is a stunning lakefront property offering direct access to the pristine waters of Lake Tahoe. This mountain modern masterpiece combines rustic warmth with contemporary luxury in one of America's most breathtaking settings.",
+      "A stunning lakefront property offering direct access to the pristine waters of Lake Tahoe. This mountain modern masterpiece combines rustic warmth with contemporary luxury in one of America's most breathtaking settings.",
       "The home features dramatic vaulted ceilings with exposed timber beams, a great room with floor-to-ceiling stone fireplace, and expansive decks that frame the lake and mountain views. A private beach and dock complete this extraordinary retreat.",
     ],
     features: [
@@ -152,15 +158,16 @@ const propertiesData: Record<
       "Separate guest wing with private entrance",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80", alt: "Lakeshore Villa exterior" },
+      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80", alt: "Lakefront villa exterior" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Lake view" },
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Interior great room" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Outdoor deck" },
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Mountain view" },
     ],
   },
-  "the-wellington": {
-    title: "The Wellington",
+  "rsh-sf-001": {
+    title: "3 Bedroom Urban Condominium",
+    code: "RSH-SF-001",
     location: "San Francisco, CA",
     price: "$2,950,000",
     beds: 3,
@@ -168,7 +175,7 @@ const propertiesData: Record<
     sqft: "3,100",
     type: "Condominium",
     description: [
-      "The Wellington offers sophisticated urban living in one of San Francisco's most desirable neighborhoods. This beautifully appointed condominium combines classic architectural character with modern luxury amenities.",
+      "This sophisticated urban residence offers refined living in one of San Francisco's most desirable neighborhoods. A beautifully appointed condominium that combines classic architectural character with modern luxury amenities.",
       "Thoughtfully designed interiors feature hardwood floors, custom millwork, and an open kitchen that flows seamlessly into generous living and dining areas. The private terrace provides the perfect setting for enjoying iconic city views.",
     ],
     features: [
@@ -180,15 +187,16 @@ const propertiesData: Record<
       "Deeded parking and building amenities",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80", alt: "The Wellington exterior" },
+      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80", alt: "Condominium exterior" },
       { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80", alt: "Living room" },
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Kitchen" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Bedroom" },
       { src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80", alt: "City view" },
     ],
   },
-  "aspen-ridge-retreat": {
-    title: "Aspen Ridge Retreat",
+  "rsh-as-001": {
+    title: "7 Bedroom Mountain Estate",
+    code: "RSH-AS-001",
     location: "Aspen, CO",
     price: "$8,900,000",
     beds: 7,
@@ -196,7 +204,7 @@ const propertiesData: Record<
     sqft: "9,200",
     type: "Estate",
     description: [
-      "Aspen Ridge Retreat is an extraordinary mountain estate that redefines luxury living in one of the world's most exclusive resort destinations. Set against a backdrop of pristine alpine peaks, this property offers an unmatched combination of grandeur and natural beauty.",
+      "An extraordinary mountain estate that redefines luxury living in one of the world's most exclusive resort destinations. Set against a backdrop of pristine alpine peaks, this property offers an unmatched combination of grandeur and natural beauty.",
       "The estate features a dramatic great room with soaring windows, a wine cellar, home theater, and a spa-level wellness suite. Outdoor living includes heated terraces, an infinity-edge pool, and direct trail access for skiing and hiking.",
     ],
     features: [
@@ -208,15 +216,16 @@ const propertiesData: Record<
       "Spa suite with sauna and steam room",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80", alt: "Aspen Ridge exterior" },
+      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80", alt: "Mountain estate exterior" },
       { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Mountain great room" },
       { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80", alt: "Estate view" },
       { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Interior detail" },
       { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Pool area" },
     ],
   },
-  "pacific-heights-modern": {
-    title: "Pacific Heights Modern",
+  "rsh-sf-002": {
+    title: "4 Bedroom Modern Residential",
+    code: "RSH-SF-002",
     location: "San Francisco, CA",
     price: "$6,250,000",
     beds: 4,
@@ -224,7 +233,7 @@ const propertiesData: Record<
     sqft: "5,100",
     type: "Residential",
     description: [
-      "Pacific Heights Modern is a striking contemporary residence in San Francisco's most prestigious neighborhood. This architectural gem combines clean lines and innovative design with warm, livable spaces that welcome both daily life and grand entertaining.",
+      "A striking contemporary residence in San Francisco's most prestigious neighborhood. This architectural gem combines clean lines and innovative design with warm, livable spaces that welcome both daily life and grand entertaining.",
       "The home features an open floor plan that flows across three levels, connected by a sculptural floating staircase. Premium materials, integrated smart home technology, and a rooftop terrace with panoramic bay views define this exceptional property.",
     ],
     features: [
@@ -236,15 +245,16 @@ const propertiesData: Record<
       "Two-car garage with direct interior access",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80", alt: "Pacific Heights exterior" },
+      { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80", alt: "Modern residential exterior" },
       { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", alt: "Modern facade" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Living area" },
       { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Kitchen" },
       { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Terrace view" },
     ],
   },
-  "strand-collection": {
-    title: "The Strand Collection",
+  "rsh-ml-001": {
+    title: "5 Bedroom Beachfront Residence",
+    code: "RSH-ML-001",
     location: "Malibu, CA",
     price: "$15,800,000",
     beds: 5,
@@ -252,7 +262,7 @@ const propertiesData: Record<
     sqft: "7,400",
     type: "Beachfront",
     description: [
-      "The Strand Collection represents the ultimate in California beachfront living. This exceptional Malibu property sits directly on the sand with unobstructed ocean views that stretch to the horizon, offering a lifestyle that is truly without equal.",
+      "This exceptional property represents the ultimate in California beachfront living. Situated directly on the sand with unobstructed ocean views that stretch to the horizon, offering a lifestyle that is truly without equal.",
       "Designed by a renowned architect, the residence features walls of glass that open completely to the ocean, creating an indoor-outdoor living experience that celebrates the natural beauty of its setting. Premium materials and meticulous craftsmanship are evident in every detail.",
     ],
     features: [
@@ -264,7 +274,7 @@ const propertiesData: Record<
       "Private beach access and guest house",
     ],
     images: [
-      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80", alt: "Strand Collection exterior" },
+      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80", alt: "Beachfront residence exterior" },
       { src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80", alt: "Beach view" },
       { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Ocean-view living" },
       { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Primary suite" },
@@ -299,9 +309,12 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
-            <span className="inline-block text-xs font-body tracking-widest uppercase bg-background-secondary/15 px-3 py-1.5 text-background-secondary mb-4">
-              {property.type}
-            </span>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="inline-block text-xs font-body tracking-widest uppercase bg-background-secondary/15 px-3 py-1.5 text-background-secondary">
+                {property.type}
+              </span>
+              <span className="text-xs font-body tracking-wider text-background-secondary/50">{property.code}</span>
+            </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-4xl leading-tight drop-shadow-lg">
               {property.title}
             </h1>
