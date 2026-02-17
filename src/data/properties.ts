@@ -61,6 +61,7 @@ export interface PropertySEO {
   sqft: string;
   type: string;
   image: string;
+  keywords: string[];
 }
 
 const sharedNearby: NearbyCategory[] = [
@@ -441,6 +442,22 @@ export const propertyMeta: Record<string, PropertySEO> = {
     sqft: "2,901",
     type: "Premium Flat",
     image: "/properties/grand-mohali/living-room.jpg",
+    keywords: [
+      "3 BHK flat for sale in Mohali",
+      "premium flat Mohali Punjab",
+      "3+1 BHK Mohali",
+      "luxury flat Mohali",
+      "flat for sale near Chandigarh",
+      "2901 sq ft flat Mohali",
+      "buy flat in Mohali",
+      "premium property Mohali",
+      "gated community Mohali",
+      "ready to move flat Mohali",
+      "Mohali real estate",
+      "property investment Mohali Punjab",
+      "NRI property Mohali",
+      "RedStar Huts Mohali",
+    ],
   },
   "3-plus-1-bhk-ultra-luxury-flat-for-sale-in-mohali-punjab": {
     title: "3+1 BHK Ultra Luxury Flat for Sale in Mohali, Punjab | 3,377-3,788 Sq Ft | RedStar Huts",
@@ -452,6 +469,22 @@ export const propertyMeta: Record<string, PropertySEO> = {
     sqft: "3,377 - 3,788",
     type: "Ultra Luxury Flat",
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+    keywords: [
+      "ultra luxury flat Mohali",
+      "3 BHK luxury flat for sale Mohali",
+      "3+1 BHK ultra luxury Mohali Punjab",
+      "smart home flat Mohali",
+      "imported marble flat Mohali",
+      "VRF HVAC flat Mohali",
+      "Yale digital lock property",
+      "clubhouse flat Mohali",
+      "7 star living Mohali",
+      "luxury residence near Chandigarh",
+      "premium apartment Mohali",
+      "high end flat Punjab",
+      "NRI luxury investment Mohali",
+      "RedStar Huts ultra luxury",
+    ],
   },
   "4-plus-1-bhk-premium-flat-for-sale-in-mohali-punjab": {
     title: "4+1 BHK Premium Flat for Sale in Mohali, Punjab | 3,677-4,055 Sq Ft | RedStar Huts",
@@ -463,6 +496,22 @@ export const propertyMeta: Record<string, PropertySEO> = {
     sqft: "3,677 - 4,055",
     type: "Premium Flat",
     image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
+    keywords: [
+      "4 BHK flat for sale in Mohali",
+      "4+1 BHK premium flat Mohali Punjab",
+      "large family flat Mohali",
+      "spacious flat near Chandigarh",
+      "4 bedroom flat Mohali",
+      "premium marble flooring flat",
+      "automated curtains flat Mohali",
+      "4055 sq ft flat Mohali",
+      "buy 4 BHK flat Punjab",
+      "luxury 4 BHK near Chandigarh",
+      "premium property Mohali Punjab",
+      "family home Mohali",
+      "NRI investment 4 BHK Mohali",
+      "RedStar Huts property",
+    ],
   },
 };
 

@@ -24,15 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description,
     keywords: meta
       ? [
-          meta.type,
-          `${meta.type} for sale`,
-          `luxury property ${meta.location}`,
-          `buy ${meta.type.toLowerCase()} ${meta.location}`,
-          `${meta.beds} BHK ${meta.location}`,
-          "RedStar Huts",
-          "luxury real estate",
-          "property for sale",
-          meta.location,
+          ...meta.keywords,
           ...getLocationKeywords(meta.location),
         ]
       : ["luxury property", "real estate", "RedStar Huts", "Mohali", "Punjab"],
