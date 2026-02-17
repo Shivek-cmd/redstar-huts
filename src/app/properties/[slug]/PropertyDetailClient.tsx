@@ -521,6 +521,7 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
           <Image src={property.images[0].src} alt={property.images[0].alt} fill className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
@@ -537,36 +538,6 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
               </Link>
             </div>
           </SectionReveal>
-        </div>
-      </section>
-
-      {/* Stats Bar */}
-      <section className="bg-background-secondary border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-8">
-          <div className="flex flex-wrap items-center justify-between gap-6">
-            <div className="flex flex-wrap items-center gap-8 text-sm text-body">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-body tracking-widest uppercase text-muted">Config</span>
-                <span className="font-heading text-lg text-foreground">{property.configuration}</span>
-              </div>
-              <span className="w-px h-6 bg-border" />
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-body tracking-widest uppercase text-muted">Beds</span>
-                <span className="font-heading text-lg text-foreground">{property.beds}</span>
-              </div>
-              <span className="w-px h-6 bg-border" />
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-body tracking-widest uppercase text-muted">Baths</span>
-                <span className="font-heading text-lg text-foreground">{property.baths}</span>
-              </div>
-              <span className="w-px h-6 bg-border" />
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-body tracking-widest uppercase text-muted">Super Area</span>
-                <span className="font-heading text-lg text-foreground">{property.sqft} Sq Ft</span>
-              </div>
-            </div>
-            <p className="font-heading text-2xl md:text-3xl text-foreground">{property.price}</p>
-          </div>
         </div>
       </section>
 
@@ -589,12 +560,12 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
       {/* Tab-Based Media Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="flex items-center gap-1 border-b border-border mb-10 overflow-x-auto">
+          <div className="flex items-center gap-1 border-b border-border mb-10 ">
             {availableTabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`text-sm font-body tracking-widest uppercase px-6 py-4 whitespace-nowrap transition-colors duration-300 border-b-2 -mb-px ${
+                className={`text-sm font-body tracking-widest uppercase px-6 py-4 whitespace-nowrap transition-colors duration-300 border-b-2 -mb-px cursor-pointer ${
                   activeTab === tab
                     ? "border-foreground text-foreground"
                     : "border-transparent text-muted hover:text-foreground"
@@ -608,13 +579,15 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
           {activeTab === "Photos" && (
             <div>
               <div className="relative aspect-[16/9] md:aspect-[2/1] overflow-hidden bg-background-depth mb-4">
+              
                 <Image
                   src={property.images[selectedImage].src}
                   alt={property.images[selectedImage].alt}
                   fill
-                  className="object-cover transition-opacity duration-500"
+                  className="object-contain transition-opacity duration-500"
                 />
               </div>
+              
               <div className="grid grid-cols-5 gap-3">
                 {property.images.map((img, i) => (
                   <button
@@ -642,7 +615,7 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
               <video
                 ref={videoRef}
                 src={property.video}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 loop
                 muted
                 playsInline
