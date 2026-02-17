@@ -136,7 +136,7 @@ export default function PropertiesPage() {
   const [selectedBudget, setSelectedBudget] = useState(0);
 
   const filteredProperties = useMemo(() => {
-    return allProperties.filter((property) => {
+    return [...allProperties].reverse().filter((property) => {
       const matchesSearch =
         searchQuery === "" ||
         property.title.toLowerCase().includes(searchQuery.toLowerCase()) ||

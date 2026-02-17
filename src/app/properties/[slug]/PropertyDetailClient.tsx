@@ -1,8 +1,10 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
 
 const propertiesData: Record<
   string,
@@ -275,6 +277,40 @@ const propertiesData: Record<
 
 export default function PropertyDetailClient({ slug }: { slug: string }) {
   const property = propertiesData[slug];
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = useCallback(() => {
+    setLightboxOpen(false);
+  }, []);
+
+  const goNext = useCallback(() => {
+    if (property) setLightboxIndex((prev) => (prev + 1) % property.images.length);
+  }, [property]);
+
+  const goPrev = useCallback(() => {
+    if (property) setLightboxIndex((prev) => (prev - 1 + property.images.length) % property.images.length);
+  }, [property]);
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKey);
+    };
+  }, [lightboxOpen, closeLightbox, goNext, goPrev]);
 
   if (!property) {
     return (
@@ -338,15 +374,25 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <SectionReveal>
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <Image src={property.images[1].src} alt={property.images[1].alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
+              <div className="relative aspect-[4/5] overflow-hidden cursor-pointer group" onClick={() => openLightbox(1)}>
+                <Image src={property.images[1].src} alt={property.images[1].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300 flex items-center justify-center">
+                  <svg className="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                  </svg>
+                </div>
               </div>
             </SectionReveal>
             <div className="grid grid-cols-2 gap-4">
               {property.images.slice(2).map((img, i) => (
                 <SectionReveal key={img.src} delay={i * 0.1}>
-                  <div className="relative aspect-square overflow-hidden">
-                    <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                  <div className="relative aspect-square overflow-hidden cursor-pointer group" onClick={() => openLightbox(i + 2)}>
+                    <Image src={img.src} alt={img.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300 flex items-center justify-center">
+                      <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                      </svg>
+                    </div>
                   </div>
                 </SectionReveal>
               ))}
@@ -386,25 +432,79 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image src={property.images[0].src} alt="Contact background" fill className="object-cover" />
-          <div className="absolute inset-0 bg-foreground/75" />
+          <div className="absolute inset-0 bg-foreground/80" />
         </div>
-        <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 text-center">
-          <SectionReveal>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-background-secondary">Interested in This Property?</h2>
-            <p className="mt-6 text-base text-background-depth/70 leading-relaxed max-w-lg mx-auto">
-              Schedule a private viewing or request additional details. Our team is ready to assist you with your next acquisition.
-            </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-background-secondary text-foreground hover:bg-background transition-colors duration-300">
-                Schedule a Viewing
-              </Link>
-              <Link href="/properties" className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full border border-background-secondary/40 text-background-secondary hover:bg-background-secondary/10 transition-colors duration-300">
-                View All Properties
-              </Link>
-            </div>
-          </SectionReveal>
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <SectionReveal>
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-background-secondary">Interested in This Property?</h2>
+              <p className="mt-6 text-base text-background-secondary/60 leading-relaxed">
+                Schedule a private viewing or request additional details. Our team is ready to assist you with your next acquisition.
+              </p>
+              <div className="mt-8 space-y-4">
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-background-secondary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                  <span className="text-sm text-background-secondary/70">+91 889 434 3056</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-background-secondary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                  <span className="text-sm text-background-secondary/70">redstarhuts9@gmail.com</span>
+                </div>
+              </div>
+            </SectionReveal>
+            <SectionReveal delay={0.2}>
+              <div className="bg-foreground/40 backdrop-blur-sm border border-white/10 p-8 md:p-10 rounded-lg">
+                <LeadCaptureForm leadType="property-inquiry" propertyName={property.title} dark />
+              </div>
+            </SectionReveal>
+          </div>
         </div>
       </section>
+
+      {lightboxOpen && (
+        <div className="fixed inset-0 z-50 bg-foreground/95 flex items-center justify-center" onClick={closeLightbox}>
+          <button onClick={closeLightbox} className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-10">
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <button onClick={(e) => { e.stopPropagation(); goPrev(); }} className="absolute left-4 md:left-8 text-white/70 hover:text-white transition-colors z-10">
+            <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <button onClick={(e) => { e.stopPropagation(); goNext(); }} className="absolute right-4 md:right-8 text-white/70 hover:text-white transition-colors z-10">
+            <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+          <div className="relative w-[90vw] h-[80vh] max-w-5xl" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={property.images[lightboxIndex].src}
+              alt={property.images[lightboxIndex].alt}
+              fill
+              className="object-contain"
+              sizes="90vw"
+            />
+          </div>
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
+            {property.images.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => { e.stopPropagation(); setLightboxIndex(i); }}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${i === lightboxIndex ? "bg-white w-6" : "bg-white/40 hover:bg-white/60"}`}
+              />
+            ))}
+          </div>
+          <p className="absolute bottom-14 left-1/2 -translate-x-1/2 text-xs text-white/50 tracking-widest">
+            {lightboxIndex + 1} / {property.images.length}
+          </p>
+        </div>
+      )}
     </>
   );
 }
