@@ -4,227 +4,10 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
-
-const allProperties = [
-  {
-    title: "The Meridian Residence",
-    slug: "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft",
-    location: "Beverly Hills, CA",
-    price: "$4,850,000",
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-    beds: 5,
-    baths: 4,
-    sqft: "6,200",
-    type: "Residential",
-  },
-  {
-    title: "Harborview Estate",
-    slug: "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft",
-    location: "Miami Beach, FL",
-    price: "$3,200,000",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-    beds: 4,
-    baths: 3,
-    sqft: "4,800",
-    type: "Residential",
-  },
-  {
-    title: "Crestwood Manor",
-    slug: "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft",
-    location: "Greenwich, CT",
-    price: "$7,100,000",
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
-    beds: 6,
-    baths: 5,
-    sqft: "8,500",
-    type: "Estate",
-  },
-  {
-    title: "The Pinnacle Penthouse",
-    slug: "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft",
-    location: "Manhattan, NY",
-    price: "$12,500,000",
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-    beds: 3,
-    baths: 3,
-    sqft: "4,200",
-    type: "Penthouse",
-  },
-  {
-    title: "Lakeshore Villa",
-    slug: "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft",
-    location: "Lake Tahoe, NV",
-    price: "$5,600,000",
-    image:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
-    beds: 5,
-    baths: 4,
-    sqft: "5,800",
-    type: "Residential",
-  },
-  {
-    title: "The Wellington",
-    slug: "3-bedroom-condominium-for-sale-in-san-francisco-ca-3100-sq-ft",
-    location: "San Francisco, CA",
-    price: "$2,950,000",
-    image:
-      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80",
-    beds: 3,
-    baths: 2,
-    sqft: "3,100",
-    type: "Condominium",
-  },
-  {
-    title: "Aspen Ridge Retreat",
-    slug: "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft",
-    location: "Aspen, CO",
-    price: "$8,900,000",
-    image:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
-    beds: 7,
-    baths: 6,
-    sqft: "9,200",
-    type: "Estate",
-  },
-  {
-    title: "Pacific Heights Modern",
-    slug: "4-bedroom-residential-for-sale-in-san-francisco-ca-5100-sq-ft",
-    location: "San Francisco, CA",
-    price: "$6,250,000",
-    image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80",
-    beds: 4,
-    baths: 4,
-    sqft: "5,100",
-    type: "Residential",
-  },
-  {
-    title: "The Strand Collection",
-    slug: "5-bedroom-beachfront-for-sale-in-malibu-ca-7400-sq-ft",
-    location: "Malibu, CA",
-    price: "$15,800,000",
-    image:
-      "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
-    beds: 5,
-    baths: 5,
-    sqft: "7,400",
-    type: "Beachfront",
-  },
-  {
-    title: "The Grand Mohali",
-    slug: "3-plus-1-bhk-premium-residence-for-sale-in-mohali-punjab-2901-sq-ft",
-    location: "Mohali, Punjab",
-    price: "On Request",
-    image: "/properties/grand-mohali/living-room.jpg",
-    beds: 4,
-    baths: 4,
-    sqft: "2,901",
-    type: "Premium Residence",
-  },
-  {
-    title: "Luxury Sample Residence",
-    slug: "3-bhk-premium-apartment-for-sale-in-chandigarh-2800-sq-ft",
-    location: "Chandigarh, India",
-    price: "On Request",
-    image: "/properties/sample/living-room.jpg",
-    beds: 3,
-    baths: 3,
-    sqft: "2,800",
-    type: "Premium Apartment",
-  },
-  {
-    title: "The Royal Greens Villa",
-    slug: "4-bhk-villa-for-sale-in-mohali-punjab-3200-sq-ft",
-    location: "Mohali, Punjab",
-    price: "\u20B92.8 Cr",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-    beds: 4,
-    baths: 3,
-    sqft: "3,200",
-    type: "Villa",
-  },
-  {
-    title: "Mohali Heights Penthouse",
-    slug: "3-bhk-penthouse-for-sale-in-mohali-punjab-2400-sq-ft",
-    location: "Mohali, Punjab",
-    price: "\u20B91.6 Cr",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-    beds: 3,
-    baths: 3,
-    sqft: "2,400",
-    type: "Penthouse",
-  },
-  {
-    title: "Elante Residences",
-    slug: "4-bhk-residential-for-sale-in-chandigarh-3800-sq-ft",
-    location: "Chandigarh",
-    price: "\u20B93.5 Cr",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
-    beds: 4,
-    baths: 4,
-    sqft: "3,800",
-    type: "Residential",
-  },
-  {
-    title: "Sector 9 Heritage Home",
-    slug: "5-bhk-estate-for-sale-in-sector-9-chandigarh-4500-sq-ft",
-    location: "Chandigarh",
-    price: "\u20B94.2 Cr",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-    beds: 5,
-    baths: 4,
-    sqft: "4,500",
-    type: "Estate",
-  },
-  {
-    title: "Ambience Boulevard",
-    slug: "3-bhk-residential-for-sale-in-zirakpur-punjab-1800-sq-ft",
-    location: "Zirakpur, Punjab",
-    price: "\u20B91.2 Cr",
-    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
-    beds: 3,
-    baths: 2,
-    sqft: "1,800",
-    type: "Residential",
-  },
-  {
-    title: "VR Punjab Luxury Floors",
-    slug: "3-bhk-luxury-floors-for-sale-in-zirakpur-punjab-1650-sq-ft",
-    location: "Zirakpur, Punjab",
-    price: "\u20B985 Lac",
-    image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80",
-    beds: 3,
-    baths: 2,
-    sqft: "1,650",
-    type: "Residential",
-  },
-];
+import { allProperties, budgetRanges, parsePrice } from "@/data/properties";
 
 const locations = ["All Locations", ...Array.from(new Set(allProperties.map((p) => p.location)))];
 const types = ["All Types", ...Array.from(new Set(allProperties.map((p) => p.type)))];
-const budgetRanges = [
-  { label: "Any Budget", min: 0, max: Infinity },
-  { label: "Under $5M / Under \u20B92 Cr", min: 0, max: 5000000 },
-  { label: "$5M-$10M / \u20B92-5 Cr", min: 5000000, max: 10000000 },
-  { label: "$10M+ / \u20B95 Cr+", min: 10000000, max: Infinity },
-];
-
-function parsePrice(price: string): number {
-  if (price.toLowerCase().includes("request")) return 0;
-  if (price.includes("Cr")) {
-    const num = parseFloat(price.replace(/[^\d.]/g, ""));
-    return num * 2500000;
-  }
-  if (price.includes("Lac")) {
-    const num = parseFloat(price.replace(/[^\d.]/g, ""));
-    return num * 25000;
-  }
-  return Number(price.replace(/[$,]/g, ""));
-}
 
 export default function PropertiesPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -233,11 +16,14 @@ export default function PropertiesPage() {
   const [selectedBudget, setSelectedBudget] = useState(0);
 
   const filteredProperties = useMemo(() => {
+    const q = searchQuery.toLowerCase();
     return [...allProperties].reverse().filter((property) => {
       const matchesSearch =
         searchQuery === "" ||
-        property.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        property.location.toLowerCase().includes(searchQuery.toLowerCase());
+        property.title.toLowerCase().includes(q) ||
+        property.location.toLowerCase().includes(q) ||
+        property.code.toLowerCase().includes(q) ||
+        property.type.toLowerCase().includes(q);
       const matchesLocation =
         selectedLocation === "All Locations" || property.location === selectedLocation;
       const matchesType =
@@ -255,7 +41,7 @@ export default function PropertiesPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80"
-            alt="Luxury property portfolio"
+            alt="Premium properties for sale in Mohali, Punjab"
             fill
             className="object-cover"
           />
@@ -268,14 +54,14 @@ export default function PropertiesPage() {
               Our Portfolio
             </p>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-3xl leading-tight drop-shadow-lg">
-              Exceptional Properties,
+              Premium Properties
               <br />
-              Carefully Curated
+              in Mohali, Punjab
             </h1>
             <p className="mt-6 text-base md:text-lg text-background-secondary/80 max-w-2xl leading-relaxed">
-              Each listing in our portfolio has been selected for its quality,
-              location, and investment potential. Explore properties that meet
-              the highest standards.
+              Handpicked properties in Mohali and the Chandigarh Tri-City region.
+              Each listing is selected for its quality, location, and value.
+              Find the right home for your family.
             </p>
           </SectionReveal>
         </div>
@@ -290,7 +76,7 @@ export default function PropertiesPage() {
               </svg>
               <input
                 type="text"
-                placeholder="Search by name or location..."
+                placeholder="Search by configuration, location, type, or property code..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-3.5 bg-background-secondary border border-border rounded-full text-sm font-body text-foreground placeholder:text-muted focus:outline-none focus:border-foreground/30 transition-colors duration-300"
@@ -339,18 +125,23 @@ export default function PropertiesPage() {
           ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProperties.map((property, i) => (
-              <SectionReveal key={property.title} delay={(i % 3) * 0.1}>
+              <SectionReveal key={property.code} delay={(i % 3) * 0.1}>
                 <Link href={`/properties/${property.slug}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
                     <Image
                       src={property.image}
-                      alt={property.title}
+                      alt={`${property.title} in ${property.location}`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/90 px-3 py-1.5 text-foreground">
                         {property.type}
+                      </span>
+                    </div>
+                    <div className="absolute top-4 right-4">
+                      <span className="text-[10px] font-body tracking-wider bg-foreground/80 px-2.5 py-1 text-background-secondary/90">
+                        {property.code}
                       </span>
                     </div>
                   </div>
@@ -380,7 +171,6 @@ export default function PropertiesPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-24 md:py-32 bg-background-depth">
         <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
           <SectionReveal>
@@ -392,14 +182,14 @@ export default function PropertiesPage() {
             </h2>
             <p className="mt-5 text-base text-body leading-relaxed max-w-lg mx-auto">
               Many of our finest properties are available exclusively through
-              private inquiry. Contact us to discuss your specific criteria and
-              gain access to our full portfolio.
+              private inquiry. Contact us to discuss your specific needs and
+              get access to our full portfolio.
             </p>
             <Link
               href="/contact"
               className="inline-block mt-10 text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-foreground text-background-secondary hover:bg-body transition-colors duration-300"
             >
-              Private Inquiry
+              Get in Touch
             </Link>
           </SectionReveal>
         </div>

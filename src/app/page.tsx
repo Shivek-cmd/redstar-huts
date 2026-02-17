@@ -6,6 +6,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionReveal from "@/components/SectionReveal";
 import SectionHeading from "@/components/SectionHeading";
+import { allProperties } from "@/data/properties";
 
 const heroSlides = [
   { image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80", alt: "Luxury modern architecture" },
@@ -49,74 +50,7 @@ const services = [
   },
 ];
 
-const properties = [
-  {
-    title: "The Meridian Residence",
-    slug: "5-bedroom-residential-for-sale-in-beverly-hills-ca-6200-sq-ft",
-    location: "Beverly Hills, CA",
-    price: "$4,850,000",
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-    beds: 5,
-    baths: 4,
-    sqft: "6,200",
-  },
-  {
-    title: "Harborview Estate",
-    slug: "4-bedroom-estate-for-sale-in-miami-beach-fl-4800-sq-ft",
-    location: "Miami Beach, FL",
-    price: "$3,200,000",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-    beds: 4,
-    baths: 3,
-    sqft: "4,800",
-  },
-  {
-    title: "Crestwood Manor",
-    slug: "6-bedroom-estate-for-sale-in-greenwich-ct-8500-sq-ft",
-    location: "Greenwich, CT",
-    price: "$7,100,000",
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
-    beds: 6,
-    baths: 5,
-    sqft: "8,500",
-  },
-  {
-    title: "The Pinnacle Penthouse",
-    slug: "3-bedroom-penthouse-for-sale-in-manhattan-ny-4200-sq-ft",
-    location: "Manhattan, NY",
-    price: "$12,500,000",
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-    beds: 3,
-    baths: 3,
-    sqft: "4,200",
-  },
-  {
-    title: "Lakeshore Villa",
-    slug: "5-bedroom-villa-for-sale-in-lake-tahoe-nv-5800-sq-ft",
-    location: "Lake Tahoe, NV",
-    price: "$5,600,000",
-    image:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
-    beds: 5,
-    baths: 4,
-    sqft: "5,800",
-  },
-  {
-    title: "Aspen Ridge Retreat",
-    slug: "7-bedroom-estate-for-sale-in-aspen-co-9200-sq-ft",
-    location: "Aspen, CO",
-    price: "$8,900,000",
-    image:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
-    beds: 7,
-    baths: 6,
-    sqft: "9,200",
-  },
-];
+const properties = allProperties;
 
 const testimonials = [
   {
