@@ -5,68 +5,7 @@ import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
 import SectionHeading from "@/components/SectionHeading";
 
-const services = [
-  {
-    number: "01",
-    title: "Property Sales & Disposition",
-    slug: "property-sales",
-    description:
-      "We position your property to attract the right buyers and achieve premium results. Our approach combines strategic market positioning, discreet marketing, and skilled negotiation to maximize value at every stage.",
-    details: [
-      "Comprehensive property valuation and pricing strategy",
-      "Professional staging and photography coordination",
-      "Targeted marketing to qualified buyer networks",
-      "Expert negotiation and transaction management",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80",
-  },
-  {
-    number: "02",
-    title: "Buyer Advisory & Acquisition",
-    slug: "buyer-advisory",
-    description:
-      "Finding the right property requires more than browsing listings. We provide personalized search, rigorous due diligence, and strategic counsel to ensure your acquisition aligns with your lifestyle and financial objectives.",
-    details: [
-      "Personalized property search and shortlisting",
-      "Market analysis and comparative evaluation",
-      "Due diligence and risk assessment",
-      "Offer strategy and closing coordination",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80",
-  },
-  {
-    number: "03",
-    title: "Investment Consulting",
-    slug: "investment-consulting",
-    description:
-      "Whether building a portfolio or optimizing existing holdings, our investment advisory service delivers data-driven insights and strategic guidance to maximize long-term returns.",
-    details: [
-      "Portfolio analysis and optimization",
-      "Market opportunity identification",
-      "Risk-adjusted return modeling",
-      "Acquisition and disposition strategy",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
-  },
-  {
-    number: "04",
-    title: "Market Research & Valuation",
-    slug: "market-research",
-    description:
-      "Informed decisions start with accurate data. Our research team delivers comprehensive market analysis and valuation reports that form the foundation of confident real estate decision-making.",
-    details: [
-      "Neighborhood and submarket analysis",
-      "Comparable sales and trend reporting",
-      "Property valuation and appraisal coordination",
-      "Custom research for specific investment criteria",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
-  },
-];
+import { services } from "@/data/services";
 
 export default function ServicesPage() {
   return (
