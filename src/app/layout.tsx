@@ -74,6 +74,7 @@ export default function RootLayout({
         <link rel="icon" href="/logo-circle.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#F6F5F3" />
+        <meta name="google-site-verification" content="rOJbsGfx8wGUTXwDp2iY-xUw-76ijVbEMr7f6R4k43c" />
 
         {/* Google Tag Manager */}
         <Script id="gtm-head" strategy="afterInteractive">
