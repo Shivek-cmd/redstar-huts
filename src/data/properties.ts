@@ -161,7 +161,7 @@ export const allProperties: PropertyListItem[] = [
     code: "RSH-MOH-002",
     location: "Mohali, Punjab",
     price: "On Request",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    image: "/properties/RSH-MOH-002/lobby.png",
     beds: 3,
     baths: 3,
     sqft: "3,377 - 3,788",
@@ -310,11 +310,10 @@ export const propertiesData: Record<string, PropertyDetail> = {
     ],
     nearby: sharedNearby,
     images: [
-      { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80", alt: "Ultra luxury flat living room in Mohali" },
-      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Master bedroom with imported marble flooring in Mohali" },
-      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Spacious dining area in ultra luxury Mohali property" },
-      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Premium kitchen with quartz countertop in Mohali flat" },
-      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Grand reception area of luxury flat in Mohali, Punjab" },
+      { src: "/properties/RSH-MOH-002/lobby.png", alt: "Grand lobby with luxury chandelier in ultra luxury flat Mohali" },
+      { src: "/properties/RSH-MOH-002/elevator-lobby.png", alt: "Premium elevator lobby with designer lighting in Mohali property" },
+      { src: "/properties/RSH-MOH-002/bar-lounge.png", alt: "Bar lounge with marble countertop in ultra luxury flat Mohali" },
+      { src: "/properties/RSH-MOH-002/master-bedroom.png", alt: "Master bedroom with crystal chandelier in luxury Mohali flat" },
     ],
     faqs: [
       {
