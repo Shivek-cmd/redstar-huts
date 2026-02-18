@@ -193,31 +193,44 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
           )}
 
           {activeTab === "Video Tour" && property.video && (
-            <div className="relative aspect-video overflow-hidden bg-foreground/5 cursor-pointer group" onClick={() => {
-              setIsVideoPlaying(!isVideoPlaying);
-              if (videoRef.current) {
-                if (isVideoPlaying) videoRef.current.pause();
-                else videoRef.current.play();
-              }
-            }}>
-              <video
-                ref={videoRef}
-                src={property.video}
-                className="w-full h-full object-contain"
-                loop
-                muted
-                playsInline
-              />
-              {!isVideoPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center bg-foreground/20 group-hover:bg-foreground/30 transition-colors duration-300">
-                  <div className="w-20 h-20 rounded-full bg-background-secondary/90 flex items-center justify-center shadow-lg">
-                    <svg className="w-8 h-8 text-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
+            property.video.includes("youtube.com") ? (
+              <div className="relative aspect-video overflow-hidden bg-foreground/5">
+                <iframe
+                  src={property.video}
+                  title="Property Video Tour"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            ) : (
+              <div className="relative aspect-video overflow-hidden bg-foreground/5 cursor-pointer group" onClick={() => {
+                setIsVideoPlaying(!isVideoPlaying);
+                if (videoRef.current) {
+                  if (isVideoPlaying) videoRef.current.pause();
+                  else videoRef.current.play();
+                }
+              }}>
+                <video
+                  ref={videoRef}
+                  src={property.video}
+                  className="w-full h-full object-contain"
+                  loop
+                  muted
+                  playsInline
+                />
+                {!isVideoPlaying && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-foreground/20 group-hover:bg-foreground/30 transition-colors duration-300">
+                    <div className="w-20 h-20 rounded-full bg-background-secondary/90 flex items-center justify-center shadow-lg">
+                      <svg className="w-8 h-8 text-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )
           )}
 
           {activeTab === "Floor Plan" && (
