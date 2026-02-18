@@ -108,10 +108,9 @@ export default function RootLayout({
                 { "@type": "State", name: "Uttarakhand" },
               ],
               sameAs: [
-                "https://www.instagram.com/",
-                "https://www.facebook.com/",
-                "https://www.linkedin.com/",
-                "https://twitter.com/",
+                "https://www.instagram.com/redstar__huts/",
+                "https://www.facebook.com/people/Redstar-Huts/61588365781493/",
+                "https://youtube.com/@redstarhuts?si=hEDmuk9rk61lh4Su",
               ],
               priceRange: "$$$",
             }),
