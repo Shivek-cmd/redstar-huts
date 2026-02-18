@@ -68,11 +68,37 @@ export default function LeadCaptureForm({ leadType, propertyName, serviceName, c
   const config = leadConfig[leadType];
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Lead captured:", { leadType, propertyName, serviceName, ...formData });
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          leadType,
+          propertyName,
+          serviceName,
+          ...formData,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -170,15 +196,20 @@ export default function LeadCaptureForm({ leadType, propertyName, serviceName, c
           </div>
         )}
 
+        {error && (
+          <p className={`text-sm ${dark ? "text-red-300" : "text-red-600"}`}>{error}</p>
+        )}
+
         <button
           type="submit"
-          className={`w-full text-sm font-body tracking-wide px-8 py-3.5 rounded-full transition-colors duration-300 ${
+          disabled={submitting}
+          className={`w-full text-sm font-body tracking-wide px-8 py-3.5 rounded-full transition-colors duration-300 disabled:opacity-60 ${
             dark
               ? "bg-white text-foreground hover:bg-white/90"
               : "bg-foreground text-background-secondary hover:bg-body"
           }`}
         >
-          {config.buttonText}
+          {submitting ? "Sending..." : config.buttonText}
         </button>
       </form>
     </div>

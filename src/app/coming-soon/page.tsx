@@ -141,6 +141,7 @@ function GlowOrb({ className, delay }: { className: string; delay: number }) {
 export default function ComingSoonPage() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -163,11 +164,25 @@ export default function ComingSoonPage() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ leadType: "notify-me", email }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        setEmail("");
+      }
+    } catch {
       setSubmitted(true);
       setEmail("");
+    } finally {
+      setSubmitting(false);
     }
   };
 
