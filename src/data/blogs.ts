@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "urban-challenge-fund-india-real-estate-impact-4-lakh-crore",
+    title: "The \u20B94 Lakh Crore Game-Changer: How India\u2019s Urban Challenge Fund Is Reshaping Real Estate",
+    excerpt: "The Urban Challenge Fund (UCF), a \u20B91 lakh crore initiative approved in February 2026, is set to leverage \u20B94 lakh crore into urban infrastructure over 5\u20138 years. Here is what it means for real estate businesses, developers, and investors across India.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    category: "Investment",
+    date: "February 20, 2026",
+    readTime: "9 min read",
+  },
+  {
     slug: "why-mohali-is-the-next-premium-real-estate-destination",
     title: "Why Mohali Is the Next Premium Real Estate Destination",
     excerpt: "Mohali has rapidly evolved from a satellite town of Chandigarh into one of North India's most sought-after residential destinations, driven by world-class infrastructure and a surge in premium developments.",
