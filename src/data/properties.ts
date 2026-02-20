@@ -173,7 +173,7 @@ export const allProperties: PropertyListItem[] = [
     code: "RSH-MOH-001",
     location: "Mohali, Punjab",
     price: "On Request",
-    image: "/properties/grand-mohali/living-room.jpg",
+    image: "/properties/RSH-MOH-001/living-room.jpg",
     beds: 3,
     baths: 3,
     sqft: "2,901",
@@ -221,11 +221,11 @@ export const propertiesData: Record<string, PropertyDetail> = {
     ],
     nearby: sharedNearby,
     images: [
-      { src: "/properties/grand-mohali/living-room.jpg", alt: "Spacious living room of 3+1 BHK premium flat in Mohali" },
-      { src: "/properties/grand-mohali/kitchen.jpg", alt: "Fully equipped kitchen with granite countertop in Mohali flat" },
-      { src: "/properties/grand-mohali/bedroom-1.jpg", alt: "Master bedroom with full-height wardrobe in Mohali property" },
-      { src: "/properties/grand-mohali/bedroom-2.jpg", alt: "Second bedroom with ambient lighting in Mohali flat" },
-      { src: "/properties/grand-mohali/dining.jpg", alt: "Dining area of premium flat in Mohali, Punjab" },
+      { src: "/properties/RSH-MOH-001/dining-room.jpg", alt: "Elegant dining room with designer chandelier in premium Mohali flat" },
+      { src: "/properties/RSH-MOH-001/kitchen.jpg", alt: "Modern kitchen with premium fittings in Mohali property" },
+      { src: "/properties/RSH-MOH-001/master-bedroom.jpg", alt: "Master bedroom with contemporary wall art in Mohali flat" },
+      { src: "/properties/RSH-MOH-001/bedroom-2.jpg", alt: "Spacious bedroom with ambient LED lighting in premium Mohali flat" },
+      { src: "/properties/RSH-MOH-001/living-room.jpg", alt: "Living and dining area with glass partition in 3+1 BHK Mohali flat" },
     ],
     faqs: [
       {
@@ -440,7 +440,7 @@ export const propertyMeta: Record<string, PropertySEO> = {
     baths: 3,
     sqft: "2,901",
     type: "Premium Flat",
-    image: "/properties/grand-mohali/living-room.jpg",
+    image: "/properties/RSH-MOH-001/living-room.jpg",
     keywords: [
       "3 BHK flat for sale in Mohali",
       "premium flat Mohali Punjab",
