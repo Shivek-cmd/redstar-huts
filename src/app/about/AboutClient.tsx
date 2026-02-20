@@ -30,11 +30,10 @@ const values = [
 
 const team = [
   {
-    name: "Alexander Reed",
+    name: "Naveen",
     role: "Founder & Principal Advisor",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
-    bio: "With over two decades in luxury real estate, Alexander founded RedStar Huts to redefine the client advisory experience.",
+    image: "/team/naveen.jpg",
+    bio: "A visionary leader with deep expertise in luxury real estate, Naveen founded RedStar Huts to deliver trusted, client-first advisory services across premium property markets.",
   },
   {
     name: "Victoria Chen",
@@ -44,11 +43,10 @@ const team = [
     bio: "Victoria brings strategic precision and an unmatched network to every property engagement.",
   },
   {
-    name: "Marcus Thompson",
-    role: "Head of Investment Advisory",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80",
-    bio: "A former institutional analyst, Marcus translates complex market dynamics into portfolio-building opportunities.",
+    name: "Krish",
+    role: "Junior Advisor",
+    image: "/team/krish.jpg",
+    bio: "Driven by a passion for real estate and sharp analytical skills, Krish supports clients with market research, property evaluations, and end-to-end advisory assistance.",
   },
 ];
 
