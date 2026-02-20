@@ -7,6 +7,7 @@ import SectionReveal from "@/components/SectionReveal";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import { propertiesData } from "@/data/properties";
 import type { PropertyDetail } from "@/data/properties";
+import { blogPosts } from "@/data/blogs";
 
 const mediaTabs = ["Photos", "Video Tour", "Floor Plan", "Location"] as const;
 type MediaTab = (typeof mediaTabs)[number];
@@ -120,9 +121,12 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
             </h1>
             <p className="mt-4 text-base text-background-secondary/70">{property.location}</p>
             <div className="mt-8">
-              <Link href="/contact" className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-background-secondary text-foreground hover:bg-background transition-colors duration-300">
+              <button
+                onClick={() => document.getElementById('property-inquiry')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-background-secondary text-foreground hover:bg-background transition-colors duration-300 cursor-pointer"
+              >
                 Schedule Site Visit
-              </Link>
+              </button>
             </div>
           </SectionReveal>
         </div>
@@ -399,7 +403,7 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
         </section>
       )}
 
-      <section className="relative py-24 md:py-32 overflow-hidden">
+      <section id="property-inquiry" className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image src={property.images[0].src} alt="Contact background" fill className="object-cover" />
           <div className="absolute inset-0 bg-foreground/80" />
@@ -431,6 +435,46 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
                 <LeadCaptureForm leadType="property-inquiry" propertyName={property.title} dark />
               </div>
             </SectionReveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32 bg-background">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
+              <div>
+                <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-muted mb-4">Insights & Advice</p>
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground">Related Articles</h2>
+              </div>
+              <Link href="/blog" className="mt-6 md:mt-0 text-sm font-body tracking-wide text-muted hover:text-foreground transition-colors duration-300">
+                View All Articles &rarr;
+              </Link>
+            </div>
+          </SectionReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {blogPosts.slice(0, 3).map((post, i) => (
+              <SectionReveal key={post.slug} delay={i * 0.12}>
+                <Link href={`/blog/${post.slug}`} className="group block">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-background-depth">
+                    <Image src={post.image} alt={post.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute top-4 left-4">
+                      <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/90 px-3 py-1.5 text-foreground">{post.category}</span>
+                    </div>
+                  </div>
+                  <div className="mt-5">
+                    <div className="flex items-center gap-3 text-xs text-muted mb-2">
+                      <span>{post.date}</span>
+                      <span className="w-px h-3 bg-border" />
+                      <span>{post.readTime}</span>
+                    </div>
+                    <h3 className="font-heading text-lg text-foreground group-hover:text-body transition-colors duration-300 line-clamp-2">{post.title}</h3>
+                    <p className="mt-2 text-sm text-body leading-relaxed line-clamp-2">{post.excerpt}</p>
+                  </div>
+                </Link>
+              </SectionReveal>
+            ))}
           </div>
         </div>
       </section>
