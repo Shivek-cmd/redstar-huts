@@ -315,6 +315,7 @@ export const propertiesData: Record<string, PropertyDetail> = {
       { src: "/properties/RSH-MOH-002/bar-lounge.png", alt: "Bar lounge with marble countertop in ultra luxury flat Mohali" },
       { src: "/properties/RSH-MOH-002/master-bedroom.png", alt: "Master bedroom with crystal chandelier in luxury Mohali flat" },
     ],
+    video: "https://www.youtube.com/embed/0gWnDEW-mDM?si=yWh8WyxmSQiigx43",
     faqs: [
       {
         question: "What sizes are available for this ultra luxury flat in Mohali?",
