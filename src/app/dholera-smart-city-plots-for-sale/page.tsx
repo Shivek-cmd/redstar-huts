@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     "RedStar Huts Dholera",
   ],
   alternates: {
-    canonical: "https://redstarhuts.com/dholera-smart-city-plots-for-sale",
+    canonical: "https://www.redstarhuts.com/properties/residential-plots-for-sale-in-dholera-smart-city-gujarat",
   },
   openGraph: {
-    title: "Dholera Smart City Plots for Sale | RedStar Huts",
+    title: "Dholera Smart City Plots for Sale",
     description:
       "Residential plots starting from 310 sq yards in India's first greenfield smart city. Expressway access, airport proximity, DMIC alignment. Completion by 2028.",
-    url: "https://redstarhuts.com/dholera-smart-city-plots-for-sale",
+    url: "https://www.redstarhuts.com/properties/residential-plots-for-sale-in-dholera-smart-city-gujarat",
     images: [
       {
         url: "/properties/RSH-DHO-001/expressway-aerial.jpg",
@@ -56,7 +56,7 @@ function buildDholeraJsonLd() {
     name: "Residential Plots in Dholera Smart City",
     description:
       "Residential plots starting from 310 sq yards in a 63-acre township within Dholera SIR, India's first greenfield smart city. Expressway access, airport proximity, DMIC alignment.",
-    url: "https://redstarhuts.com/dholera-smart-city-plots-for-sale",
+    url: "https://www.redstarhuts.com/properties/residential-plots-for-sale-in-dholera-smart-city-gujarat",
     image: "https://redstarhuts.com/properties/RSH-DHO-001/expressway-aerial.jpg",
     offers: {
       "@type": "Offer",
