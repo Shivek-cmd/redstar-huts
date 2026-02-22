@@ -65,7 +65,7 @@ const staticPages = [
   { path: "/about", changefreq: "monthly", priority: "0.8" },
   { path: "/contact", changefreq: "monthly", priority: "0.8" },
   { path: "/blog", changefreq: "weekly", priority: "0.8" },
-  { path: "/dholera-smart-city-plots-for-sale", changefreq: "weekly", priority: "0.9" },
+
   { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
   { path: "/terms-of-service", changefreq: "yearly", priority: "0.3" },
   { path: "/legal-disclaimer", changefreq: "yearly", priority: "0.3" },

@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       canonical: url,
     },
     openGraph: {
-      title: `${title} | RedStar Huts`,
+      title,
       description,
       url,
       type: "website",
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | RedStar Huts`,
+      title,
       description,
       images: [image],
     },
