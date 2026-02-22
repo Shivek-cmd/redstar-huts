@@ -127,7 +127,7 @@ const blogMeta: Record<string, BlogSEO> = {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const meta = blogMeta[slug];
-  const title = meta ? `${meta.title} | RedStar Huts Journal` : "Blog | RedStar Huts";
+  const title = meta ? meta.title : "Blog";
   const description = meta?.description || "Insights and perspectives on luxury real estate from RedStar Huts.";
   const image = meta?.image || "/og-image.png";
   const url = `https://redstarhuts.com/blog/${slug}`;

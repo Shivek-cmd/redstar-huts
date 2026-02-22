@@ -548,7 +548,7 @@ export const propertiesData: Record<string, PropertyDetail> = {
 
 export const propertyMeta: Record<string, PropertySEO> = {
   "3-plus-1-bhk-premium-flat-for-sale-in-mohali-punjab-2901-sq-ft": {
-    title: "3+1 BHK Premium Flat for Sale in Mohali, Punjab | 2,901 Sq Ft | RedStar Huts",
+    title: "3+1 BHK Premium Flat for Sale in Mohali, Punjab | 2,901 Sq Ft",
     description: "Spacious 3+1 BHK premium flat in Mohali, Punjab. 2,901 sq ft with centralized AC, 24x7 power backup, granite kitchen, branded fittings, and basement parking. Contact RedStar Huts for site visit.",
     price: "On Request",
     location: "Mohali, Punjab",
@@ -575,7 +575,7 @@ export const propertyMeta: Record<string, PropertySEO> = {
     ],
   },
   "3-plus-1-bhk-ultra-luxury-flat-for-sale-in-mohali-punjab": {
-    title: "3+1 BHK Ultra Luxury Flat for Sale in Mohali, Punjab | 3,377-3,788 Sq Ft | RedStar Huts",
+    title: "3+1 BHK Ultra Luxury Flat for Sale in Mohali, Punjab | 3,377-3,788 Sq Ft",
     description: "Ultra luxury 3+1 BHK flat in Mohali, Punjab. Available in 3,377 & 3,788 sq ft. Imported marble, VRF HVAC, automated lighting, Yale digital locks, 25,000 sq ft clubhouse. Contact RedStar Huts.",
     price: "On Request",
     location: "Mohali, Punjab",
@@ -602,7 +602,7 @@ export const propertyMeta: Record<string, PropertySEO> = {
     ],
   },
   "4-plus-1-bhk-premium-flat-for-sale-in-mohali-punjab": {
-    title: "4+1 BHK Premium Flat for Sale in Mohali, Punjab | 3,677-4,055 Sq Ft | RedStar Huts",
+    title: "4+1 BHK Premium Flat for Sale in Mohali, Punjab | 3,677-4,055 Sq Ft",
     description: "Premium 4+1 BHK flat in Mohali, Punjab. Available in 3,677 & 4,055 sq ft. Premium marble flooring, attached AC, automated curtains, granite kitchen, 24x7 power backup. Contact RedStar Huts.",
     price: "On Request",
     location: "Mohali, Punjab",
@@ -629,7 +629,7 @@ export const propertyMeta: Record<string, PropertySEO> = {
     ],
   },
   "residential-plots-for-sale-in-dholera-smart-city-gujarat": {
-    title: "Residential Plots for Sale in Dholera Smart City, Gujarat | Starting 310 Sq Yards | RedStar Huts",
+    title: "Residential Plots for Sale in Dholera Smart City, Gujarat | Starting 310 Sq Yards",
     description: "Buy residential plots in Dholera Smart City, Gujarat. Starting from 310 sq yards in a 63-acre township with clubhouse, gym, solar park, 60 ft roads, and direct expressway connectivity. Completion by 2028. Contact RedStar Huts.",
     price: "On Request",
     location: "Dholera, Gujarat",
