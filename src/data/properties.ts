@@ -144,6 +144,18 @@ const sharedNearby: NearbyCategory[] = [
 
 export const allProperties: PropertyListItem[] = [
   {
+    title: "Residential Plots in Dholera Smart City",
+    slug: "residential-plots-for-sale-in-dholera-smart-city-gujarat",
+    code: "RSH-DHO-001",
+    location: "Dholera, Gujarat",
+    price: "On Request",
+    image: "/properties/RSH-DHO-001/expressway-aerial.jpg",
+    beds: 0,
+    baths: 0,
+    sqft: "310+",
+    type: "Residential Plot",
+  },
+  {
     title: "4+1 BHK Premium Flat in Mohali",
     slug: "4-plus-1-bhk-premium-flat-for-sale-in-mohali-punjab",
     code: "RSH-MOH-003",
@@ -428,6 +440,110 @@ export const propertiesData: Record<string, PropertyDetail> = {
       },
     ],
   },
+  "residential-plots-for-sale-in-dholera-smart-city-gujarat": {
+    title: "Residential Plots in Dholera Smart City",
+    code: "RSH-DHO-001",
+    location: "Dholera, Gujarat",
+    price: "On Request",
+    beds: 0,
+    baths: 0,
+    sqft: "310+",
+    type: "Residential Plot",
+    configuration: "Plotting",
+    description: [
+      "Dholera Smart City is India's first greenfield smart city, and one of the most ambitious infrastructure projects in the country. Spread across 920 sq km in Gujarat, Dholera SIR (Special Investment Region) is being built from the ground up with world-class planning, smart infrastructure, and direct connectivity to major economic corridors. This is not just a real estate opportunity. It is an early entry into what will become one of India's most important urban centres.",
+      "RedStar Huts is working across 17 acres and 46 acres within Dholera, offering residential plots starting from 310 sq yards. The township is planned with 60 ft wide roads, 40 ft internal roads, underground utilities for power, water, and data, a solar park, grand clubhouse, modern gym, kids play zone, yoga and wellness studio, co-working lounge, commercial complex, and an in-house STP plant. Completion is targeted by 2028.",
+      "Dholera's location gives it direct connectivity to the Ahmedabad-Dholera Expressway, the NHAI Adhelai Diamond Circle, and the upcoming Dholera International Airport. It sits on the Delhi-Mumbai Industrial Corridor (DMIC) and is close to the TATA Semiconductor Plant, sea port, and proposed sea links. For investors looking at high appreciation potential in a government-backed smart city, Dholera is the strongest bet in India right now.",
+    ],
+    features: [
+      "Plot sizes starting from 310 sq yards",
+      "60 ft wide main roads and 40 ft internal roads",
+      "Underground utilities for power, water, and data",
+      "Solar park within the township",
+      "Grand clubhouse with lounge",
+      "Modern fully equipped gymnasium",
+      "Kids play zone",
+      "Yoga and wellness studio",
+      "Co-working lounge",
+      "Commercial complex",
+      "In-house STP plant",
+      "24x7 power supply",
+    ],
+    highlights: [
+      { label: "Project Type", value: "Residential Plotting" },
+      { label: "Plot Size", value: "Starting from 310 Sq Yards" },
+      { label: "Total Area", value: "17 + 46 Acres" },
+      { label: "Completion", value: "2028" },
+      { label: "Roads", value: "60 ft Main, 40 ft Internal" },
+      { label: "Smart City Area", value: "920 Sq Km" },
+    ],
+    nearby: [
+      {
+        category: "Transport & Connectivity",
+        places: [
+          { name: "Ahmedabad-Dholera Expressway", distance: "Direct Access" },
+          { name: "NHAI Adhelai Diamond Circle", distance: "Nearby" },
+          { name: "Dholera International Airport (under development)", distance: "10 Kms" },
+          { name: "Ahmedabad City", distance: "80 Kms" },
+          { name: "Sea Port & Proposed Sea Links", distance: "30 Kms" },
+        ],
+      },
+      {
+        category: "Industrial & Economic Hubs",
+        places: [
+          { name: "TATA Semiconductor Plant", distance: "Direct Connectivity" },
+          { name: "Delhi-Mumbai Industrial Corridor (DMIC)", distance: "On Corridor" },
+          { name: "Dholera SIR Activation Area", distance: "Within SIR" },
+          { name: "Solar Power Park", distance: "Within Township" },
+        ],
+      },
+      {
+        category: "Key Landmarks",
+        places: [
+          { name: "Dholera SIR Administrative Office", distance: "5 Kms" },
+          { name: "Bhavnagar City", distance: "60 Kms" },
+          { name: "Rajkot City", distance: "180 Kms" },
+          { name: "Gandhinagar (State Capital)", distance: "100 Kms" },
+        ],
+      },
+    ],
+    images: [
+      { src: "/properties/RSH-DHO-001/expressway-aerial.jpg", alt: "Aerial view of Ahmedabad-Dholera Expressway connecting to Dholera Smart City" },
+      { src: "/properties/RSH-DHO-001/satellite-view.jpg", alt: "Satellite view of 17 acre and 46 acre Serenity Estate in Dholera" },
+      { src: "/properties/RSH-DHO-001/layout-plan.jpg", alt: "Layout plan of residential plots in Dholera Smart City township" },
+      { src: "/properties/RSH-DHO-001/dholera-sir-map.jpg", alt: "Dholera SIR master plan showing India's first greenfield smart city" },
+    ],
+    faqs: [
+      {
+        question: "What is Dholera Smart City and why should I invest here?",
+        answer: "Dholera is India's first greenfield smart city, spread across 920 sq km in Gujarat. It is part of the Delhi-Mumbai Industrial Corridor (DMIC) and is being developed with world-class infrastructure including an international airport, expressway connectivity, and smart grid systems. Early investors stand to benefit from high appreciation as the city develops.",
+      },
+      {
+        question: "What plot sizes are available in this Dholera township?",
+        answer: "Residential plots start from 310 sq yards. The township spans 17 acres and 46 acres within Dholera SIR, with 60 ft wide main roads and 40 ft internal roads for comfortable living.",
+      },
+      {
+        question: "When will the Dholera township be completed?",
+        answer: "The township is planned for completion by 2028. Infrastructure development including roads, underground utilities, and amenities is already in progress.",
+      },
+      {
+        question: "What amenities are included in the township?",
+        answer: "The township includes a grand clubhouse, modern gym, kids play zone, yoga and wellness studio, co-working lounge, commercial complex, solar park, in-house STP plant, underground utilities for power, water, and data, and 24x7 power supply.",
+      },
+      {
+        question: "How is Dholera connected to major cities?",
+        answer: "Dholera has direct connectivity via the Ahmedabad-Dholera Expressway, is close to the NHAI Adhelai Diamond Circle, and will be connected to the upcoming Dholera International Airport. It also has proximity to the TATA Semiconductor Plant, sea port, and proposed sea links.",
+      },
+      {
+        question: "Is Dholera suitable for end users or only investors?",
+        answer: "Dholera is designed for both. The smart city infrastructure, township amenities, and commercial complex make it suitable for families who want to live here. At the same time, the DMIC connectivity, airport, and industrial development make it a strong investment with high appreciation potential.",
+      },
+      {
+        question: "How can I book a plot in Dholera through RedStar Huts?",
+        answer: "Contact RedStar Huts through the form on this page or call us at +91 889 434 3056. We will share the available plot inventory, pricing, and arrange a site visit to Dholera at your convenience.",
+      },
+    ],
+  },
 };
 
 export const propertyMeta: Record<string, PropertySEO> = {
@@ -510,6 +626,33 @@ export const propertyMeta: Record<string, PropertySEO> = {
       "family home Mohali",
       "NRI investment 4 BHK Mohali",
       "RedStar Huts property",
+    ],
+  },
+  "residential-plots-for-sale-in-dholera-smart-city-gujarat": {
+    title: "Residential Plots for Sale in Dholera Smart City, Gujarat | Starting 310 Sq Yards | RedStar Huts",
+    description: "Buy residential plots in Dholera Smart City, Gujarat. Starting from 310 sq yards in a 63-acre township with clubhouse, gym, solar park, 60 ft roads, and direct expressway connectivity. Completion by 2028. Contact RedStar Huts.",
+    price: "On Request",
+    location: "Dholera, Gujarat",
+    beds: 0,
+    baths: 0,
+    sqft: "310+",
+    type: "Residential Plot",
+    image: "/properties/RSH-DHO-001/expressway-aerial.jpg",
+    keywords: [
+      "plots for sale in Dholera",
+      "Dholera Smart City plots",
+      "residential plots Dholera Gujarat",
+      "Dholera SIR investment",
+      "buy plot in Dholera",
+      "Dholera Smart City investment",
+      "DMIC Dholera property",
+      "Dholera airport nearby plots",
+      "Gujarat smart city plots",
+      "Dholera township plots",
+      "Dholera land for sale",
+      "invest in Dholera 2026",
+      "Dholera real estate",
+      "RedStar Huts Dholera",
     ],
   },
 };

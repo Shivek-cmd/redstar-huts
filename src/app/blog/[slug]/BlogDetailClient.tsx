@@ -275,6 +275,29 @@ const blogData: Record<
       { type: "paragraph", value: "Our Market Research & Valuation team delivers rigorous, independent assessments that inform confident decision-making at every level." },
     ],
   },
+  "dholera-smart-city-plots-investment-opportunity-2026": {
+    title: "Dholera Smart City Plots: 2026 Investment Opportunity Explained",
+    category: "Investment",
+    date: "February 22, 2026",
+    readTime: "7 min read",
+    heroImage: "/properties/RSH-DHO-001/expressway-aerial.jpg",
+    content: [
+      { type: "paragraph", value: "Dholera SIR (Special Investment Region) is India's first greenfield smart city  purpose-built with smart infrastructure, trunk utilities, and industrial corridors that anchor long-term economic growth. For plot investors, this is one of the rare early-stage smart city opportunities backed by the Central and State Governments." },
+      { type: "heading", value: "Why Dholera in 2026" },
+      { type: "paragraph", value: "Three drivers make 2026 compelling: (1) Hard infrastructure like the AhmedabadDholera Expressway and international airport are underway, (2) DMIC alignment and the TATA Semiconductor Plant catalyse jobs and formal housing demand, and (3) township-level approvals unlock serviced plotting with predictable timelines." },
+      { type: "image", value: "/properties/RSH-DHO-001/satellite-view.jpg", alt: "17 and 46 acre sites within Dholera SIR" },
+      { type: "heading", value: "Township Advantage" },
+      { type: "paragraph", value: "Within our 17 + 46 acre footprint, residential plotting starts from 310 sq yards with 60 ft main roads, 40 ft internal roads, underground power/water/data, a solar park, clubhouse, gym, co-working lounge, kids play zone, yoga studio, and an in-house STP plant. Completion targeted by 2028." },
+      { type: "image", value: "/properties/RSH-DHO-001/layout-plan.jpg", alt: "Dholera township layout plan" },
+      { type: "heading", value: "Connectivity & Demand" },
+      { type: "paragraph", value: "Direct access to the AhmedabadDholera Expressway, proximity to the Dholera International Airport (under development), and location on the DelhiMumbai Industrial Corridor create durable end-user and rental demand for plotted living close to employment hubs." },
+      { type: "heading", value: "Who Should Consider This" },
+      { type: "paragraph", value: "Investors seeking early-stage appreciation in a planned smart city, NRIs allocating to Gujarat growth, and end users who want low-density living with modern infrastructure." },
+      { type: "image", value: "/properties/RSH-DHO-001/dholera-sir-map.jpg", alt: "Dholera SIR master plan and regional connectivity" },
+      { type: "heading", value: "Next Steps" },
+      { type: "paragraph", value: "To receive inventory, pricing, and a site tour plan, contact RedStar Huts. Our advisory covers due diligence, selection, and booking with transparent documentation." },
+    ],
+  },
 };
 
 const allSlugs = Object.keys(blogData);

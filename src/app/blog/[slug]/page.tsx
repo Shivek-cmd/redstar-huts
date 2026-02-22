@@ -11,6 +11,21 @@ interface BlogSEO {
 }
 
 const blogMeta: Record<string, BlogSEO> = {
+  "dholera-smart-city-plots-investment-opportunity-2026": {
+    title: "Dholera Smart City Plots: 2026 Investment Opportunity Explained",
+    description: "Investor guide to Dholera Smart City plots: connectivity, infrastructure, township amenities, and who should consider allocating here in 2026.",
+    image: "/properties/RSH-DHO-001/expressway-aerial.jpg",
+    category: "Investment",
+    date: "2026-02-22",
+    keywords: [
+      "Dholera plots",
+      "Dholera Smart City investment",
+      "Dholera SIR Gujarat",
+      "DMIC Dholera",
+      "residential plots Dholera",
+      "buy plot in Dholera",
+    ],
+  },
   "why-mohali-is-the-next-premium-real-estate-destination": {
     title: "Why Mohali Is the Next Premium Real Estate Destination",
     description: "Discover why Mohali is emerging as North India's most sought-after residential destination with world-class infrastructure and premium developments.",
@@ -195,7 +210,7 @@ function buildArticleJsonLd(slug: string) {
 
 export function generateStaticParams() {
   return [
-    { slug: "why-mohali-is-the-next-premium-real-estate-destination" },
+    { slug: "dholera-smart-city-plots-investment-opportunity-2026" },
     { slug: "luxury-living-in-chandigarh-investment-guide" },
     { slug: "zirakpur-real-estate-emerging-opportunities" },
     { slug: "beverly-hills-vs-manhattan-luxury-markets" },

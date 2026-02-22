@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "dholera-smart-city-plots-investment-opportunity-2026",
+    title: "Dholera Smart City Plots: 2026 Investment Opportunity Explained",
+    excerpt: "Dholera SIR is India's first greenfield smart city with airport, expressway and DMIC connectivity. Here's why residential plots in Dholera are drawing serious investor attention in 2026.",
+    image: "/properties/RSH-DHO-001/expressway-aerial.jpg",
+    category: "Investment",
+    date: "February 22, 2026",
+    readTime: "7 min read",
+  },
+  {
     slug: "urban-challenge-fund-india-real-estate-impact-4-lakh-crore",
     title: "The \u20B94 Lakh Crore Game-Changer: How India\u2019s Urban Challenge Fund Is Reshaping Real Estate",
     excerpt: "The Urban Challenge Fund (UCF), a \u20B91 lakh crore initiative approved in February 2026, is set to leverage \u20B94 lakh crore into urban infrastructure over 5\u20138 years. Here is what it means for real estate businesses, developers, and investors across India.",

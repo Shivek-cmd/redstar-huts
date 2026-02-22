@@ -56,12 +56,11 @@ export default function PropertiesPage() {
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-3xl leading-tight drop-shadow-lg">
               Premium Properties
               <br />
-              in Mohali, Punjab
+              Across India
             </h1>
             <p className="mt-6 text-base md:text-lg text-background-secondary/80 max-w-2xl leading-relaxed">
-              Handpicked properties in Mohali and the Chandigarh Tri-City region.
-              Each listing is selected for its quality, location, and value.
-              Find the right home for your family.
+              Handpicked flats in Mohali and residential plots in Dholera Smart City.
+              Each listing is selected for its quality, location, and investment value.
             </p>
           </SectionReveal>
         </div>
@@ -153,11 +152,9 @@ export default function PropertiesPage() {
                       {property.title}
                     </h3>
                     <div className="mt-3 flex items-center gap-4 text-xs text-muted">
-                      <span>{property.beds} Beds</span>
-                      <span className="w-px h-3 bg-border" />
-                      <span>{property.baths} Baths</span>
-                      <span className="w-px h-3 bg-border" />
-                      <span>{property.sqft} Sq Ft</span>
+                      {property.beds > 0 && (<><span>{property.beds} Beds</span><span className="w-px h-3 bg-border" /></>)}
+                      {property.baths > 0 && (<><span>{property.baths} Baths</span><span className="w-px h-3 bg-border" /></>)}
+                      <span>{property.sqft} {property.type.toLowerCase().includes("plot") ? "Sq Yards" : "Sq Ft"}</span>
                     </div>
                     <p className="mt-3 font-heading text-lg text-foreground">
                       {property.price}

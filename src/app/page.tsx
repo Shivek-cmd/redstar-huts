@@ -387,11 +387,9 @@ export default function Home() {
                         {property.title}
                       </h3>
                       <div className="mt-3 flex items-center gap-4 text-xs text-muted">
-                        <span>{property.beds} Beds</span>
-                        <span className="w-px h-3 bg-border" />
-                        <span>{property.baths} Baths</span>
-                        <span className="w-px h-3 bg-border" />
-                        <span>{property.sqft} Sq Ft</span>
+                        {property.beds > 0 && (<><span>{property.beds} Beds</span><span className="w-px h-3 bg-border" /></>)}
+                        {property.baths > 0 && (<><span>{property.baths} Baths</span><span className="w-px h-3 bg-border" /></>)}
+                        <span>{property.sqft} {property.type.toLowerCase().includes("plot") ? "Sq Yards" : "Sq Ft"}</span>
                       </div>
                       <p className="mt-3 font-heading text-lg text-foreground">
                         {property.price}
