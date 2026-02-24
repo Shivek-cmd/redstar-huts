@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "smart-home-ultra-luxury-flats-zirakpur-patiala-highway-ready-to-move",
+    title: "Smart Home Ultra Luxury Flats on Zirakpur-Patiala Highway: Ready to Move, Future-Ready Living",
+    excerpt: "A ready-to-move IGBC certified project on Zirakpur-Patiala Highway is setting a new benchmark with voice-controlled automation, MIVAN construction, rooftop pool, and pet-friendly zones. Here is what makes it different.",
+    image: "/properties/RSH-ZIR-003/living-room.jpg",
+    category: "Property Spotlight",
+    date: "February 24, 2026",
+    readTime: "7 min read",
+  },
+  {
     slug: "igbc-platinum-luxury-flats-zirakpur-pr7-road-why-invest",
     title: "IGBC Platinum Luxury Flats on PR7 Road Zirakpur: Why Families and Investors Are Taking Notice",
     excerpt: "An IGBC Platinum certified high-rise project on PR7 Road, Zirakpur is redefining luxury living with MIVAN construction, personal lifts, wraparound balconies, and 15+ clubhouse activities. Here is why this project deserves your attention.",

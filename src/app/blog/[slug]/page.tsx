@@ -11,6 +11,21 @@ interface BlogSEO {
 }
 
 const blogMeta: Record<string, BlogSEO> = {
+  "smart-home-ultra-luxury-flats-zirakpur-patiala-highway-ready-to-move": {
+    title: "Smart Home Ultra Luxury Flats on Zirakpur-Patiala Highway: Ready to Move, Future-Ready Living",
+    description: "Discover a ready-to-move IGBC certified smart home project on Zirakpur-Patiala Highway with voice control, automated lighting, MIVAN construction, rooftop pool, and pet-friendly zones. 3 BHK, 3+1 BHK, and 4+1 BHK configurations.",
+    image: "/properties/RSH-ZIR-003/living-room.jpg",
+    category: "Property Spotlight",
+    date: "2026-02-24",
+    keywords: [
+      "smart home flat Zirakpur",
+      "ready to move luxury flat Zirakpur",
+      "Zirakpur Patiala Highway property",
+      "voice control flat Zirakpur",
+      "IGBC certified flat Punjab",
+      "MIVAN construction Zirakpur",
+    ],
+  },
   "igbc-platinum-luxury-flats-zirakpur-pr7-road-why-invest": {
     title: "IGBC Platinum Luxury Flats on PR7 Road Zirakpur: Why Families and Investors Are Taking Notice",
     description: "Discover why an IGBC Platinum certified high-rise project on PR7 Road, Zirakpur with MIVAN construction, personal lifts, wraparound balconies, and 15+ clubhouse activities is the smartest property choice in the Tri-City region.",
@@ -240,6 +255,7 @@ function buildArticleJsonLd(slug: string) {
 
 export function generateStaticParams() {
   return [
+    { slug: "smart-home-ultra-luxury-flats-zirakpur-patiala-highway-ready-to-move" },
     { slug: "igbc-platinum-luxury-flats-zirakpur-pr7-road-why-invest" },
     { slug: "4-plus-1-bhk-premium-flat-zirakpur-why-buy-now" },
     { slug: "dholera-smart-city-plots-investment-opportunity-2026" },
