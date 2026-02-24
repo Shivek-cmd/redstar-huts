@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "4-plus-1-bhk-premium-flat-zirakpur-why-buy-now",
+    title: "4+1 BHK Premium Flat in Zirakpur: Why This Is the Right Time to Buy",
+    excerpt: "Zirakpur is one of the fastest growing residential corridors in the Chandigarh Tri-City region. Here is why a 4+1 BHK premium flat with clubhouse, swimming pool, and earthquake-resistant design is the smart choice for families and investors.",
+    image: "/properties/RSH-ZIR-001/living-room.jpg",
+    category: "Property Spotlight",
+    date: "February 24, 2026",
+    readTime: "7 min read",
+  },
+  {
     slug: "dholera-smart-city-plots-investment-opportunity-2026",
     title: "Dholera Smart City Plots: 2026 Investment Opportunity Explained",
     excerpt: "Dholera SIR is India's first greenfield smart city with airport, expressway and DMIC connectivity. Here's why residential plots in Dholera are drawing serious investor attention in 2026.",
