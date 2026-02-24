@@ -75,6 +75,35 @@ const blogData: Record<
     content: { type: "paragraph" | "heading" | "image"; value: string; alt?: string }[];
   }
 > = {
+  "smart-home-ultra-luxury-flats-zirakpur-patiala-highway-ready-to-move": {
+    title: "Smart Home Ultra Luxury Flats on Zirakpur-Patiala Highway: Ready to Move, Future-Ready Living",
+    category: "Property Spotlight",
+    date: "February 24, 2026",
+    readTime: "7 min read",
+    heroImage: "/properties/RSH-ZIR-003/living-room.jpg",
+    content: [
+      { type: "paragraph", value: "The Zirakpur-Patiala Highway corridor is experiencing a quiet transformation. While most projects in this belt offer conventional construction and standard amenities, one ready-to-move IGBC certified high-rise is introducing something fundamentally different: fully integrated smart home technology as standard in every apartment. Voice-controlled AC, automated lighting, motion sensors, and touch panel controls are not add-ons here. They are built into the fabric of every home." },
+      { type: "paragraph", value: "Available in 3 BHK (1,843 sq ft), 3+1 BHK (2,247 sq ft), and 4+1 BHK (2,945 sq ft) configurations, this project combines MIVAN construction precision with intelligent automation. With only 2 apartments per floor, all park-facing units, and a rooftop swimming pool, it sets a new benchmark for what luxury living in Zirakpur can look like." },
+      { type: "heading", value: "Smart Home Automation: Not a Gimmick, a Lifestyle Upgrade" },
+      { type: "paragraph", value: "Every apartment in this project comes equipped with a fully automated lighting system that responds to your presence and preferences. The voice-controlled AC adjusts temperature without you lifting a finger. Presence and motion sensors ensure lights activate when you enter a room and switch off when you leave, reducing energy waste. Touch panels at key points in the home and a dedicated mobile app give you complete control over your living environment from anywhere. This is not experimental technology. This is production-grade smart home integration built into a ready-to-move property." },
+      { type: "image", value: "/properties/RSH-ZIR-003/living-dining.jpg", alt: "Open-plan living and dining area with smart lighting and premium furnishings in Zirakpur ultra luxury flat" },
+      { type: "heading", value: "MIVAN Construction: Precision Engineering" },
+      { type: "paragraph", value: "The project is built using MIVAN aluminium formwork technology, the same construction method used in high-rise developments across Dubai, Singapore, and Mumbai. MIVAN produces structures with perfectly uniform walls, minimal joints, and superior load-bearing capacity. For residents, this means fewer cracks over time, better sound insulation between floors and units, and a building that performs exceptionally well under seismic conditions. Combined with IGBC green building certification, the construction quality here is a clear step above conventional Zirakpur projects." },
+      { type: "image", value: "/properties/RSH-ZIR-003/kitchen.jpg", alt: "Modular kitchen with LED under-cabinet lighting and wood finish in smart home Zirakpur flat" },
+      { type: "heading", value: "Design and Interiors" },
+      { type: "paragraph", value: "The sample flat reveals a design language that balances warmth with sophistication. The living room features an L-shaped sofa arrangement with a walnut wood TV unit and recessed ceiling lighting. The open-plan layout flows into a formal dining area with wingback chairs and a gold-framed mirror. The modular kitchen comes with wood-finish cabinets, LED under-cabinet lighting, and a balcony for ventilation. Bedrooms showcase distinct design personalities, from a master suite with a grey geometric accent wall and floor-to-ceiling sheer curtains to a guest room with navy blue bedding and a mirrored wardrobe." },
+      { type: "image", value: "/properties/RSH-ZIR-003/master-bedroom.jpg", alt: "Master bedroom with geometric accent wall and designer furnishings in ultra luxury Zirakpur apartment" },
+      { type: "heading", value: "Amenities That Go Beyond the Standard" },
+      { type: "paragraph", value: "The project features a rooftop swimming pool with panoramic views, a rarity in the Zirakpur market. The clubhouse includes a gym, table tennis room, banquet hall, and a coffee shop for residents. There is a separate outdoor sports arena and a dedicated pet-friendly zone, recognizing that modern families include four-legged members too. The central themed park features a Bamboo Garden, Zen Garden, and Amphitheatre for community gatherings. EV car charging points and 24x7 ambulance service round out the amenity package." },
+      { type: "heading", value: "Security and Infrastructure" },
+      { type: "paragraph", value: "A 3-tier security system protects residents at every level. Each floor has only 2 apartments served by 2 lifts and 2 emergency staircases, ensuring both convenience and safety. Power backup ranges from 7.5 to 10 KVA per apartment, enough to run essential systems without interruption. Every unit is park-facing at no extra cost, which means better views, more natural light, and superior ventilation compared to inward-facing apartments in densely packed projects." },
+      { type: "image", value: "/properties/RSH-ZIR-003/bedroom-ensuite.jpg", alt: "Bedroom with textured 3D wall panel and en-suite bathroom in smart home Zirakpur flat" },
+      { type: "heading", value: "Who Should Consider This Project" },
+      { type: "paragraph", value: "This project is ideal for tech-forward families who want a ready-to-move home with smart automation built in, not retrofitted. The 3 BHK at 1,843 sq ft works for couples and small families. The 3+1 BHK at 2,247 sq ft adds a home office or guest room. The 4+1 BHK at 2,945 sq ft is designed for large families who need space and privacy. NRI investors will find the combination of IGBC certification, MIVAN construction, smart home features, and ready-to-move status compelling for both rental income and long-term appreciation." },
+      { type: "heading", value: "How to Schedule a Visit" },
+      { type: "paragraph", value: "Contact RedStar Huts through the form on our website or call us at +91 889 434 3056. We will arrange a private walkthrough of the sample flat, demonstrate the smart home features, and show you the clubhouse, rooftop pool, and themed gardens. Since this is a ready-to-move project, you can move in as soon as purchase formalities are completed." },
+    ],
+  },
   "igbc-platinum-luxury-flats-zirakpur-pr7-road-why-invest": {
     title: "IGBC Platinum Luxury Flats on PR7 Road Zirakpur: Why Families and Investors Are Taking Notice",
     category: "Property Spotlight",
