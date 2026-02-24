@@ -11,6 +11,21 @@ interface BlogSEO {
 }
 
 const blogMeta: Record<string, BlogSEO> = {
+  "4-plus-1-bhk-premium-flat-zirakpur-why-buy-now": {
+    title: "4+1 BHK Premium Flat in Zirakpur: Why This Is the Right Time to Buy",
+    description: "Discover why a 4+1 BHK premium flat in Zirakpur with clubhouse, swimming pool, Jaquar/Kohler fittings, and earthquake-resistant design is the smart choice for families and investors in the Tri-City region.",
+    image: "/properties/RSH-ZIR-001/living-room.jpg",
+    category: "Property Spotlight",
+    date: "2026-02-24",
+    keywords: [
+      "4 BHK flat Zirakpur",
+      "premium flat Zirakpur",
+      "buy flat in Zirakpur",
+      "Zirakpur real estate 2026",
+      "4+1 BHK Zirakpur Punjab",
+      "flat near Chandigarh",
+    ],
+  },
   "dholera-smart-city-plots-investment-opportunity-2026": {
     title: "Dholera Smart City Plots: 2026 Investment Opportunity Explained",
     description: "Investor guide to Dholera Smart City plots: connectivity, infrastructure, township amenities, and who should consider allocating here in 2026.",
@@ -210,6 +225,7 @@ function buildArticleJsonLd(slug: string) {
 
 export function generateStaticParams() {
   return [
+    { slug: "4-plus-1-bhk-premium-flat-zirakpur-why-buy-now" },
     { slug: "dholera-smart-city-plots-investment-opportunity-2026" },
     { slug: "luxury-living-in-chandigarh-investment-guide" },
     { slug: "zirakpur-real-estate-emerging-opportunities" },

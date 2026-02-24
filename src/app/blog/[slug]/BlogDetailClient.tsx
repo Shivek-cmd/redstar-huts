@@ -75,6 +75,32 @@ const blogData: Record<
     content: { type: "paragraph" | "heading" | "image"; value: string; alt?: string }[];
   }
 > = {
+  "4-plus-1-bhk-premium-flat-zirakpur-why-buy-now": {
+    title: "4+1 BHK Premium Flat in Zirakpur: Why This Is the Right Time to Buy",
+    category: "Property Spotlight",
+    date: "February 24, 2026",
+    readTime: "7 min read",
+    heroImage: "/properties/RSH-ZIR-001/living-room.jpg",
+    content: [
+      { type: "paragraph", value: "Zirakpur has quietly become one of the most attractive residential corridors in the Chandigarh Tri-City region. Sitting right on the Chandigarh-Ambala Highway (NH-22), it gives you direct access to Chandigarh, Mohali, and Panchkula without the premium price tags those cities command. For families and investors looking at the Tri-City market, Zirakpur is where value meets convenience." },
+      { type: "paragraph", value: "RedStar Huts is now offering a 4+1 BHK premium flat in Zirakpur spanning 2,505 sq ft. With 4 bedrooms, 4 bathrooms, dedicated stilt parking, and world-class society amenities, this property is built for families who want a ready, comfortable home in a fast-growing location." },
+      { type: "heading", value: "What Makes This Flat Stand Out" },
+      { type: "paragraph", value: "The flat comes with premium vitrified tiles and anti-skid tile finishing throughout. The kitchen features a premium granite countertop. Every bedroom has attached AC, and the home includes false ceilings with ambient lighting, Jaquar and Kohler sanitary and vanity fittings, and laminate flush doors. The building itself is an earthquake-resistant frame structure vetted by IIT Roorkee, one of India\u2019s top engineering institutions." },
+      { type: "paragraph", value: "You also get 24x7 power backup, acrylic emulsion paint finish, dedicated stilt parking, and separate guest parking. This is not a bare-shell handover. This is a home that is ready for you to move in." },
+      { type: "image", value: "/properties/RSH-ZIR-001/master-bedroom.jpg", alt: "Master bedroom with gold accent wall in 4+1 BHK premium flat Zirakpur" },
+      { type: "heading", value: "Society Amenities That Elevate Your Lifestyle" },
+      { type: "paragraph", value: "Beyond the flat itself, the society offers a lavish clubhouse with a swimming pool, fully equipped gymnasium, indoor games room, and party hall. For those who value outdoor spaces, there is a dedicated jogging area, meditation zone, and gazebo. The property also features rainwater harvesting and on-site kitchen and garden waste management, making it an environmentally conscious choice." },
+      { type: "image", value: "/properties/RSH-ZIR-001/clubhouse-aerial.jpg", alt: "Aerial view of clubhouse, swimming pool, and landscaped gardens in Zirakpur property" },
+      { type: "heading", value: "Why Zirakpur Is a Smart Location Choice" },
+      { type: "paragraph", value: "Zirakpur is no longer just a transit town between Chandigarh and Ambala. It has evolved into a self-sufficient residential hub with its own malls, hospitals, schools, and entertainment zones. VR Punjab Mall is just 5 kms away. Amandeep Hospital is 2 kms. DPS Zirakpur is 3 kms. Chandigarh International Airport is 18 kms." },
+      { type: "paragraph", value: "The proposed Zirakpur Metro Station, expected to connect to the wider Chandigarh metro network, will further boost connectivity and property values in this area. For investors, the combination of lower entry prices compared to Chandigarh or Mohali, strong rental demand from working professionals, and improving infrastructure makes Zirakpur one of the best value propositions in the Tri-City region." },
+      { type: "image", value: "/properties/RSH-ZIR-001/kitchen.jpg", alt: "Modern kitchen with premium granite countertop in Zirakpur flat" },
+      { type: "heading", value: "Who Is This Flat For" },
+      { type: "paragraph", value: "This 4+1 BHK is ideal for growing families who need space, comfort, and modern amenities without overpaying. It is also a strong choice for NRI investors looking for a ready, well-maintained property in the Tri-City region with solid appreciation potential. With 4 bedrooms and 2,505 sq ft, there is room for a home office, guest room, or kids\u2019 play area." },
+      { type: "heading", value: "How to Schedule a Visit" },
+      { type: "paragraph", value: "If you are interested in this property, contact RedStar Huts through the form on our website or call us at +91 889 434 3056. We will arrange a private site visit at your convenience and walk you through the flat, the society amenities, and the surrounding area. Early interest is recommended as premium units in well-located Zirakpur projects move quickly." },
+    ],
+  },
   "urban-challenge-fund-india-real-estate-impact-4-lakh-crore": {
     title: "The \u20B94 Lakh Crore Game-Changer: How India\u2019s Urban Challenge Fund Is Reshaping Real Estate",
     category: "Investment",
