@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "igbc-platinum-luxury-flats-zirakpur-pr7-road-why-invest",
+    title: "IGBC Platinum Luxury Flats on PR7 Road Zirakpur: Why Families and Investors Are Taking Notice",
+    excerpt: "An IGBC Platinum certified high-rise project on PR7 Road, Zirakpur is redefining luxury living with MIVAN construction, personal lifts, wraparound balconies, and 15+ clubhouse activities. Here is why this project deserves your attention.",
+    image: "/properties/RSH-ZIR-002/living-room.jpg",
+    category: "Property Spotlight",
+    date: "February 24, 2026",
+    readTime: "7 min read",
+  },
+  {
     slug: "4-plus-1-bhk-premium-flat-zirakpur-why-buy-now",
     title: "4+1 BHK Premium Flat in Zirakpur: Why This Is the Right Time to Buy",
     excerpt: "Zirakpur is one of the fastest growing residential corridors in the Chandigarh Tri-City region. Here is why a 4+1 BHK premium flat with clubhouse, swimming pool, and earthquake-resistant design is the smart choice for families and investors.",

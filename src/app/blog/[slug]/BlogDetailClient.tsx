@@ -75,6 +75,35 @@ const blogData: Record<
     content: { type: "paragraph" | "heading" | "image"; value: string; alt?: string }[];
   }
 > = {
+  "igbc-platinum-luxury-flats-zirakpur-pr7-road-why-invest": {
+    title: "IGBC Platinum Luxury Flats on PR7 Road Zirakpur: Why Families and Investors Are Taking Notice",
+    category: "Property Spotlight",
+    date: "February 24, 2026",
+    readTime: "7 min read",
+    heroImage: "/properties/RSH-ZIR-002/living-room.jpg",
+    content: [
+      { type: "paragraph", value: "Zirakpur has been on the radar of homebuyers and investors for years now. But most projects in the area offer standard construction, basic amenities, and little differentiation. A new IGBC Platinum certified high-rise project on PR7 Road is changing that narrative entirely. With MIVAN construction, personal lifts in every flat, wraparound balconies, and 15+ leisure activities in the clubhouse, this is not your typical Zirakpur property." },
+      { type: "paragraph", value: "Available in 3 BHK (2,325 sq ft), 3+1 BHK (2,600 sq ft), and 4+1 BHK (3,204 sq ft) configurations, the project is designed for families who want space, privacy, and premium finishes without moving to Chandigarh or Mohali. With only 2 flats per floor and park-facing layouts, every home feels like a private residence in the sky." },
+      { type: "heading", value: "What IGBC Platinum Certification Means for You" },
+      { type: "paragraph", value: "IGBC Platinum is the highest level of green building certification from the Indian Green Building Council. It is not just a badge. It means the project meets strict standards for energy efficiency, water conservation, indoor air quality, and sustainable construction. For homeowners, this translates to lower electricity and water bills, healthier living spaces, and stronger long-term property value. Green certified buildings are increasingly preferred by both end users and investors because they retain value better in the resale market." },
+      { type: "image", value: "/properties/RSH-ZIR-002/living-dining.jpg", alt: "Open-plan living and dining area with crystal chandelier and artistic wall panels in IGBC Platinum flat Zirakpur" },
+      { type: "heading", value: "MIVAN Construction: Why It Matters" },
+      { type: "paragraph", value: "Unlike conventional brick-and-mortar construction, MIVAN uses advanced aluminium formwork technology. This creates structures with uniform walls, minimal joints, and superior precision. The result is a stronger building that is also faster to construct and produces a better finish. For buyers, MIVAN construction means fewer cracks over time, better sound insulation, and a structure that performs well under seismic conditions. It is the same technology used in high-rise projects across Dubai, Singapore, and Mumbai." },
+      { type: "image", value: "/properties/RSH-ZIR-002/master-bedroom.jpg", alt: "Master bedroom with designer headboard and balcony view in IGBC Platinum Zirakpur flat" },
+      { type: "heading", value: "Interiors That Set a New Standard" },
+      { type: "paragraph", value: "The sample flat reveals the level of attention to detail in this project. The living room features a designer crystal chandelier with artistic wall panels that immediately set a luxury tone. The dining area continues the theme with formal place settings under another statement chandelier and a glass-fronted crockery cabinet. Bedrooms feature engineered wooden flooring, designer cane headboards with pendant lights, and upholstered furniture. The modular kitchen comes with built-in Hafele appliances including hob, chimney, oven, and microwave, all finished with LED strip ceiling lighting." },
+      { type: "image", value: "/properties/RSH-ZIR-002/kitchen.jpg", alt: "Modern modular kitchen with LED strip lighting and built-in Hafele appliances in Zirakpur luxury flat" },
+      { type: "heading", value: "Clubhouse and Lifestyle Amenities" },
+      { type: "paragraph", value: "The project offers 15+ leisure activities within the clubhouse, which is rare for a Zirakpur project. This includes a swimming pool, banquet hall, yoga and meditation zone, senior citizen relaxation area, outdoor sittings, and gazebos. The larger green area and park-facing layout mean you are not staring at another building from your balcony. The wraparound balconies add usable outdoor space to every flat, something that is increasingly valued by buyers who spent lockdown years in closed apartments." },
+      { type: "heading", value: "Location and Connectivity" },
+      { type: "paragraph", value: "Strategically located on PR7 Road, the project offers seamless connectivity to the Tri-City region and beyond. Chandigarh International Airport is just 9 km away. Mohali Railway Station is 5 km. Chandigarh Railway Station is 14 km. You have direct access to Punjab, Chandigarh, Himachal Pradesh, Haryana, and Delhi via national highways. Schools like DPS Zirakpur (4 km) and hospitals like Amandeep Hospital (3 km) are within easy reach." },
+      { type: "image", value: "/properties/RSH-ZIR-002/guest-bedroom.jpg", alt: "Guest bedroom with cane headboard and pendant lights in luxury Zirakpur flat" },
+      { type: "heading", value: "Who Should Consider This Project" },
+      { type: "paragraph", value: "This project is ideal for families who want a spacious, green-certified home with premium finishes in Zirakpur. The 3 BHK works well for smaller families, the 3+1 BHK adds flexibility for a home office or guest room, and the 4+1 BHK is perfect for large families who need every square foot. NRI investors looking at the Tri-City region will find the IGBC certification, MIVAN construction, and PR7 Road location compelling for long-term value appreciation." },
+      { type: "heading", value: "How to Schedule a Visit" },
+      { type: "paragraph", value: "If you are interested in this project, contact RedStar Huts through the form on our website or call us at +91 889 434 3056. We will arrange a private site visit to walk you through the sample flat, clubhouse, and surrounding area. Possession for 3+1 BHK units begins January 2027 and 4+1 BHK units by December 2027. Early interest is recommended as IGBC Platinum projects with this level of specification are rare in the Zirakpur market." },
+    ],
+  },
   "4-plus-1-bhk-premium-flat-zirakpur-why-buy-now": {
     title: "4+1 BHK Premium Flat in Zirakpur: Why This Is the Right Time to Buy",
     category: "Property Spotlight",
