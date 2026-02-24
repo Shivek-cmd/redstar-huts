@@ -36,11 +36,10 @@ const team = [
     bio: "A visionary leader with deep expertise in luxury real estate, Naveen founded RedStar Huts to deliver trusted, client-first advisory services across premium property markets.",
   },
   {
-    name: "Victoria Chen",
-    role: "Director of Sales",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80",
-    bio: "Victoria brings strategic precision and an unmatched network to every property engagement.",
+    name: "Disha",
+    role: "Sales Consultant",
+    image: "/team/disha.jpg",
+    bio: "With a sharp eye for client needs and a results-driven approach, Disha connects buyers with the right properties through personalized guidance and seamless sales support.",
   },
   {
     name: "Krish",
