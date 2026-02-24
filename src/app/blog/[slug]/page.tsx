@@ -11,6 +11,21 @@ interface BlogSEO {
 }
 
 const blogMeta: Record<string, BlogSEO> = {
+  "igbc-platinum-luxury-flats-zirakpur-pr7-road-why-invest": {
+    title: "IGBC Platinum Luxury Flats on PR7 Road Zirakpur: Why Families and Investors Are Taking Notice",
+    description: "Discover why an IGBC Platinum certified high-rise project on PR7 Road, Zirakpur with MIVAN construction, personal lifts, wraparound balconies, and 15+ clubhouse activities is the smartest property choice in the Tri-City region.",
+    image: "/properties/RSH-ZIR-002/living-room.jpg",
+    category: "Property Spotlight",
+    date: "2026-02-24",
+    keywords: [
+      "IGBC Platinum flat Zirakpur",
+      "PR7 Road Zirakpur property",
+      "MIVAN construction flat",
+      "luxury flat Zirakpur 2027",
+      "3 BHK 4+1 BHK Zirakpur",
+      "green certified flat Punjab",
+    ],
+  },
   "4-plus-1-bhk-premium-flat-zirakpur-why-buy-now": {
     title: "4+1 BHK Premium Flat in Zirakpur: Why This Is the Right Time to Buy",
     description: "Discover why a 4+1 BHK premium flat in Zirakpur with clubhouse, swimming pool, Jaquar/Kohler fittings, and earthquake-resistant design is the smart choice for families and investors in the Tri-City region.",
@@ -225,6 +240,7 @@ function buildArticleJsonLd(slug: string) {
 
 export function generateStaticParams() {
   return [
+    { slug: "igbc-platinum-luxury-flats-zirakpur-pr7-road-why-invest" },
     { slug: "4-plus-1-bhk-premium-flat-zirakpur-why-buy-now" },
     { slug: "dholera-smart-city-plots-investment-opportunity-2026" },
     { slug: "luxury-living-in-chandigarh-investment-guide" },
