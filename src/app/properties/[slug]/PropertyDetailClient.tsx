@@ -9,7 +9,7 @@ import { propertiesData } from "@/data/properties";
 import type { PropertyDetail } from "@/data/properties";
 import { blogPosts } from "@/data/blogs";
 
-const mediaTabs = ["Photos", "Video Tour", "Floor Plan", "Location"] as const;
+const mediaTabs = ["Photos", "Video Tour", "Floor Plan"] as const;
 type MediaTab = (typeof mediaTabs)[number];
 
 function getRelatedProperties(currentSlug: string, currentLocation: string, currentType: string) {
@@ -93,7 +93,7 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
   }
 
   const availableTabs = mediaTabs.filter((tab) => {
-    if (tab === "Video Tour") return !!property.video;
+    if (tab === "Video Tour") return !!property.video || !!property.videoEmbed;
     return true;
   });
 
@@ -196,28 +196,78 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
             </div>
           )}
 
-          {activeTab === "Video Tour" && property.video && (
-            <div className="relative aspect-video overflow-hidden bg-foreground/5 cursor-pointer group" onClick={() => {
-              setIsVideoPlaying(!isVideoPlaying);
-              if (videoRef.current) {
-                if (isVideoPlaying) videoRef.current.pause();
-                else videoRef.current.play();
-              }
-            }}>
-              <video
-                ref={videoRef}
-                src={property.video}
-                className="w-full h-full object-contain"
-                loop
-                muted
-                playsInline
-              />
-              {!isVideoPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center bg-foreground/20 group-hover:bg-foreground/30 transition-colors duration-300">
-                  <div className="w-20 h-20 rounded-full bg-background-secondary/90 flex items-center justify-center shadow-lg">
-                    <svg className="w-8 h-8 text-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
+          {activeTab === "Video Tour" && (property.video || property.videoEmbed) && (
+            <div>
+              {property.videoEmbed ? (
+                <div className="flex flex-col items-center">
+                  <div className="w-full max-w-sm mx-auto aspect-[9/16] bg-foreground/5 overflow-hidden rounded-lg shadow-lg">
+                    <iframe
+                      src={`${property.videoEmbed}?autoplay=0&rel=0&modestbranding=1`}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title={`${property.title} - Video Tour`}
+                    />
+                  </div>
+                </div>
+              ) : property.video ? (
+                <div className="relative aspect-video overflow-hidden bg-foreground/5 cursor-pointer group" onClick={() => {
+                  setIsVideoPlaying(!isVideoPlaying);
+                  if (videoRef.current) {
+                    if (isVideoPlaying) videoRef.current.pause();
+                    else videoRef.current.play();
+                  }
+                }}>
+                  <video
+                    ref={videoRef}
+                    src={property.video}
+                    className="w-full h-full object-contain"
+                    loop
+                    muted
+                    playsInline
+                  />
+                  {!isVideoPlaying && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-foreground/20 group-hover:bg-foreground/30 transition-colors duration-300">
+                      <div className="w-20 h-20 rounded-full bg-background-secondary/90 flex items-center justify-center shadow-lg">
+                        <svg className="w-8 h-8 text-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : null}
+
+              {property.socialLinks && (
+                <div className="mt-8 flex flex-col items-center">
+                  <p className="text-xs font-body tracking-[0.2em] uppercase text-muted mb-4">Watch on other platforms</p>
+                  <div className="flex items-center gap-4">
+                    {property.socialLinks.youtube && (
+                      <a
+                        href={property.socialLinks.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-sm font-body text-body hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] transition-all duration-300"
+                      >
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                        YouTube
+                      </a>
+                    )}
+                    {property.socialLinks.facebook && (
+                      <a
+                        href={property.socialLinks.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-sm font-body text-body hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all duration-300"
+                      >
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                        Facebook
+                      </a>
+                    )}
                   </div>
                 </div>
               )}
@@ -231,31 +281,18 @@ export default function PropertyDetailClient({ slug }: { slug: string }) {
               </svg>
               <p className="text-sm font-body tracking-widest uppercase text-muted mb-2">Floor Plan</p>
               <p className="text-base text-body max-w-md">Floor plan available on request. Contact us to receive detailed architectural drawings and layout specifications.</p>
-              <Link href="/contact" className="mt-6 inline-block text-sm font-body tracking-wide px-8 py-3 rounded-full border border-foreground text-foreground hover:bg-foreground hover:text-background-secondary transition-colors duration-300">
+              <button
+                onClick={() => {
+                  const formEl = document.getElementById("property-inquiry");
+                  if (formEl) formEl.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="mt-6 inline-block text-sm font-body tracking-wide px-8 py-3 rounded-full border border-foreground text-foreground hover:bg-foreground hover:text-background-secondary transition-colors duration-300"
+              >
                 Request Floor Plan
-              </Link>
+              </button>
             </div>
           )}
 
-          {activeTab === "Location" && (
-            <div>
-              {property.mapEmbed ? (
-                <div className="aspect-video overflow-hidden" dangerouslySetInnerHTML={{ __html: property.mapEmbed }} />
-              ) : (
-                <div className="aspect-video bg-background-depth flex flex-col items-center justify-center text-center">
-                  <svg className="w-16 h-16 text-muted/40 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                  </svg>
-                  <p className="font-heading text-xl text-foreground mb-2">{property.location}</p>
-                  <p className="text-sm text-body max-w-md">Precise location shared upon scheduling a site visit.</p>
-                  <Link href="/contact" className="mt-6 inline-block text-sm font-body tracking-wide px-8 py-3 rounded-full border border-foreground text-foreground hover:bg-foreground hover:text-background-secondary transition-colors duration-300">
-                    Get Directions
-                  </Link>
-                </div>
-              )}
-            </div>
-          )}
         </div>
       </section>
 
