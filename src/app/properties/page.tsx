@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
-import { allProperties, budgetRanges, parsePrice } from "@/data/properties";
+import { allProperties } from "@/data/properties";
 
 const locations = ["All Locations", ...Array.from(new Set(allProperties.map((p) => p.location)))];
 const types = ["All Types", ...Array.from(new Set(allProperties.map((p) => p.type)))];
@@ -13,7 +13,7 @@ export default function PropertiesPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("All Locations");
   const [selectedType, setSelectedType] = useState("All Types");
-  const [selectedBudget, setSelectedBudget] = useState(0);
+  // const [selectedBudget, setSelectedBudget] = useState(0);
 
   const filteredProperties = useMemo(() => {
     const q = searchQuery.toLowerCase();
@@ -28,12 +28,12 @@ export default function PropertiesPage() {
         selectedLocation === "All Locations" || property.location === selectedLocation;
       const matchesType =
         selectedType === "All Types" || property.type === selectedType;
-      const budget = budgetRanges[selectedBudget];
-      const price = parsePrice(property.price);
-      const matchesBudget = price >= budget.min && price < budget.max;
-      return matchesSearch && matchesLocation && matchesType && matchesBudget;
+      // const budget = budgetRanges[selectedBudget];
+      // const price = parsePrice(property.price);
+      // const matchesBudget = price >= budget.min && price < budget.max;
+      return matchesSearch && matchesLocation && matchesType;
     });
-  }, [searchQuery, selectedLocation, selectedType, selectedBudget]);
+  }, [searchQuery, selectedLocation, selectedType]);
 
   return (
     <>
@@ -81,7 +81,7 @@ export default function PropertiesPage() {
                 className="w-full pl-12 pr-4 py-3.5 bg-background-secondary border border-border rounded-full text-sm font-body text-foreground placeholder:text-muted focus:outline-none focus:border-foreground/30 transition-colors duration-300"
               />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <select
                 value={selectedLocation}
                 onChange={(e) => setSelectedLocation(e.target.value)}
@@ -100,7 +100,7 @@ export default function PropertiesPage() {
                   <option key={type} value={type}>{type}</option>
                 ))}
               </select>
-              <select
+              {/* <select
                 value={selectedBudget}
                 onChange={(e) => setSelectedBudget(Number(e.target.value))}
                 className="w-full px-4 py-3 bg-background-secondary border border-border rounded-full text-sm font-body text-body appearance-none cursor-pointer focus:outline-none focus:border-foreground/30 transition-colors duration-300"
@@ -108,7 +108,7 @@ export default function PropertiesPage() {
                 {budgetRanges.map((range, i) => (
                   <option key={range.label} value={i}>{range.label}</option>
                 ))}
-              </select>
+              </select> */}
             </div>
           </div>
         </div>

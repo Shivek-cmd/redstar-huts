@@ -197,7 +197,7 @@ export const allProperties: PropertyListItem[] = [
     code: "RSH-MOH-003",
     location: "Mohali, Punjab",
     price: "On Request",
-    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+    image: "/properties/RSH-MOH-003/living-room.jpg",
     beds: 4,
     baths: 4,
     sqft: "3,677 - 4,055",
@@ -435,11 +435,13 @@ export const propertiesData: Record<string, PropertyDetail> = {
     ],
     nearby: sharedNearby,
     images: [
-      { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80", alt: "Spacious living room of 4+1 BHK premium flat in Mohali" },
-      // { src: "https://images.unsplash.com/photo-1600566753376-12c8ab7a5a38?w=800&q=80", alt: "Master bedroom with attached AC in Mohali flat" },
-      { src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80", alt: "Modern kitchen with granite countertop in Mohali property" },
-      { src: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80", alt: "Dining area with false ceiling and ambient lighting in Mohali" },
-      { src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", alt: "Premium bathroom with branded fittings in Mohali flat" },
+      { src: "/properties/RSH-MOH-003/living-room.jpg", alt: "Spacious living room with crystal chandelier and designer sofas in 4+1 BHK premium flat Mohali" },
+      { src: "/properties/RSH-MOH-003/dining-area.jpg", alt: "Formal 8-seater dining area with wall clock and mirror accent in premium Mohali flat" },
+      { src: "/properties/RSH-MOH-003/kitchen.jpg", alt: "Modular parallel kitchen with Samsung appliances and LED track lighting in Mohali property" },
+      { src: "/properties/RSH-MOH-003/master-bedroom.jpg", alt: "Master bedroom with upholstered headboard, designer chandelier and lounge sofa in Mohali flat" },
+      { src: "/properties/RSH-MOH-003/bedroom-2.jpg", alt: "Bedroom with walnut wood accent wall, sliding wardrobe and brass chandelier in premium Mohali flat" },
+      { src: "/properties/RSH-MOH-003/bedroom-3.jpg", alt: "Bedroom with track lighting, wooden ceiling panel and blue armchair in 4+1 BHK Mohali flat" },
+      { src: "/properties/RSH-MOH-003/foyer.jpg", alt: "Grand entrance foyer with marble accent wall, round mirror and Sputnik chandelier in Mohali property" },
     ],
     faqs: [
       {
@@ -1065,7 +1067,7 @@ export const propertyMeta: Record<string, PropertySEO> = {
     baths: 4,
     sqft: "3,677 - 4,055",
     type: "Premium Flat",
-    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
+    image: "/properties/RSH-MOH-003/living-room.jpg",
     keywords: [
       "4 BHK flat for sale in Mohali",
       "4+1 BHK premium flat Mohali Punjab",
