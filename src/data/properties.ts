@@ -416,8 +416,13 @@ export const propertiesData: Record<string, PropertyDetail> = {
     sqft: "3,677 - 4,055",
     type: "Premium Flat",
     configuration: "4+1 BHK",
+    videoEmbed: "https://www.youtube.com/embed/L2cXllLHuO8",
+    socialLinks: {
+      youtube: "https://youtube.com/shorts/L2cXllLHuO8",
+      facebook: "https://www.facebook.com/share/r/1AuPguBkD3/",
+    },
     description: [
-      "This 4+1 BHK premium flat in Mohali is designed for families who need extra space without compromising on quality. Available in two generous sizes (3,677 sq ft and 4,055 sq ft), this home gives you 4 bedrooms, 4 bathrooms, and a common powder room \u2013 perfect for large families or those who love entertaining guests.",
+      "This 4+1 BHK premium flat in Mohali is designed for families who need extra space without compromising on quality.Available in two generous sizes (3,677 sq ft and 4,055 sq ft), this home gives you 4 bedrooms, 4 bathrooms, and a common powder room \u2013 perfect for large families or those who love entertaining guests.",
       "The flat comes with premium marble and vitrified tiles, wooden flooring, a kitchen with granite countertop and inbuilt branded hob, chimney, and RO. You get attached AC in the living room, dining area, drawing room, and all bedrooms. Add to that 24x7 power backup, false ceilings with ambient lighting, automated curtain systems, and branded sanitary fittings throughout.",
       "Located in Mohali, Punjab, this property puts you close to everything that matters \u2013 top schools, hospitals, malls, and the Chandigarh International Airport. With dedicated basement parking and a well-planned layout, this is a home that is ready to move into and built to last.",
     ],
@@ -496,8 +501,13 @@ export const propertiesData: Record<string, PropertyDetail> = {
     sqft: "1,843 - 2,945",
     type: "Smart Home Ultra Luxury Flat",
     configuration: "3 BHK / 3+1 BHK / 4+1 BHK",
+    videoEmbed: "https://www.youtube.com/embed/VANv4Xd0Q3U",
+    socialLinks: {
+      youtube: "https://youtube.com/shorts/VANv4Xd0Q3U",
+      facebook: "https://www.facebook.com/share/r/1KcaqEZ3b3/",
+    },
     description: [
-      "This ready-to-move IGBC green certified high-rise on the Zirakpur-Patiala Highway redefines ultra luxury living with fully automated smart home technology. Available in 3 BHK (1,843 sq ft), 3+1 BHK (2,247 sq ft), and 4+1 BHK (2,945 sq ft) configurations, every apartment is equipped with voice-controlled AC, automated lighting systems, presence and motion sensors, touch panels, and mobile app integration for complete home automation.",
+      "This ready-to-move IGBC green certified high-rise on the Zirakpur-Patiala Highway redefines ultra luxury livingwith fully automated smart home technology. Available in 3 BHK (1,843 sq ft), 3+1 BHK (2,247 sq ft), and 4+1 BHK (2,945 sq ft) configurations, every apartment is equipped with voice-controlled AC, automated lighting systems, presence and motion sensors, touch panels, and mobile app integration for complete home automation.",
       "Built with MIVAN construction technology, the project features only 2 apartments per floor with 2 lifts and 2 emergency staircases. Every unit is park-facing at no extra cost, with 7.5 to 10 KVA power backup, a 3-tier security system, and a separate pet-friendly zone. The central themed park includes a Bamboo Garden, Zen Garden, and Amphitheatre, while the clubhouse offers a gym, table tennis room, banquet hall, and coffee shop.",
       "The project also features a rooftop swimming pool, separate outdoor sports arena, EV car charging points, and 24x7 ambulance service on standby. With all park-facing units, MIVAN precision construction, and smart home automation as standard, this is one of the most technologically advanced residential projects in the Zirakpur-Patiala Highway corridor. Ideal for families who want a ready, move-in luxury home with future-ready smart living features.",
     ],
@@ -638,9 +648,8 @@ export const propertiesData: Record<string, PropertyDetail> = {
     configuration: "3 BHK / 3+1 BHK / 4+1 BHK",
     videoEmbed: "https://www.youtube.com/embed/htUR51ehy88",
     socialLinks: {
-      youtube: "https://www.youtube.com/shorts/htUR51ehy88",
-      facebook: "https://www.facebook.com/share/r/1HaDQNUKnT/",
-      instagram: "https://www.instagram.com/reel/DVNgwFeD0ky/",
+      youtube: "https://youtube.com/shorts/htUR51ehy88",
+      facebook: "https://www.facebook.com/share/r/1DnCDHrnxH/",
     },
     description: [
       "This IGBC Platinum certified high-rise luxury project on PR7 Road, Zirakpur offers 3 BHK, 3+1 BHK, and 4+1 BHK configurations ranging from 2,325 sq ft to 3,204 sq ft. Designed for families who want world-class living without compromise, every flat features MIVAN construction, wraparound balconies, a personal lift, and park-facing views with expansive green areas.",
