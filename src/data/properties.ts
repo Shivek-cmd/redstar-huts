@@ -31,6 +31,12 @@ export interface NearbyCategory {
   places: { name: string; distance: string }[];
 }
 
+export interface PropertySocialLinks {
+  youtube?: string;
+  facebook?: string;
+  instagram?: string;
+}
+
 export interface PropertyDetail {
   title: string;
   code: string;
@@ -45,6 +51,8 @@ export interface PropertyDetail {
   features: string[];
   images: PropertyImage[];
   video?: string;
+  videoEmbed?: string;
+  socialLinks?: PropertySocialLinks;
   highlights: PropertyHighlight[];
   nearby: NearbyCategory[];
   mapEmbed?: string;
@@ -628,6 +636,12 @@ export const propertiesData: Record<string, PropertyDetail> = {
     sqft: "2,325 - 3,204",
     type: "IGBC Platinum Luxury Flat",
     configuration: "3 BHK / 3+1 BHK / 4+1 BHK",
+    videoEmbed: "https://www.youtube.com/embed/htUR51ehy88",
+    socialLinks: {
+      youtube: "https://www.youtube.com/shorts/htUR51ehy88",
+      facebook: "https://www.facebook.com/share/r/1HaDQNUKnT/",
+      instagram: "https://www.instagram.com/reel/DVNgwFeD0ky/",
+    },
     description: [
       "This IGBC Platinum certified high-rise luxury project on PR7 Road, Zirakpur offers 3 BHK, 3+1 BHK, and 4+1 BHK configurations ranging from 2,325 sq ft to 3,204 sq ft. Designed for families who want world-class living without compromise, every flat features MIVAN construction, wraparound balconies, a personal lift, and park-facing views with expansive green areas.",
       "Each home is finished with premium interiors including designer crystal chandeliers, artistic wall panels, engineered wooden flooring, modular kitchens with built-in Hafele appliances, and designer cane and upholstered furniture across bedrooms. The project features only 2 flats per floor for maximum privacy, dedicated basement parking, and 15+ leisure activities in the clubhouse including a swimming pool, banquet hall, yoga and meditation zone, senior citizen relaxation area, and outdoor gazebos.",
