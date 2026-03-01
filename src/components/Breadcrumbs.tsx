@@ -14,19 +14,19 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
     <nav aria-label="Breadcrumb" className="text-xs font-body tracking-wide">
       <ol className="flex items-center flex-wrap gap-1.5">
         <li>
-          <Link href="/" className="text-muted hover:text-foreground transition-colors duration-300">
+          <Link href="/" className="text-background-secondary/70 hover:text-background-secondary transition-colors duration-300">
             Home
           </Link>
         </li>
         {items.map((item, i) => (
           <li key={item.label} className="flex items-center gap-1.5">
-            <span className="text-muted/40">/</span>
+            <span className="text-background-secondary/40">/</span>
             {item.href && i < items.length - 1 ? (
-              <Link href={item.href} className="text-muted hover:text-foreground transition-colors duration-300">
+              <Link href={item.href} className="text-background-secondary/70 hover:text-background-secondary transition-colors duration-300">
                 {item.label}
               </Link>
             ) : (
-              <span className="text-foreground/70">{item.label}</span>
+              <span className="text-background-secondary">{item.label}</span>
             )}
           </li>
         ))}
