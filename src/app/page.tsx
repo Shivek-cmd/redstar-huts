@@ -6,6 +6,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionReveal from "@/components/SectionReveal";
 import SectionHeading from "@/components/SectionHeading";
+import { allProperties } from "@/data/properties";
 
 const heroSlides = [
   { image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80", alt: "Luxury modern architecture" },
@@ -49,41 +50,7 @@ const services = [
   },
 ];
 
-const properties = [
-  {
-    title: "The Meridian Residence",
-    slug: "meridian-residence",
-    location: "Beverly Hills, CA",
-    price: "$4,850,000",
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-    beds: 5,
-    baths: 4,
-    sqft: "6,200",
-  },
-  {
-    title: "Harborview Estate",
-    slug: "harborview-estate",
-    location: "Miami Beach, FL",
-    price: "$3,200,000",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-    beds: 4,
-    baths: 3,
-    sqft: "4,800",
-  },
-  {
-    title: "Crestwood Manor",
-    slug: "crestwood-manor",
-    location: "Greenwich, CT",
-    price: "$7,100,000",
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
-    beds: 6,
-    baths: 5,
-    sqft: "8,500",
-  },
-];
+const properties = allProperties;
 
 const testimonials = [
   {
@@ -156,8 +123,15 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [propertyPage, setPropertyPage] = useState(0);
+  const propertiesPerPage = 3;
+  const totalPropertyPages = Math.ceil(properties.length / propertiesPerPage);
+  const visibleProperties = properties.slice(
+    propertyPage * propertiesPerPage,
+    propertyPage * propertiesPerPage + propertiesPerPage
+  );
 
-  const nextSlide = useCallback(() => {
+  const nextSlide= useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   }, []);
 
@@ -166,12 +140,12 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 3500);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
   useEffect(() => {
-    const interval = setInterval(nextTestimonial, 6000);
+    const interval = setInterval(nextTestimonial, 3500);
     return () => clearInterval(interval);
   }, [nextTestimonial]);
 
@@ -352,47 +326,93 @@ export default function Home() {
                   Curated Properties
                 </h2>
               </div>
-              <Link
-                href="/properties"
-                className="mt-6 md:mt-0 text-sm font-body tracking-wide text-muted hover:text-foreground transition-colors duration-300"
-              >
-                View All Properties →
-              </Link>
+              <div className="mt-6 md:mt-0 flex items-center gap-6">
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setPropertyPage((p) => Math.max(0, p - 1))}
+                    disabled={propertyPage === 0}
+                    className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center text-foreground hover:bg-foreground hover:text-background-secondary transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-foreground disabled:cursor-not-allowed"
+                    aria-label="Previous properties"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => setPropertyPage((p) => Math.min(totalPropertyPages - 1, p + 1))}
+                    disabled={propertyPage === totalPropertyPages - 1}
+                    className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center text-foreground hover:bg-foreground hover:text-background-secondary transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-foreground disabled:cursor-not-allowed"
+                    aria-label="Next properties"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </button>
+                </div>
+                <Link
+                  href="/properties"
+                  className="text-sm font-body tracking-wide text-muted hover:text-foreground transition-colors duration-300"
+                >
+                  View All →
+                </Link>
+              </div>
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {properties.map((property, i) => (
-              <SectionReveal key={property.title} delay={i * 0.15}>
-                <Link href={`/properties/${property.slug}`} className="group block">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
-                    <Image
-                      src={property.image}
-                      alt={property.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="mt-5">
-                    <p className="text-xs font-body tracking-widest uppercase text-muted">
-                      {property.location}
-                    </p>
-                    <h3 className="mt-2 font-heading text-xl text-foreground group-hover:text-body transition-colors duration-300">
-                      {property.title}
-                    </h3>
-                    <div className="mt-3 flex items-center gap-4 text-xs text-muted">
-                      <span>{property.beds} Beds</span>
-                      <span className="w-px h-3 bg-border" />
-                      <span>{property.baths} Baths</span>
-                      <span className="w-px h-3 bg-border" />
-                      <span>{property.sqft} Sq Ft</span>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={propertyPage}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            >
+              {visibleProperties.map((property, i) => (
+                <SectionReveal key={property.title} delay={i * 0.1}>
+                  <Link href={`/properties/${property.slug}`} className="group block">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-background-depth">
+                      <Image
+                        src={property.image}
+                        alt={property.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
                     </div>
-                    <p className="mt-3 font-heading text-lg text-foreground">
-                      {property.price}
-                    </p>
-                  </div>
-                </Link>
-              </SectionReveal>
+                    <div className="mt-5">
+                      <p className="text-xs font-body tracking-widest uppercase text-muted">
+                        {property.location}
+                      </p>
+                      <h3 className="mt-2 font-heading text-xl text-foreground group-hover:text-body transition-colors duration-300">
+                        {property.title}
+                      </h3>
+                      <div className="mt-3 flex items-center gap-4 text-xs text-muted">
+                        {property.beds > 0 && (<><span>{property.beds} Beds</span><span className="w-px h-3 bg-border" /></>)}
+                        {property.baths > 0 && (<><span>{property.baths} Baths</span><span className="w-px h-3 bg-border" /></>)}
+                        <span>{property.sqft} {property.type.toLowerCase().includes("plot") ? "Sq Yards" : "Sq Ft"}</span>
+                      </div>
+                      <p className="mt-3 font-heading text-lg text-foreground">
+                        {property.price}
+                      </p>
+                    </div>
+                  </Link>
+                </SectionReveal>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="flex justify-center gap-2 mt-12">
+            {Array.from({ length: totalPropertyPages }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setPropertyPage(i)}
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  i === propertyPage
+                    ? "bg-foreground w-8"
+                    : "bg-border hover:bg-muted w-4"
+                }`}
+                aria-label={`Go to property page ${i + 1}`}
+              />
             ))}
           </div>
         </div>
