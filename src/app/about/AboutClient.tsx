@@ -43,9 +43,9 @@ const team = [
   },
   {
     name: "Krish",
-    role: "Junior Advisor",
+    role: "Co-Founder & Advisor",
     image: "/team/krish.jpg",
-    bio: "Driven by a passion for real estate and sharp analytical skills, Krish supports clients with market research, property evaluations, and end-to-end advisory assistance.",
+    bio: "As Co-Founder of RedStar Huts, Krish brings a data-driven perspective to the advisory team, supporting clients with market research, property evaluations, and end-to-end advisory assistance.",
   },
 ];
 

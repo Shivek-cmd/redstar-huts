@@ -178,7 +178,7 @@ export default function BlogPage() {
                       return author ? (
                         <div className="mt-6 flex items-center gap-3">
                           <div className="relative w-8 h-8 rounded-full overflow-hidden bg-background-depth">
-                            <Image src={author.image} alt={author.name} fill className="object-cover" />
+                            <Image src={author.image} alt={author.name} fill className="object-cover object-top" />
                           </div>
                           <Link
                             href={`/authors/${author.slug}`}
@@ -377,7 +377,7 @@ export default function BlogPage() {
                         return author ? (
                           <div className="mt-4 flex items-center gap-2.5">
                             <div className="relative w-6 h-6 rounded-full overflow-hidden bg-background-depth">
-                              <Image src={author.image} alt={author.name} fill className="object-cover" />
+                              <Image src={author.image} alt={author.name} fill className="object-cover object-top" />
                             </div>
                             <Link
                               href={`/authors/${author.slug}`}
