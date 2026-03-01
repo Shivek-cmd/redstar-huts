@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
 import SectionHeading from "@/components/SectionHeading";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const values = [
   {
@@ -31,21 +32,31 @@ const values = [
 const team = [
   {
     name: "Naveen",
+    slug: "naveen",
     role: "Founder & Principal Advisor",
     image: "/team/naveen.jpg",
     bio: "A visionary leader with deep expertise in luxury real estate, Naveen founded RedStar Huts to deliver trusted, client-first advisory services across premium property markets.",
   },
   {
-    name: "Disha",
-    role: "Sales Consultant",
-    image: "/team/disha.jpg",
-    bio: "With a sharp eye for client needs and a results-driven approach, Disha connects buyers with the right properties through personalized guidance and seamless sales support.",
-  },
-  {
     name: "Krish",
+    slug: "krish",
     role: "Co-Founder & Advisor",
     image: "/team/krish.jpg",
     bio: "As Co-Founder of RedStar Huts, Krish brings a data-driven perspective to the advisory team, supporting clients with market research, property evaluations, and end-to-end advisory assistance.",
+  },
+  {
+    name: "Shivek",
+    slug: "shivek",
+    role: "Strategy & Growth",
+    image: "/team/shivek.jpg",
+    bio: "A strategic thinker with a passion for real estate technology and market intelligence, Shivek drives RedStar Huts' growth initiatives and digital presence.",
+  },
+  {
+    name: "Disha",
+    slug: "disha",
+    role: "Sales Consultant",
+    image: "/team/disha.jpg",
+    bio: "With a sharp eye for client needs and a results-driven approach, Disha connects buyers with the right properties through personalized guidance and seamless sales support.",
   },
 ];
 
@@ -65,18 +76,21 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
+            <div className="mb-6">
+              <Breadcrumbs items={[{ label: "About" }]} />
+            </div>
             <p className="text-xs font-body font-semibold tracking-widest uppercase text-background-secondary/60 mb-4">
               About RedStar Huts
             </p>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-background-secondary max-w-3xl leading-tight drop-shadow-lg">
-              A Legacy of Trust
+              Built on Trust,
               <br />
-              in Real Estate
+              Driven by Passion
             </h1>
             <p className="mt-6 text-base md:text-lg text-background-secondary/80 max-w-2xl leading-relaxed">
-              For over fifteen years, we have served discerning clients with a
-              singular commitment: to bring clarity, integrity, and exceptional
-              outcomes to every real estate engagement.
+              A young, passionate team of real estate professionals committed
+              to bringing clarity, integrity, and exceptional outcomes to every
+              client engagement across the Chandigarh Tri-City region.
             </p>
           </SectionReveal>
         </div>
@@ -104,24 +118,26 @@ export default function AboutPage() {
               <h2 className="font-heading text-3xl md:text-4xl text-foreground">
                 Founded on Principle,
                 <br />
-                Refined by Experience
+                Growing with Purpose
               </h2>
               <div className="mt-8 space-y-5 text-base text-body leading-relaxed">
                 <p>
-                  RedStar Huts was established with a clear vision: to provide
-                  real estate advisory services that match the sophistication of
-                  the properties and clients we serve.
+                  RedStar Huts was founded with a clear vision: to bring
+                  honesty, transparency, and genuine expertise to the real
+                  estate experience in North India.
                 </p>
                 <p>
-                  From our earliest transactions to our current portfolio of
-                  over $2.4 billion in completed deals, our approach has remained
-                  consistent — listen carefully, analyze deeply, advise honestly,
-                  and execute with precision.
+                  In a short time, we have built a growing portfolio of premium
+                  properties across Mohali, Zirakpur, and Chandigarh — and
+                  expanded into emerging markets like Dholera Smart City. Our
+                  approach has remained consistent: listen carefully, research
+                  deeply, advise honestly, and deliver with care.
                 </p>
                 <p>
-                  Today, we are trusted by property buyers, sellers, and
-                  investors who demand not just results, but a partnership built
-                  on transparency and long-term value.
+                  Today, we are trusted by homebuyers, families, and investors
+                  who value a partnership built on transparency, local knowledge,
+                  and a commitment to finding the right property — not just
+                  closing a deal.
                 </p>
               </div>
             </SectionReveal>
@@ -169,10 +185,10 @@ export default function AboutPage() {
             />
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {team.map((member, i) => (
               <SectionReveal key={member.name} delay={i * 0.15}>
-                <div className="group">
+                <Link href={`/authors/${member.slug}`} className="group block">
                   <div className="relative aspect-[3/4] overflow-hidden bg-background-depth">
                     <Image
                       src={member.image}
@@ -182,7 +198,7 @@ export default function AboutPage() {
                     />
                   </div>
                   <div className="mt-6">
-                    <h3 className="font-heading text-xl text-foreground">
+                    <h3 className="font-heading text-xl text-foreground group-hover:text-body transition-colors duration-300">
                       {member.name}
                     </h3>
                     <p className="text-xs font-body tracking-widest uppercase text-muted mt-2">
@@ -192,7 +208,7 @@ export default function AboutPage() {
                       {member.bio}
                     </p>
                   </div>
-                </div>
+                </Link>
               </SectionReveal>
             ))}
           </div>

@@ -4,7 +4,10 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
+import Breadcrumbs, { BreadcrumbSchema } from "@/components/Breadcrumbs";
 import { allProperties } from "@/data/properties";
+
+const breadcrumbItems = [{ label: "Properties" }];
 
 const locations = ["All Locations", ...Array.from(new Set(allProperties.map((p) => p.location)))];
 const types = ["All Types", ...Array.from(new Set(allProperties.map((p) => p.type)))];
@@ -37,6 +40,7 @@ export default function PropertiesPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbItems} />
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -50,6 +54,9 @@ export default function PropertiesPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
+            <div className="mb-6">
+              <Breadcrumbs items={breadcrumbItems} />
+            </div>
             <p className="text-xs font-body font-semibold tracking-widest uppercase text-background-secondary/60 mb-4">
               Our Portfolio
             </p>

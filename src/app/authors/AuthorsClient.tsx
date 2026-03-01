@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { authors } from "@/data/authors";
 import { blogPosts } from "@/data/blogs";
 
@@ -13,6 +14,9 @@ export default function AuthorsClient() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.03),transparent_70%)]" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 text-center">
           <SectionReveal>
+            <div className="mb-6">
+              <Breadcrumbs items={[{ label: "Authors" }]} />
+            </div>
             <p className="text-xs font-body tracking-[0.3em] uppercase text-muted mb-4">
               The Team Behind the Insights
             </p>

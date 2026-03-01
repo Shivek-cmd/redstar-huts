@@ -68,13 +68,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/logo-circle.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#F6F5F3" />
         <meta name="google-site-verification" content="rOJbsGfx8wGUTXwDp2iY-xUw-76ijVbEMr7f6R4k43c" />
+        <link rel="alternate" hrefLang="en-IN" href="https://redstarhuts.com" />
+        <link rel="alternate" hrefLang="en" href="https://redstarhuts.com" />
+        <link rel="alternate" hrefLang="x-default" href="https://redstarhuts.com" />
 
         {/* Google Tag Manager */}
         <Script id="gtm-head" strategy="afterInteractive">
@@ -92,27 +95,50 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "RealEstateAgent",
+              "@type": ["RealEstateAgent", "LocalBusiness"],
               name: "RedStar Huts",
               url: "https://redstarhuts.com",
               logo: "https://redstarhuts.com/logo-circle.png",
+              image: "https://redstarhuts.com/og-image.png",
               description:
-                "Luxury real estate consulting and property advisory services across North India — Himachal Pradesh, Punjab, Chandigarh, Haryana, and Uttarakhand.",
+                "Trusted real estate consulting and property advisory services in Mohali, Zirakpur, and Chandigarh. Premium flats, luxury apartments, and smart city investment plots.",
               email: "redstarhuts9@gmail.com",
               telephone: "+918894343056",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "SCO 08, Jublee Junction, Sector 66",
+                addressLocality: "S.A.S Nagar Mohali",
+                addressRegion: "Punjab",
+                postalCode: "160062",
+                addressCountry: "IN",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 30.6942,
+                longitude: 76.7225,
+              },
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                opens: "10:00",
+                closes: "19:00",
+              },
               areaServed: [
-                { "@type": "State", name: "Himachal Pradesh" },
-                { "@type": "State", name: "Punjab" },
+                { "@type": "City", name: "Mohali" },
+                { "@type": "City", name: "Zirakpur" },
                 { "@type": "City", name: "Chandigarh" },
-                { "@type": "State", name: "Haryana" },
-                { "@type": "State", name: "Uttarakhand" },
+                { "@type": "City", name: "Dholera" },
+                { "@type": "State", name: "Punjab" },
+                { "@type": "State", name: "Gujarat" },
               ],
               sameAs: [
                 "https://www.instagram.com/redstar__huts/",
                 "https://www.facebook.com/people/Redstar-Huts/61588365781493/",
                 "https://youtube.com/@redstarhuts?si=hEDmuk9rk61lh4Su",
               ],
-              priceRange: "$$$",
+              priceRange: "\u20B91 Cr - \u20B93 Cr",
+              currenciesAccepted: "INR",
+              paymentAccepted: "Bank Transfer, Cheque",
             }),
           }}
         />
