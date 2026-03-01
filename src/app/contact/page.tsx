@@ -61,6 +61,25 @@ const jsonLd = {
     email: "redstarhuts9@gmail.com",
     telephone: "+918894343056",
     url: "https://redstarhuts.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "SCO 08, Jublee Junction, Sector 66",
+      addressLocality: "S.A.S Nagar Mohali",
+      addressRegion: "Punjab",
+      postalCode: "160062",
+      addressCountry: "IN",
+    },
+    areaServed: [
+      { "@type": "City", name: "Mohali" },
+      { "@type": "City", name: "Chandigarh" },
+      { "@type": "City", name: "Zirakpur" },
+    ],
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
   },
 };
 
