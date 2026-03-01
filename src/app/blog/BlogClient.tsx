@@ -1,9 +1,11 @@
 "use client";
 
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
-import { blogPosts } from "@/data/blogs";
+import { blogPosts, getAllCategories, getAllTags } from "@/data/blogs";
+import type { BlogPost } from "@/data/blogs";
 
 const BASE_URL = "https://redstarhuts.com";
 
@@ -42,7 +44,59 @@ function ShareIcons({ slug, title }: { slug: string; title: string }) {
   );
 }
 
+function parseDate(dateStr: string): number {
+  return new Date(dateStr).getTime();
+}
+
 export default function BlogPage() {
+  const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [sort, setSort] = useState<"latest" | "oldest">("latest");
+
+  const categories = useMemo(() => getAllCategories(), []);
+  const tags = useMemo(() => getAllTags(), []);
+
+  const featured = useMemo(() => blogPosts.find((p) => p.featured), []);
+
+  const filteredPosts = useMemo(() => {
+    let posts = blogPosts.filter((p) => !p.featured);
+
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      posts = posts.filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.excerpt.toLowerCase().includes(q) ||
+          p.tags.some((t) => t.toLowerCase().includes(q))
+      );
+    }
+
+    if (activeCategory) {
+      posts = posts.filter((p) => p.category === activeCategory);
+    }
+
+    if (activeTag) {
+      posts = posts.filter((p) => p.tags.includes(activeTag));
+    }
+
+    posts.sort((a, b) => {
+      const da = parseDate(a.date);
+      const db = parseDate(b.date);
+      return sort === "latest" ? db - da : da - db;
+    });
+
+    return posts;
+  }, [search, activeCategory, activeTag, sort]);
+
+  const clearFilters = () => {
+    setSearch("");
+    setActiveCategory(null);
+    setActiveTag(null);
+  };
+
+  const hasActiveFilters = search.trim() || activeCategory || activeTag;
+
   return (
     <>
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
@@ -74,48 +128,244 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-background">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, i) => (
-              <SectionReveal key={post.slug} delay={(i % 3) * 0.1}>
-                <Link href={`/blog/${post.slug}`} className="group block">
+      {featured && (
+        <section className="py-16 md:py-20 bg-background border-b border-border">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <SectionReveal>
+              <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-8">
+                Featured Article
+              </p>
+              <Link href={`/blog/${featured.slug}`} className="group block">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                   <div className="relative aspect-[16/10] overflow-hidden bg-background-depth">
                     <Image
-                      src={post.image}
-                      alt={post.title}
+                      src={featured.image}
+                      alt={featured.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/90 px-3 py-1.5 text-foreground">
-                        {post.category}
+                        {featured.category}
                       </span>
                     </div>
                   </div>
-                  <div className="mt-5">
-                    <div className="flex items-center gap-3 text-xs text-muted">
-                      <span>{post.date}</span>
+                  <div className="flex flex-col justify-center">
+                    <div className="flex items-center gap-3 text-xs text-muted mb-4">
+                      <span>{featured.date}</span>
                       <span className="w-px h-3 bg-border" />
-                      <span>{post.readTime}</span>
+                      <span>{featured.readTime}</span>
                     </div>
-                    <h3 className="mt-3 font-heading text-xl text-foreground group-hover:text-body transition-colors duration-300 leading-snug">
-                      {post.title}
-                    </h3>
-                    <p className="mt-3 text-sm text-body leading-relaxed line-clamp-3">
-                      {post.excerpt}
+                    <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl text-foreground group-hover:text-body transition-colors duration-300 leading-snug">
+                      {featured.title}
+                    </h2>
+                    <p className="mt-4 text-sm md:text-base text-body leading-relaxed line-clamp-3">
+                      {featured.excerpt}
                     </p>
-                    <div className="mt-4 flex items-center justify-between">
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {featured.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs px-2.5 py-1 bg-background-depth text-muted"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-6 flex items-center justify-between">
                       <span className="text-xs font-body tracking-widest uppercase text-muted group-hover:text-foreground transition-colors duration-300">
-                        Read Article →
+                        Read Article &rarr;
                       </span>
-                      <ShareIcons slug={post.slug} title={post.title} />
+                      <ShareIcons slug={featured.slug} title={featured.title} />
                     </div>
                   </div>
-                </Link>
-              </SectionReveal>
-            ))}
+                </div>
+              </Link>
+            </SectionReveal>
           </div>
+        </section>
+      )}
+
+      <section className="py-12 bg-background border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+              <div className="relative w-full sm:w-80">
+                <svg
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Search articles..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border text-foreground placeholder:text-muted focus:outline-none focus:border-foreground transition-colors"
+                />
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-xs text-muted">Sort:</span>
+                <button
+                  onClick={() => setSort("latest")}
+                  className={`text-xs px-3 py-1.5 border transition-colors ${
+                    sort === "latest"
+                      ? "border-foreground text-foreground bg-foreground/5"
+                      : "border-border text-muted hover:border-foreground hover:text-foreground"
+                  }`}
+                >
+                  Latest
+                </button>
+                <button
+                  onClick={() => setSort("oldest")}
+                  className={`text-xs px-3 py-1.5 border transition-colors ${
+                    sort === "oldest"
+                      ? "border-foreground text-foreground bg-foreground/5"
+                      : "border-border text-muted hover:border-foreground hover:text-foreground"
+                  }`}
+                >
+                  Oldest
+                </button>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setActiveCategory(null)}
+                className={`text-xs px-3 py-1.5 border transition-colors ${
+                  !activeCategory
+                    ? "border-foreground text-foreground bg-foreground/5"
+                    : "border-border text-muted hover:border-foreground hover:text-foreground"
+                }`}
+              >
+                All Categories
+              </button>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() =>
+                    setActiveCategory(activeCategory === cat ? null : cat)
+                  }
+                  className={`text-xs px-3 py-1.5 border transition-colors ${
+                    activeCategory === cat
+                      ? "border-foreground text-foreground bg-foreground/5"
+                      : "border-border text-muted hover:border-foreground hover:text-foreground"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {tags.slice(0, 12).map((tag) => (
+                <button
+                  key={tag}
+                  onClick={() =>
+                    setActiveTag(activeTag === tag ? null : tag)
+                  }
+                  className={`text-xs px-2.5 py-1 transition-colors ${
+                    activeTag === tag
+                      ? "bg-foreground text-background-secondary"
+                      : "bg-background-depth text-muted hover:text-foreground"
+                  }`}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
+
+            {hasActiveFilters && (
+              <div className="flex items-center gap-3">
+                <span className="text-xs text-muted">
+                  {filteredPosts.length} article{filteredPosts.length !== 1 ? "s" : ""} found
+                </span>
+                <button
+                  onClick={clearFilters}
+                  className="text-xs text-foreground underline underline-offset-4 hover:text-muted transition-colors"
+                >
+                  Clear all filters
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32 bg-background">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          {filteredPosts.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="font-heading text-2xl text-foreground mb-4">
+                No articles found
+              </p>
+              <p className="text-sm text-body mb-8">
+                Try adjusting your search or filters to find what you are looking for.
+              </p>
+              <button
+                onClick={clearFilters}
+                className="text-sm font-body tracking-wide px-6 py-2.5 border border-foreground text-foreground hover:bg-foreground hover:text-background-secondary transition-colors duration-300"
+              >
+                Clear Filters
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post, i) => (
+                <SectionReveal key={post.slug} delay={(i % 3) * 0.1}>
+                  <Link href={`/blog/${post.slug}`} className="group block">
+                    <div className="relative aspect-[16/10] overflow-hidden bg-background-depth">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="text-xs font-body tracking-widest uppercase bg-background-secondary/90 px-3 py-1.5 text-foreground">
+                          {post.category}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="mt-5">
+                      <div className="flex items-center gap-3 text-xs text-muted">
+                        <span>{post.date}</span>
+                        <span className="w-px h-3 bg-border" />
+                        <span>{post.readTime}</span>
+                      </div>
+                      <h3 className="mt-3 font-heading text-xl text-foreground group-hover:text-body transition-colors duration-300 leading-snug">
+                        {post.title}
+                      </h3>
+                      <p className="mt-3 text-sm text-body leading-relaxed line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-1.5">
+                        {post.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-[10px] px-2 py-0.5 bg-background-depth text-muted"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-xs font-body tracking-widest uppercase text-muted group-hover:text-foreground transition-colors duration-300">
+                          Read Article &rarr;
+                        </span>
+                        <ShareIcons slug={post.slug} title={post.title} />
+                      </div>
+                    </div>
+                  </Link>
+                </SectionReveal>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
