@@ -24,25 +24,21 @@ export const authors: Author[] = [
     image: "/team/naveen.jpg",
     expertise: ["Investment Strategy", "Market Analysis", "Luxury Advisory", "NRI Consulting"],
     social: {
-      instagram: "",
-      facebook: "",
-      youtube: "",
-      linkedin: "",
+      instagram: "https://www.instagram.com/naveensood19?igsh=Zm53ZTZkY2F4NnV1",
+      facebook: "https://www.facebook.com/share/1Ax1of5WRB/",
     },
   },
   {
     slug: "krish",
     name: "Krish",
-    role: "Junior Advisor",
+    role: "Co-Founder & Advisor",
     bio: "Driven by a passion for real estate and sharp analytical skills, Krish supports clients with market research, property evaluations, and end-to-end advisory assistance.",
-    longBio: "Krish brings a fresh, data-driven perspective to RedStar Huts' advisory team. With a strong foundation in market research and property analysis, he specializes in identifying emerging trends and undervalued opportunities across the Tri-City region. His meticulous approach to due diligence and property evaluation ensures that every recommendation is backed by solid research. Krish is passionate about making real estate knowledge accessible and writes extensively about market trends, architectural innovations, and the evolving luxury landscape in North India.",
+    longBio: "As Co-Founder of RedStar Huts, Krish brings a fresh, data-driven perspective to the advisory team. With a strong foundation in market research and property analysis, he specializes in identifying emerging trends and undervalued opportunities across the Tri-City region. His meticulous approach to due diligence and property evaluation ensures that every recommendation is backed by solid research. Krish co-founded RedStar Huts with a vision to make real estate knowledge accessible, and writes extensively about market trends, architectural innovations, and the evolving luxury landscape in North India.",
     image: "/team/krish.jpg",
     expertise: ["Market Research", "Property Evaluation", "Trend Analysis", "Due Diligence"],
     social: {
-      instagram: "",
-      facebook: "",
-      youtube: "",
-      linkedin: "",
+      instagram: "https://www.instagram.com/_.kri.sh.na._?igsh=MTJram14dTQ0N3Zocw==",
+      facebook: "https://www.facebook.com/share/18KNkhbVZo/",
     },
   },
   {
@@ -54,10 +50,7 @@ export const authors: Author[] = [
     image: "/team/disha.jpg",
     expertise: ["Property Sales", "Client Advisory", "New Launches", "Buyer Guidance"],
     social: {
-      instagram: "",
-      facebook: "",
-      youtube: "",
-      linkedin: "",
+      instagram: "https://www.instagram.com/_.disha.k._?igsh=M2V5cGJxdmYxZzNt",
     },
   },
   {
@@ -69,10 +62,8 @@ export const authors: Author[] = [
     image: "/team/shivek.jpg",
     expertise: ["Growth Strategy", "Investment Analysis", "Real Estate Technology", "Content Strategy"],
     social: {
-      instagram: "",
-      facebook: "",
-      youtube: "",
-      linkedin: "",
+      instagram: "https://www.instagram.com/shivek_soni?igsh=bHI4dmM0Z2htOThm&utm_source=qr",
+      facebook: "https://www.facebook.com/shivek.sony",
     },
   },
 ];

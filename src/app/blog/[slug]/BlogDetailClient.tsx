@@ -447,7 +447,7 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
               return author ? (
                 <Link href={`/authors/${author.slug}`} className="mt-6 inline-flex items-center gap-3 group">
                   <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-background-secondary/30 group-hover:border-background-secondary transition-colors">
-                    <Image src={author.image} alt={author.name} fill className="object-cover" />
+                    <Image src={author.image} alt={author.name} fill className="object-cover object-top" />
                   </div>
                   <div>
                     <p className="text-sm text-background-secondary group-hover:underline underline-offset-4 transition-all">{author.name}</p>

@@ -46,7 +46,7 @@ export default function AuthorsClient() {
                           src={author.image}
                           alt={author.name}
                           fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                         />
                       </div>
                       <div className="text-center sm:text-left">

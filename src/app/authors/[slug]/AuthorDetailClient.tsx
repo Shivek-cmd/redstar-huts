@@ -58,7 +58,7 @@ export default function AuthorDetailClient({ slug }: { slug: string }) {
                   src={author.image}
                   alt={author.name}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   priority
                 />
               </div>
@@ -86,7 +86,8 @@ export default function AuthorDetailClient({ slug }: { slug: string }) {
                   ))}
                 </div>
                 {socialLinks.length > 0 && (
-                  <div className="mt-6 flex items-center gap-3 justify-center md:justify-start">
+                  <div className="mt-6 flex items-center gap-4 justify-center md:justify-start">
+                    <span className="text-xs text-background-secondary/40 tracking-wide uppercase">Follow</span>
                     {socialLinks.map((s) => (
                       <a
                         key={s.key}
@@ -94,7 +95,7 @@ export default function AuthorDetailClient({ slug }: { slug: string }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${author.name} on ${s.label}`}
-                        className="w-9 h-9 rounded-full border border-background-secondary/30 flex items-center justify-center text-background-secondary/60 hover:text-background-secondary hover:border-background-secondary transition-all duration-300"
+                        className="w-10 h-10 rounded-full border border-background-secondary/30 flex items-center justify-center text-background-secondary/60 hover:text-background-secondary hover:border-background-secondary hover:scale-110 transition-all duration-300"
                       >
                         {s.key === "instagram" && (
                           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -240,14 +241,26 @@ export default function AuthorDetailClient({ slug }: { slug: string }) {
         </section>
       )}
 
-      <section className="py-16 md:py-20 bg-background">
+      <section className="py-12 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <SectionReveal>
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-body">
+              <p>Explore our <Link href="/properties" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">curated properties</Link></p>
+              <p>Read more on our <Link href="/blog" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">Journal</Link></p>
+              <p>Learn about our <Link href="/services" className="text-foreground underline underline-offset-4 hover:text-muted transition-colors">advisory services</Link></p>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-background-depth">
         <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
           <SectionReveal>
             <h2 className="font-heading text-2xl md:text-3xl text-foreground">
               Get Expert Guidance
             </h2>
             <p className="mt-4 text-sm text-body max-w-xl mx-auto leading-relaxed">
-              Schedule a consultation with our team for personalized real estate advice.
+              Schedule a consultation with {author.name} and our team for personalized real estate advice.
             </p>
             <Link
               href="/contact"
