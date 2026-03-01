@@ -38,25 +38,18 @@ const team = [
     bio: "A visionary leader with deep expertise in luxury real estate, Naveen founded RedStar Huts to deliver trusted, client-first advisory services across premium property markets.",
   },
   {
-    name: "Krish",
-    slug: "krish",
-    role: "Co-Founder & Advisor",
-    image: "/team/krish.jpg",
-    bio: "As Co-Founder of RedStar Huts, Krish brings a data-driven perspective to the advisory team, supporting clients with market research, property evaluations, and end-to-end advisory assistance.",
-  },
-  {
-    name: "Shivek",
-    slug: "shivek",
-    role: "Strategy & Growth",
-    image: "/team/shivek.jpg",
-    bio: "A strategic thinker with a passion for real estate technology and market intelligence, Shivek drives RedStar Huts' growth initiatives and digital presence.",
-  },
-  {
     name: "Disha",
     slug: "disha",
     role: "Sales Consultant",
     image: "/team/disha.jpg",
     bio: "With a sharp eye for client needs and a results-driven approach, Disha connects buyers with the right properties through personalized guidance and seamless sales support.",
+  },
+  {
+    name: "Krish",
+    slug: "krish",
+    role: "Co-Founder & Advisor",
+    image: "/team/krish.jpg",
+    bio: "As Co-Founder of RedStar Huts, Krish brings a data-driven perspective to the advisory team, supporting clients with market research, property evaluations, and end-to-end advisory assistance.",
   },
 ];
 
@@ -185,7 +178,7 @@ export default function AboutPage() {
             />
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {team.map((member, i) => (
               <SectionReveal key={member.name} delay={i * 0.15}>
                 <Link href={`/authors/${member.slug}`} className="group block">
