@@ -54,48 +54,48 @@ const properties = allProperties;
 
 const testimonials = [
   {
-    quote: "RedStar Huts understood exactly what we were looking for. Their market knowledge and discretion made the entire process effortless.",
-    name: "Jonathan & Claire Mitchell",
-    role: "Property Buyers",
+    quote: "RedStar Huts guided us through every step of buying our first home in Mohali. Their transparency and patience made us feel completely confident in our decision.",
+    name: "Amit & Priya Sharma",
+    role: "First-Time Homebuyers, Mohali",
   },
   {
-    quote: "From valuation to closing, every detail was handled with precision. We achieved well above our expected sale price.",
-    name: "David Harrington",
-    role: "Property Seller",
+    quote: "As an NRI, managing a property purchase remotely felt daunting. The team handled everything — from site visits to paperwork — with absolute professionalism.",
+    name: "Rajesh Kapoor",
+    role: "NRI Investor, Dubai",
   },
   {
-    quote: "Their investment consulting transformed our approach to real estate. The returns have been exceptional.",
-    name: "Sarah Lin",
-    role: "Real Estate Investor",
+    quote: "We were looking to upgrade to a premium flat in Zirakpur and the team matched us with exactly the right property. Genuine advice, no pushy sales.",
+    name: "Gurpreet & Mandeep Kaur",
+    role: "Property Buyers, Zirakpur",
   },
   {
-    quote: "The level of professionalism and attention to detail was remarkable. RedStar Huts made our relocation seamless.",
-    name: "Michael & Anna Roberts",
-    role: "International Buyers",
+    quote: "Their market knowledge of the Tri-City region is outstanding. We invested in a Dholera plot based on their research and couldn't be happier with the returns.",
+    name: "Vikram Mehta",
+    role: "Smart City Investor, Chandigarh",
   },
   {
-    quote: "Their market research gave us the confidence to make a significant investment. The data-driven approach was exactly what we needed.",
-    name: "Richard Thornton",
-    role: "Portfolio Investor",
+    quote: "What impressed me most was the honesty. They told us which properties to avoid and why. That kind of integrity is rare in real estate.",
+    name: "Neha Bansal",
+    role: "Homebuyer, Mohali",
   },
 ];
 
 const stats = [
-  { value: "$2.4B+", label: "Transaction Volume" },
-  { value: "450+", label: "Properties Sold" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "15+", label: "Years of Experience" },
+  { value: "50+", label: "Happy Families Served" },
+  { value: "7+", label: "Premium Properties Listed" },
+  { value: "3", label: "Cities Covered" },
+  { value: "100%", label: "Client-First Approach" },
 ];
 
 const partnerLogos = [
-  "Sotheby\u2019s", "Christie\u2019s", "Knight Frank", "Savills",
-  "Engel & Volkers", "Coldwell Banker", "Compass", "Douglas Elliman",
+  "Motiaz Royal", "Janta Land", "SBP Group", "Hero Homes",
+  "Godrej Properties", "Homeland Group", "Beacon Trusts", "True Value Homes",
 ];
 
 const faqs = [
   {
     question: "What areas does RedStar Huts serve?",
-    answer: "We serve clients across premium real estate markets nationally and internationally. Our primary focus includes major metropolitan areas and exclusive resort destinations, though our advisory services extend to any market where our clients see opportunity.",
+    answer: "We primarily serve the Chandigarh Tri-City region — Mohali, Zirakpur, and Chandigarh — along with emerging investment markets like Dholera Smart City in Gujarat. Our team has deep, on-ground knowledge of these areas.",
   },
   {
     question: "How does the consultation process begin?",
@@ -103,15 +103,15 @@ const faqs = [
   },
   {
     question: "What types of properties do you handle?",
-    answer: "We specialize in luxury residential properties including estates, penthouses, waterfront homes, and premium condominiums. We also advise on select commercial and mixed-use investment opportunities for qualified clients.",
+    answer: "We specialize in premium residential flats (3 BHK, 4+1 BHK), luxury apartments, and smart city investment plots. Our current portfolio includes properties across Mohali, Zirakpur, and Dholera Smart City.",
   },
   {
-    question: "Do you work with international buyers?",
-    answer: "Yes. We have extensive experience guiding international buyers through the complexities of cross-border transactions, including legal considerations, financing structures, and local market navigation.",
+    question: "Do you work with NRI buyers?",
+    answer: "Yes. We have experience guiding NRI buyers through the process of purchasing property in India remotely — from virtual site tours and legal documentation to power of attorney handling and registration support.",
   },
   {
     question: "What sets RedStar Huts apart from other firms?",
-    answer: "Our combination of deep market expertise, data-driven insights, and a commitment to discretion distinguishes us. We maintain a deliberately focused client roster, ensuring every engagement receives our full attention and resources.",
+    answer: "We are a client-first advisory firm, not a brokerage. We don't push properties — we guide you to the right one. Our team personally visits and vets every property before recommending it, and we provide honest advice even if it means telling you to wait.",
   },
   {
     question: "Are there fees for an initial consultation?",
@@ -149,8 +149,25 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [nextTestimonial]);
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <AnimatePresence mode="wait">
@@ -442,15 +459,16 @@ export default function Home() {
                 Driven by Expertise
               </h2>
               <p className="mt-6 text-base text-body leading-relaxed">
-                For over fifteen years, RedStar Huts has guided discerning
-                clients through the complexities of real estate with unwavering
-                integrity and market intelligence.
+                Founded by a team of passionate real estate professionals,
+                RedStar Huts has quickly grown into a trusted advisory firm
+                across the Chandigarh Tri-City region — Mohali, Zirakpur, and
+                Chandigarh.
               </p>
               <p className="mt-4 text-base text-body leading-relaxed">
                 Our approach is simple: understand deeply, advise honestly, and
-                execute flawlessly. Every client relationship is built on
-                transparency, discretion, and a commitment to exceptional
-                outcomes.
+                execute with care. Every client relationship is built on
+                transparency, genuine market knowledge, and a commitment to
+                finding the right property — not just any property.
               </p>
               <Link
                 href="/about"
@@ -467,7 +485,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
             <p className="text-xs font-body font-semibold tracking-widest uppercase text-muted mb-10 text-center">
-              Trusted Partners & Affiliations
+              Builders & Developers We Work With
             </p>
           </SectionReveal>
         </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 
 const contactInfo = [
@@ -129,6 +130,9 @@ export default function ContactPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
+            <div className="mb-6">
+              <Breadcrumbs items={[{ label: "Contact" }]} />
+            </div>
             <p className="text-xs font-body font-semibold tracking-widest uppercase text-background-secondary/60 mb-4">
               Get in Touch
             </p>

@@ -4,7 +4,7 @@ import AboutClient from "./AboutClient";
 export const metadata: Metadata = {
   title: "About Us | RedStar Huts — Luxury Real Estate Consulting",
   description:
-    "Learn about RedStar Huts — a trusted luxury real estate consulting firm with 15+ years of experience across Mohali, Chandigarh, Zirakpur, Himachal Pradesh, and North India.",
+    "Learn about RedStar Huts — a trusted real estate consulting firm serving homebuyers and investors across Mohali, Chandigarh, Zirakpur, and Dholera Smart City.",
   keywords: [
     "about RedStar Huts",
     "luxury real estate consultants",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Us | RedStar Huts",
     description:
-      "Trusted luxury real estate consulting with 15+ years of experience across North India and international markets.",
+      "Trusted real estate consulting serving homebuyers and investors across Mohali, Chandigarh, Zirakpur, and Dholera Smart City.",
     url: "https://redstarhuts.com/about",
     type: "website",
     siteName: "RedStar Huts",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Us | RedStar Huts",
     description:
-      "Trusted luxury real estate consulting with 15+ years of experience across North India.",
+      "Trusted real estate consulting serving homebuyers and investors across North India.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -49,16 +49,27 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "AboutPage",
-  name: "About RedStar Huts",
-  description:
-    "RedStar Huts is a luxury real estate consulting firm with 15+ years of experience serving discerning clients across North India and international markets.",
-  url: "https://redstarhuts.com/about",
-  isPartOf: {
-    "@type": "WebSite",
-    name: "RedStar Huts",
-    url: "https://redstarhuts.com",
-  },
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      name: "About RedStar Huts",
+      description:
+        "RedStar Huts is a trusted real estate consulting firm serving homebuyers and investors across Mohali, Chandigarh, Zirakpur, and Dholera Smart City.",
+      url: "https://redstarhuts.com/about",
+      isPartOf: {
+        "@type": "WebSite",
+        name: "RedStar Huts",
+        url: "https://redstarhuts.com",
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://redstarhuts.com" },
+        { "@type": "ListItem", position: 2, name: "About", item: "https://redstarhuts.com/about" },
+      ],
+    },
+  ],
 };
 
 export default function AboutPage() {

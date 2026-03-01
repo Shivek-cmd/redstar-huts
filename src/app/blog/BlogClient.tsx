@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { blogPosts, getAllCategories, getAllTags } from "@/data/blogs";
 import type { BlogPost } from "@/data/blogs";
 import { getAuthorBySlug } from "@/data/authors";
@@ -113,6 +114,9 @@ export default function BlogPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <SectionReveal>
+            <div className="mb-6">
+              <Breadcrumbs items={[{ label: "Journal" }]} />
+            </div>
             <p className="text-xs font-body font-semibold tracking-widest uppercase text-background-secondary/60 mb-4">
               Journal
             </p>
