@@ -6,6 +6,7 @@ import Link from "next/link";
 import SectionReveal from "@/components/SectionReveal";
 import { blogPosts, getAllCategories, getAllTags } from "@/data/blogs";
 import type { BlogPost } from "@/data/blogs";
+import { getAuthorBySlug } from "@/data/authors";
 
 const BASE_URL = "https://redstarhuts.com";
 
@@ -172,7 +173,24 @@ export default function BlogPage() {
                         </span>
                       ))}
                     </div>
-                    <div className="mt-6 flex items-center justify-between">
+                    {(() => {
+                      const author = getAuthorBySlug(featured.authorSlug);
+                      return author ? (
+                        <div className="mt-6 flex items-center gap-3">
+                          <div className="relative w-8 h-8 rounded-full overflow-hidden bg-background-depth">
+                            <Image src={author.image} alt={author.name} fill className="object-cover" />
+                          </div>
+                          <Link
+                            href={`/authors/${author.slug}`}
+                            className="text-xs font-body tracking-wide text-muted hover:text-foreground transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            By {author.name}
+                          </Link>
+                        </div>
+                      ) : null;
+                    })()}
+                    <div className="mt-4 flex items-center justify-between">
                       <span className="text-xs font-body tracking-widest uppercase text-muted group-hover:text-foreground transition-colors duration-300">
                         Read Article &rarr;
                       </span>
@@ -354,7 +372,24 @@ export default function BlogPage() {
                           </span>
                         ))}
                       </div>
-                      <div className="mt-4 flex items-center justify-between">
+                      {(() => {
+                        const author = getAuthorBySlug(post.authorSlug);
+                        return author ? (
+                          <div className="mt-4 flex items-center gap-2.5">
+                            <div className="relative w-6 h-6 rounded-full overflow-hidden bg-background-depth">
+                              <Image src={author.image} alt={author.name} fill className="object-cover" />
+                            </div>
+                            <Link
+                              href={`/authors/${author.slug}`}
+                              className="text-xs text-muted hover:text-foreground transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {author.name}
+                            </Link>
+                          </div>
+                        ) : null;
+                      })()}
+                      <div className="mt-3 flex items-center justify-between">
                         <span className="text-xs font-body tracking-widest uppercase text-muted group-hover:text-foreground transition-colors duration-300">
                           Read Article &rarr;
                         </span>

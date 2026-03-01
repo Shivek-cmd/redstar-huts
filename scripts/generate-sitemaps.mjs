@@ -65,6 +65,7 @@ const staticPages = [
   { path: "/about", changefreq: "monthly", priority: "0.8" },
   { path: "/contact", changefreq: "monthly", priority: "0.8" },
   { path: "/blog", changefreq: "weekly", priority: "0.8" },
+  { path: "/authors", changefreq: "monthly", priority: "0.7" },
 
   { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
   { path: "/terms-of-service", changefreq: "yearly", priority: "0.3" },
@@ -73,9 +74,10 @@ const staticPages = [
 
 const propertySlugs = extractSlugs(join(DATA, "properties.ts"));
 const blogSlugs = extractSlugs(join(DATA, "blogs.ts"));
+const authorSlugs = extractSlugs(join(DATA, "authors.ts"));
 
 console.log(
-  `Found ${propertySlugs.length} properties, ${blogSlugs.length} blogs`,
+  `Found ${propertySlugs.length} properties, ${blogSlugs.length} blogs, ${authorSlugs.length} authors`,
 );
 
 const staticXml = buildSitemapXml(
@@ -132,6 +134,18 @@ propertyChunks.forEach((_, idx) => {
   });
 });
 sitemapFiles.push({ loc: `${BASE_URL}/sitemap-blogs.xml`, lastmod: TODAY });
+
+const authorsXml = buildSitemapXml(
+  authorSlugs.map((slug) => ({
+    url: `${BASE_URL}/authors/${slug}`,
+    lastmod: TODAY,
+    changefreq: "monthly",
+    priority: "0.6",
+  })),
+);
+writeFileSync(join(PUBLIC, "sitemap-authors.xml"), authorsXml);
+console.log(`Generated sitemap-authors.xml (${authorSlugs.length} URLs)`);
+sitemapFiles.push({ loc: `${BASE_URL}/sitemap-authors.xml`, lastmod: TODAY });
 
 const indexXml = buildSitemapIndex(sitemapFiles);
 writeFileSync(join(PUBLIC, "sitemap.xml"), indexXml);

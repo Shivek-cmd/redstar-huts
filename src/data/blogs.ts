@@ -7,6 +7,7 @@ export interface BlogPost {
   tags: string[];
   date: string;
   readTime: string;
+  authorSlug: string;
   featured?: boolean;
   relatedPropertySlugs?: string[];
 }
@@ -21,6 +22,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Zirakpur", "Smart Home", "IGBC", "Ready to Move", "Luxury Flat"],
     date: "February 24, 2026",
     readTime: "7 min read",
+    authorSlug: "disha",
     featured: true,
     relatedPropertySlugs: ["3-4-plus-1-bhk-smart-home-ultra-luxury-flats-for-sale-in-zirakpur-punjab"],
   },
@@ -33,6 +35,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Zirakpur", "IGBC Platinum", "MIVAN", "Investment", "PR7 Road"],
     date: "February 24, 2026",
     readTime: "7 min read",
+    authorSlug: "naveen",
     relatedPropertySlugs: ["3-4-plus-1-bhk-igbc-platinum-luxury-flats-for-sale-in-zirakpur-punjab"],
   },
   {
@@ -44,6 +47,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Zirakpur", "4+1 BHK", "Premium Flat", "Tri-City", "Family Home"],
     date: "February 24, 2026",
     readTime: "7 min read",
+    authorSlug: "krish",
     relatedPropertySlugs: ["4-plus-1-bhk-premium-flat-for-sale-in-zirakpur-punjab"],
   },
   {
@@ -55,6 +59,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Dholera", "Smart City", "Plots", "Gujarat", "DMIC"],
     date: "February 22, 2026",
     readTime: "7 min read",
+    authorSlug: "shivek",
     relatedPropertySlugs: ["residential-plots-for-sale-in-dholera-smart-city-gujarat"],
   },
   {
@@ -66,6 +71,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["UCF", "Infrastructure", "Policy", "Urban Development", "India"],
     date: "February 20, 2026",
     readTime: "9 min read",
+    authorSlug: "naveen",
   },
   {
     slug: "why-mohali-is-the-next-premium-real-estate-destination",
@@ -76,6 +82,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Mohali", "North India", "IT City", "Premium Property", "NRI"],
     date: "February 17, 2026",
     readTime: "7 min read",
+    authorSlug: "disha",
     relatedPropertySlugs: [
       "3-plus-1-bhk-premium-flat-for-sale-in-mohali-punjab-2901-sq-ft",
       "3-plus-1-bhk-ultra-luxury-flat-for-sale-in-mohali-punjab",
@@ -91,6 +98,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Chandigarh", "Investment Guide", "NRI", "Luxury", "Tri-City"],
     date: "February 10, 2026",
     readTime: "8 min read",
+    authorSlug: "shivek",
   },
   {
     slug: "zirakpur-real-estate-emerging-opportunities",
@@ -101,6 +109,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Zirakpur", "Investment", "Tri-City", "Affordable Luxury", "Growth"],
     date: "February 3, 2026",
     readTime: "6 min read",
+    authorSlug: "krish",
     relatedPropertySlugs: [
       "3-4-plus-1-bhk-smart-home-ultra-luxury-flats-for-sale-in-zirakpur-punjab",
       "3-4-plus-1-bhk-igbc-platinum-luxury-flats-for-sale-in-zirakpur-punjab",
@@ -116,6 +125,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Tri-City", "Mohali", "Chandigarh", "Zirakpur", "Market Overview"],
     date: "January 27, 2026",
     readTime: "8 min read",
+    authorSlug: "naveen",
   },
   {
     slug: "beverly-hills-vs-manhattan-luxury-markets",
@@ -126,6 +136,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Luxury Markets", "Beverly Hills", "Manhattan", "Global"],
     date: "January 20, 2026",
     readTime: "7 min read",
+    authorSlug: "shivek",
   },
   {
     slug: "lake-tahoe-luxury-homes-buyer-guide",
@@ -136,6 +147,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Lake Tahoe", "Buyer Guide", "Luxury Homes", "Global"],
     date: "January 13, 2026",
     readTime: "6 min read",
+    authorSlug: "disha",
   },
   {
     slug: "luxury-market-trends-2025",
@@ -146,6 +158,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Market Trends", "Luxury", "2025", "North India"],
     date: "January 15, 2026",
     readTime: "6 min read",
+    authorSlug: "krish",
   },
   {
     slug: "art-of-property-staging",
@@ -156,6 +169,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Staging", "Selling Tips", "Luxury", "Premium Sales"],
     date: "December 28, 2025",
     readTime: "5 min read",
+    authorSlug: "disha",
   },
   {
     slug: "investment-portfolio-diversification",
@@ -166,6 +180,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Portfolio", "Diversification", "Investment Strategy", "NRI"],
     date: "December 10, 2025",
     readTime: "7 min read",
+    authorSlug: "naveen",
   },
   {
     slug: "guide-to-buying-first-luxury-home",
@@ -176,6 +191,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["First Home", "Buyer Guide", "Luxury", "Tips"],
     date: "November 22, 2025",
     readTime: "8 min read",
+    authorSlug: "shivek",
   },
   {
     slug: "architecture-trends-modern-estates",
@@ -186,6 +202,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Architecture", "Biophilic Design", "Smart Home", "Modern"],
     date: "November 5, 2025",
     readTime: "5 min read",
+    authorSlug: "krish",
   },
   {
     slug: "understanding-property-valuation",
@@ -196,6 +213,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Valuation", "Market Analysis", "Premium Property", "Pricing"],
     date: "October 18, 2025",
     readTime: "6 min read",
+    authorSlug: "naveen",
   },
 ];
 
