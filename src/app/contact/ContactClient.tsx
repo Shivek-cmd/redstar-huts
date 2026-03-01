@@ -228,20 +228,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-12 bg-background-depth">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {trustSignals.map((item, i) => (
-              <SectionReveal key={item.label} delay={i * 0.1}>
-                <div>
-                  <p className="font-heading text-3xl md:text-4xl text-foreground">{item.number}</p>
-                  <p className="mt-2 text-xs font-body tracking-wide uppercase text-muted">{item.label}</p>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section id="inquiry-form" className="py-24 md:py-32 bg-background scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
