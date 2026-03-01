@@ -31,6 +31,7 @@ const LIVE_PAGES = [
   "/privacy-policy",
   "/terms-of-service",
   "/legal-disclaimer",
+  "/authors"
 ];
 
 function isPageLive(pathname: string): boolean {
