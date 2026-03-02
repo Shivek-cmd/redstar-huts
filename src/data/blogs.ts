@@ -14,6 +14,23 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "new-link-road-mohali-2026-impact-property-prices-connectivity",
+    title: "New 7.5 km Link Road in Mohali: A Major Boost for Real Estate and Connectivity",
+    excerpt: "Discover how GMADA's proposed 7.5 km link road will reduce Airport Road congestion, improve access to Aerocity and IT City, and drive property price appreciation across Mohali.",
+    image: "/blog/mohali-link-road/hero.jpg",
+    category: "Infrastructure",
+    tags: ["Mohali", "Link Road", "GMADA", "Infrastructure", "Airport Road", "Property Investment"],
+    date: "March 2, 2026",
+    readTime: "7 min read",
+    authorSlug: "krish",
+    featured: false,
+    relatedPropertySlugs: [
+      "3-plus-1-bhk-premium-flat-for-sale-in-mohali-punjab-2901-sq-ft",
+      "3-plus-1-bhk-ultra-luxury-flat-for-sale-in-mohali-punjab",
+      "4-plus-1-bhk-premium-flat-for-sale-in-mohali-punjab",
+    ],
+  },
+  {
     slug: "smart-home-ultra-luxury-flats-zirakpur-patiala-highway-ready-to-move",
     title: "Smart Home Ultra Luxury Flats on Zirakpur-Patiala Highway: Ready to Move, Future-Ready Living",
     excerpt: "A ready-to-move IGBC certified project on Zirakpur-Patiala Highway is setting a new benchmark with voice-controlled automation, MIVAN construction, rooftop pool, and pet-friendly zones. Here is what makes it different.",
