@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     slug: "new-link-road-mohali-2026-impact-property-prices-connectivity",
     title: "New 7.5 km Link Road in Mohali: A Major Boost for Real Estate and Connectivity",
     excerpt: "Discover how GMADA's proposed 7.5 km link road will reduce Airport Road congestion, improve access to Aerocity and IT City, and drive property price appreciation across Mohali.",
-    image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80",
+    image: "/blog/mohali-link-road/hero.jpg",
     category: "Infrastructure",
     tags: ["Mohali", "Link Road", "GMADA", "Infrastructure", "Airport Road", "Property Investment"],
     date: "March 2, 2026",
