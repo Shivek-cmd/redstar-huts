@@ -15,6 +15,55 @@ const blogData: Record<
     content: { type: "paragraph" | "heading" | "image"; value: string; alt?: string }[];
   }
 > = {
+  "new-link-road-mohali-2026-impact-property-prices-connectivity": {
+    title: "New 7.5 km Link Road in Mohali: A Major Boost for Real Estate and Connectivity",
+    category: "Infrastructure",
+    date: "March 2, 2026",
+    readTime: "7 min read",
+    heroImage: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=1600&q=80",
+    content: [
+      { type: "paragraph", value: "Mohali has quickly become one of North India's fastest-growing real estate destinations. With rapid expansion in residential sectors, IT hubs, and commercial zones, traffic congestion — especially on Airport Road — has become a pressing concern for residents and commuters alike." },
+      { type: "paragraph", value: "To address this, the Greater Mohali Area Development Authority (GMADA) has proposed a new 7.5 km link stretch road designed to improve connectivity, reduce traffic pressure, and open up new corridors for growth. For homebuyers and investors, this project signals a significant shift in how Mohali's infrastructure will shape property values in the years ahead." },
+
+      { type: "heading", value: "What Is the New 7.5 km Link Road Project?" },
+      { type: "paragraph", value: "The proposed link road is designed to provide an alternative route connecting major residential sectors, commercial areas, and airport corridors. Currently, Airport Road handles a large volume of daily traffic — including office commuters, airport travellers, and local residents — creating bottlenecks during peak hours." },
+      { type: "paragraph", value: "The new link road will distribute traffic more evenly and provide faster, more reliable travel options across the region." },
+      { type: "image", value: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1200&q=80", alt: "Aerial view of modern road infrastructure connecting city areas" },
+
+      { type: "heading", value: "Key Highlights of the Project" },
+      { type: "paragraph", value: "Here's what makes this infrastructure project significant for Mohali's future:" },
+      { type: "paragraph", value: "Length: Approximately 7.5 km of modern, dual-carriageway road. Developed by: GMADA (Greater Mohali Area Development Authority). Primary objective: Reduce congestion on Airport Road and surrounding corridors. Connectivity: Links major sectors to Aerocity, IT City, and Chandigarh International Airport. Infrastructure standard: Wide, well-planned road designed for high-volume traffic flow." },
+
+      { type: "heading", value: "Improved Connectivity Across Key Locations" },
+      { type: "paragraph", value: "The link road will strengthen connectivity between some of the most important economic and residential zones in the Tri-City region:" },
+      { type: "paragraph", value: "IT City Mohali — home to a growing cluster of tech companies and startups. Aerocity Mohali — a commercial and hospitality hub near the airport. Chandigarh International Airport — the primary air gateway for the region. Residential sectors — including premium housing developments in Sectors 66–80. Chandigarh — the neighbouring Union Territory and administrative capital." },
+      { type: "paragraph", value: "For daily commuters, this means shorter travel times, less fuel consumption, and a more predictable commute — all factors that directly influence where people choose to live and invest." },
+      { type: "image", value: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&q=80", alt: "Modern city skyline with well-planned road infrastructure" },
+
+      { type: "heading", value: "Why This Matters for Real Estate Investors" },
+      { type: "paragraph", value: "Infrastructure development is one of the strongest and most reliable drivers of property price growth. New roads don't just move traffic — they move markets. Here's how the link road is expected to impact real estate:" },
+      { type: "paragraph", value: "Property price appreciation — Properties near well-connected roads consistently see higher price growth over time. Historical data from similar projects in Gurgaon and Noida show 15–30% appreciation within 2–3 years of road completion." },
+      { type: "paragraph", value: "Increased demand from homebuyers — Better connectivity attracts more buyers looking for convenience and accessibility. Families and professionals prioritise locations with easy commutes to offices, schools, and the airport." },
+      { type: "paragraph", value: "Growth in commercial development — Improved road infrastructure encourages new offices, retail spaces, and mixed-use commercial projects along the corridor. This creates a multiplier effect on surrounding property values." },
+      { type: "paragraph", value: "Strong investment potential — Areas near Aerocity, IT City, and Airport Road are already premium zones. The new link road will expand this premium belt, creating early-mover advantages for investors who position themselves before construction begins." },
+      { type: "image", value: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80", alt: "Premium residential development in North India" },
+
+      { type: "heading", value: "Benefits for Residents and Daily Commuters" },
+      { type: "paragraph", value: "Beyond investment returns, the link road will meaningfully improve daily life for thousands of Mohali residents:" },
+      { type: "paragraph", value: "Faster travel to offices, business hubs, and IT parks. Reduced traffic congestion on Airport Road and connecting routes. Easier and quicker access to Chandigarh International Airport. Lower fuel consumption and reduced commute stress. Improved overall convenience for families, professionals, and senior residents." },
+      { type: "paragraph", value: "These quality-of-life improvements make Mohali an even more attractive destination for families relocating from Delhi, Chandigarh, and other North Indian cities." },
+
+      { type: "heading", value: "Strengthening Mohali's Position as a Real Estate Hub" },
+      { type: "paragraph", value: "Mohali has already established itself as a premium real estate destination thanks to its modern infrastructure, IT sector growth, and airport connectivity. The new 7.5 km link road will further cement this position." },
+      { type: "paragraph", value: "With continued infrastructure investment from GMADA and the Punjab government, Mohali is expected to attract more homebuyers seeking premium residences, real estate investors looking for long-term appreciation, businesses expanding into the Tri-City market, and IT companies establishing or growing their presence." },
+      { type: "image", value: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80", alt: "Premium residential property in Mohali representing real estate growth" },
+
+      { type: "heading", value: "What This Means for You" },
+      { type: "paragraph", value: "If you're considering buying a home or investing in property in the Mohali-Chandigarh-Zirakpur corridor, infrastructure projects like this are exactly what you should be watching. The best time to invest is before construction is completed — when prices still reflect current conditions rather than future potential." },
+      { type: "paragraph", value: "At RedStar Huts, we track infrastructure developments closely and advise our clients on how to position their investments for maximum long-term value. Whether you're a first-time homebuyer, an NRI investor, or looking to diversify your portfolio with premium North Indian real estate, our team can help you make informed decisions." },
+      { type: "paragraph", value: "Schedule a free consultation with our advisory team to discuss how the Mohali link road project could impact your property investment strategy. Call us at +91 889 434 3056 or visit our contact page to get started." },
+    ],
+  },
   "luxury-market-trends-2025": {
     title: "Luxury Real Estate Market Trends to Watch",
     category: "Market Insights",

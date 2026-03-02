@@ -6,6 +6,15 @@ import SectionReveal from "@/components/SectionReveal";
 
 const blogPosts = [
   {
+    slug: "new-link-road-mohali-2026-impact-property-prices-connectivity",
+    title: "New 7.5 km Link Road in Mohali: A Major Boost for Real Estate and Connectivity",
+    excerpt: "Discover how GMADA's proposed 7.5 km link road will reduce Airport Road congestion, improve access to Aerocity and IT City, and drive property price appreciation across Mohali.",
+    image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80",
+    category: "Infrastructure",
+    date: "March 2, 2026",
+    readTime: "7 min read",
+  },
+  {
     slug: "luxury-market-trends-2025",
     title: "Luxury Real Estate Market Trends to Watch",
     excerpt: "An in-depth look at the forces shaping high-end property markets and what discerning buyers and investors should anticipate in the year ahead.",
