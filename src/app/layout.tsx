@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
-import LayoutShell from "@/components/LayoutShell";
+
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FloatingCTA from "@/components/FloatingCTA";
 
 export const metadata: Metadata = {
   title: {
@@ -74,10 +77,17 @@ export default function RootLayout({
         <link rel="icon" href="/logo-circle.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#F6F5F3" />
-        <meta name="google-site-verification" content="rOJbsGfx8wGUTXwDp2iY-xUw-76ijVbEMr7f6R4k43c" />
+        <meta
+          name="google-site-verification"
+          content="rOJbsGfx8wGUTXwDp2iY-xUw-76ijVbEMr7f6R4k43c"
+        />
         <link rel="alternate" hrefLang="en-IN" href="https://redstarhuts.com" />
         <link rel="alternate" hrefLang="en" href="https://redstarhuts.com" />
-        <link rel="alternate" hrefLang="x-default" href="https://redstarhuts.com" />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://redstarhuts.com"
+        />
 
         {/* Google Tag Manager */}
         <Script id="gtm-head" strategy="afterInteractive">
@@ -119,7 +129,14 @@ export default function RootLayout({
               },
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                dayOfWeek: [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                ],
                 opens: "10:00",
                 closes: "19:00",
               },
@@ -136,7 +153,7 @@ export default function RootLayout({
                 "https://www.facebook.com/people/Redstar-Huts/61588365781493/",
                 "https://youtube.com/@redstarhuts?si=hEDmuk9rk61lh4Su",
               ],
-              priceRange: "\u20B91 Cr - \u20B93 Cr",
+              priceRange: "₹1 Cr - ₹3 Cr",
               currenciesAccepted: "INR",
               paymentAccepted: "Bank Transfer, Cheque",
             }),
@@ -145,17 +162,19 @@ export default function RootLayout({
       </head>
 
       <body className="antialiased">
-        {/* GTM NoScript */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-M7TZBCRK"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-foreground focus:text-background-secondary focus:px-4 focus:py-2 focus:rounded-full focus:text-sm"
+        >
+          Skip to main content
+        </a>
 
-        <LayoutShell>{children}</LayoutShell>
+        <Header />
+        <main id="main-content" role="main">
+          {children}
+        </main>
+        <Footer />
+        <FloatingCTA />
       </body>
     </html>
   );
