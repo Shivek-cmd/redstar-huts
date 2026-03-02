@@ -11,6 +11,21 @@ interface BlogSEO {
 }
 
 const blogMeta: Record<string, BlogSEO> = {
+  "new-link-road-mohali-2026-impact-property-prices-connectivity": {
+    title: "New 7.5 km Link Road in Mohali: A Major Boost for Real Estate and Connectivity",
+    description: "Discover how GMADA's proposed 7.5 km link road will reduce Airport Road congestion, improve access to Aerocity and IT City, and drive property price appreciation across Mohali.",
+    image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=1200&q=80",
+    category: "Infrastructure",
+    date: "2026-03-02",
+    keywords: [
+      "Mohali link road",
+      "GMADA road project",
+      "Airport Road Mohali",
+      "Mohali real estate 2026",
+      "Mohali property investment",
+      "Aerocity IT City connectivity",
+    ],
+  },
   "smart-home-ultra-luxury-flats-zirakpur-patiala-highway-ready-to-move": {
     title: "Smart Home Ultra Luxury Flats on Zirakpur-Patiala Highway: Ready to Move, Future-Ready Living",
     description: "Discover a ready-to-move IGBC certified smart home project on Zirakpur-Patiala Highway with voice control, automated lighting, MIVAN construction, rooftop pool, and pet-friendly zones. 3 BHK, 3+1 BHK, and 4+1 BHK configurations.",
@@ -255,6 +270,7 @@ function buildArticleJsonLd(slug: string) {
 
 export function generateStaticParams() {
   return [
+    { slug: "new-link-road-mohali-2026-impact-property-prices-connectivity" },
     { slug: "smart-home-ultra-luxury-flats-zirakpur-patiala-highway-ready-to-move" },
     { slug: "igbc-platinum-luxury-flats-zirakpur-pr7-road-why-invest" },
     { slug: "4-plus-1-bhk-premium-flat-zirakpur-why-buy-now" },
