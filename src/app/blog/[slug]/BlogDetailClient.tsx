@@ -267,11 +267,11 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
         <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
           <SectionReveal>
             <h2 className="font-heading text-2xl md:text-3xl text-background-secondary">
-              Interested in Mohali Real Estate?
+              Ready to Find Your Dream Property?
             </h2>
             <p className="mt-4 text-base text-background-secondary/70 leading-relaxed max-w-xl mx-auto">
-              Our advisory team tracks infrastructure developments and market trends
-              to help you make informed property investment decisions.
+              Our advisory team specialises in premium real estate across Mohali, Chandigarh,
+              and Zirakpur. Schedule a free consultation to discuss your requirements.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
