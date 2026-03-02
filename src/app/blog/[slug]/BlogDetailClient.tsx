@@ -12,6 +12,7 @@ const blogData: Record<
     date: string;
     readTime: string;
     heroImage: string;
+    author?: string;
     content: { type: "paragraph" | "heading" | "image"; value: string; alt?: string }[];
   }
 > = {
@@ -20,6 +21,7 @@ const blogData: Record<
     category: "Infrastructure",
     date: "March 2, 2026",
     readTime: "7 min read",
+    author: "Krish",
     heroImage: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=1600&q=80",
     content: [
       { type: "paragraph", value: "Mohali has quickly become one of North India's fastest-growing real estate destinations. With rapid expansion in residential sectors, IT hubs, and commercial zones, traffic congestion — especially on Airport Road — has become a pressing concern for residents and commuters alike." },
@@ -32,11 +34,20 @@ const blogData: Record<
 
       { type: "heading", value: "Key Highlights of the Project" },
       { type: "paragraph", value: "Here's what makes this infrastructure project significant for Mohali's future:" },
-      { type: "paragraph", value: "Length: Approximately 7.5 km of modern, dual-carriageway road. Developed by: GMADA (Greater Mohali Area Development Authority). Primary objective: Reduce congestion on Airport Road and surrounding corridors. Connectivity: Links major sectors to Aerocity, IT City, and Chandigarh International Airport. Infrastructure standard: Wide, well-planned road designed for high-volume traffic flow." },
+      { type: "paragraph", value: "Length — Approximately 7.5 km of modern, dual-carriageway road." },
+      { type: "paragraph", value: "Developed by — GMADA (Greater Mohali Area Development Authority)." },
+      { type: "paragraph", value: "Primary objective — Reduce congestion on Airport Road and surrounding corridors." },
+      { type: "paragraph", value: "Connectivity — Links major sectors to Aerocity, IT City, and Chandigarh International Airport." },
+      { type: "paragraph", value: "Infrastructure standard — Wide, well-planned road designed for high-volume traffic flow." },
+      { type: "paragraph", value: "This infrastructure upgrade will play a crucial role in Mohali's future urban development and real estate landscape." },
 
       { type: "heading", value: "Improved Connectivity Across Key Locations" },
       { type: "paragraph", value: "The link road will strengthen connectivity between some of the most important economic and residential zones in the Tri-City region:" },
-      { type: "paragraph", value: "IT City Mohali — home to a growing cluster of tech companies and startups. Aerocity Mohali — a commercial and hospitality hub near the airport. Chandigarh International Airport — the primary air gateway for the region. Residential sectors — including premium housing developments in Sectors 66–80. Chandigarh — the neighbouring Union Territory and administrative capital." },
+      { type: "paragraph", value: "IT City Mohali — Home to a growing cluster of tech companies, startups, and IT parks that form the backbone of the region's knowledge economy." },
+      { type: "paragraph", value: "Aerocity Mohali — A rapidly developing commercial and hospitality hub located near the airport, attracting hotels, offices, and retail." },
+      { type: "paragraph", value: "Chandigarh International Airport — The primary air gateway for the Tri-City region, serving domestic and international travellers." },
+      { type: "paragraph", value: "Residential sectors — Including premium housing developments in Sectors 66–80, where some of Mohali's most sought-after properties are located." },
+      { type: "paragraph", value: "Chandigarh — The neighbouring Union Territory and administrative capital, a major employment and lifestyle destination." },
       { type: "paragraph", value: "For daily commuters, this means shorter travel times, less fuel consumption, and a more predictable commute — all factors that directly influence where people choose to live and invest." },
       { type: "image", value: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&q=80", alt: "Modern city skyline with well-planned road infrastructure" },
 
@@ -50,7 +61,11 @@ const blogData: Record<
 
       { type: "heading", value: "Benefits for Residents and Daily Commuters" },
       { type: "paragraph", value: "Beyond investment returns, the link road will meaningfully improve daily life for thousands of Mohali residents:" },
-      { type: "paragraph", value: "Faster travel to offices, business hubs, and IT parks. Reduced traffic congestion on Airport Road and connecting routes. Easier and quicker access to Chandigarh International Airport. Lower fuel consumption and reduced commute stress. Improved overall convenience for families, professionals, and senior residents." },
+      { type: "paragraph", value: "Faster travel to offices, business hubs, and IT parks across the Tri-City region." },
+      { type: "paragraph", value: "Reduced traffic congestion on Airport Road and connecting routes during peak hours." },
+      { type: "paragraph", value: "Easier and quicker access to Chandigarh International Airport for frequent travellers." },
+      { type: "paragraph", value: "Lower fuel consumption and reduced commute stress for working professionals." },
+      { type: "paragraph", value: "Improved overall convenience for families, senior residents, and daily commuters." },
       { type: "paragraph", value: "These quality-of-life improvements make Mohali an even more attractive destination for families relocating from Delhi, Chandigarh, and other North Indian cities." },
 
       { type: "heading", value: "Strengthening Mohali's Position as a Real Estate Hub" },
@@ -219,6 +234,11 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
             <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl text-background-secondary max-w-4xl leading-tight drop-shadow-lg">
               {post.title}
             </h1>
+            {post.author && (
+              <p className="mt-4 text-sm text-background-secondary/60">
+                By <span className="text-background-secondary/80 font-medium">{post.author}</span>
+              </p>
+            )}
           </SectionReveal>
         </div>
       </section>
@@ -240,6 +260,34 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
               )}
             </SectionReveal>
           ))}
+        </div>
+      </section>
+
+      <section className="py-20 md:py-24 bg-foreground">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
+          <SectionReveal>
+            <h2 className="font-heading text-2xl md:text-3xl text-background-secondary">
+              Interested in Mohali Real Estate?
+            </h2>
+            <p className="mt-4 text-base text-background-secondary/70 leading-relaxed max-w-xl mx-auto">
+              Our advisory team tracks infrastructure developments and market trends
+              to help you make informed property investment decisions.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full bg-background-secondary text-foreground hover:bg-background-secondary/90 transition-colors duration-300"
+              >
+                Schedule Free Consultation
+              </Link>
+              <a
+                href="tel:+918894343056"
+                className="inline-block text-sm font-body tracking-wide px-8 py-3.5 rounded-full border border-background-secondary/30 text-background-secondary hover:border-background-secondary transition-colors duration-300"
+              >
+                Call +91 889 434 3056
+              </a>
+            </div>
+          </SectionReveal>
         </div>
       </section>
 
