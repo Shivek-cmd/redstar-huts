@@ -14,7 +14,7 @@ const blogMeta: Record<string, BlogSEO> = {
   "chandigarh-tricity-metro-project-real-estate-opportunity": {
     title: "Chandigarh Tricity Metro Project: Why Property Near Metro Stations Could Become the Next Big Real Estate Opportunity",
     description: "The proposed metro rail system for Chandigarh, Mohali, and Zirakpur could reshape real estate across the Tricity. Discover which areas may benefit most and why investors are watching closely.",
-    image: "/blog/tricity-metro/metro-route-map.jpg",
+    image: "/blog/tricity-metro/hero.jpg",
     category: "Infrastructure",
     date: "2026-03-06",
     keywords: [
