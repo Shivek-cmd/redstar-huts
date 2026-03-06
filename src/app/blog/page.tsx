@@ -6,6 +6,15 @@ import SectionReveal from "@/components/SectionReveal";
 
 const blogPosts = [
   {
+    slug: "chandigarh-tricity-metro-project-real-estate-opportunity",
+    title: "Chandigarh Tricity Metro Project: Why Property Near Metro Stations Could Become the Next Big Real Estate Opportunity",
+    excerpt: "The proposed metro rail system for Chandigarh, Mohali, and Zirakpur could reshape real estate across the Tricity. Discover which areas may benefit most and why investors are watching closely.",
+    image: "/blog/tricity-metro/hero-metro-tricity.jpg",
+    category: "Investment",
+    date: "March 6, 2026",
+    readTime: "10 min read",
+  },
+  {
     slug: "luxury-market-trends-2025",
     title: "Luxury Real Estate Market Trends to Watch",
     excerpt: "An in-depth look at the forces shaping high-end property markets and what discerning buyers and investors should anticipate in the year ahead.",

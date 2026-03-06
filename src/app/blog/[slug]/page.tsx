@@ -8,6 +8,7 @@ export function generateStaticParams() {
     { slug: "guide-to-buying-first-luxury-home" },
     { slug: "architecture-trends-modern-estates" },
     { slug: "understanding-property-valuation" },
+    { slug: "chandigarh-tricity-metro-project-real-estate-opportunity" },
   ];
 }
 
