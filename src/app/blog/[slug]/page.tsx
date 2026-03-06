@@ -11,6 +11,23 @@ interface BlogSEO {
 }
 
 const blogMeta: Record<string, BlogSEO> = {
+  "chandigarh-tricity-metro-project-real-estate-opportunity": {
+    title: "Chandigarh Tricity Metro Project: Why Property Near Metro Stations Could Become the Next Big Real Estate Opportunity",
+    description: "The proposed metro rail system for Chandigarh, Mohali, and Zirakpur could reshape real estate across the Tricity. Discover which areas may benefit most and why investors are watching closely.",
+    image: "/blog/tricity-metro/hero.jpg",
+    category: "Infrastructure",
+    date: "2026-03-06",
+    keywords: [
+      "Chandigarh metro project",
+      "Tricity metro real estate",
+      "metro station property investment",
+      "Mohali metro connectivity",
+      "Zirakpur metro station",
+      "Chandigarh MRTS",
+      "property near metro Chandigarh",
+      "Tricity infrastructure 2026",
+    ],
+  },
   "new-link-road-mohali-2026-impact-property-prices-connectivity": {
     title: "New 7.5 km Link Road in Mohali: A Major Boost for Real Estate and Connectivity",
     description: "Discover how GMADA's proposed 7.5 km link road will reduce Airport Road congestion, improve access to Aerocity and IT City, and drive property price appreciation across Mohali.",
@@ -270,6 +287,7 @@ function buildArticleJsonLd(slug: string) {
 
 export function generateStaticParams() {
   return [
+    { slug: "chandigarh-tricity-metro-project-real-estate-opportunity" },
     { slug: "new-link-road-mohali-2026-impact-property-prices-connectivity" },
     { slug: "smart-home-ultra-luxury-flats-zirakpur-patiala-highway-ready-to-move" },
     { slug: "igbc-platinum-luxury-flats-zirakpur-pr7-road-why-invest" },
